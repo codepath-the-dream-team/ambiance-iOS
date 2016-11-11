@@ -14,16 +14,41 @@ PODS:
   - AFNetworking/Serialization (3.0.0)
   - AFNetworking/UIKit (3.0.0):
     - AFNetworking/NSURLSession
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
+  - FBSDKCoreKit (4.17.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.17.0):
+    - FBSDKCoreKit
   - MBProgressHUD (1.0.0)
+  - Parse (1.14.2):
+    - Bolts/Tasks (~> 1.8)
+  - ParseFacebookUtilsV4 (1.11.1):
+    - Bolts/Tasks (>= 1.6)
+    - FBSDKCoreKit (~> 4.10)
+    - FBSDKLoginKit (~> 4.10)
+    - FBSDKTVOSKit (~> 4.10)
+    - Parse (~> 1.12)
 
 DEPENDENCIES:
   - AFNetworking (= 3.0.0)
   - MBProgressHUD
+  - Parse
+  - ParseFacebookUtilsV4
 
 SPEC CHECKSUMS:
   AFNetworking: 932ff751f9d6fb1dad0b3af58b7e3ffba0a4e7fd
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  FBSDKCoreKit: 30a21d2d7b92984b3d80497113433c00824c35e9
+  FBSDKLoginKit: 42b7129ac0373ca99eaf4cbebf4d07bd42371f59
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
+  ParseFacebookUtilsV4: 2f30c2b7021c8005d3042781da7ef87d06589421
 
-PODFILE CHECKSUM: d772ae83f48f1129d9fe2d642aa74104c91e8b55
+PODFILE CHECKSUM: 4638431ce8b5bf61ef2f990dc80aa1abe6aa3f37
 
 COCOAPODS: 1.0.1
