@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="x8M-Qp-yXb">
+            <objects>
+                <viewController storyboardIdentifier="main" id="AkJ-lR-a1d" customClass="MainViewController" customModule="Ambiance" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UgI-Am-1Ya"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fow-8t-e17"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UQz-hz-tDK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gfZ-0B-fFN">
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mAh-p3-mXc">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="Wake Up" id="9yd-Rn-78R"/>
+                                    <tabBarItem title="Sleep" id="vd9-j7-yid"/>
+                                    <tabBarItem title="Report" id="PJp-Yq-7WQ"/>
+                                    <tabBarItem title="Account" id="q2H-h8-fKm"/>
+                                </items>
+                            </tabBar>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Fow-8t-e17" firstAttribute="top" secondItem="gfZ-0B-fFN" secondAttribute="bottom" id="I1y-JO-DEX"/>
+                            <constraint firstItem="Fow-8t-e17" firstAttribute="top" secondItem="mAh-p3-mXc" secondAttribute="bottom" id="LOo-31-OSO"/>
+                            <constraint firstItem="gfZ-0B-fFN" firstAttribute="leading" secondItem="UQz-hz-tDK" secondAttribute="leading" id="Syi-Fr-MQy"/>
+                            <constraint firstAttribute="trailing" secondItem="gfZ-0B-fFN" secondAttribute="trailing" id="T6A-oP-3dK"/>
+                            <constraint firstItem="gfZ-0B-fFN" firstAttribute="top" secondItem="UQz-hz-tDK" secondAttribute="top" id="VCE-4q-dit"/>
+                            <constraint firstAttribute="trailing" secondItem="mAh-p3-mXc" secondAttribute="trailing" id="anK-bt-vYy"/>
+                            <constraint firstItem="mAh-p3-mXc" firstAttribute="leading" secondItem="UQz-hz-tDK" secondAttribute="leading" id="mBR-dD-4N8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tabbarView" destination="mAh-p3-mXc" id="dgh-zo-Pf2"/>
+                        <outlet property="viewContainer" destination="gfZ-0B-fFN" id="26U-vM-76p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jIV-8x-OqO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="100" y="129.98500749625188"/>
+        </scene>
+    </scenes>
+</document>

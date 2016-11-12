@@ -8,11 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        NSLog("HELLO?")
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,5 +23,10 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func onGoToMainTap(_ sender: AnyObject) {
+        let mainStoryboard = UIStoryboard(name: "Infrastructure", bundle: nil)
+        let mainVc = mainStoryboard.instantiateViewController(withIdentifier: "main")
+        self.present(mainVc, animated: true, completion: nil)
+    }
 }
 
