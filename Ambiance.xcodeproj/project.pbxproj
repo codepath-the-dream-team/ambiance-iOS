@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B13DC691DD6FBC3007A78F1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B13DC681DD6FBC3007A78F1 /* Utils.swift */; };
+		9B13DC6C1DD703F0007A78F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B13DC6B1DD703F0007A78F1 /* ViewController.swift */; };
 		C97AC2591DD03F590096FE97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97AC2581DD03F590096FE97 /* AppDelegate.swift */; };
 		C97AC25B1DD03F590096FE97 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97AC25A1DD03F590096FE97 /* LoginViewController.swift */; };
 		C97AC25E1DD03F590096FE97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97AC25C1DD03F590096FE97 /* Main.storyboard */; };
@@ -17,6 +19,9 @@
 
 /* Begin PBXFileReference section */
 		68B006894DF7C56E34A82B58 /* Pods_Ambiance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ambiance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B13DC661DD6D237007A78F1 /* Ambiance.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ambiance.entitlements; sourceTree = "<group>"; };
+		9B13DC681DD6FBC3007A78F1 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		9B13DC6B1DD703F0007A78F1 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9C98B9BDABA225AA8BDCF496 /* Pods-Ambiance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambiance.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ambiance/Pods-Ambiance.release.xcconfig"; sourceTree = "<group>"; };
 		C4A698A06B12F0E8BA7B9EFC /* Pods-Ambiance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambiance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ambiance/Pods-Ambiance.debug.xcconfig"; sourceTree = "<group>"; };
 		C97AC2551DD03F590096FE97 /* Ambiance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ambiance.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +54,23 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9B13DC671DD6FBAA007A78F1 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				9B13DC681DD6FBC3007A78F1 /* Utils.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		9B13DC6A1DD703D8007A78F1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C97AC25A1DD03F590096FE97 /* LoginViewController.swift */,
+				9B13DC6B1DD703F0007A78F1 /* ViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		ACE0D1DA716BAA7416DF89D9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -78,8 +100,10 @@
 		C97AC2571DD03F590096FE97 /* Ambiance */ = {
 			isa = PBXGroup;
 			children = (
+				9B13DC6A1DD703D8007A78F1 /* Controllers */,
+				9B13DC671DD6FBAA007A78F1 /* API */,
+				9B13DC661DD6D237007A78F1 /* Ambiance.entitlements */,
 				C97AC2581DD03F590096FE97 /* AppDelegate.swift */,
-				C97AC25A1DD03F590096FE97 /* LoginViewController.swift */,
 				C97AC25C1DD03F590096FE97 /* Main.storyboard */,
 				C97AC25F1DD03F590096FE97 /* Assets.xcassets */,
 				C97AC2611DD03F590096FE97 /* LaunchScreen.storyboard */,
@@ -123,7 +147,13 @@
 				TargetAttributes = {
 					C97AC2541DD03F590096FE97 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = KSDH34KL6P;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -213,6 +243,8 @@
 			files = (
 				C97AC25B1DD03F590096FE97 /* LoginViewController.swift in Sources */,
 				C97AC2591DD03F590096FE97 /* AppDelegate.swift in Sources */,
+				9B13DC6C1DD703F0007A78F1 /* ViewController.swift in Sources */,
+				9B13DC691DD6FBC3007A78F1 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +366,8 @@
 			baseConfigurationReference = C4A698A06B12F0E8BA7B9EFC /* Pods-Ambiance.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Ambiance/Ambiance.entitlements;
+				DEVELOPMENT_TEAM = KSDH34KL6P;
 				INFOPLIST_FILE = Ambiance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ambiance.Ambiance;
@@ -347,6 +381,8 @@
 			baseConfigurationReference = 9C98B9BDABA225AA8BDCF496 /* Pods-Ambiance.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Ambiance/Ambiance.entitlements;
+				DEVELOPMENT_TEAM = KSDH34KL6P;
 				INFOPLIST_FILE = Ambiance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ambiance.Ambiance;
