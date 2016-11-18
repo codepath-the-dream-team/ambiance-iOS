@@ -12,6 +12,9 @@ import ParseFacebookUtilsV4
 
 class Utils {
     
+    static var loginSuccess: ((NSDictionary) -> ())?
+    static var loginFailure: ((Error) -> ())?
+    
     class func notLoggedIn() -> Bool {
         let user = PFUser.current()
         return user == nil || !PFFacebookUtils.isLinked(with: user!)
@@ -20,10 +23,13 @@ class Utils {
         return !notLoggedIn()
     }
     
-    class func logInWithFacebook() {
+    class func loginWithFacebook(success: @escaping (NSDictionary)->(),failure: @escaping (Error) -> ()) {
+        loginSuccess = success
+        loginFailure = failure
         PFFacebookUtils.logInInBackground(withReadPermissions: ["public_profile", "email", "user_friends"], block: { (user: PFUser?, error: Error?) in
             if user == nil {
                 print("The user cancelled the Facebook login (user is nil)")
+                self.loginFailure?(error!)
             } else {
                 print("The user successfully logged in with Facebook (user is NOT nil)")
                 // This allows us to send push notifications to specific users
@@ -32,7 +38,9 @@ class Utils {
                     installation.saveEventually()
                 }
                 // Get FB info
-                Utils.getFBInfo()
+                Utils.getFBInfo(completion: { (dictionary: NSDictionary) in
+                    self.loginSuccess!(dictionary)
+                })
             }
         })
     }
@@ -46,12 +54,21 @@ class Utils {
         print("Logged out! User was invalidated: \(PFUser.current())")
     }
     
+    class func syncSavedUserWithParse(success: @escaping (NSDictionary)->(),failure: @escaping (Error) -> ()) {
+        loginSuccess = success
+        loginFailure = failure
+        Utils.getFBInfo(completion: { (dictionary: NSDictionary) in
+            self.loginSuccess!(dictionary)
+        })
+    }
     
-    class func getFBInfo() {
+    
+    class func getFBInfo(completion: @escaping (NSDictionary) -> Void)  {
+        let user = PFUser.current()
+
         if notLoggedIn() {
             return
         }
-        let user = PFUser.current()
         print("performing request to FB for information")
         
         let graphRequest:FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"first_name, last_name, id, email, picture.type(large)"])
@@ -65,17 +82,16 @@ class Utils {
             }
             else
             {
-                let data:[String:AnyObject] = result as! [String : AnyObject]
-                let picture:[String:AnyObject] = data["picture"] as! [String : AnyObject]
+                var userData:[String:AnyObject] = result as! [String : AnyObject]
+                let picture:[String:AnyObject] = userData["picture"] as! [String : AnyObject]
                 let imageData:[String:AnyObject] = picture["data"] as! [String : AnyObject]
-                print("url: \(imageData["url"]!)")
-                print("name: " + (data["first_name"]! as! String) + " " + (data["last_name"]! as! String))
-                print("email: " + (data["email"]! as! String))
-                user?.setValue(data["id"], forKey: "fbId")
-                user?.setValue(data["first_name"], forKey: "firstName")
-                user?.setValue(data["last_name"], forKey: "lastName")
+                user?.setValue(userData["id"], forKey: "fbId")
+                user?.setValue(userData["first_name"], forKey: "firstName")
+                user?.setValue(userData["last_name"], forKey: "lastName")
                 user?.setValue(imageData["url"], forKey: "imageURLString")
-                user?.email = data["email"] as! String?
+                user?.email = userData["email"] as! String?
+//                user?.alarmSchedule = getUserAlarmSchedule() as AlarmSchedule
+//                userData["alarmSchedule"] as! NSObject
                 user?.saveInBackground(block: { (result: Bool, error: Error?) in
                     if result {
                         print("successfully logged in!")
@@ -85,6 +101,7 @@ class Utils {
                     }
                     
                 })
+                completion(userData as NSDictionary)
             }
         })
     }

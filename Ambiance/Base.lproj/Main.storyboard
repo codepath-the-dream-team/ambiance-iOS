@@ -61,10 +61,10 @@
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="gXB-GQ-goF">
             <objects>
-                <viewController id="KOk-8T-oeS" customClass="ViewController" customModule="Ambiance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="KOk-8T-oeS" customClass="HomeViewController" customModule="Ambiance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GN6-eD-1jN"/>
                         <viewControllerLayoutGuide type="bottom" id="Aia-1b-E7B"/>
@@ -103,6 +103,10 @@
                                     <action selector="logoutTapped:" destination="KOk-8T-oeS" eventType="touchUpInside" id="dus-Vp-FrY"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SZg-oD-Yxs">
+                                <frame key="frameInset" minX="67" minY="522" height="216" maxX="196"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

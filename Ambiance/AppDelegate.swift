@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         Parse.initialize(
             with: ParseClientConfiguration(block: { (configuration:ParseMutableClientConfiguration) -> Void in
                 configuration.applicationId = "SXQu86CkKMYI3iuKhJHCQqCGtws3vT3c9eWE9WO2"
@@ -25,6 +26,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "https://codepath-ambiance.herokuapp.com/parse"
             }))
         PFFacebookUtils.initializeFacebook(applicationLaunchOptions: launchOptions)
+        if Utils.loggedIn() {
+            print("There is a current user")
+            let vc = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+            Utils.syncSavedUserWithParse(success: { (dictionary: NSDictionary) in
+                self.window?.rootViewController = vc
+                }, failure: { (error: Error) in
+                    print("There was an error syncing user with server")
+                    self.window?.rootViewController = vc
+            })
+        }
+        
         return true
     }
 

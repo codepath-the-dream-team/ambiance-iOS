@@ -8,17 +8,23 @@
 
 import UIKit
 import AFNetworking
+import Parse
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     @IBOutlet weak var profileImageView: UIImageView!
     var profileImageURL: URL?
+    var user: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let profileImageURL = profileImageURL {
-            profileImageView.setImageWith(profileImageURL)
-        }
+        user = User.currentUser
+        print("\(user)")
+        print("\(user?.firstName!)")
+        print("\(user?.lastName!)")
+        print("\(user?.email!)")
+        print("\(user?.profileImageURL!)")
+        profileImageView.setImageWith((user?.profileImageURL!)!)
         // Do any additional setup after loading the view.
     }
 

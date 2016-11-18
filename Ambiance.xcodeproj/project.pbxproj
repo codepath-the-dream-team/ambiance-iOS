@@ -8,7 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		9B13DC691DD6FBC3007A78F1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B13DC681DD6FBC3007A78F1 /* Utils.swift */; };
-		9B13DC6C1DD703F0007A78F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B13DC6B1DD703F0007A78F1 /* ViewController.swift */; };
+		9B13DC6C1DD703F0007A78F1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B13DC6B1DD703F0007A78F1 /* HomeViewController.swift */; };
+		9B13DC6F1DDAEFB6007A78F1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B13DC6E1DDAEFB6007A78F1 /* User.swift */; };
+		9B13DC711DDD8D79007A78F1 /* AlarmSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B13DC701DDD8D79007A78F1 /* AlarmSchedule.swift */; };
+		9B13DC731DDED357007A78F1 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B13DC721DDED357007A78F1 /* Alarm.swift */; };
 		C97AC2591DD03F590096FE97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97AC2581DD03F590096FE97 /* AppDelegate.swift */; };
 		C97AC25B1DD03F590096FE97 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97AC25A1DD03F590096FE97 /* LoginViewController.swift */; };
 		C97AC25E1DD03F590096FE97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97AC25C1DD03F590096FE97 /* Main.storyboard */; };
@@ -21,7 +24,10 @@
 		68B006894DF7C56E34A82B58 /* Pods_Ambiance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ambiance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B13DC661DD6D237007A78F1 /* Ambiance.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ambiance.entitlements; sourceTree = "<group>"; };
 		9B13DC681DD6FBC3007A78F1 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		9B13DC6B1DD703F0007A78F1 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9B13DC6B1DD703F0007A78F1 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9B13DC6E1DDAEFB6007A78F1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9B13DC701DDD8D79007A78F1 /* AlarmSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmSchedule.swift; sourceTree = "<group>"; };
+		9B13DC721DDED357007A78F1 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		9C98B9BDABA225AA8BDCF496 /* Pods-Ambiance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambiance.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ambiance/Pods-Ambiance.release.xcconfig"; sourceTree = "<group>"; };
 		C4A698A06B12F0E8BA7B9EFC /* Pods-Ambiance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambiance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ambiance/Pods-Ambiance.debug.xcconfig"; sourceTree = "<group>"; };
 		C97AC2551DD03F590096FE97 /* Ambiance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ambiance.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,9 +72,19 @@
 			isa = PBXGroup;
 			children = (
 				C97AC25A1DD03F590096FE97 /* LoginViewController.swift */,
-				9B13DC6B1DD703F0007A78F1 /* ViewController.swift */,
+				9B13DC6B1DD703F0007A78F1 /* HomeViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		9B13DC6D1DDAEFA2007A78F1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9B13DC6E1DDAEFB6007A78F1 /* User.swift */,
+				9B13DC701DDD8D79007A78F1 /* AlarmSchedule.swift */,
+				9B13DC721DDED357007A78F1 /* Alarm.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		ACE0D1DA716BAA7416DF89D9 /* Frameworks */ = {
@@ -100,6 +116,7 @@
 		C97AC2571DD03F590096FE97 /* Ambiance */ = {
 			isa = PBXGroup;
 			children = (
+				9B13DC6D1DDAEFA2007A78F1 /* Models */,
 				9B13DC6A1DD703D8007A78F1 /* Controllers */,
 				9B13DC671DD6FBAA007A78F1 /* API */,
 				9B13DC661DD6D237007A78F1 /* Ambiance.entitlements */,
@@ -241,9 +258,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B13DC711DDD8D79007A78F1 /* AlarmSchedule.swift in Sources */,
 				C97AC25B1DD03F590096FE97 /* LoginViewController.swift in Sources */,
 				C97AC2591DD03F590096FE97 /* AppDelegate.swift in Sources */,
-				9B13DC6C1DD703F0007A78F1 /* ViewController.swift in Sources */,
+				9B13DC6C1DD703F0007A78F1 /* HomeViewController.swift in Sources */,
+				9B13DC6F1DDAEFB6007A78F1 /* User.swift in Sources */,
+				9B13DC731DDED357007A78F1 /* Alarm.swift in Sources */,
 				9B13DC691DD6FBC3007A78F1 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
