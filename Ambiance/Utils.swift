@@ -89,9 +89,17 @@ class Utils {
                 user?.setValue(userData["first_name"], forKey: "firstName")
                 user?.setValue(userData["last_name"], forKey: "lastName")
                 user?.setValue(imageData["url"], forKey: "imageURLString")
+                if (userData["alarmSchedule"] != nil) {
+                    user?.setValue(userData["alarmSchedule"], forKey: "alarmSchedule")
+                    
+                } else {
+                    print("creating alarm schedule")
+                    let alarmSchedule = AlarmSchedule()
+                    let parseAlarmSchedule = PFObject(className: "AlarmSchedule", dictionary: alarmSchedule.dictionary)
+                    userData["alarmSchedule"] = alarmSchedule.dictionary as NSDictionary
+                    user?.setValue(parseAlarmSchedule, forKey: "alarmSchedule")
+                }
                 user?.email = userData["email"] as! String?
-//                user?.alarmSchedule = getUserAlarmSchedule() as AlarmSchedule
-//                userData["alarmSchedule"] as! NSObject
                 user?.saveInBackground(block: { (result: Bool, error: Error?) in
                     if result {
                         print("successfully logged in!")

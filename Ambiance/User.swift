@@ -27,6 +27,9 @@ class User: NSObject {
         lastName = dicitonary["last_name"] as? String
         email = dicitonary["email"] as? String
         id = dicitonary["id"] as? String
+        alarmSchedule = AlarmSchedule()
+        alarmSchedule?.dictionary = dicitonary["alarmSchedule"] as! [String:Array<Alarm>]
+        print("alarm sched: \(alarmSchedule)")
         print("profile URL string is : \(imageData["url"])")
         let profileURLString = imageData["url"] as? String
         if let profileURLString = profileURLString {
