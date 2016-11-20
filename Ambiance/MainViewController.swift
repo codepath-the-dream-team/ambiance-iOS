@@ -30,9 +30,18 @@ class MainViewController: UIViewController, UITabBarDelegate {
 
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         let index = tabbarView.items?.index(of: item)!
+        if (0 == index) {
+            showWakeUp()
+        }
         if (3 == index) {
             showAccount()
         }
+    }
+    
+    private func showWakeUp() {
+        let wakeUpStoryboard = UIStoryboard(name: "WakeUp", bundle: nil)
+        let wakeUpVc = wakeUpStoryboard.instantiateViewController(withIdentifier: "wakeup")
+        show(screen: wakeUpVc)
     }
     
     private func showAccount() {
@@ -50,7 +59,7 @@ class MainViewController: UIViewController, UITabBarDelegate {
         
         activeScreen = screen
         activeScreen.willMove(toParentViewController: self)
-        activeScreen.view.frame = viewContainer.frame
+        activeScreen.view.frame = viewContainer.bounds
         viewContainer.addSubview(activeScreen.view)
         activeScreen.didMove(toParentViewController: self)
     }
