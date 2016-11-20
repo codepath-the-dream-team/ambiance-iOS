@@ -8,5 +8,7 @@ target 'Ambiance' do
   # Pods for Ambiance
   pod 'AFNetworking', '3.0.0'
   pod 'MBProgressHUD'
+  pod 'Parse'
+  pod 'ParseFacebookUtilsV4'
 
 end
