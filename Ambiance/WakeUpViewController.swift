@@ -46,8 +46,8 @@ class WakeUpViewController: UIViewController {
     }
     
     private func applyOrangeBackground() {
-        let bkColorTop = UIColor(colorLiteralRed: 1.0, green: 0.3, blue: 0.0, alpha: 1.0)
-        let bkColorBottom = UIColor(colorLiteralRed: 1.0, green: 0.6, blue: 0.0, alpha: 1.0)
+        let bkColorTop = Palette.orangeDark
+        let bkColorBottom = Palette.orangeLight
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [bkColorTop.cgColor, bkColorBottom.cgColor]
         gradientLayer.locations = [0.0, 1.0]
