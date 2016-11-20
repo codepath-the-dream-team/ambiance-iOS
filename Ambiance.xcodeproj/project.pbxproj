@@ -7,11 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C94D6C311DDF0606007F3B03 /* WakeUpContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94D6C301DDF0606007F3B03 /* WakeUpContainerViewController.swift */; };
 		C97AC2591DD03F590096FE97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97AC2581DD03F590096FE97 /* AppDelegate.swift */; };
 		C97AC25B1DD03F590096FE97 /* MattLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97AC25A1DD03F590096FE97 /* MattLoginViewController.swift */; };
 		C97AC25E1DD03F590096FE97 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97AC25C1DD03F590096FE97 /* Login.storyboard */; };
 		C97AC2601DD03F590096FE97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C97AC25F1DD03F590096FE97 /* Assets.xcassets */; };
 		C97AC2631DD03F590096FE97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97AC2611DD03F590096FE97 /* LaunchScreen.storyboard */; };
+		C982B8201DDC43280098F170 /* WakeUpClockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C982B81F1DDC43280098F170 /* WakeUpClockView.xib */; };
+		C982B8221DDC4EE00098F170 /* WakeUpClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982B8211DDC4EE00098F170 /* WakeUpClockView.swift */; };
+		C982B8241DDC59780098F170 /* WakeUpDayListItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = C982B8231DDC59780098F170 /* WakeUpDayListItem.xib */; };
+		C982B8261DDC5AD90098F170 /* WakeUpDayListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982B8251DDC5AD90098F170 /* WakeUpDayListItem.swift */; };
+		C982B8281DDC62920098F170 /* WakeUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982B8271DDC62920098F170 /* WakeUpViewController.swift */; };
 		C9B5C5861DD2EB9F001EE244 /* WakeUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9B5C5851DD2EB9F001EE244 /* WakeUp.storyboard */; };
 		C9B5C5881DD2EBAC001EE244 /* Sleep.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9B5C5871DD2EBAC001EE244 /* Sleep.storyboard */; };
 		C9B5C58A1DD2EBBA001EE244 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9B5C5891DD2EBBA001EE244 /* Account.storyboard */; };
@@ -20,6 +26,10 @@
 		C9B5C5921DD2ED15001EE244 /* Alexa.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9B5C5911DD2ED15001EE244 /* Alexa.storyboard */; };
 		C9B5C5941DD2EDE7001EE244 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B5C5931DD2EDE7001EE244 /* MainViewController.swift */; };
 		C9B5C5961DD2F3B8001EE244 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B5C5951DD2F3B8001EE244 /* AccountViewController.swift */; };
+		C9D0E48A1DE12676000B242A /* WakeUpConfigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D0E4891DE12676000B242A /* WakeUpConfigureViewController.swift */; };
+		C9D0E48C1DE133FA000B242A /* WakeUpEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D0E48B1DE133FA000B242A /* WakeUpEditViewController.swift */; };
+		C9D0E48E1DE13660000B242A /* DayCheckmarkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D0E48D1DE13660000B242A /* DayCheckmarkView.xib */; };
+		C9D0E4901DE13758000B242A /* DayCheckmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D0E48F1DE13758000B242A /* DayCheckmarkView.swift */; };
 		F524C510411A7BB8DA07F49C /* Pods_Ambiance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B006894DF7C56E34A82B58 /* Pods_Ambiance.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +37,7 @@
 		68B006894DF7C56E34A82B58 /* Pods_Ambiance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ambiance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C98B9BDABA225AA8BDCF496 /* Pods-Ambiance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambiance.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ambiance/Pods-Ambiance.release.xcconfig"; sourceTree = "<group>"; };
 		C4A698A06B12F0E8BA7B9EFC /* Pods-Ambiance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambiance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ambiance/Pods-Ambiance.debug.xcconfig"; sourceTree = "<group>"; };
+		C94D6C301DDF0606007F3B03 /* WakeUpContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakeUpContainerViewController.swift; sourceTree = "<group>"; };
 		C97AC2551DD03F590096FE97 /* Ambiance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ambiance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97AC2581DD03F590096FE97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C97AC25A1DD03F590096FE97 /* MattLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MattLoginViewController.swift; sourceTree = "<group>"; };
@@ -34,6 +45,11 @@
 		C97AC25F1DD03F590096FE97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C97AC2621DD03F590096FE97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C97AC2641DD03F590096FE97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C982B81F1DDC43280098F170 /* WakeUpClockView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WakeUpClockView.xib; sourceTree = "<group>"; };
+		C982B8211DDC4EE00098F170 /* WakeUpClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakeUpClockView.swift; sourceTree = "<group>"; };
+		C982B8231DDC59780098F170 /* WakeUpDayListItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WakeUpDayListItem.xib; sourceTree = "<group>"; };
+		C982B8251DDC5AD90098F170 /* WakeUpDayListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakeUpDayListItem.swift; sourceTree = "<group>"; };
+		C982B8271DDC62920098F170 /* WakeUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakeUpViewController.swift; sourceTree = "<group>"; };
 		C9B5C5851DD2EB9F001EE244 /* WakeUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WakeUp.storyboard; sourceTree = "<group>"; };
 		C9B5C5871DD2EBAC001EE244 /* Sleep.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Sleep.storyboard; sourceTree = "<group>"; };
 		C9B5C5891DD2EBBA001EE244 /* Account.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
@@ -42,6 +58,10 @@
 		C9B5C5911DD2ED15001EE244 /* Alexa.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Alexa.storyboard; sourceTree = "<group>"; };
 		C9B5C5931DD2EDE7001EE244 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C9B5C5951DD2F3B8001EE244 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		C9D0E4891DE12676000B242A /* WakeUpConfigureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakeUpConfigureViewController.swift; sourceTree = "<group>"; };
+		C9D0E48B1DE133FA000B242A /* WakeUpEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakeUpEditViewController.swift; sourceTree = "<group>"; };
+		C9D0E48D1DE13660000B242A /* DayCheckmarkView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayCheckmarkView.xib; sourceTree = "<group>"; };
+		C9D0E48F1DE13758000B242A /* DayCheckmarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCheckmarkView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +142,16 @@
 			isa = PBXGroup;
 			children = (
 				C9B5C5851DD2EB9F001EE244 /* WakeUp.storyboard */,
+				C982B81F1DDC43280098F170 /* WakeUpClockView.xib */,
+				C982B8211DDC4EE00098F170 /* WakeUpClockView.swift */,
+				C982B8231DDC59780098F170 /* WakeUpDayListItem.xib */,
+				C982B8251DDC5AD90098F170 /* WakeUpDayListItem.swift */,
+				C982B8271DDC62920098F170 /* WakeUpViewController.swift */,
+				C94D6C301DDF0606007F3B03 /* WakeUpContainerViewController.swift */,
+				C9D0E4891DE12676000B242A /* WakeUpConfigureViewController.swift */,
+				C9D0E48B1DE133FA000B242A /* WakeUpEditViewController.swift */,
+				C9D0E48D1DE13660000B242A /* DayCheckmarkView.xib */,
+				C9D0E48F1DE13758000B242A /* DayCheckmarkView.swift */,
 			);
 			name = WakeUp;
 			sourceTree = "<group>";
@@ -203,6 +233,7 @@
 				TargetAttributes = {
 					C97AC2541DD03F590096FE97 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = KM86JAFSYM;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -233,9 +264,12 @@
 				C9B5C5861DD2EB9F001EE244 /* WakeUp.storyboard in Resources */,
 				C9B5C58C1DD2EBC4001EE244 /* SleepReport.storyboard in Resources */,
 				C97AC2631DD03F590096FE97 /* LaunchScreen.storyboard in Resources */,
+				C9D0E48E1DE13660000B242A /* DayCheckmarkView.xib in Resources */,
 				C97AC2601DD03F590096FE97 /* Assets.xcassets in Resources */,
 				C9B5C58F1DD2EC6A001EE244 /* Infrastructure.storyboard in Resources */,
+				C982B8241DDC59780098F170 /* WakeUpDayListItem.xib in Resources */,
 				C9B5C5921DD2ED15001EE244 /* Alexa.storyboard in Resources */,
+				C982B8201DDC43280098F170 /* WakeUpClockView.xib in Resources */,
 				C9B5C58A1DD2EBBA001EE244 /* Account.storyboard in Resources */,
 				C97AC25E1DD03F590096FE97 /* Login.storyboard in Resources */,
 				C9B5C5881DD2EBAC001EE244 /* Sleep.storyboard in Resources */,
@@ -297,9 +331,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9D0E4901DE13758000B242A /* DayCheckmarkView.swift in Sources */,
+				C982B8261DDC5AD90098F170 /* WakeUpDayListItem.swift in Sources */,
+				C9D0E48C1DE133FA000B242A /* WakeUpEditViewController.swift in Sources */,
+				C982B8281DDC62920098F170 /* WakeUpViewController.swift in Sources */,
+				C982B8221DDC4EE00098F170 /* WakeUpClockView.swift in Sources */,
 				C9B5C5941DD2EDE7001EE244 /* MainViewController.swift in Sources */,
 				C97AC25B1DD03F590096FE97 /* MattLoginViewController.swift in Sources */,
+				C94D6C311DDF0606007F3B03 /* WakeUpContainerViewController.swift in Sources */,
 				C9B5C5961DD2F3B8001EE244 /* AccountViewController.swift in Sources */,
+				C9D0E48A1DE12676000B242A /* WakeUpConfigureViewController.swift in Sources */,
 				C97AC2591DD03F590096FE97 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,9 +463,10 @@
 			baseConfigurationReference = C4A698A06B12F0E8BA7B9EFC /* Pods-Ambiance.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KM86JAFSYM;
 				INFOPLIST_FILE = Ambiance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ambiance.Ambiance;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thedreamteam.Ambiance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -435,9 +477,10 @@
 			baseConfigurationReference = 9C98B9BDABA225AA8BDCF496 /* Pods-Ambiance.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KM86JAFSYM;
 				INFOPLIST_FILE = Ambiance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ambiance.Ambiance;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thedreamteam.Ambiance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
