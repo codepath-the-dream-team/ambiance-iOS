@@ -31,7 +31,9 @@ class DayCheckmarkView: UIView {
         set(newIsChecked) {
             if (newIsChecked != _isChecked) {
                 _isChecked = newIsChecked
-                checkmarkImageView.backgroundColor = isChecked ? UIColor.red : UIColor.clear
+                
+                showCheckmark(checked: _isChecked)
+                
                 delegate?.onChange(checked: _isChecked)
             }
         }
@@ -56,10 +58,20 @@ class DayCheckmarkView: UIView {
         addSubview(view)
         
         isUserInteractionEnabled = true
+        
+        showCheckmark(checked: false)
     }
 
     @IBAction func onTap(_ sender: UITapGestureRecognizer) {
         isChecked = !isChecked
+    }
+    
+    private func showCheckmark(checked: Bool) {
+        let iconImageName = checked ? "ic_checkmark_black" : "ic_checkmark_inactive_black"
+        checkmarkImageView.image = UIImage(named: iconImageName)
+        if (checked) {
+            checkmarkImageView.image = checkmarkImageView.image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        }
     }
 }
 

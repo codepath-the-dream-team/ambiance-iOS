@@ -8,14 +8,17 @@
 
 import UIKit
 
-class WakeUpConfigureViewController: UIViewController {
+class WakeUpConfigureViewController: UIViewController, ClearNavBar {
 
+    @IBOutlet var navBar: UINavigationBar!
+    
     public var delegate: WakeUpConfigureViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        clearBackground(forNavBar: navBar)
     }
 
     override func didReceiveMemoryWarning() {

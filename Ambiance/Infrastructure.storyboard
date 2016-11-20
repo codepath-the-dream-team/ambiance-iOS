@@ -22,13 +22,23 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mAh-p3-mXc">
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <tabBarItem title="Wake Up" id="9yd-Rn-78R"/>
-                                    <tabBarItem title="Sleep" id="vd9-j7-yid"/>
-                                    <tabBarItem title="Report" id="PJp-Yq-7WQ"/>
-                                    <tabBarItem title="Account" id="q2H-h8-fKm"/>
+                                    <tabBarItem title="" image="ic_wake-up_black" id="9yd-Rn-78R">
+                                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="" image="ic_sleep_black" id="vd9-j7-yid">
+                                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="" image="ic_report_black" id="PJp-Yq-7WQ">
+                                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="" image="ic_settings_black" id="q2H-h8-fKm">
+                                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                                    </tabBarItem>
                                 </items>
+                                <color key="tintColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="selectedImageTintColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                             </tabBar>
                         </subviews>
                         <constraints>
@@ -51,4 +61,10 @@
             <point key="canvasLocation" x="100" y="129.98500749625188"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_report_black" width="75" height="75"/>
+        <image name="ic_settings_black" width="74" height="74"/>
+        <image name="ic_sleep_black" width="75" height="75"/>
+        <image name="ic_wake-up_black" width="37" height="37"/>
+    </resources>
 </document>
