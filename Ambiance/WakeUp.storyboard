@@ -209,8 +209,8 @@
                         <constraints>
                             <constraint firstItem="QJw-Su-WJ4" firstAttribute="top" secondItem="J0i-ck-5ve" secondAttribute="top" id="AWt-XS-f7L"/>
                             <constraint firstAttribute="trailing" secondItem="QJw-Su-WJ4" secondAttribute="trailing" id="Rpz-UE-gte"/>
+                            <constraint firstItem="QJw-Su-WJ4" firstAttribute="height" secondItem="J0i-ck-5ve" secondAttribute="height" id="n73-2q-CXh"/>
                             <constraint firstItem="QJw-Su-WJ4" firstAttribute="leading" secondItem="J0i-ck-5ve" secondAttribute="leading" id="vR3-8m-gbH"/>
-                            <constraint firstItem="UEv-Ia-DuY" firstAttribute="top" secondItem="QJw-Su-WJ4" secondAttribute="bottom" id="zCx-kl-fd5"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bAl-Ae-oKL">

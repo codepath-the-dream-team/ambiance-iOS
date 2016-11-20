@@ -12,6 +12,11 @@ class BaseNatureViewController: UIViewController {
 
     private var blurEffectView: UIVisualEffectView!
     private var blurEffect: UIVisualEffect!
+    /* for subclasses */ var blurStyle: UIBlurEffectStyle = UIBlurEffectStyle.dark {
+        didSet {
+            blurEffect = UIBlurEffect(style: blurStyle)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +52,7 @@ class BaseNatureViewController: UIViewController {
         blurEffectView.frame = getContentContainer().bounds
         //        blurEffectView.alpha = 0.8
         
-        blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        blurEffect = UIBlurEffect(style: blurStyle)
     }
     
     func setContent(vc: UIViewController) {
@@ -78,7 +83,7 @@ class BaseNatureViewController: UIViewController {
         // Animate the modal UI in while also blurring the content UI.
         self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.5) {
-            self.getContentTopConstraint().constant = -100
+            self.getContentTopConstraint().constant = -400
             self.getModalTopConstraint().constant = finalPosition
             self.view.layoutIfNeeded()
             

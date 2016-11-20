@@ -41,6 +41,9 @@
 		C9D0E4981DE18498000B242A /* ExtUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D0E4971DE18498000B242A /* ExtUIColor.swift */; };
 		C9D0E49A1DE19B33000B242A /* BaseNatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D0E4991DE19B33000B242A /* BaseNatureViewController.swift */; };
 		C9D0E49C1DE1AB21000B242A /* SleepContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D0E49B1DE1AB21000B242A /* SleepContainerViewController.swift */; };
+		C9E4077D1DE251E0004456CA /* SleepSynopsisView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9E4077C1DE251E0004456CA /* SleepSynopsisView.xib */; };
+		C9E4077F1DE25AEC004456CA /* SleepSynopsisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E4077E1DE25AEC004456CA /* SleepSynopsisView.swift */; };
+		C9E407811DE2625E004456CA /* SleepConfigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E407801DE2625E004456CA /* SleepConfigureViewController.swift */; };
 		F524C510411A7BB8DA07F49C /* Pods_Ambiance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B006894DF7C56E34A82B58 /* Pods_Ambiance.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +88,9 @@
 		C9D0E4971DE18498000B242A /* ExtUIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtUIColor.swift; sourceTree = "<group>"; };
 		C9D0E4991DE19B33000B242A /* BaseNatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNatureViewController.swift; sourceTree = "<group>"; };
 		C9D0E49B1DE1AB21000B242A /* SleepContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepContainerViewController.swift; sourceTree = "<group>"; };
+		C9E4077C1DE251E0004456CA /* SleepSynopsisView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SleepSynopsisView.xib; sourceTree = "<group>"; };
+		C9E4077E1DE25AEC004456CA /* SleepSynopsisView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepSynopsisView.swift; sourceTree = "<group>"; };
+		C9E407801DE2625E004456CA /* SleepConfigureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepConfigureViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +212,9 @@
 				C9B5C5871DD2EBAC001EE244 /* Sleep.storyboard */,
 				C9D0E49B1DE1AB21000B242A /* SleepContainerViewController.swift */,
 				C9800B101DE1B4A00007F985 /* SleepViewController.swift */,
+				C9E4077C1DE251E0004456CA /* SleepSynopsisView.xib */,
+				C9E4077E1DE25AEC004456CA /* SleepSynopsisView.swift */,
+				C9E407801DE2625E004456CA /* SleepConfigureViewController.swift */,
 			);
 			name = Sleep;
 			sourceTree = "<group>";
@@ -323,6 +332,7 @@
 				C9D0E48E1DE13660000B242A /* DayCheckmarkView.xib in Resources */,
 				C97AC2601DD03F590096FE97 /* Assets.xcassets in Resources */,
 				C9B5C58F1DD2EC6A001EE244 /* Infrastructure.storyboard in Resources */,
+				C9E4077D1DE251E0004456CA /* SleepSynopsisView.xib in Resources */,
 				C982B8241DDC59780098F170 /* WakeUpDayListItem.xib in Resources */,
 				C9B5C5921DD2ED15001EE244 /* Alexa.storyboard in Resources */,
 				C982B8201DDC43280098F170 /* WakeUpClockView.xib in Resources */,
@@ -401,9 +411,11 @@
 				C9B5C5941DD2EDE7001EE244 /* MainViewController.swift in Sources */,
 				C97AC25B1DD03F590096FE97 /* MattLoginViewController.swift in Sources */,
 				C9D0E49C1DE1AB21000B242A /* SleepContainerViewController.swift in Sources */,
+				C9E407811DE2625E004456CA /* SleepConfigureViewController.swift in Sources */,
 				C94D6C311DDF0606007F3B03 /* WakeUpContainerViewController.swift in Sources */,
 				C9B5C5961DD2F3B8001EE244 /* AccountViewController.swift in Sources */,
 				C9D0E4921DE16F46000B242A /* ClearNavBar.swift in Sources */,
+				C9E4077F1DE25AEC004456CA /* SleepSynopsisView.swift in Sources */,
 				C9D0E48A1DE12676000B242A /* WakeUpConfigureViewController.swift in Sources */,
 				C97AC2591DD03F590096FE97 /* AppDelegate.swift in Sources */,
 				C9D0E4961DE183F7000B242A /* Theme.swift in Sources */,
