@@ -8,14 +8,19 @@
 
 import UIKit
 
-class WakeUpEditViewController: UIViewController {
+class WakeUpEditViewController: UIViewController, ClearNavBar {
 
+    @IBOutlet var navBar: UINavigationBar!
+    @IBOutlet var timePicker: UIDatePicker!
+    
     public var delegate: WakeUpEditViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        clearBackground(forNavBar: navBar)
+        makeTimePickerGray()
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,6 +34,10 @@ class WakeUpEditViewController: UIViewController {
     
     @IBAction func onCancelTap(_ sender: AnyObject) {
         delegate?.cancelEdit()
+    }
+    
+    private func makeTimePickerGray() {
+        timePicker.setValue(Palette.grayLight, forKey: "textColor")
     }
 }
 

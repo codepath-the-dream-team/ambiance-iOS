@@ -30,6 +30,10 @@
 		C9D0E48C1DE133FA000B242A /* WakeUpEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D0E48B1DE133FA000B242A /* WakeUpEditViewController.swift */; };
 		C9D0E48E1DE13660000B242A /* DayCheckmarkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D0E48D1DE13660000B242A /* DayCheckmarkView.xib */; };
 		C9D0E4901DE13758000B242A /* DayCheckmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D0E48F1DE13758000B242A /* DayCheckmarkView.swift */; };
+		C9D0E4921DE16F46000B242A /* ClearNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D0E4911DE16F46000B242A /* ClearNavBar.swift */; };
+		C9D0E4941DE1757E000B242A /* ExtUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D0E4931DE1757E000B242A /* ExtUIImageView.swift */; };
+		C9D0E4961DE183F7000B242A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D0E4951DE183F7000B242A /* Theme.swift */; };
+		C9D0E4981DE18498000B242A /* ExtUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D0E4971DE18498000B242A /* ExtUIColor.swift */; };
 		F524C510411A7BB8DA07F49C /* Pods_Ambiance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B006894DF7C56E34A82B58 /* Pods_Ambiance.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +66,10 @@
 		C9D0E48B1DE133FA000B242A /* WakeUpEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakeUpEditViewController.swift; sourceTree = "<group>"; };
 		C9D0E48D1DE13660000B242A /* DayCheckmarkView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayCheckmarkView.xib; sourceTree = "<group>"; };
 		C9D0E48F1DE13758000B242A /* DayCheckmarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCheckmarkView.swift; sourceTree = "<group>"; };
+		C9D0E4911DE16F46000B242A /* ClearNavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearNavBar.swift; sourceTree = "<group>"; };
+		C9D0E4931DE1757E000B242A /* ExtUIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtUIImageView.swift; sourceTree = "<group>"; };
+		C9D0E4951DE183F7000B242A /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		C9D0E4971DE18498000B242A /* ExtUIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtUIColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +194,10 @@
 			children = (
 				C9B5C58E1DD2EC6A001EE244 /* Infrastructure.storyboard */,
 				C9B5C5931DD2EDE7001EE244 /* MainViewController.swift */,
+				C9D0E4911DE16F46000B242A /* ClearNavBar.swift */,
+				C9D0E4931DE1757E000B242A /* ExtUIImageView.swift */,
+				C9D0E4951DE183F7000B242A /* Theme.swift */,
+				C9D0E4971DE18498000B242A /* ExtUIColor.swift */,
 			);
 			name = Infrasture;
 			sourceTree = "<group>";
@@ -331,6 +343,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9D0E4941DE1757E000B242A /* ExtUIImageView.swift in Sources */,
 				C9D0E4901DE13758000B242A /* DayCheckmarkView.swift in Sources */,
 				C982B8261DDC5AD90098F170 /* WakeUpDayListItem.swift in Sources */,
 				C9D0E48C1DE133FA000B242A /* WakeUpEditViewController.swift in Sources */,
@@ -340,8 +353,11 @@
 				C97AC25B1DD03F590096FE97 /* MattLoginViewController.swift in Sources */,
 				C94D6C311DDF0606007F3B03 /* WakeUpContainerViewController.swift in Sources */,
 				C9B5C5961DD2F3B8001EE244 /* AccountViewController.swift in Sources */,
+				C9D0E4921DE16F46000B242A /* ClearNavBar.swift in Sources */,
 				C9D0E48A1DE12676000B242A /* WakeUpConfigureViewController.swift in Sources */,
 				C97AC2591DD03F590096FE97 /* AppDelegate.swift in Sources */,
+				C9D0E4961DE183F7000B242A /* Theme.swift in Sources */,
+				C9D0E4981DE18498000B242A /* ExtUIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

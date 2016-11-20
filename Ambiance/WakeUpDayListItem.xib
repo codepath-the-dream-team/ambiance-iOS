@@ -18,34 +18,46 @@
             <rect key="frame" x="0.0" y="0.0" width="455" height="85"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SUNDAY" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f27-xq-FNR">
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SUNDAY" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f27-xq-FNR">
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="9:00AM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oup-JG-8Ne">
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="9:00AM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oup-JG-8Ne">
                     <frame key="frameInset" minX="383" minY="32" width="62" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WKe-Zy-7p3">
+                <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_speaker_sound_black" translatesAutoresizingMaskIntoConstraints="NO" id="WKe-Zy-7p3">
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="32" id="Eme-wM-UFQ"/>
                         <constraint firstAttribute="width" constant="32" id="NED-dF-ylP"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="imageRenderingMode">
+                            <integer key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="9:00AM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9w-E4-tN5">
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="9:00AM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9w-E4-tN5">
                     <frame key="frameInset" minX="265" minY="32" width="62" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Efy-PY-eKA">
+                <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_speaker_no-sound_black" translatesAutoresizingMaskIntoConstraints="NO" id="Efy-PY-eKA">
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="32" id="Nfq-ML-30z"/>
                         <constraint firstAttribute="height" constant="32" id="guC-Qi-we7"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="imageRenderingMode">
+                            <integer key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
             </subviews>
             <constraints>
@@ -54,7 +66,7 @@
                 <constraint firstAttribute="trailing" secondItem="WKe-Zy-7p3" secondAttribute="trailing" constant="80" id="97G-cf-2PA"/>
                 <constraint firstItem="Oup-JG-8Ne" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="D3W-fJ-xaz"/>
                 <constraint firstItem="f27-xq-FNR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="EdS-cD-lOw"/>
-                <constraint firstItem="w9w-E4-tN5" firstAttribute="leading" secondItem="Efy-PY-eKA" secondAttribute="trailing" constant="8" id="Ew6-Z2-iVN"/>
+                <constraint firstItem="w9w-E4-tN5" firstAttribute="leading" secondItem="Efy-PY-eKA" secondAttribute="trailing" id="Ew6-Z2-iVN"/>
                 <constraint firstItem="f27-xq-FNR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Fsb-bB-9Ti"/>
                 <constraint firstAttribute="trailing" secondItem="Efy-PY-eKA" secondAttribute="trailing" constant="198" id="IYv-Rk-97n"/>
                 <constraint firstItem="f27-xq-FNR" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="KBV-ci-u3h"/>
@@ -69,4 +81,8 @@
             <point key="canvasLocation" x="64.5" y="-239.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="ic_speaker_no-sound_black" width="74" height="74"/>
+        <image name="ic_speaker_sound_black" width="75" height="75"/>
+    </resources>
 </document>
