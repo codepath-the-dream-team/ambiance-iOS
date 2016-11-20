@@ -34,6 +34,7 @@
 		C9D0E4941DE1757E000B242A /* ExtUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D0E4931DE1757E000B242A /* ExtUIImageView.swift */; };
 		C9D0E4961DE183F7000B242A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D0E4951DE183F7000B242A /* Theme.swift */; };
 		C9D0E4981DE18498000B242A /* ExtUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D0E4971DE18498000B242A /* ExtUIColor.swift */; };
+		C9D0E49A1DE19B33000B242A /* BaseNatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D0E4991DE19B33000B242A /* BaseNatureViewController.swift */; };
 		F524C510411A7BB8DA07F49C /* Pods_Ambiance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B006894DF7C56E34A82B58 /* Pods_Ambiance.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		C9D0E4931DE1757E000B242A /* ExtUIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtUIImageView.swift; sourceTree = "<group>"; };
 		C9D0E4951DE183F7000B242A /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		C9D0E4971DE18498000B242A /* ExtUIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtUIColor.swift; sourceTree = "<group>"; };
+		C9D0E4991DE19B33000B242A /* BaseNatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNatureViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 				C9D0E4931DE1757E000B242A /* ExtUIImageView.swift */,
 				C9D0E4951DE183F7000B242A /* Theme.swift */,
 				C9D0E4971DE18498000B242A /* ExtUIColor.swift */,
+				C9D0E4991DE19B33000B242A /* BaseNatureViewController.swift */,
 			);
 			name = Infrasture;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 			files = (
 				C9D0E4941DE1757E000B242A /* ExtUIImageView.swift in Sources */,
 				C9D0E4901DE13758000B242A /* DayCheckmarkView.swift in Sources */,
+				C9D0E49A1DE19B33000B242A /* BaseNatureViewController.swift in Sources */,
 				C982B8261DDC5AD90098F170 /* WakeUpDayListItem.swift in Sources */,
 				C9D0E48C1DE133FA000B242A /* WakeUpEditViewController.swift in Sources */,
 				C982B8281DDC62920098F170 /* WakeUpViewController.swift in Sources */,
