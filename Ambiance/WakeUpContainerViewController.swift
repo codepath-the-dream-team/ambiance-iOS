@@ -16,11 +16,16 @@ class WakeUpContainerViewController: UIViewController, WakeUpViewControllerDeleg
     @IBOutlet var modalContainer: UIView!
     @IBOutlet var modalTopConstraint: NSLayoutConstraint!
     
+    private var blurEffectView: UIVisualEffectView!
+    private var blurEffect: UIVisualEffect!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         installWakeUpViewController()
+        
+        prepareBlurEffect()
         
         modalTopConstraint.constant = self.view.bounds.height
     }
@@ -93,29 +98,50 @@ class WakeUpContainerViewController: UIViewController, WakeUpViewControllerDeleg
         (wakeUpVc.topViewController as! WakeUpViewController).delegate = self
     }
     
+    private func prepareBlurEffect() {
+        blurEffectView = UIVisualEffectView()
+        blurEffectView.frame = contentContainer.bounds
+//        blurEffectView.alpha = 0.8
+        
+        blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+    }
+    
     private func displayModal() {
         NSLog("Displaying modal")
         
+        // Add the blur effect view to the layout hierarchy so we can blur the content UI.
+        contentContainer.addSubview(blurEffectView)
+        
+        // Calculate the final position of the modal UI.
         let finalPosition = self.view.bounds.height - modalContainer.bounds.height
     
+        // Animate the modal UI in while also blurring the content UI.
         self.view.layoutIfNeeded()
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.5) {
             self.contentTopConstraint.constant = -100
             self.modalTopConstraint.constant = finalPosition
             self.view.layoutIfNeeded()
+            
+            self.blurEffectView.effect = self.blurEffect
         }
     }
     
     private func closeModal() {
         NSLog("Hiding modal")
         
+        // Calculate the final position of the modal UI.
         let finalPosition = self.view.bounds.height
         
+        // Animate the modal UI out while also un-blurring the content UI.
         self.view.layoutIfNeeded()
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.5, animations: { 
             self.contentTopConstraint.constant = 0
             self.modalTopConstraint.constant = finalPosition
             self.view.layoutIfNeeded()
+            
+            self.blurEffectView.effect = nil
+        }) { (Bool) in
+            self.blurEffectView.removeFromSuperview()
         }
     }
 }
