@@ -16,9 +16,6 @@ class WakeUpContainerViewController: BaseNatureViewController, WakeUpViewControl
     @IBOutlet var modalContainer: UIView!
     @IBOutlet var modalTopConstraint: NSLayoutConstraint!
     
-    private var blurEffectView: UIVisualEffectView!
-    private var blurEffect: UIVisualEffect!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

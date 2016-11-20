@@ -38,6 +38,7 @@
                             <constraint firstItem="aoo-6s-OPI" firstAttribute="top" secondItem="anW-Ul-gtX" secondAttribute="top" id="cKk-p5-uMc"/>
                         </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="contentContainer" destination="aoo-6s-OPI" id="epP-Wq-IVW"/>
                         <outlet property="contentTopConstraint" destination="cKk-p5-uMc" id="8x3-nA-jpd"/>
@@ -300,7 +301,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qqe-JC-o30">
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EkY-vq-5jk">
-                                        <frame key="frameInset" minY="44" width="375" height="372"/>
+                                        <frame key="frameInset" minY="44" width="375" height="647"/>
                                         <subviews>
                                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jjR-sI-XER">
                                                 <color key="tintColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -437,10 +438,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HtL-nj-eam">
-                                <frame key="frameInset" minY="44" width="375" height="385"/>
+                                <frame key="frameInset" minY="44" width="375" height="597"/>
                                 <subviews>
-                                    <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bOb-Qo-w8a">
-                                        <frame key="frameInset" height="44"/>
+                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bOb-Qo-w8a">
                                         <color key="tintColor" red="1" green="0.49803921568627452" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <items>
                                             <navigationItem id="b3Z-hW-hRV">
@@ -457,36 +457,30 @@
                                             </navigationItem>
                                         </items>
                                     </navigationBar>
-                                    <view alpha="0.20000000000000001" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b9V-7H-eO4" userLabel="HR">
-                                        <frame key="frameInset" minY="44" width="375" height="1"/>
+                                    <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b9V-7H-eO4" userLabel="HR">
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="41C-Rq-Ah4"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KK2-9h-KOO" userLabel="Spacer">
-                                        <frame key="frameInset" minY="45" width="375" height="15"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KK2-9h-KOO" userLabel="Spacer">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="C0X-Fi-zsf"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Where would you like your alarm to play?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Swz-Y9-8FU">
-                                        <frame key="frameInset" minY="60" width="375" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where would you like your alarm to play?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Swz-Y9-8FU">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6fn-Wu-daU" userLabel="Spacer">
-                                        <frame key="frameInset" minY="81" width="375" height="15"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6fn-Wu-daU" userLabel="Spacer">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="2MR-AL-pmV"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SDW-1A-EZI">
-                                        <frame key="frameInset" minY="96" width="375" height="28"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SDW-1A-EZI">
                                         <subviews>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Tyq-zc-me2">
-                                                <frame key="frameInset" minX="25" width="325" height="29"/>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Tyq-zc-me2">
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="BxL-tc-nab"/>
                                                     <constraint firstAttribute="width" constant="325" id="dA5-lc-GlC"/>
@@ -504,38 +498,31 @@
                                             <constraint firstAttribute="bottom" secondItem="Tyq-zc-me2" secondAttribute="bottom" id="gV9-0f-q0J"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SMg-qw-hUP" userLabel="Spacer">
-                                        <frame key="frameInset" minY="124" width="375" height="30"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SMg-qw-hUP" userLabel="Spacer">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="mIv-9y-CVf"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="How slowly should your alarm rise?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eM-MJ-G5p">
-                                        <frame key="frameInset" minY="154" width="375" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How slowly should your alarm rise?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eM-MJ-G5p">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="7z9-OJ-Q6y">
-                                        <frame key="frameInset" minY="174" width="375" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="7z9-OJ-Q6y">
                                         <subviews>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zi7-bR-5jY" userLabel="Spacer">
-                                                <frame key="frameInset" width="8" height="50"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zi7-bR-5jY" userLabel="Spacer">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="8" id="Kls-Bs-6NA"/>
                                                 </constraints>
                                             </view>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YBh-rx-SMU">
-                                                <frame key="frameInset" minX="13" minY="5" width="28" height="41"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YBh-rx-SMU">
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oti-X2-to9">
-                                                        <frame key="frameInset" minX="7" width="14" height="27"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oti-X2-to9">
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cki-yV-dvm">
-                                                        <frame key="frameInset" minX="4" minY="27" width="21" height="15"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cki-yV-dvm">
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -545,21 +532,17 @@
                                                     <constraint firstAttribute="width" constant="28" id="1Ug-kh-DGv"/>
                                                 </constraints>
                                             </stackView>
-                                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="gWN-sD-bQk">
-                                                <frame key="frameInset" minX="44" minY="10" width="287" height="31"/>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="gWN-sD-bQk">
                                                 <color key="tintColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </slider>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Vjr-9B-4H2">
-                                                <frame key="frameInset" minX="334" minY="5" width="28" height="41"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Vjr-9B-4H2">
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="60" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ta6-l5-Tu1">
-                                                        <frame key="frameInset" minX="1" width="28" height="27"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ta6-l5-Tu1">
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEi-os-ob7">
-                                                        <frame key="frameInset" minX="4" minY="27" width="21" height="15"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEi-os-ob7">
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -569,8 +552,7 @@
                                                     <constraint firstAttribute="width" constant="28" id="pYA-1N-Nmz"/>
                                                 </constraints>
                                             </stackView>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nEt-18-Csd" userLabel="Spacer">
-                                                <frame key="frameInset" minX="367" width="8" height="50"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nEt-18-Csd" userLabel="Spacer">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="8" id="btb-bl-vcg"/>
                                                 </constraints>
@@ -583,29 +565,24 @@
                                             <constraint firstItem="nEt-18-Csd" firstAttribute="top" secondItem="7z9-OJ-Q6y" secondAttribute="top" id="ho9-Lj-xce"/>
                                         </constraints>
                                     </stackView>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sYE-rw-DxU" userLabel="Spacer">
-                                        <frame key="frameInset" minY="224" width="375" height="30"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sYE-rw-DxU" userLabel="Spacer">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="abq-cm-AAY"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="How loud should your alarm be?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAb-BX-aVI">
-                                        <frame key="frameInset" minY="254" width="375" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How loud should your alarm be?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAb-BX-aVI">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="TRf-Rt-UDa">
-                                        <frame key="frameInset" minY="275" width="375" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="TRf-Rt-UDa">
                                         <subviews>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hbK-Ef-MzF" userLabel="Spacer">
-                                                <frame key="frameInset" width="8" height="50"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbK-Ef-MzF" userLabel="Spacer">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="8" id="zwJ-Wm-vbL"/>
                                                 </constraints>
                                             </view>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ic_speaker_no-sound_black" translatesAutoresizingMaskIntoConstraints="NO" id="LPR-dw-NvD">
-                                                <frame key="frameInset" minX="13" minY="9" width="32" height="32"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_speaker_no-sound_black" translatesAutoresizingMaskIntoConstraints="NO" id="LPR-dw-NvD">
                                                 <color key="tintColor" red="0.58039215690000001" green="0.58039215690000001" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="32" id="pZ6-ya-CQi"/>
@@ -617,12 +594,10 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
-                                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="xLu-tN-0Jy">
-                                                <frame key="frameInset" minX="48" minY="10" width="279" height="31"/>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="xLu-tN-0Jy">
                                                 <color key="tintColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </slider>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ic_speaker_sound_black" translatesAutoresizingMaskIntoConstraints="NO" id="S0u-Cl-ddi">
-                                                <frame key="frameInset" minX="330" minY="9" width="32" height="32"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_speaker_sound_black" translatesAutoresizingMaskIntoConstraints="NO" id="S0u-Cl-ddi">
                                                 <color key="tintColor" red="0.58039215686274503" green="0.58039215686274503" blue="0.58039215686274503" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="32" id="DX4-7i-EGd"/>
@@ -634,8 +609,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KuG-sF-XgM" userLabel="Spacer">
-                                                <frame key="frameInset" minX="367" width="8" height="50"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KuG-sF-XgM" userLabel="Spacer">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="8" id="7DL-0y-ViT"/>
                                                 </constraints>
@@ -648,14 +622,12 @@
                                             <constraint firstItem="KuG-sF-XgM" firstAttribute="top" secondItem="TRf-Rt-UDa" secondAttribute="top" id="oli-Vo-9gN"/>
                                         </constraints>
                                     </stackView>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zz5-ts-ej9" userLabel="Spacer">
-                                        <frame key="frameInset" minY="325" width="375" height="30"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zz5-ts-ej9" userLabel="Spacer">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="tlV-ai-WWB"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jCi-7Q-GRL">
-                                        <frame key="frameInset" minY="355" width="375" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jCi-7Q-GRL">
                                         <color key="tintColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Test Alarm Volume"/>
                                     </button>

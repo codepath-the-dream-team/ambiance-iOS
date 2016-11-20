@@ -13,6 +13,7 @@
 		C97AC25E1DD03F590096FE97 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97AC25C1DD03F590096FE97 /* Login.storyboard */; };
 		C97AC2601DD03F590096FE97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C97AC25F1DD03F590096FE97 /* Assets.xcassets */; };
 		C97AC2631DD03F590096FE97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97AC2611DD03F590096FE97 /* LaunchScreen.storyboard */; };
+		C9800B111DE1B4A00007F985 /* SleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9800B101DE1B4A00007F985 /* SleepViewController.swift */; };
 		C982B8201DDC43280098F170 /* WakeUpClockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C982B81F1DDC43280098F170 /* WakeUpClockView.xib */; };
 		C982B8221DDC4EE00098F170 /* WakeUpClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982B8211DDC4EE00098F170 /* WakeUpClockView.swift */; };
 		C982B8241DDC59780098F170 /* WakeUpDayListItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = C982B8231DDC59780098F170 /* WakeUpDayListItem.xib */; };
@@ -35,6 +36,7 @@
 		C9D0E4961DE183F7000B242A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D0E4951DE183F7000B242A /* Theme.swift */; };
 		C9D0E4981DE18498000B242A /* ExtUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D0E4971DE18498000B242A /* ExtUIColor.swift */; };
 		C9D0E49A1DE19B33000B242A /* BaseNatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D0E4991DE19B33000B242A /* BaseNatureViewController.swift */; };
+		C9D0E49C1DE1AB21000B242A /* SleepContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D0E49B1DE1AB21000B242A /* SleepContainerViewController.swift */; };
 		F524C510411A7BB8DA07F49C /* Pods_Ambiance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B006894DF7C56E34A82B58 /* Pods_Ambiance.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +52,7 @@
 		C97AC25F1DD03F590096FE97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C97AC2621DD03F590096FE97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C97AC2641DD03F590096FE97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9800B101DE1B4A00007F985 /* SleepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepViewController.swift; sourceTree = "<group>"; };
 		C982B81F1DDC43280098F170 /* WakeUpClockView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WakeUpClockView.xib; sourceTree = "<group>"; };
 		C982B8211DDC4EE00098F170 /* WakeUpClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakeUpClockView.swift; sourceTree = "<group>"; };
 		C982B8231DDC59780098F170 /* WakeUpDayListItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WakeUpDayListItem.xib; sourceTree = "<group>"; };
@@ -72,6 +75,7 @@
 		C9D0E4951DE183F7000B242A /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		C9D0E4971DE18498000B242A /* ExtUIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtUIColor.swift; sourceTree = "<group>"; };
 		C9D0E4991DE19B33000B242A /* BaseNatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNatureViewController.swift; sourceTree = "<group>"; };
+		C9D0E49B1DE1AB21000B242A /* SleepContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepContainerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				C9B5C5871DD2EBAC001EE244 /* Sleep.storyboard */,
+				C9D0E49B1DE1AB21000B242A /* SleepContainerViewController.swift */,
+				C9800B101DE1B4A00007F985 /* SleepViewController.swift */,
 			);
 			name = Sleep;
 			sourceTree = "<group>";
@@ -352,9 +358,11 @@
 				C982B8261DDC5AD90098F170 /* WakeUpDayListItem.swift in Sources */,
 				C9D0E48C1DE133FA000B242A /* WakeUpEditViewController.swift in Sources */,
 				C982B8281DDC62920098F170 /* WakeUpViewController.swift in Sources */,
+				C9800B111DE1B4A00007F985 /* SleepViewController.swift in Sources */,
 				C982B8221DDC4EE00098F170 /* WakeUpClockView.swift in Sources */,
 				C9B5C5941DD2EDE7001EE244 /* MainViewController.swift in Sources */,
 				C97AC25B1DD03F590096FE97 /* MattLoginViewController.swift in Sources */,
+				C9D0E49C1DE1AB21000B242A /* SleepContainerViewController.swift in Sources */,
 				C94D6C311DDF0606007F3B03 /* WakeUpContainerViewController.swift in Sources */,
 				C9B5C5961DD2F3B8001EE244 /* AccountViewController.swift in Sources */,
 				C9D0E4921DE16F46000B242A /* ClearNavBar.swift in Sources */,

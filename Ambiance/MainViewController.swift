@@ -15,10 +15,17 @@ class MainViewController: UIViewController, UITabBarDelegate {
     
     private var activeScreen: UIViewController!
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        get {
+            return UIStatusBarStyle.lightContent
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
         tabbarView.delegate = self
     }
 
@@ -26,12 +33,14 @@ class MainViewController: UIViewController, UITabBarDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         let index = tabbarView.items?.index(of: item)!
         if (0 == index) {
             showWakeUp()
+        }
+        if (1 == index) {
+            showSleep()
         }
         if (3 == index) {
             showAccount()
@@ -42,6 +51,12 @@ class MainViewController: UIViewController, UITabBarDelegate {
         let wakeUpStoryboard = UIStoryboard(name: "WakeUp", bundle: nil)
         let wakeUpVc = wakeUpStoryboard.instantiateViewController(withIdentifier: "wakeup")
         show(screen: wakeUpVc)
+    }
+    
+    private func showSleep() {
+        let sleepStoryboard = UIStoryboard(name: "Sleep", bundle: nil)
+        let sleepVc = sleepStoryboard.instantiateViewController(withIdentifier: "sleep")
+        show(screen: sleepVc)
     }
     
     private func showAccount() {
