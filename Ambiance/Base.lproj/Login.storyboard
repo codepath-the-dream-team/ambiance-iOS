@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -18,17 +18,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnB-nV-c8N">
-                                <state key="normal" title="Go To Main"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ambiance" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oC1-4i-mTg">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="70"/>
+                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="soothing sounds of nature" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KUB-WM-ZBA">
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASE-Oq-D0m">
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Login With Facebook">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
-                                    <action selector="onGoToMainTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fbp-ap-End"/>
+                                    <action selector="facebookLoginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="g6D-50-iDD"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wnB-nV-c8N" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iHC-yN-7aM"/>
-                            <constraint firstItem="wnB-nV-c8N" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="lMv-hf-ob6"/>
+                            <constraint firstAttribute="trailing" secondItem="ASE-Oq-D0m" secondAttribute="trailing" constant="16" id="3bM-ND-vzX"/>
+                            <constraint firstItem="ASE-Oq-D0m" firstAttribute="centerX" secondItem="KUB-WM-ZBA" secondAttribute="centerX" id="4Qb-ni-bpb"/>
+                            <constraint firstAttribute="trailing" secondItem="KUB-WM-ZBA" secondAttribute="trailing" constant="16" id="4h2-AQ-EkH"/>
+                            <constraint firstAttribute="trailing" secondItem="oC1-4i-mTg" secondAttribute="trailing" constant="16" id="6fi-kd-xfl"/>
+                            <constraint firstItem="KUB-WM-ZBA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="H3z-4q-J4G"/>
+                            <constraint firstItem="oC1-4i-mTg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="31" id="JY3-f9-ezw"/>
+                            <constraint firstItem="ASE-Oq-D0m" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="V3x-4n-8y6"/>
+                            <constraint firstItem="oC1-4i-mTg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="Y7y-OO-Rxg"/>
+                            <constraint firstItem="KUB-WM-ZBA" firstAttribute="top" secondItem="oC1-4i-mTg" secondAttribute="bottom" constant="8" id="aQ1-BD-hNG"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ASE-Oq-D0m" secondAttribute="bottom" constant="56" id="arZ-nW-JzT"/>
                         </constraints>
                     </view>
                 </viewController>

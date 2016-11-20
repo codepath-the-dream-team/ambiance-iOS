@@ -7,25 +7,60 @@
 //
 
 import UIKit
+import Parse
+import ParseFacebookUtilsV4
+
 
 class MattLoginViewController: UIViewController {
 
+    var user: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        NSLog("HELLO?")
+        self.view.backgroundColor = .orange
     }
-
+    
+    @IBAction func facebookLoginTapped(_ sender: AnyObject) {
+        if Utils.notLoggedIn() {
+            print("logging in")
+            Utils.loginWithFacebook(success: { (dictionary: NSDictionary) in
+                print("dictionary is: \(dictionary)")
+                User.currentUser = User(dicitonary: dictionary)
+                self.user = User.currentUser
+                self.userLoggedIn(user: self.user!)
+                }, failure: { (error: Error) in
+                    print(error.localizedDescription)
+            })
+        } else {
+            self.user = User.currentUser
+            userLoggedIn(user: self.user!)
+        }
+        
+    }
+    
+    func showAlert(errorTitle: String, errorString: String) {
+        let alertController = UIAlertController(title: errorTitle, message: errorString, preferredStyle: .alert)
+        
+        // create an OK action
+        let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            // handle response here.
+        }
+        // add the OK action to the alert controller
+        alertController.addAction(OKAction)
+        present(alertController, animated: true) {
+            // optional code for what happens after the alert controller has finished presenting
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-
-    @IBAction func onGoToMainTap(_ sender: AnyObject) {
+    func userLoggedIn(user: User) {
         let mainStoryboard = UIStoryboard(name: "Infrastructure", bundle: nil)
-        let mainVc = mainStoryboard.instantiateViewController(withIdentifier: "main")
+        let mainVc = mainStoryboard.instantiateViewController(withIdentifier: "main") as! MainViewController
+        mainVc.user = user
         self.present(mainVc, animated: true, completion: nil)
     }
 }

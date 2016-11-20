@@ -12,7 +12,7 @@ class MainViewController: UIViewController, UITabBarDelegate {
 
     @IBOutlet var viewContainer: UIView!
     @IBOutlet var tabbarView: UITabBar!
-    
+    var user: User!
     private var activeScreen: UIViewController!
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -25,7 +25,12 @@ class MainViewController: UIViewController, UITabBarDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        user = User.currentUser
+        print("\(user)")
+        print("\(user?.firstName!)")
+        print("\(user?.lastName!)")
+        print("\(user?.email!)")
+        print("\(user?.profileImageURL!)")
         tabbarView.delegate = self
     }
 

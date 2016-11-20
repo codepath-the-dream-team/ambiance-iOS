@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B13DC851DE24A5E007A78F1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B13DC821DE24A5E007A78F1 /* User.swift */; };
+		9B13DC861DE24A5E007A78F1 /* AlarmSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B13DC831DE24A5E007A78F1 /* AlarmSchedule.swift */; };
+		9B13DC871DE24A5E007A78F1 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B13DC841DE24A5E007A78F1 /* Alarm.swift */; };
+		9B13DC8B1DE24BF8007A78F1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B13DC8A1DE24BF8007A78F1 /* Utils.swift */; };
 		C94D6C311DDF0606007F3B03 /* WakeUpContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94D6C301DDF0606007F3B03 /* WakeUpContainerViewController.swift */; };
 		C97AC2591DD03F590096FE97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97AC2581DD03F590096FE97 /* AppDelegate.swift */; };
 		C97AC25B1DD03F590096FE97 /* MattLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97AC25A1DD03F590096FE97 /* MattLoginViewController.swift */; };
@@ -42,6 +46,11 @@
 
 /* Begin PBXFileReference section */
 		68B006894DF7C56E34A82B58 /* Pods_Ambiance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ambiance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B13DC821DE24A5E007A78F1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9B13DC831DE24A5E007A78F1 /* AlarmSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmSchedule.swift; sourceTree = "<group>"; };
+		9B13DC841DE24A5E007A78F1 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		9B13DC881DE24AF8007A78F1 /* Ambiance.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ambiance.entitlements; sourceTree = "<group>"; };
+		9B13DC8A1DE24BF8007A78F1 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		9C98B9BDABA225AA8BDCF496 /* Pods-Ambiance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambiance.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ambiance/Pods-Ambiance.release.xcconfig"; sourceTree = "<group>"; };
 		C4A698A06B12F0E8BA7B9EFC /* Pods-Ambiance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambiance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ambiance/Pods-Ambiance.debug.xcconfig"; sourceTree = "<group>"; };
 		C94D6C301DDF0606007F3B03 /* WakeUpContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakeUpContainerViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +108,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9B13DC811DE24A4F007A78F1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9B13DC821DE24A5E007A78F1 /* User.swift */,
+				9B13DC831DE24A5E007A78F1 /* AlarmSchedule.swift */,
+				9B13DC841DE24A5E007A78F1 /* Alarm.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		9B13DC891DE24BEC007A78F1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9B13DC8A1DE24BF8007A78F1 /* Utils.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		ACE0D1DA716BAA7416DF89D9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +155,9 @@
 		C97AC2571DD03F590096FE97 /* Ambiance */ = {
 			isa = PBXGroup;
 			children = (
+				9B13DC881DE24AF8007A78F1 /* Ambiance.entitlements */,
+				9B13DC891DE24BEC007A78F1 /* Utils */,
+				9B13DC811DE24A4F007A78F1 /* Models */,
 				C97AC2581DD03F590096FE97 /* AppDelegate.swift */,
 				C97AC2611DD03F590096FE97 /* LaunchScreen.storyboard */,
 				C9B5C5901DD2ECF3001EE244 /* Alexa */,
@@ -256,6 +286,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = KM86JAFSYM;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -357,9 +392,12 @@
 				C9D0E49A1DE19B33000B242A /* BaseNatureViewController.swift in Sources */,
 				C982B8261DDC5AD90098F170 /* WakeUpDayListItem.swift in Sources */,
 				C9D0E48C1DE133FA000B242A /* WakeUpEditViewController.swift in Sources */,
+				9B13DC871DE24A5E007A78F1 /* Alarm.swift in Sources */,
 				C982B8281DDC62920098F170 /* WakeUpViewController.swift in Sources */,
+				9B13DC8B1DE24BF8007A78F1 /* Utils.swift in Sources */,
 				C9800B111DE1B4A00007F985 /* SleepViewController.swift in Sources */,
 				C982B8221DDC4EE00098F170 /* WakeUpClockView.swift in Sources */,
+				9B13DC861DE24A5E007A78F1 /* AlarmSchedule.swift in Sources */,
 				C9B5C5941DD2EDE7001EE244 /* MainViewController.swift in Sources */,
 				C97AC25B1DD03F590096FE97 /* MattLoginViewController.swift in Sources */,
 				C9D0E49C1DE1AB21000B242A /* SleepContainerViewController.swift in Sources */,
@@ -370,6 +408,7 @@
 				C97AC2591DD03F590096FE97 /* AppDelegate.swift in Sources */,
 				C9D0E4961DE183F7000B242A /* Theme.swift in Sources */,
 				C9D0E4981DE18498000B242A /* ExtUIColor.swift in Sources */,
+				9B13DC851DE24A5E007A78F1 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,6 +530,7 @@
 			baseConfigurationReference = C4A698A06B12F0E8BA7B9EFC /* Pods-Ambiance.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Ambiance/Ambiance.entitlements;
 				DEVELOPMENT_TEAM = KM86JAFSYM;
 				INFOPLIST_FILE = Ambiance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -505,6 +545,7 @@
 			baseConfigurationReference = 9C98B9BDABA225AA8BDCF496 /* Pods-Ambiance.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Ambiance/Ambiance.entitlements;
 				DEVELOPMENT_TEAM = KM86JAFSYM;
 				INFOPLIST_FILE = Ambiance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
