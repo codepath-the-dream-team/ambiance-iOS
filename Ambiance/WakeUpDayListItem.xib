@@ -9,7 +9,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WakeUpDayListItem" customModule="Ambiance" customModuleProvider="target">
             <connections>
                 <outlet property="dayNameLabel" destination="f27-xq-FNR" id="Iey-aA-k18"/>
+                <outlet property="disabledLabel" destination="hju-tb-xUB" id="76m-QN-RAF"/>
+                <outlet property="finishRiseIcon" destination="WKe-Zy-7p3" id="GFP-kg-d5Z"/>
                 <outlet property="finishRiseTimeLabel" destination="Oup-JG-8Ne" id="mOn-Rj-QjO"/>
+                <outlet property="startRiseIcon" destination="Efy-PY-eKA" id="RyH-44-O8x"/>
                 <outlet property="startRiseTimeLabel" destination="w9w-E4-tN5" id="tEL-BQ-4te"/>
             </connections>
         </placeholder>
@@ -59,10 +62,16 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="disabled" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hju-tb-xUB">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <constraints>
                 <constraint firstItem="w9w-E4-tN5" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="6NX-zu-Q4z"/>
                 <constraint firstItem="Efy-PY-eKA" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="6bO-N0-3cj"/>
+                <constraint firstAttribute="trailing" secondItem="hju-tb-xUB" secondAttribute="trailing" constant="16" id="7DZ-fB-WvZ"/>
                 <constraint firstAttribute="trailing" secondItem="WKe-Zy-7p3" secondAttribute="trailing" constant="80" id="97G-cf-2PA"/>
                 <constraint firstItem="Oup-JG-8Ne" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="D3W-fJ-xaz"/>
                 <constraint firstItem="f27-xq-FNR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="EdS-cD-lOw"/>
@@ -71,6 +80,7 @@
                 <constraint firstAttribute="trailing" secondItem="Efy-PY-eKA" secondAttribute="trailing" constant="198" id="IYv-Rk-97n"/>
                 <constraint firstItem="f27-xq-FNR" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="KBV-ci-u3h"/>
                 <constraint firstItem="WKe-Zy-7p3" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="QDV-Jt-GbP"/>
+                <constraint firstItem="hju-tb-xUB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="QbT-EM-cHl"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="f27-xq-FNR" secondAttribute="bottom" constant="8" id="ZgP-d2-qcQ"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Efy-PY-eKA" secondAttribute="bottom" constant="8" id="enA-7V-dYl"/>
                 <constraint firstItem="Oup-JG-8Ne" firstAttribute="leading" secondItem="WKe-Zy-7p3" secondAttribute="trailing" constant="8" id="um6-nT-l5k"/>
