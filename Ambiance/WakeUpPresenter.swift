@@ -17,7 +17,7 @@ class WakeUpPresenter {
     public func createWakeUpDayViewModel(dayIndex: Int) -> WakeUpDayListItemViewModel {
         
         // Pass AlarmSchedule in constructor.
-        let alarmSchedule = User.currentUser!.alarmSchedule
+        let alarmSchedule = UserSession.shared.loggedInUser!.alarmSchedule
         
         var dayName = "_"
         var alarm: DayAlarm?

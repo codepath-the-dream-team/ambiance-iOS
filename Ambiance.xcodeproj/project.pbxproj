@@ -9,11 +9,9 @@
 /* Begin PBXBuildFile section */
 		9B13DC851DE24A5E007A78F1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B13DC821DE24A5E007A78F1 /* User.swift */; };
 		9B13DC861DE24A5E007A78F1 /* AlarmSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B13DC831DE24A5E007A78F1 /* AlarmSchedule.swift */; };
-		9B13DC871DE24A5E007A78F1 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B13DC841DE24A5E007A78F1 /* Alarm.swift */; };
-		9B13DC8B1DE24BF8007A78F1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B13DC8A1DE24BF8007A78F1 /* Utils.swift */; };
 		C94D6C311DDF0606007F3B03 /* WakeUpContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94D6C301DDF0606007F3B03 /* WakeUpContainerViewController.swift */; };
 		C97AC2591DD03F590096FE97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97AC2581DD03F590096FE97 /* AppDelegate.swift */; };
-		C97AC25B1DD03F590096FE97 /* MattLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97AC25A1DD03F590096FE97 /* MattLoginViewController.swift */; };
+		C97AC25B1DD03F590096FE97 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97AC25A1DD03F590096FE97 /* LoginViewController.swift */; };
 		C97AC25E1DD03F590096FE97 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97AC25C1DD03F590096FE97 /* Login.storyboard */; };
 		C97AC2601DD03F590096FE97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C97AC25F1DD03F590096FE97 /* Assets.xcassets */; };
 		C97AC2631DD03F590096FE97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97AC2611DD03F590096FE97 /* LaunchScreen.storyboard */; };
@@ -45,6 +43,7 @@
 		C9E4077F1DE25AEC004456CA /* SleepSynopsisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E4077E1DE25AEC004456CA /* SleepSynopsisView.swift */; };
 		C9E407811DE2625E004456CA /* SleepConfigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E407801DE2625E004456CA /* SleepConfigureViewController.swift */; };
 		C9E407831DE2796B004456CA /* WakeUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E407821DE2796B004456CA /* WakeUpPresenter.swift */; };
+		C9E407851DE2EA17004456CA /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E407841DE2EA17004456CA /* UserSession.swift */; };
 		F524C510411A7BB8DA07F49C /* Pods_Ambiance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B006894DF7C56E34A82B58 /* Pods_Ambiance.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,15 +51,13 @@
 		68B006894DF7C56E34A82B58 /* Pods_Ambiance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ambiance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B13DC821DE24A5E007A78F1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9B13DC831DE24A5E007A78F1 /* AlarmSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmSchedule.swift; sourceTree = "<group>"; };
-		9B13DC841DE24A5E007A78F1 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		9B13DC881DE24AF8007A78F1 /* Ambiance.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ambiance.entitlements; sourceTree = "<group>"; };
-		9B13DC8A1DE24BF8007A78F1 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		9C98B9BDABA225AA8BDCF496 /* Pods-Ambiance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambiance.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ambiance/Pods-Ambiance.release.xcconfig"; sourceTree = "<group>"; };
 		C4A698A06B12F0E8BA7B9EFC /* Pods-Ambiance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambiance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ambiance/Pods-Ambiance.debug.xcconfig"; sourceTree = "<group>"; };
 		C94D6C301DDF0606007F3B03 /* WakeUpContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakeUpContainerViewController.swift; sourceTree = "<group>"; };
 		C97AC2551DD03F590096FE97 /* Ambiance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ambiance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97AC2581DD03F590096FE97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C97AC25A1DD03F590096FE97 /* MattLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MattLoginViewController.swift; sourceTree = "<group>"; };
+		C97AC25A1DD03F590096FE97 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C97AC25D1DD03F590096FE97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		C97AC25F1DD03F590096FE97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C97AC2621DD03F590096FE97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -93,6 +90,7 @@
 		C9E4077E1DE25AEC004456CA /* SleepSynopsisView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepSynopsisView.swift; sourceTree = "<group>"; };
 		C9E407801DE2625E004456CA /* SleepConfigureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepConfigureViewController.swift; sourceTree = "<group>"; };
 		C9E407821DE2796B004456CA /* WakeUpPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakeUpPresenter.swift; sourceTree = "<group>"; };
+		C9E407841DE2EA17004456CA /* UserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,24 +112,6 @@
 				9C98B9BDABA225AA8BDCF496 /* Pods-Ambiance.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		9B13DC811DE24A4F007A78F1 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				9B13DC821DE24A5E007A78F1 /* User.swift */,
-				9B13DC831DE24A5E007A78F1 /* AlarmSchedule.swift */,
-				9B13DC841DE24A5E007A78F1 /* Alarm.swift */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
-		9B13DC891DE24BEC007A78F1 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				9B13DC8A1DE24BF8007A78F1 /* Utils.swift */,
-			);
-			name = Utils;
 			sourceTree = "<group>";
 		};
 		ACE0D1DA716BAA7416DF89D9 /* Frameworks */ = {
@@ -164,8 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				9B13DC881DE24AF8007A78F1 /* Ambiance.entitlements */,
-				9B13DC891DE24BEC007A78F1 /* Utils */,
-				9B13DC811DE24A4F007A78F1 /* Models */,
 				C97AC2581DD03F590096FE97 /* AppDelegate.swift */,
 				C97AC2611DD03F590096FE97 /* LaunchScreen.storyboard */,
 				C9B5C5901DD2ECF3001EE244 /* Alexa */,
@@ -185,7 +163,10 @@
 			isa = PBXGroup;
 			children = (
 				C97AC25C1DD03F590096FE97 /* Login.storyboard */,
-				C97AC25A1DD03F590096FE97 /* MattLoginViewController.swift */,
+				C97AC25A1DD03F590096FE97 /* LoginViewController.swift */,
+				9B13DC821DE24A5E007A78F1 /* User.swift */,
+				9B13DC831DE24A5E007A78F1 /* AlarmSchedule.swift */,
+				C9E407841DE2EA17004456CA /* UserSession.swift */,
 			);
 			name = UserSession;
 			sourceTree = "<group>";
@@ -405,14 +386,13 @@
 				C9D0E49A1DE19B33000B242A /* BaseNatureViewController.swift in Sources */,
 				C982B8261DDC5AD90098F170 /* WakeUpDayListItem.swift in Sources */,
 				C9D0E48C1DE133FA000B242A /* WakeUpEditViewController.swift in Sources */,
-				9B13DC871DE24A5E007A78F1 /* Alarm.swift in Sources */,
 				C982B8281DDC62920098F170 /* WakeUpViewController.swift in Sources */,
-				9B13DC8B1DE24BF8007A78F1 /* Utils.swift in Sources */,
 				C9800B111DE1B4A00007F985 /* SleepViewController.swift in Sources */,
 				C982B8221DDC4EE00098F170 /* WakeUpClockView.swift in Sources */,
 				9B13DC861DE24A5E007A78F1 /* AlarmSchedule.swift in Sources */,
+				C9E407851DE2EA17004456CA /* UserSession.swift in Sources */,
 				C9B5C5941DD2EDE7001EE244 /* MainViewController.swift in Sources */,
-				C97AC25B1DD03F590096FE97 /* MattLoginViewController.swift in Sources */,
+				C97AC25B1DD03F590096FE97 /* LoginViewController.swift in Sources */,
 				C9D0E49C1DE1AB21000B242A /* SleepContainerViewController.swift in Sources */,
 				C9E407831DE2796B004456CA /* WakeUpPresenter.swift in Sources */,
 				C9E407811DE2625E004456CA /* SleepConfigureViewController.swift in Sources */,

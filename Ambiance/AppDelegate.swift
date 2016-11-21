@@ -18,39 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let mainStoryboard = UIStoryboard(name: "Infrastructure", bundle: nil)
-        Parse.initialize(
-            with: ParseClientConfiguration(block: { (configuration:ParseMutableClientConfiguration) -> Void in
-                configuration.applicationId = "SXQu86CkKMYI3iuKhJHCQqCGtws3vT3c9eWE9WO2"
-                configuration.clientKey = nil  // set to nil assuming you have not set clientKey
-                configuration.server = "https://codepath-ambiance.herokuapp.com/parse"
-            }))
-        PFFacebookUtils.initializeFacebook(applicationLaunchOptions: launchOptions)
-        
-        // TODO: bring back some version of this so that the user doesn't have to login every time
-//        if Utils.loggedIn() {
-//            print("There is a current user")
-//            let mainVc = mainStoryboard.instantiateViewController(withIdentifier: "main")
-////            self.window?.rootViewController = mainVc
-//            Utils.syncSavedUserWithParse(success: { (dictionary: NSDictionary) in
-//                self.window?.rootViewController = mainVc
-//                }, failure: { (error: Error) in
-//                    print("There was an error syncing user with server")
-//                    self.window?.rootViewController = mainVc
-//            })
-//        }
-        
-        
-        if Utils.loggedIn() {
-            print("There is a current user")
-            let mainVc = mainStoryboard.instantiateViewController(withIdentifier: "main")
-            
-            Utils.syncParseUserWithParse(success: { 
-                self.window?.rootViewController = mainVc
-            }, failure: { (error: Error?) in
-                // By doing nothing we will end up on the login screen.
-            })
-        }
+        initializeParse(launchOptions: launchOptions)
         
         return true
     }
@@ -82,6 +50,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return handled
     }
 
-
+    private func initializeParse(launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+        Parse.initialize(
+            with: ParseClientConfiguration(block: { (configuration:ParseMutableClientConfiguration) -> Void in
+                configuration.applicationId = "SXQu86CkKMYI3iuKhJHCQqCGtws3vT3c9eWE9WO2"
+                configuration.clientKey = nil  // set to nil assuming you have not set clientKey
+                configuration.server = "https://codepath-ambiance.herokuapp.com/parse"
+            }))
+        PFFacebookUtils.initializeFacebook(applicationLaunchOptions: launchOptions)
+    }
 }
 
