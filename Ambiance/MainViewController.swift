@@ -27,10 +27,10 @@ class MainViewController: UIViewController, UITabBarDelegate {
         // Do any additional setup after loading the view.
         user = User.currentUser
         print("\(user)")
-        print("\(user?.firstName!)")
-        print("\(user?.lastName!)")
-        print("\(user?.email!)")
-        print("\(user?.profileImageURL!)")
+        print("\(user?.firstName)")
+        print("\(user?.lastName)")
+        print("\(user?.email)")
+        print("\(user?.profileImageUrl!)")
         tabbarView.delegate = self
     }
 

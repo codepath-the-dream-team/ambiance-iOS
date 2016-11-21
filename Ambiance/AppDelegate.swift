@@ -26,17 +26,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "https://codepath-ambiance.herokuapp.com/parse"
             }))
         PFFacebookUtils.initializeFacebook(applicationLaunchOptions: launchOptions)
+        
+        // TODO: bring back some version of this so that the user doesn't have to login every time
+//        if Utils.loggedIn() {
+//            print("There is a current user")
+//            let mainVc = mainStoryboard.instantiateViewController(withIdentifier: "main")
+////            self.window?.rootViewController = mainVc
+//            Utils.syncSavedUserWithParse(success: { (dictionary: NSDictionary) in
+//                self.window?.rootViewController = mainVc
+//                }, failure: { (error: Error) in
+//                    print("There was an error syncing user with server")
+//                    self.window?.rootViewController = mainVc
+//            })
+//        }
+        
+        
         if Utils.loggedIn() {
             print("There is a current user")
             let mainVc = mainStoryboard.instantiateViewController(withIdentifier: "main")
-//            self.window?.rootViewController = mainVc
-            Utils.syncSavedUserWithParse(success: { (dictionary: NSDictionary) in
+            
+            Utils.syncParseUserWithParse(success: { 
                 self.window?.rootViewController = mainVc
-                }, failure: { (error: Error) in
-                    print("There was an error syncing user with server")
-                    self.window?.rootViewController = mainVc
+            }, failure: { (error: Error?) in
+                // By doing nothing we will end up on the login screen.
             })
         }
+        
         return true
     }
 

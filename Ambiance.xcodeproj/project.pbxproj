@@ -44,6 +44,7 @@
 		C9E4077D1DE251E0004456CA /* SleepSynopsisView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9E4077C1DE251E0004456CA /* SleepSynopsisView.xib */; };
 		C9E4077F1DE25AEC004456CA /* SleepSynopsisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E4077E1DE25AEC004456CA /* SleepSynopsisView.swift */; };
 		C9E407811DE2625E004456CA /* SleepConfigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E407801DE2625E004456CA /* SleepConfigureViewController.swift */; };
+		C9E407831DE2796B004456CA /* WakeUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E407821DE2796B004456CA /* WakeUpPresenter.swift */; };
 		F524C510411A7BB8DA07F49C /* Pods_Ambiance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B006894DF7C56E34A82B58 /* Pods_Ambiance.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,7 @@
 		C9E4077C1DE251E0004456CA /* SleepSynopsisView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SleepSynopsisView.xib; sourceTree = "<group>"; };
 		C9E4077E1DE25AEC004456CA /* SleepSynopsisView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepSynopsisView.swift; sourceTree = "<group>"; };
 		C9E407801DE2625E004456CA /* SleepConfigureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepConfigureViewController.swift; sourceTree = "<group>"; };
+		C9E407821DE2796B004456CA /* WakeUpPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakeUpPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 				C9D0E48B1DE133FA000B242A /* WakeUpEditViewController.swift */,
 				C9D0E48D1DE13660000B242A /* DayCheckmarkView.xib */,
 				C9D0E48F1DE13758000B242A /* DayCheckmarkView.swift */,
+				C9E407821DE2796B004456CA /* WakeUpPresenter.swift */,
 			);
 			name = WakeUp;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				C9B5C5941DD2EDE7001EE244 /* MainViewController.swift in Sources */,
 				C97AC25B1DD03F590096FE97 /* MattLoginViewController.swift in Sources */,
 				C9D0E49C1DE1AB21000B242A /* SleepContainerViewController.swift in Sources */,
+				C9E407831DE2796B004456CA /* WakeUpPresenter.swift in Sources */,
 				C9E407811DE2625E004456CA /* SleepConfigureViewController.swift in Sources */,
 				C94D6C311DDF0606007F3B03 /* WakeUpContainerViewController.swift in Sources */,
 				C9B5C5961DD2F3B8001EE244 /* AccountViewController.swift in Sources */,

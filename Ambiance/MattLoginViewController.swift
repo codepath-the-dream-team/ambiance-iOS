@@ -13,6 +13,7 @@ import ParseFacebookUtilsV4
 
 class MattLoginViewController: UIViewController {
 
+    // TODO: remove this
     var user: User?
     
     override func viewDidLoad() {
@@ -21,16 +22,25 @@ class MattLoginViewController: UIViewController {
     }
     
     @IBAction func facebookLoginTapped(_ sender: AnyObject) {
-        if Utils.notLoggedIn() {
+        if !Utils.loggedIn() {
             print("logging in")
-            Utils.loginWithFacebook(success: { (dictionary: NSDictionary) in
-                print("dictionary is: \(dictionary)")
-                User.currentUser = User(dicitonary: dictionary)
-                self.user = User.currentUser
-                self.userLoggedIn(user: self.user!)
-                }, failure: { (error: Error) in
-                    print(error.localizedDescription)
+//            Utils.loginWithFacebook(success: { (dictionary: NSDictionary) in
+//                print("dictionary is: \(dictionary)")
+//                User.currentUser = User(dicitonary: dictionary)
+//                self.user = User.currentUser
+//                self.userLoggedIn(user: self.user!)
+//                }, failure: { (error: Error) in
+//                    print(error.localizedDescription)
+//            })
+
+            Utils.loginWithFacebook(success: { (user: User) in
+                NSLog("Successfully logged in with Facebook.")
+                self.user = user
+                self.userLoggedIn(user: user)
+            }, failure: { (error: Error) in
+                NSLog("Failed to login with Facebook")
             })
+            
         } else {
             self.user = User.currentUser
             userLoggedIn(user: self.user!)
@@ -58,6 +68,8 @@ class MattLoginViewController: UIViewController {
     }
 
     func userLoggedIn(user: User) {
+        User.currentUser = user
+        
         let mainStoryboard = UIStoryboard(name: "Infrastructure", bundle: nil)
         let mainVc = mainStoryboard.instantiateViewController(withIdentifier: "main") as! MainViewController
         mainVc.user = user
