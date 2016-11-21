@@ -42,7 +42,8 @@ class MainViewController: UIViewController, UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         let index = tabbarView.items?.index(of: item)!
         if (0 == index) {
-            showWakeUp()
+            //showWakeUp()
+            showAlarmOn()
         }
         if (1 == index) {
             showSleep()
@@ -68,6 +69,12 @@ class MainViewController: UIViewController, UITabBarDelegate {
         let accountStoryboard = UIStoryboard(name: "Account", bundle: nil)
         let accountVc = accountStoryboard.instantiateViewController(withIdentifier: "account")
         show(screen: accountVc)
+    }
+    
+    private func showAlarmOn() {
+        let alarmOnStoryboard = UIStoryboard(name: "AlarmOn", bundle: nil)
+        let alarmOnVc = alarmOnStoryboard.instantiateViewController(withIdentifier: "alarmOn")
+        show(screen: alarmOnVc)
     }
     
     private func show(screen: UIViewController) {

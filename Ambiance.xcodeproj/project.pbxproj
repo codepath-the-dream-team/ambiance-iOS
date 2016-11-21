@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		608E5C161DE2A663007E2B1F /* AlarmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608E5C151DE2A663007E2B1F /* AlarmObject.swift */; };
+		608E5C181DE2A9C3007E2B1F /* AlarmOn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 608E5C171DE2A9C3007E2B1F /* AlarmOn.storyboard */; };
+		608E5C1C1DE2ABE4007E2B1F /* AlarmOnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608E5C1B1DE2ABE4007E2B1F /* AlarmOnViewController.swift */; };
+		608E5C1E1DE2B6B9007E2B1F /* CircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608E5C1D1DE2B6B9007E2B1F /* CircularView.swift */; };
 		9B13DC851DE24A5E007A78F1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B13DC821DE24A5E007A78F1 /* User.swift */; };
 		9B13DC861DE24A5E007A78F1 /* AlarmSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B13DC831DE24A5E007A78F1 /* AlarmSchedule.swift */; };
 		9B13DC871DE24A5E007A78F1 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B13DC841DE24A5E007A78F1 /* Alarm.swift */; };
@@ -48,6 +52,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		608E5C151DE2A663007E2B1F /* AlarmObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmObject.swift; sourceTree = "<group>"; };
+		608E5C171DE2A9C3007E2B1F /* AlarmOn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AlarmOn.storyboard; sourceTree = "<group>"; };
+		608E5C1B1DE2ABE4007E2B1F /* AlarmOnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmOnViewController.swift; sourceTree = "<group>"; };
+		608E5C1D1DE2B6B9007E2B1F /* CircularView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularView.swift; sourceTree = "<group>"; };
 		68B006894DF7C56E34A82B58 /* Pods_Ambiance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ambiance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B13DC821DE24A5E007A78F1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9B13DC831DE24A5E007A78F1 /* AlarmSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmSchedule.swift; sourceTree = "<group>"; };
@@ -105,6 +113,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		608E5C141DE2A622007E2B1F /* AlarmOn */ = {
+			isa = PBXGroup;
+			children = (
+				608E5C171DE2A9C3007E2B1F /* AlarmOn.storyboard */,
+				608E5C1B1DE2ABE4007E2B1F /* AlarmOnViewController.swift */,
+				608E5C1D1DE2B6B9007E2B1F /* CircularView.swift */,
+			);
+			name = AlarmOn;
+			sourceTree = "<group>";
+		};
 		8D828976C82F8FDBF48D5987 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +179,7 @@
 		C97AC2571DD03F590096FE97 /* Ambiance */ = {
 			isa = PBXGroup;
 			children = (
+				608E5C141DE2A622007E2B1F /* AlarmOn */,
 				9B13DC881DE24AF8007A78F1 /* Ambiance.entitlements */,
 				9B13DC891DE24BEC007A78F1 /* Utils */,
 				9B13DC811DE24A4F007A78F1 /* Models */,
@@ -239,6 +258,7 @@
 		C9B5C58D1DD2EC56001EE244 /* Infrasture */ = {
 			isa = PBXGroup;
 			children = (
+				608E5C151DE2A663007E2B1F /* AlarmObject.swift */,
 				C9B5C58E1DD2EC6A001EE244 /* Infrastructure.storyboard */,
 				C9B5C5931DD2EDE7001EE244 /* MainViewController.swift */,
 				C9D0E4911DE16F46000B242A /* ClearNavBar.swift */,
@@ -293,7 +313,7 @@
 				TargetAttributes = {
 					C97AC2541DD03F590096FE97 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = KM86JAFSYM;
+						DevelopmentTeam = EDU9NG376Z;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -333,6 +353,7 @@
 				C97AC2601DD03F590096FE97 /* Assets.xcassets in Resources */,
 				C9B5C58F1DD2EC6A001EE244 /* Infrastructure.storyboard in Resources */,
 				C9E4077D1DE251E0004456CA /* SleepSynopsisView.xib in Resources */,
+				608E5C181DE2A9C3007E2B1F /* AlarmOn.storyboard in Resources */,
 				C982B8241DDC59780098F170 /* WakeUpDayListItem.xib in Resources */,
 				C9B5C5921DD2ED15001EE244 /* Alexa.storyboard in Resources */,
 				C982B8201DDC43280098F170 /* WakeUpClockView.xib in Resources */,
@@ -397,7 +418,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				608E5C1E1DE2B6B9007E2B1F /* CircularView.swift in Sources */,
 				C9D0E4941DE1757E000B242A /* ExtUIImageView.swift in Sources */,
+				608E5C1C1DE2ABE4007E2B1F /* AlarmOnViewController.swift in Sources */,
 				C9D0E4901DE13758000B242A /* DayCheckmarkView.swift in Sources */,
 				C9D0E49A1DE19B33000B242A /* BaseNatureViewController.swift in Sources */,
 				C982B8261DDC5AD90098F170 /* WakeUpDayListItem.swift in Sources */,
@@ -408,6 +431,7 @@
 				C9800B111DE1B4A00007F985 /* SleepViewController.swift in Sources */,
 				C982B8221DDC4EE00098F170 /* WakeUpClockView.swift in Sources */,
 				9B13DC861DE24A5E007A78F1 /* AlarmSchedule.swift in Sources */,
+				608E5C161DE2A663007E2B1F /* AlarmObject.swift in Sources */,
 				C9B5C5941DD2EDE7001EE244 /* MainViewController.swift in Sources */,
 				C97AC25B1DD03F590096FE97 /* MattLoginViewController.swift in Sources */,
 				C9D0E49C1DE1AB21000B242A /* SleepContainerViewController.swift in Sources */,
@@ -543,7 +567,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Ambiance/Ambiance.entitlements;
-				DEVELOPMENT_TEAM = KM86JAFSYM;
+				DEVELOPMENT_TEAM = EDU9NG376Z;
 				INFOPLIST_FILE = Ambiance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thedreamteam.Ambiance;
@@ -558,7 +582,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Ambiance/Ambiance.entitlements;
-				DEVELOPMENT_TEAM = KM86JAFSYM;
+				DEVELOPMENT_TEAM = EDU9NG376Z;
 				INFOPLIST_FILE = Ambiance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thedreamteam.Ambiance;
