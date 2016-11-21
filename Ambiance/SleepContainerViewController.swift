@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SleepContainerViewController: BaseNatureViewController {
+class SleepContainerViewController: BaseNatureViewController, SleepViewControllerDelegate, SleepConfigureViewControllerDelegate {
 
     @IBOutlet var contentContainer: UIView!
     @IBOutlet var contentTopConstraint: NSLayoutConstraint!
@@ -20,7 +20,9 @@ class SleepContainerViewController: BaseNatureViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        installWakeUpViewController()
+        installSleepViewController()
+        
+        super.blurStyle = UIBlurEffectStyle.light
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,12 +45,28 @@ class SleepContainerViewController: BaseNatureViewController {
     override func getModalTopConstraint() -> NSLayoutConstraint! {
         return modalTopConstraint
     }
+    
+    func showSleepConfiguration() {
+        NSLog("showSleepConfiguration()")
+        
+        let sleepStoryboard = UIStoryboard(name: "Sleep", bundle: nil)
+        let sleepConfigurationVc = sleepStoryboard.instantiateViewController(withIdentifier: "sleep_configure") as! SleepConfigureViewController
+        
+        sleepConfigurationVc.delegate = self
+        
+        setModal(vc: sleepConfigurationVc)
+        displayModal()
+    }
+    
+    func doneWithSleepConfiguration() {
+        closeModal()
+    }
 
-    private func installWakeUpViewController() {
+    private func installSleepViewController() {
         let sleepStoryboard = UIStoryboard(name: "Sleep", bundle: nil)
         let sleepVc = sleepStoryboard.instantiateViewController(withIdentifier: "sleep_display") as! UINavigationController
         
-//        (sleepVc.topViewController as! SleepViewController).delegate = self
+        (sleepVc.topViewController as! SleepViewController).delegate = self
         
         setContent(vc: sleepVc)
     }
