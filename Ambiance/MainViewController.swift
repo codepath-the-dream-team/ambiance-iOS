@@ -41,8 +41,7 @@ class MainViewController: UIViewController, UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         let index = tabbarView.items?.index(of: item)!
         if (0 == index) {
-            //showWakeUp()
-            showAlarmOn()
+            showWakeUp()
         }
         if (1 == index) {
             showSleep()
