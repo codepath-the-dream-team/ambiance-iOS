@@ -12,18 +12,42 @@ class WakeUpDayListItem: UIView {
 
     @IBOutlet var dayNameLabel: UILabel!
     @IBOutlet var startRiseTimeLabel: UILabel!
+    @IBOutlet var startRiseIcon: UIImageView!
     @IBOutlet var finishRiseTimeLabel: UILabel!
+    @IBOutlet var finishRiseIcon: UIImageView!
+    @IBOutlet var disabledLabel: UILabel!
     
     public var viewModel: WakeUpDayListItemViewModel? {
         didSet {
             if let viewModel = self.viewModel {
                 dayNameLabel.text = viewModel.dayName
-                startRiseTimeLabel.text = viewModel.startRiseTime
-                finishRiseTimeLabel.text = viewModel.finishRiseTime
+                
+                if (viewModel.isEnabled) {
+                    startRiseIcon.isHidden = false
+                    startRiseTimeLabel.text = viewModel.startRiseTime
+                    startRiseTimeLabel.isHidden = false
+                    
+                    finishRiseIcon.isHidden = false
+                    finishRiseTimeLabel.text = viewModel.finishRiseTime
+                    finishRiseTimeLabel.isHidden = false
+                    
+                    disabledLabel.isHidden = true
+                } else {
+                    startRiseIcon.isHidden = true
+                    startRiseTimeLabel.isHidden = true
+                    
+                    finishRiseIcon.isHidden = true
+                    finishRiseTimeLabel.isHidden = true
+                    
+                    disabledLabel.isHidden = false
+                }
             } else {
                 dayNameLabel.text = ""
+                startRiseIcon.isHidden = true
                 startRiseTimeLabel.text = ""
+                finishRiseIcon.isHidden = true
                 finishRiseTimeLabel.text = ""
+                disabledLabel.isHidden = true
             }
         }
     }
@@ -52,6 +76,7 @@ class WakeUpDayListItem: UIView {
 struct WakeUpDayListItemViewModel {
     
     public let dayName: String
+    public let isEnabled: Bool
     public let startRiseTime: String
     public let finishRiseTime: String
     

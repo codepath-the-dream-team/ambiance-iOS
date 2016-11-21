@@ -11,33 +11,36 @@ import Parse
 import ParseFacebookUtilsV4
 
 
-class MattLoginViewController: UIViewController {
-
-    var user: User?
+class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .orange
+        
+        // Try to restore a UserSession if one exists.
+        UserSession.shared.restorePreviousSessionIfPossible { (success: Bool) in
+            if success {
+                NSLog("Successfully restored existing session. Showing MainVC")
+                self.navigateToHomeScreen()
+            }
+        }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func facebookLoginTapped(_ sender: AnyObject) {
-        if Utils.notLoggedIn() {
-            print("logging in")
-            Utils.loginWithFacebook(success: { (dictionary: NSDictionary) in
-                print("dictionary is: \(dictionary)")
-                User.currentUser = User(dicitonary: dictionary)
-                self.user = User.currentUser
-                self.userLoggedIn(user: self.user!)
-                }, failure: { (error: Error) in
-                    print(error.localizedDescription)
-            })
-        } else {
-            self.user = User.currentUser
-            userLoggedIn(user: self.user!)
+        UserSession.shared.login(success: { (user: User) in
+            NSLog("LoginViewController successfully logged user in.")
+            self.navigateToHomeScreen()
+        }) { (error: Error?) in
+            NSLog("LoginViewController failed to log user in.")
         }
-        
     }
     
+    // TODO: what is this method for?
     func showAlert(errorTitle: String, errorString: String) {
         let alertController = UIAlertController(title: errorTitle, message: errorString, preferredStyle: .alert)
         
@@ -51,16 +54,10 @@ class MattLoginViewController: UIViewController {
             // optional code for what happens after the alert controller has finished presenting
         }
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
-    func userLoggedIn(user: User) {
+    func navigateToHomeScreen() {
         let mainStoryboard = UIStoryboard(name: "Infrastructure", bundle: nil)
         let mainVc = mainStoryboard.instantiateViewController(withIdentifier: "main") as! MainViewController
-        mainVc.user = user
         self.present(mainVc, animated: true, completion: nil)
     }
 }
