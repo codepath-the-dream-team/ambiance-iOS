@@ -116,6 +116,7 @@
 		608E5C141DE2A622007E2B1F /* AlarmOn */ = {
 			isa = PBXGroup;
 			children = (
+				608E5C151DE2A663007E2B1F /* AlarmObject.swift */,
 				608E5C171DE2A9C3007E2B1F /* AlarmOn.storyboard */,
 				608E5C1B1DE2ABE4007E2B1F /* AlarmOnViewController.swift */,
 				608E5C1D1DE2B6B9007E2B1F /* CircularView.swift */,
@@ -242,7 +243,6 @@
 		C9B5C58D1DD2EC56001EE244 /* Infrasture */ = {
 			isa = PBXGroup;
 			children = (
-				608E5C151DE2A663007E2B1F /* AlarmObject.swift */,
 				C9B5C58E1DD2EC6A001EE244 /* Infrastructure.storyboard */,
 				C9B5C5931DD2EDE7001EE244 /* MainViewController.swift */,
 				C9D0E4911DE16F46000B242A /* ClearNavBar.swift */,

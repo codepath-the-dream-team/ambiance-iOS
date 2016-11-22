@@ -25,30 +25,31 @@
                             <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kOC-LR-UeA" customClass="CircularView" customModule="Ambiance" customModuleProvider="target">
                                 <rect key="frame" x="67" y="269" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
                             </view>
-                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nP3-la-kmm">
-                                <rect key="frame" x="38" y="114" width="300" height="300"/>
+                            <view opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nP3-la-kmm">
+                                <rect key="frame" x="48" y="114" width="280" height="280"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THE TIME IS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKr-ON-Zci">
-                                        <rect key="frame" x="95" y="50" width="111" height="24"/>
+                                        <rect key="frame" x="84.5" y="50" width="111" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07:30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Djm-W2-YDx">
-                                        <rect key="frame" x="60" y="70" width="181" height="84"/>
+                                        <rect key="frame" x="49.5" y="70" width="181" height="84"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Day-Ly-MLj">
-                                        <rect key="frame" x="128" y="154" width="45" height="36"/>
+                                        <rect key="frame" x="117.5" y="154" width="45" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRESS &amp; HOLD TO DISMISS " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxP-FP-xEv">
-                                        <rect key="frame" x="84" y="209" width="133" height="41"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRESS &amp; HOLD TO DISMISS " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxP-FP-xEv" userLabel="PRESS &amp; HOLD TO DISMISS">
+                                        <rect key="frame" x="73.5" y="189" width="133" height="41"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="133" id="KdU-3S-LxD"/>
                                         </constraints>
@@ -61,10 +62,11 @@
                                     <constraint firstItem="KKr-ON-Zci" firstAttribute="centerX" secondItem="nP3-la-kmm" secondAttribute="centerX" id="2kR-y6-h79"/>
                                     <constraint firstItem="KKr-ON-Zci" firstAttribute="top" secondItem="nP3-la-kmm" secondAttribute="top" constant="50" id="MIY-Pp-pd9"/>
                                     <constraint firstItem="Day-Ly-MLj" firstAttribute="top" secondItem="Djm-W2-YDx" secondAttribute="bottom" id="PeS-am-N04"/>
-                                    <constraint firstAttribute="width" constant="300" id="SH5-gQ-9hv"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" priority="990" constant="280" id="TNt-BS-7gQ"/>
                                     <constraint firstAttribute="bottom" secondItem="oxP-FP-xEv" secondAttribute="bottom" constant="50" id="Wgv-K6-Rks"/>
                                     <constraint firstItem="Djm-W2-YDx" firstAttribute="centerX" secondItem="nP3-la-kmm" secondAttribute="centerX" id="gvH-kh-uwL"/>
                                     <constraint firstItem="oxP-FP-xEv" firstAttribute="centerX" secondItem="nP3-la-kmm" secondAttribute="centerX" id="hK9-8W-rxF"/>
+                                    <constraint firstAttribute="width" priority="900" constant="280" id="idR-Hs-6dh"/>
                                     <constraint firstItem="Day-Ly-MLj" firstAttribute="centerX" secondItem="nP3-la-kmm" secondAttribute="centerX" id="l8d-co-EKh"/>
                                     <constraint firstItem="Djm-W2-YDx" firstAttribute="top" secondItem="nP3-la-kmm" secondAttribute="top" constant="70" id="vN2-9k-L3r"/>
                                     <constraint firstAttribute="width" secondItem="nP3-la-kmm" secondAttribute="height" multiplier="1:1" id="wY3-ht-wU4"/>
@@ -74,8 +76,8 @@
                         <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="nP3-la-kmm" firstAttribute="centerX" secondItem="lFf-t6-c1r" secondAttribute="centerX" id="AaH-tU-kaB"/>
-                            <constraint firstItem="8Zf-W9-pJC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="nP3-la-kmm" secondAttribute="bottom" priority="999" constant="50" id="PWY-sC-3pc"/>
                             <constraint firstItem="nP3-la-kmm" firstAttribute="top" secondItem="Xbi-Cd-Vex" secondAttribute="bottom" priority="998" constant="50" id="awX-GF-jLA"/>
+                            <constraint firstItem="nP3-la-kmm" firstAttribute="top" secondItem="Xbi-Cd-Vex" secondAttribute="bottom" constant="50" id="l6P-3w-YSX"/>
                             <constraint firstItem="nP3-la-kmm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Xbi-Cd-Vex" secondAttribute="bottom" priority="999" constant="20" id="p1W-zn-fRY"/>
                         </constraints>
                     </view>

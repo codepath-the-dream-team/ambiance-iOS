@@ -72,7 +72,7 @@ class MainViewController: UIViewController, UITabBarDelegate {
     private func showAlarmOn() {
         let alarmOnStoryboard = UIStoryboard(name: "AlarmOn", bundle: nil)
         let alarmOnVc = alarmOnStoryboard.instantiateViewController(withIdentifier: "alarmOn")
-        show(screen: alarmOnVc)
+        self.present(alarmOnVc, animated: true, completion: nil)
     }
     
     private func show(screen: UIViewController) {
