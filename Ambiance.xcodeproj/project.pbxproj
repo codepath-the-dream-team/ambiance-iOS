@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		9B13DC851DE24A5E007A78F1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B13DC821DE24A5E007A78F1 /* User.swift */; };
 		9B13DC861DE24A5E007A78F1 /* AlarmSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B13DC831DE24A5E007A78F1 /* AlarmSchedule.swift */; };
+		9BB5CD8B1DE40742002C0F26 /* AccountSettingsToggleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BB5CD8A1DE40742002C0F26 /* AccountSettingsToggleView.xib */; };
+		9BB5CD8D1DE40A0A002C0F26 /* AccountContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB5CD8C1DE40A0A002C0F26 /* AccountContainerViewController.swift */; };
+		9BB5CD8F1DE40B33002C0F26 /* AccountSettingsToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB5CD8E1DE40B33002C0F26 /* AccountSettingsToggleView.swift */; };
+		9BB5CD911DE41046002C0F26 /* AccountProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BB5CD901DE41046002C0F26 /* AccountProfileView.xib */; };
+		9BB5CD931DE41078002C0F26 /* AccountProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB5CD921DE41078002C0F26 /* AccountProfileView.swift */; };
 		C94D6C311DDF0606007F3B03 /* WakeUpContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94D6C301DDF0606007F3B03 /* WakeUpContainerViewController.swift */; };
 		C97AC2591DD03F590096FE97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97AC2581DD03F590096FE97 /* AppDelegate.swift */; };
 		C97AC25B1DD03F590096FE97 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97AC25A1DD03F590096FE97 /* LoginViewController.swift */; };
@@ -52,6 +57,11 @@
 		9B13DC821DE24A5E007A78F1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9B13DC831DE24A5E007A78F1 /* AlarmSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmSchedule.swift; sourceTree = "<group>"; };
 		9B13DC881DE24AF8007A78F1 /* Ambiance.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ambiance.entitlements; sourceTree = "<group>"; };
+		9BB5CD8A1DE40742002C0F26 /* AccountSettingsToggleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountSettingsToggleView.xib; sourceTree = "<group>"; };
+		9BB5CD8C1DE40A0A002C0F26 /* AccountContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountContainerViewController.swift; sourceTree = "<group>"; };
+		9BB5CD8E1DE40B33002C0F26 /* AccountSettingsToggleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettingsToggleView.swift; sourceTree = "<group>"; };
+		9BB5CD901DE41046002C0F26 /* AccountProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountProfileView.xib; sourceTree = "<group>"; };
+		9BB5CD921DE41078002C0F26 /* AccountProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountProfileView.swift; sourceTree = "<group>"; };
 		9C98B9BDABA225AA8BDCF496 /* Pods-Ambiance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambiance.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ambiance/Pods-Ambiance.release.xcconfig"; sourceTree = "<group>"; };
 		C4A698A06B12F0E8BA7B9EFC /* Pods-Ambiance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambiance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ambiance/Pods-Ambiance.debug.xcconfig"; sourceTree = "<group>"; };
 		C94D6C301DDF0606007F3B03 /* WakeUpContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakeUpContainerViewController.swift; sourceTree = "<group>"; };
@@ -208,6 +218,11 @@
 			children = (
 				C9B5C5891DD2EBBA001EE244 /* Account.storyboard */,
 				C9B5C5951DD2F3B8001EE244 /* AccountViewController.swift */,
+				9BB5CD8C1DE40A0A002C0F26 /* AccountContainerViewController.swift */,
+				9BB5CD8A1DE40742002C0F26 /* AccountSettingsToggleView.xib */,
+				9BB5CD8E1DE40B33002C0F26 /* AccountSettingsToggleView.swift */,
+				9BB5CD901DE41046002C0F26 /* AccountProfileView.xib */,
+				9BB5CD921DE41078002C0F26 /* AccountProfileView.swift */,
 			);
 			name = Account;
 			sourceTree = "<group>";
@@ -311,11 +326,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9B5C5861DD2EB9F001EE244 /* WakeUp.storyboard in Resources */,
+				9BB5CD911DE41046002C0F26 /* AccountProfileView.xib in Resources */,
 				C9B5C58C1DD2EBC4001EE244 /* SleepReport.storyboard in Resources */,
 				C97AC2631DD03F590096FE97 /* LaunchScreen.storyboard in Resources */,
 				C9D0E48E1DE13660000B242A /* DayCheckmarkView.xib in Resources */,
 				C97AC2601DD03F590096FE97 /* Assets.xcassets in Resources */,
 				C9B5C58F1DD2EC6A001EE244 /* Infrastructure.storyboard in Resources */,
+				9BB5CD8B1DE40742002C0F26 /* AccountSettingsToggleView.xib in Resources */,
 				C9E4077D1DE251E0004456CA /* SleepSynopsisView.xib in Resources */,
 				C982B8241DDC59780098F170 /* WakeUpDayListItem.xib in Resources */,
 				C9B5C5921DD2ED15001EE244 /* Alexa.storyboard in Resources */,
@@ -389,6 +406,7 @@
 				C982B8281DDC62920098F170 /* WakeUpViewController.swift in Sources */,
 				C9800B111DE1B4A00007F985 /* SleepViewController.swift in Sources */,
 				C982B8221DDC4EE00098F170 /* WakeUpClockView.swift in Sources */,
+				9BB5CD931DE41078002C0F26 /* AccountProfileView.swift in Sources */,
 				9B13DC861DE24A5E007A78F1 /* AlarmSchedule.swift in Sources */,
 				C9E407851DE2EA17004456CA /* UserSession.swift in Sources */,
 				C9B5C5941DD2EDE7001EE244 /* MainViewController.swift in Sources */,
@@ -400,9 +418,11 @@
 				C9B5C5961DD2F3B8001EE244 /* AccountViewController.swift in Sources */,
 				C9D0E4921DE16F46000B242A /* ClearNavBar.swift in Sources */,
 				C9E4077F1DE25AEC004456CA /* SleepSynopsisView.swift in Sources */,
+				9BB5CD8F1DE40B33002C0F26 /* AccountSettingsToggleView.swift in Sources */,
 				C9D0E48A1DE12676000B242A /* WakeUpConfigureViewController.swift in Sources */,
 				C97AC2591DD03F590096FE97 /* AppDelegate.swift in Sources */,
 				C9D0E4961DE183F7000B242A /* Theme.swift in Sources */,
+				9BB5CD8D1DE40A0A002C0F26 /* AccountContainerViewController.swift in Sources */,
 				C9D0E4981DE18498000B242A /* ExtUIColor.swift in Sources */,
 				9B13DC851DE24A5E007A78F1 /* User.swift in Sources */,
 			);

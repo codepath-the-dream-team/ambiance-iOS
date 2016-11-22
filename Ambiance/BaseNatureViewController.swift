@@ -23,7 +23,9 @@ class BaseNatureViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         prepareBlurEffect()
-        getModalTopConstraint().constant = self.view.bounds.height
+        if getModalTopConstraint() != nil {
+            getModalTopConstraint().constant = self.view.bounds.height
+        }
     }
 
     override func didReceiveMemoryWarning() {
