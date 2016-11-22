@@ -10,6 +10,10 @@ import UIKit
 
 class AccountViewController: UIViewController {
 
+    @IBOutlet weak var settingsView1: UIView!
+    @IBOutlet weak var settingsView2: UIView!
+    @IBOutlet weak var settingsView3: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
