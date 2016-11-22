@@ -13,6 +13,7 @@ class MainViewController: UIViewController, UITabBarDelegate {
     @IBOutlet var viewContainer: UIView!
     @IBOutlet var tabbarView: UITabBar!
     private var activeScreen: UIViewController!
+    private var alarmScheduler: AlarmScheduler!
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         get {
@@ -31,6 +32,8 @@ class MainViewController: UIViewController, UITabBarDelegate {
         print("\(user.email)")
         print("\(user.profileImageUrl!)")
         tabbarView.delegate = self
+        
+        self.alarmScheduler = AlarmScheduler(vc: self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,11 +72,6 @@ class MainViewController: UIViewController, UITabBarDelegate {
         show(screen: accountVc)
     }
     
-    private func showAlarmOn() {
-        let alarmOnStoryboard = UIStoryboard(name: "AlarmOn", bundle: nil)
-        let alarmOnVc = alarmOnStoryboard.instantiateViewController(withIdentifier: "alarmOn")
-        self.present(alarmOnVc, animated: true, completion: nil)
-    }
     
     private func show(screen: UIViewController) {
         if nil != activeScreen {

@@ -113,7 +113,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ovR-k4-uCA">
             <objects>
-                <navigationController storyboardIdentifier="alarmOn" automaticallyAdjustsScrollViewInsets="NO" id="OCm-5E-Opc" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="AlarmOnNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OCm-5E-Opc" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="H0J-kT-UEX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

@@ -11,6 +11,7 @@
 		608E5C181DE2A9C3007E2B1F /* AlarmOn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 608E5C171DE2A9C3007E2B1F /* AlarmOn.storyboard */; };
 		608E5C1C1DE2ABE4007E2B1F /* AlarmOnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608E5C1B1DE2ABE4007E2B1F /* AlarmOnViewController.swift */; };
 		608E5C1E1DE2B6B9007E2B1F /* CircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608E5C1D1DE2B6B9007E2B1F /* CircularView.swift */; };
+		608E5C201DE4539E007E2B1F /* AlarmScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608E5C1F1DE4539E007E2B1F /* AlarmScheduler.swift */; };
 		9B13DC851DE24A5E007A78F1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B13DC821DE24A5E007A78F1 /* User.swift */; };
 		9B13DC861DE24A5E007A78F1 /* AlarmSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B13DC831DE24A5E007A78F1 /* AlarmSchedule.swift */; };
 		C94D6C311DDF0606007F3B03 /* WakeUpContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94D6C301DDF0606007F3B03 /* WakeUpContainerViewController.swift */; };
@@ -56,6 +57,7 @@
 		608E5C171DE2A9C3007E2B1F /* AlarmOn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AlarmOn.storyboard; sourceTree = "<group>"; };
 		608E5C1B1DE2ABE4007E2B1F /* AlarmOnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmOnViewController.swift; sourceTree = "<group>"; };
 		608E5C1D1DE2B6B9007E2B1F /* CircularView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularView.swift; sourceTree = "<group>"; };
+		608E5C1F1DE4539E007E2B1F /* AlarmScheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmScheduler.swift; sourceTree = "<group>"; };
 		68B006894DF7C56E34A82B58 /* Pods_Ambiance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ambiance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B13DC821DE24A5E007A78F1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9B13DC831DE24A5E007A78F1 /* AlarmSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmSchedule.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				608E5C171DE2A9C3007E2B1F /* AlarmOn.storyboard */,
 				608E5C1B1DE2ABE4007E2B1F /* AlarmOnViewController.swift */,
 				608E5C1D1DE2B6B9007E2B1F /* CircularView.swift */,
+				608E5C1F1DE4539E007E2B1F /* AlarmScheduler.swift */,
 			);
 			name = AlarmOn;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				C9D0E4921DE16F46000B242A /* ClearNavBar.swift in Sources */,
 				C9E4077F1DE25AEC004456CA /* SleepSynopsisView.swift in Sources */,
 				C9D0E48A1DE12676000B242A /* WakeUpConfigureViewController.swift in Sources */,
+				608E5C201DE4539E007E2B1F /* AlarmScheduler.swift in Sources */,
 				C97AC2591DD03F590096FE97 /* AppDelegate.swift in Sources */,
 				C9D0E4961DE183F7000B242A /* Theme.swift in Sources */,
 				C9D0E4981DE18498000B242A /* ExtUIColor.swift in Sources */,
