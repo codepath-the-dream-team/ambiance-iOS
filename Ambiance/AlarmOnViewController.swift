@@ -10,23 +10,26 @@ import UIKit
 
 class AlarmOnViewController: UIViewController, ClearNavBar {
 
-    @IBOutlet weak var circularView: UIView!
+    @IBOutlet weak var circularView: CircularView!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var amPmLabel: UILabel!
+    @IBOutlet weak var buttonContentView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.addCircle()
+        clearBackground(forNavBar: navigationController!.navigationBar)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.circularView.frame = self.buttonContentView.frame
+        self.circularView.center = self.buttonContentView.center
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    private func addCircle() {
-        
     }
     
 

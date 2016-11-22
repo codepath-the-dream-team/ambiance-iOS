@@ -13,7 +13,7 @@
         <!--Alarm On View Controller-->
         <scene sceneID="6hY-5d-xtU">
             <objects>
-                <viewController storyboardIdentifier="alarmOn" id="Ww7-mH-tBs" customClass="AlarmOnViewController" customModule="Ambiance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ww7-mH-tBs" customClass="AlarmOnViewController" customModule="Ambiance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Xbi-Cd-Vex"/>
                         <viewControllerLayoutGuide type="bottom" id="8Zf-W9-pJC"/>
@@ -22,7 +22,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nP3-la-kmm">
+                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kOC-LR-UeA" customClass="CircularView" customModule="Ambiance" customModuleProvider="target">
+                                <rect key="frame" x="67" y="269" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </view>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nP3-la-kmm">
                                 <rect key="frame" x="38" y="114" width="300" height="300"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THE TIME IS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKr-ON-Zci">
@@ -67,7 +71,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="nP3-la-kmm" firstAttribute="centerX" secondItem="lFf-t6-c1r" secondAttribute="centerX" id="AaH-tU-kaB"/>
                             <constraint firstItem="8Zf-W9-pJC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="nP3-la-kmm" secondAttribute="bottom" priority="999" constant="50" id="PWY-sC-3pc"/>
@@ -95,7 +99,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="amPmLabel" destination="Day-Ly-MLj" id="kYN-Eq-ms8"/>
-                        <outlet property="circularView" destination="nP3-la-kmm" id="7lU-hU-S4X"/>
+                        <outlet property="buttonContentView" destination="nP3-la-kmm" id="vR0-sS-eGw"/>
+                        <outlet property="circularView" destination="kOC-LR-UeA" id="gHn-8h-iRX"/>
                         <outlet property="timeLabel" destination="Djm-W2-YDx" id="yAp-P6-F9t"/>
                     </connections>
                 </viewController>
@@ -106,7 +111,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ovR-k4-uCA">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OCm-5E-Opc" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="alarmOn" automaticallyAdjustsScrollViewInsets="NO" id="OCm-5E-Opc" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="H0J-kT-UEX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
