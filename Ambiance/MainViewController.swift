@@ -34,6 +34,8 @@ class MainViewController: UIViewController, UITabBarDelegate {
         tabbarView.delegate = self
         
         self.alarmScheduler = AlarmScheduler(vc: self)
+        let alarmScheduledDate = self.alarmScheduler.scheduleNextAlarm()
+        print("next alarm scheduled at \(alarmScheduledDate)")
     }
 
     override func didReceiveMemoryWarning() {

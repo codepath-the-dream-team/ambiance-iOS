@@ -99,10 +99,12 @@ class DayAlarm: NSObject {
     
     public let alarmTimeInMinutes: Int
     public let alarmRiseDurationInMinutes: Int
+    public let alarmStartTimeInMinutes: Int // note, may be negative
     
     init(alarmTimeInMinutes: Int, alarmRiseDurationInMinutes: Int) {
         self.alarmTimeInMinutes = alarmTimeInMinutes
         self.alarmRiseDurationInMinutes = alarmRiseDurationInMinutes
+        self.alarmStartTimeInMinutes = self.alarmTimeInMinutes - self.alarmRiseDurationInMinutes
     }
     
     init?(dictionary: [String : Any]) {
@@ -112,6 +114,7 @@ class DayAlarm: NSObject {
         if let alarmTime = alarmTimeInMinutes, let alarmRise = alarmRiseDurationInMinutes {
             self.alarmTimeInMinutes = alarmTime
             self.alarmRiseDurationInMinutes = alarmRise
+            self.alarmStartTimeInMinutes = self.alarmTimeInMinutes - self.alarmRiseDurationInMinutes
         } else {
             return nil
         }

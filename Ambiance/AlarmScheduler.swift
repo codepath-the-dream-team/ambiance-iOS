@@ -21,24 +21,31 @@ class AlarmScheduler: NSObject {
     
     init(vc: UIViewController) {
         super.init()
-
         self.mainVc = vc
-        // FIXME - need to come from Parse
+        // FIXME - sound file location needs to be set from Parse        
         self.alarmObject = AlarmObject(itemToPlay: URL(string:
             "https://dream-team-bucket.s3-us-west-1.amazonaws.com/music/morning-forest.mp3")!)
         self.alarmObject.addObserver(self, forKeyPath: "status", options: [.new], context: nil)
-        self.scheduleNextAlarm()
     }
     
-    func scheduleNextAlarm() {
+    func scheduleNextAlarm() -> Date? {
         let nextAlarm = self.getNextDayAlarm(startingDate: Date())
         if let nextAlarm = nextAlarm {
-            self.alarmObject.setVolumeIncreaseFeature(toMaxVolumeInMinutes: nextAlarm.alarmRiseDurationInMinutes, maxVolume: 1.0)
+            // FIXME - volume needs to come from Parse
+            self.alarmObject.setVolumeIncreaseFeature(toMaxVolumeInMinutes: nextAlarm.1.alarmRiseDurationInMinutes, maxVolume: 1.0)
             self.alarmObject.setVolume(0.1)
-            
-            // Schedule alarm - FIXME need to convert nextAlarm to Date object.
-            //self.alarmObject?.scheduleAt(when: NSDate(timeIntervalSinceNow: 20) as Date)
+            self.alarmObject.scheduleAt(when: nextAlarm.0)
+            return nextAlarm.0
         }
+        // Just for testing, start alarm in 20 seconds
+        /**
+        self.alarmObject.setVolumeIncreaseFeature(toMaxVolumeInMinutes: 3, maxVolume: 1.0)
+        self.alarmObject.setVolume(0.1)
+        let testDate = Date(timeIntervalSinceNow: TimeInterval(20));
+        self.alarmObject.scheduleAt(when: testDate)
+        return testDate
+        **/
+        return nil
     }
     
     // Observe for the Alarm status change.
@@ -48,14 +55,13 @@ class AlarmScheduler: NSObject {
                 if (alarm == self.alarmObject) {
                     if alarm.status == AlarmObject.Status.started {
                         self.showAlarmOn(self.alarmObject)
-                    } else if alarm.status == AlarmObject.Status.stopped {
-                        self.scheduleNextAlarm()
                     }
                 }
             }
         }
     }
     
+    // Put up AlarmOn VC with modal transition
     func showAlarmOn(_ alarm: AlarmObject) {
         let alarmOnStoryboard = UIStoryboard(name: "AlarmOn", bundle: nil)
         let alarmOnVcNavigation = alarmOnStoryboard.instantiateViewController(withIdentifier: "AlarmOnNavigationController") as! UINavigationController
@@ -63,38 +69,66 @@ class AlarmScheduler: NSObject {
         alarmOnVc.alarmObject = alarm
         self.mainVc?.present(alarmOnVcNavigation, animated: true, completion: nil)
     }
-
-    func getNextDayAlarm(startingDate: Date) -> DayAlarm? {
+    
+    // Inspect the current user's AlarmSchedule, search for the next alarm that is scheduled,
+    // and return it as an (alarm start Date, DayAlarm) pair, or nil if not found.
+    func getNextDayAlarm(startingDate: Date) -> (Date, DayAlarm)? {
         let alarmSchedule = UserSession.shared.loggedInUser?.alarmSchedule
         if let alarmSchedule = alarmSchedule {
+            
+            // First check for the alarm that happens at startingDate.
+            // Return it if it's in the future
             var dayIndex = self.getDayOfWeek(startingDate)! - 1
             let dayAlarm = alarmSchedule.getAlarm(for: self.dayOfTheWeek[dayIndex])
             if let dayAlarm = dayAlarm {
-                if (self.isBefore(date: startingDate, dayAlarm: dayAlarm)) {
-                    return dayAlarm
+                let diffInMinutes = self.getDiffInMinutes(fromDate: startingDate, toAlarm: dayAlarm)
+                if (diffInMinutes > 0) {
+                    return (
+                        startingDate.addingTimeInterval(TimeInterval(diffInMinutes * 60)),
+                        dayAlarm)
                 }
             }
+            
+            // Alarm for the startingDate is already done or missing.  Iterate through the week and get
+            // the next DayAlarm to be scheduled
+            var topOfTheDay = self.calendar.startOfDay(for: startingDate)
+            var dayComponent = DateComponents()
+            dayComponent.day = 1
             
             var i = 0;
             while (i < self.dayOfTheWeek.count) {
                 dayIndex = (dayIndex+1 == self.dayOfTheWeek.count) ? 0 : dayIndex + 1
+                topOfTheDay = self.calendar.date(byAdding: dayComponent, to: topOfTheDay)!
                 let dayAlarm = alarmSchedule.getAlarm(for: self.dayOfTheWeek[dayIndex])
                 if let dayAlarm = dayAlarm {
-                    return dayAlarm
+                    return (
+                        topOfTheDay.addingTimeInterval(TimeInterval(dayAlarm.alarmStartTimeInMinutes * 60)),
+                        dayAlarm)
                 }
                 i = i+1
             }
         }
+        
+        // No alarm schedule found for the entire week.
         return nil
     }
     
-    // Returns true if date's hour/minutes is less than the dayAlarm's minutes, false otherwise.
-    func isBefore(date: Date, dayAlarm: DayAlarm) -> Bool {
-        let hour = self.calendar.component(.hour, from: date)
-        let minute = self.calendar.component(.minute, from: date)
-        return (hour * 60 + minute) < dayAlarm.alarmTimeInMinutes
+    // Returns true if date's hour/minutes is less than the dayAlarm's ambiant start time, false otherwise.
+    private func isBefore(fromDate: Date, toAlarm: DayAlarm) -> Bool {
+        let hour = self.calendar.component(.hour, from: fromDate)
+        let minute = self.calendar.component(.minute, from: fromDate)
+        return (hour * 60 + minute) < toAlarm.alarmStartTimeInMinutes
     }
     
+    // Returns the difference in minutes between the given date/s hour/minutes and dayAlarm's minutes
+    // by subtracting date's hour/minutes from the dayAlarm's ambient sound start time.
+    private func getDiffInMinutes(fromDate: Date, toAlarm: DayAlarm) -> Int {
+        let hour = self.calendar.component(.hour, from: fromDate)
+        let minute = self.calendar.component(.minute, from: fromDate)
+        return toAlarm.alarmStartTimeInMinutes - (hour * 60 + minute)
+    }
+    
+    // Returns the weekday of the given Date, in [1-7], in which 1 is Sunday and 7 is Saturday.
     func getDayOfWeek(_ date: Date) -> Int? {
         let weekDay = self.calendar.component(.weekday, from: date)
         return weekDay
