@@ -13,6 +13,7 @@ class MainViewController: UIViewController, UITabBarDelegate {
     @IBOutlet var viewContainer: UIView!
     @IBOutlet var tabbarView: UITabBar!
     private var activeScreen: UIViewController!
+    private var alarmScheduler: AlarmScheduler!
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         get {
@@ -31,6 +32,10 @@ class MainViewController: UIViewController, UITabBarDelegate {
         print("\(user.email)")
         print("\(user.profileImageUrl!)")
         tabbarView.delegate = self
+        
+        self.alarmScheduler = AlarmScheduler(vc: self)
+        let alarmScheduledDate = self.alarmScheduler.scheduleNextAlarm()
+        print("next alarm scheduled at \(alarmScheduledDate)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,6 +73,7 @@ class MainViewController: UIViewController, UITabBarDelegate {
         let accountVc = accountStoryboard.instantiateViewController(withIdentifier: "account")
         show(screen: accountVc)
     }
+    
     
     private func show(screen: UIViewController) {
         if nil != activeScreen {
