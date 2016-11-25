@@ -19,9 +19,8 @@ class AlarmScheduler: NSObject {
     let calendar = Calendar(identifier: .gregorian)
     var alarmObject: AlarmObject!
     
-    init(vc: UIViewController) {
+    override init() {
         super.init()
-        self.mainVc = vc
         // FIXME - sound file location needs to be set from Parse        
         self.alarmObject = AlarmObject(itemToPlay: URL(string:
             "https://dream-team-bucket.s3-us-west-1.amazonaws.com/music/morning-forest.mp3")!)
@@ -63,11 +62,30 @@ class AlarmScheduler: NSObject {
     
     // Put up AlarmOn VC with modal transition
     func showAlarmOn(_ alarm: AlarmObject) {
-        let alarmOnStoryboard = UIStoryboard(name: "AlarmOn", bundle: nil)
-        let alarmOnVcNavigation = alarmOnStoryboard.instantiateViewController(withIdentifier: "AlarmOnNavigationController") as! UINavigationController
-        let alarmOnVc = alarmOnVcNavigation.viewControllers[0] as! AlarmOnViewController
-        alarmOnVc.alarmObject = alarm
-        self.mainVc?.present(alarmOnVcNavigation, animated: true, completion: nil)
+        let mainVc = findMainVc()
+        if let mainVc = mainVc {
+            let alarmOnStoryboard = UIStoryboard(name: "AlarmOn", bundle: nil)
+            let alarmOnVcNavigation = alarmOnStoryboard.instantiateViewController(withIdentifier: "AlarmOnNavigationController") as! UINavigationController
+            let alarmOnVc = alarmOnVcNavigation.viewControllers[0] as! AlarmOnViewController
+            alarmOnVc.alarmObject = alarm
+            mainVc.present(alarmOnVcNavigation, animated: true, completion: nil)
+        }
+    }
+    
+    func findMainVc() -> MainViewController? {
+        let appDelegate  = UIApplication.shared.delegate
+        let viewController = appDelegate?.window??.rootViewController
+        if viewController is MainViewController {
+            return viewController as? MainViewController
+        } else {
+            let childVcs = viewController?.childViewControllers
+            for childVc in childVcs! {
+                if childVc is MainViewController {
+                    return childVc as? MainViewController
+                }
+            }
+        }
+        return nil
     }
     
     // Inspect the current user's AlarmSchedule, search for the next alarm that is scheduled,

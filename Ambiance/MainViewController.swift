@@ -33,7 +33,7 @@ class MainViewController: UIViewController, UITabBarDelegate {
         print("\(user.profileImageUrl!)")
         tabbarView.delegate = self
         
-        self.alarmScheduler = AlarmScheduler(vc: self)
+        self.alarmScheduler = AlarmScheduler()
         let alarmScheduledDate = self.alarmScheduler.scheduleNextAlarm()
         print("next alarm scheduled at \(alarmScheduledDate)")
     }
