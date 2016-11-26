@@ -49,6 +49,7 @@
 		C9E407811DE2625E004456CA /* SleepConfigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E407801DE2625E004456CA /* SleepConfigureViewController.swift */; };
 		C9E407831DE2796B004456CA /* WakeUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E407821DE2796B004456CA /* WakeUpPresenter.swift */; };
 		C9E407851DE2EA17004456CA /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E407841DE2EA17004456CA /* UserSession.swift */; };
+		C9ED9D5F1DE91E790031EB31 /* AlarmConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED9D5E1DE91E790031EB31 /* AlarmConfiguration.swift */; };
 		F524C510411A7BB8DA07F49C /* Pods_Ambiance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B006894DF7C56E34A82B58 /* Pods_Ambiance.framework */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +102,7 @@
 		C9E407801DE2625E004456CA /* SleepConfigureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepConfigureViewController.swift; sourceTree = "<group>"; };
 		C9E407821DE2796B004456CA /* WakeUpPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakeUpPresenter.swift; sourceTree = "<group>"; };
 		C9E407841DE2EA17004456CA /* UserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
+		C9ED9D5E1DE91E790031EB31 /* AlarmConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 				9B13DC821DE24A5E007A78F1 /* User.swift */,
 				9B13DC831DE24A5E007A78F1 /* AlarmSchedule.swift */,
 				C9E407841DE2EA17004456CA /* UserSession.swift */,
+				C9ED9D5E1DE91E790031EB31 /* AlarmConfiguration.swift */,
 			);
 			name = UserSession;
 			sourceTree = "<group>";
@@ -300,7 +303,7 @@
 				TargetAttributes = {
 					C97AC2541DD03F590096FE97 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = EDU9NG376Z;
+						DevelopmentTeam = KM86JAFSYM;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -417,6 +420,7 @@
 				C982B8221DDC4EE00098F170 /* WakeUpClockView.swift in Sources */,
 				9B13DC861DE24A5E007A78F1 /* AlarmSchedule.swift in Sources */,
 				608E5C161DE2A663007E2B1F /* AlarmObject.swift in Sources */,
+				C9ED9D5F1DE91E790031EB31 /* AlarmConfiguration.swift in Sources */,
 				C9E407851DE2EA17004456CA /* UserSession.swift in Sources */,
 				C9B5C5941DD2EDE7001EE244 /* MainViewController.swift in Sources */,
 				C97AC25B1DD03F590096FE97 /* LoginViewController.swift in Sources */,
@@ -555,7 +559,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Ambiance/Ambiance.entitlements;
-				DEVELOPMENT_TEAM = EDU9NG376Z;
+				DEVELOPMENT_TEAM = KM86JAFSYM;
 				INFOPLIST_FILE = Ambiance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thedreamteam.Ambiance;
@@ -570,7 +574,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Ambiance/Ambiance.entitlements;
-				DEVELOPMENT_TEAM = EDU9NG376Z;
+				DEVELOPMENT_TEAM = KM86JAFSYM;
 				INFOPLIST_FILE = Ambiance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thedreamteam.Ambiance;

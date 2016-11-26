@@ -62,35 +62,35 @@ class UserSession {
                     NSLog("Successfully updated PFUser info. Now loading user's Alarm Schedule from Parse.")
                     // We retrieved the latest PFUser info. Now retrieve the
                     // Parse User's Alarm Schedule.
-                    let alarmSchedulePfObject = parseUser.value(forKey: "alarmSchedule") as! PFObject?
-                    
-                    if alarmSchedulePfObject != nil {
-                        (parseUser.value(forKey: "alarmSchedule") as! PFObject).fetchIfNeededInBackground(block: { (schedule: PFObject?, error: Error?) in
-                            if nil == error {
-                                NSLog("Successfully loaded Alarm Schedule from Parse. Creating session.")
-                                self.startSession(withParseUser: parseUser, success: { (user: User) in
-                                    NSLog("UserSession restored.")
-                                    completion(true)
-                                }, failure: { (error: Error?) in
-                                    NSLog("Failed to recreate UserSession.")
+                    self.loadAlarmSchedule(forParseUser: parseUser, onComplete: { (success: Bool) in
+                        NSLog("Was User Schedule retrieved? \(success)")
+                        if success {
+                            // Successfully retrieved User Schedule. Now fill in any
+                            // other missing pieces.
+                            self.fillMissingUserData(forParseUser: parseUser, onComplete: { (wasSuccess: Bool) in
+                                if wasSuccess {
+                                    // Successfully filled missing pieces. Start Session.
+                                    self.startSession(withParseUser: parseUser, success: { (user: User) in
+                                            // User session has started.
+                                            completion(true)
+                                        }, failure: { (error: Error?) in
+                                            // Failed to start user session.
+                                            completion(false)
+                                    })
+                                } else {
+                                    // Failed to fill in missing pieces. Cannot start
+                                    // Session. Forcibly logout user.
+                                    PFUser.logOut()
                                     completion(false)
-                                })
-                            } else {
-                                // Failed to retrieve Alarm Schedule. Forcibly
-                                // log out the user.
-                                NSLog("Failed to load the User's Alarm Schedule: \(error)")
-                                PFUser.logOut()
-                                completion(false)
-                            }
-                        })
-                    } else {
-                        // For some reason the Parse User doesn't have an
-                        // alarmSchedule property. This is probably corrupt data.
-                        // Forcibly logout the user.
-                        NSLog("Parse User didn't have alarmSchedule. Probably corrupt data. Failed to recreate UserSession.")
-                        PFUser.logOut()
-                        completion(false)
-                    }
+                                }
+                            })
+                        } else {
+                            // Failed to retireve User Schedule. Cannot start Session.
+                            // Forcibly logout user.
+                            PFUser.logOut()
+                            completion(false)
+                        }
+                    })
                 } else {
                     // We failed to retrieve the latest PFUser info. Forcibly
                     // log the user out so they can try again.
@@ -188,6 +188,13 @@ class UserSession {
             parseUser.setObject(createDefaultAlarmSchedule(), forKey: "alarmSchedule")
         }
         
+        // If the User doesn't already have an Alarm Configuration, create
+        // a default configuration and set it.
+        if (nil == parseUser.value(forKey: "alarmConfiguration")) {
+            NSLog("Creating a default Alarm Configuration for new User")
+            parseUser.setValue(createDefaultAlarmConfiguration(), forKey: "alarmConfiguration")
+        }
+        
         NSLog("Saving User to Parse.")
         parseUser.saveInBackground { (result: Bool, error: Error?) in
             if result {
@@ -196,6 +203,73 @@ class UserSession {
             } else {
                 NSLog("Failed to save Parse User. Error: \(error?.localizedDescription)")
             }
+        }
+    }
+    
+    private func fillMissingUserData(forParseUser parseUser: PFUser, onComplete: @escaping (Bool) -> ()) {
+        var didFillMissingData = false
+        
+        // If the User doesn't already have an Alarm Schedule, create
+        // a default schedule and set it.
+        if (nil == parseUser.object(forKey: "alarmSchedule")) {
+            NSLog("Creating a default Alarm Schedule for existing User")
+            parseUser.setObject(createDefaultAlarmSchedule(), forKey: "alarmSchedule")
+            didFillMissingData = true
+        }
+        
+        // If the User doesn't already have an Alarm Configuration, create
+        // a default configuration and set it.
+        if (nil == parseUser.value(forKey: "alarmConfiguration")) {
+            NSLog("Creating a default Alarm Configuration for existing User")
+            parseUser.setValue(createDefaultAlarmConfiguration(), forKey: "alarmConfiguration")
+            didFillMissingData = true
+        }
+        
+        if didFillMissingData {
+            NSLog("Saving existing User with new data to Parse.")
+            parseUser.saveInBackground { (wasSuccess: Bool, error: Error?) in
+                if (wasSuccess) {
+                    NSLog("Successfully saved User to Parse")
+                    onComplete(true)
+                } else {
+                    NSLog("Failed to save Parse User. Error: \(error?.localizedDescription)")
+                    onComplete(false)
+                }
+            }
+        } else {
+            // Nothing to fill in. Report immediate success.
+            NSLog("No missing data to fill. Reporting immediate success.")
+            onComplete(true)
+        }
+    }
+    
+    private func loadAlarmSchedule(forParseUser parseUser: PFUser, onComplete: @escaping (Bool) ->()) {
+        // Retrieve the Parse User's Alarm Schedule.
+        let alarmSchedulePfObject = parseUser.value(forKey: "alarmSchedule") as! PFObject?
+        
+        if alarmSchedulePfObject != nil {
+            (parseUser.value(forKey: "alarmSchedule") as! PFObject).fetchIfNeededInBackground(block: { (schedule: PFObject?, error: Error?) in
+                if nil == error {
+                    NSLog("Successfully loaded Alarm Schedule from Parse.")
+                    onComplete(true)
+//                    self.startSession(withParseUser: parseUser, success: { (user: User) in
+//                        NSLog("UserSession restored.")
+//                        onComplete(true)
+//                        }, failure: { (error: Error?) in
+//                            NSLog("Failed to recreate UserSession.")
+//                            onComplete(false)
+//                    })
+                } else {
+                    // Failed to retrieve Alarm Schedule.
+                    NSLog("Failed to load the User's Alarm Schedule: \(error)")
+                    onComplete(false)
+                }
+            })
+        } else {
+            // For some reason the Parse User doesn't have an
+            // alarmSchedule property. This is probably corrupt data.
+            NSLog("Parse User didn't have alarmSchedule. Probably corrupt data. Failed to recreate UserSession.")
+            onComplete(false)
         }
     }
     
@@ -236,5 +310,12 @@ class UserSession {
         NSLog("Serializing default AlarmSchedule: \(alarmSchedule.serializeToDictionary())")
         let parseAlarmSchedule = PFObject(className: "AlarmSchedule", dictionary: alarmSchedule.serializeToDictionary())
         return parseAlarmSchedule
+    }
+    
+    private func createDefaultAlarmConfiguration() -> [String : AnyObject] {
+        let alarmConfiguration = AlarmConfiguration()
+        NSLog("Alarm Configuration: \(alarmConfiguration)")
+        NSLog("Serializing default AlarmConfiguration: \(alarmConfiguration.serializeToDictionary)")
+        return alarmConfiguration.serializeToDictionary()
     }
 }

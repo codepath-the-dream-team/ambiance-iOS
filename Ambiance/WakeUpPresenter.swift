@@ -16,7 +16,7 @@ class WakeUpPresenter {
     
     public func createWakeUpDayViewModel(dayIndex: Int) -> WakeUpDayListItemViewModel {
         
-        // Pass AlarmSchedule in constructor.
+        // TODO: Pass AlarmSchedule in constructor.
         let alarmSchedule = UserSession.shared.loggedInUser!.alarmSchedule
         
         var dayName = "_"
@@ -54,19 +54,25 @@ class WakeUpPresenter {
             break
         }
         
-        let startRiseTime = getStartRiseTime(alarm: alarm)
+        let hasAlarm = alarm != nil
+        NSLog("Creating day ViewModel. \(dayName): \(hasAlarm)")
+        // TODO: REMOVE HARD CODED RISE TIME
+        let startRiseTime = getStartRiseTime(alarm: alarm, riseTimeInMinutes: 30)
         let finishRiseTime = getFinishRiseTime(alarm: alarm)
         
         return WakeUpDayListItemViewModel(dayName: dayName, isEnabled: nil != alarm, startRiseTime: startRiseTime, finishRiseTime: finishRiseTime)
     }
     
-    private func getStartRiseTime(alarm: DayAlarm?) -> String {
+    private func getStartRiseTime(alarm: DayAlarm?, riseTimeInMinutes: Int) -> String {
         if let alarm = alarm {
-            let riseStartInMinutes = alarm.alarmTimeInMinutes - alarm.alarmRiseDurationInMinutes
-            let hourCount = riseStartInMinutes / 60
-            let minuteCount = riseStartInMinutes % 60
+            let alarmTime = Calendar.current.date(bySettingHour: alarm.alarmTimeHours, minute: alarm.alarmTimeMinutes, second: 0, of: Date())!
             
-            return getTime(fromHours: hourCount, andMinutes: minuteCount)
+            let riseTime = Calendar.current.date(byAdding: .minute, value: -riseTimeInMinutes, to: alarmTime)!
+            
+            let hours = Calendar.current.component(.hour, from: riseTime)
+            let minutes = Calendar.current.component(.minute, from: riseTime)
+            
+            return getTime(fromHours: hours, andMinutes: minutes)
         } else {
             return ""
         }
@@ -74,10 +80,7 @@ class WakeUpPresenter {
     
     private func getFinishRiseTime(alarm: DayAlarm?) -> String {
         if let alarm = alarm {
-            let hourCount = alarm.alarmTimeInMinutes / 60
-            let minuteCount = alarm.alarmTimeInMinutes % 60
-            
-            return getTime(fromHours: hourCount, andMinutes: minuteCount)
+            return getTime(fromHours: alarm.alarmTimeHours, andMinutes: alarm.alarmTimeMinutes)
         } else {
             return ""
         }
@@ -86,6 +89,6 @@ class WakeUpPresenter {
     private func getTime(fromHours hours: Int, andMinutes minutes: Int) -> String {
         let amPm = hours >= 12 ? "pm" : "am"
         
-        return String.init(format: "%02d:%02d%@", hours, minutes, amPm)
+        return String.init(format: "%d:%02d%@", hours, minutes, amPm)
     }
 }

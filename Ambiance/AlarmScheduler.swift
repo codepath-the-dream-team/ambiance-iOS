@@ -31,8 +31,11 @@ class AlarmScheduler: NSObject {
     func scheduleNextAlarm() -> Date? {
         let nextAlarm = self.getNextDayAlarm(startingDate: Date())
         if let nextAlarm = nextAlarm {
+            // TODO: REMOVE HARD CODED RISE TIME
+            let riseTime = 30
+            
             // FIXME - volume needs to come from Parse
-            self.alarmObject.setVolumeIncreaseFeature(toMaxVolumeInMinutes: nextAlarm.1.alarmRiseDurationInMinutes, maxVolume: 1.0)
+            self.alarmObject.setVolumeIncreaseFeature(toMaxVolumeInMinutes: riseTime, maxVolume: 1.0)
             self.alarmObject.setVolume(0.1)
             self.alarmObject.scheduleAt(when: nextAlarm.0)
             return nextAlarm.0
@@ -102,7 +105,7 @@ class AlarmScheduler: NSObject {
                 let dayAlarm = alarmSchedule.getAlarm(for: self.dayOfTheWeek[dayIndex])
                 if let dayAlarm = dayAlarm {
                     return (
-                        topOfTheDay.addingTimeInterval(TimeInterval(dayAlarm.alarmStartTimeInMinutes * 60)),
+                        topOfTheDay.addingTimeInterval(TimeInterval(dayAlarm.alarmTimeHours * 60 + dayAlarm.alarmTimeMinutes)),
                         dayAlarm)
                 }
                 i = i+1
@@ -117,7 +120,7 @@ class AlarmScheduler: NSObject {
     private func isBefore(fromDate: Date, toAlarm: DayAlarm) -> Bool {
         let hour = self.calendar.component(.hour, from: fromDate)
         let minute = self.calendar.component(.minute, from: fromDate)
-        return (hour * 60 + minute) < toAlarm.alarmStartTimeInMinutes
+        return hour < toAlarm.alarmTimeHours || (hour == toAlarm.alarmTimeHours && minute < toAlarm.alarmTimeMinutes)
     }
     
     // Returns the difference in minutes between the given date/s hour/minutes and dayAlarm's minutes
@@ -125,7 +128,7 @@ class AlarmScheduler: NSObject {
     private func getDiffInMinutes(fromDate: Date, toAlarm: DayAlarm) -> Int {
         let hour = self.calendar.component(.hour, from: fromDate)
         let minute = self.calendar.component(.minute, from: fromDate)
-        return toAlarm.alarmStartTimeInMinutes - (hour * 60 + minute)
+        return (toAlarm.alarmTimeHours * 60 + toAlarm.alarmTimeMinutes) - (hour * 60 + minute)
     }
     
     // Returns the weekday of the given Date, in [1-7], in which 1 is Sunday and 7 is Saturday.
