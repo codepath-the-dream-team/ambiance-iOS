@@ -60,33 +60,12 @@ class AlarmScheduler: NSObject {
         }
     }
     
-    // Put up AlarmOn VC with modal transition
+    // Broadcast change
     func showAlarmOn(_ alarm: AlarmObject) {
-        let mainVc = findMainVc()
-        if let mainVc = mainVc {
-            let alarmOnStoryboard = UIStoryboard(name: "AlarmOn", bundle: nil)
-            let alarmOnVcNavigation = alarmOnStoryboard.instantiateViewController(withIdentifier: "AlarmOnNavigationController") as! UINavigationController
-            let alarmOnVc = alarmOnVcNavigation.viewControllers[0] as! AlarmOnViewController
-            alarmOnVc.alarmObject = alarm
-            mainVc.present(alarmOnVcNavigation, animated: true, completion: nil)
-        }
+        let alarmDict:[String: AlarmObject] = ["alarm": alarm]
+        NotificationCenter.default.post(name: .alarmStartedNotification, object: nil, userInfo: alarmDict)
     }
     
-    func findMainVc() -> MainViewController? {
-        let appDelegate  = UIApplication.shared.delegate
-        let viewController = appDelegate?.window??.rootViewController
-        if viewController is MainViewController {
-            return viewController as? MainViewController
-        } else {
-            let childVcs = viewController?.childViewControllers
-            for childVc in childVcs! {
-                if childVc is MainViewController {
-                    return childVc as? MainViewController
-                }
-            }
-        }
-        return nil
-    }
     
     // Inspect the current user's AlarmSchedule, search for the next alarm that is scheduled,
     // and return it as an (alarm start Date, DayAlarm) pair, or nil if not found.
@@ -152,4 +131,9 @@ class AlarmScheduler: NSObject {
         return weekDay
     }
     
+}
+
+
+extension Notification.Name {
+    static let alarmStartedNotification = Notification.Name("alarmStarted")
 }

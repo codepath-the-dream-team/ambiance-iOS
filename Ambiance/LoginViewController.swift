@@ -58,11 +58,7 @@ class LoginViewController: UIViewController {
     func navigateToHomeScreen() {
         let mainStoryboard = UIStoryboard(name: "Infrastructure", bundle: nil)
         let mainVc = mainStoryboard.instantiateViewController(withIdentifier: "main") as! MainViewController
-        //self.present(mainVc, animated: true, completion: nil)
-        //self.show(mainVc, sender: self)
-
-        let appDelegate  = UIApplication.shared.delegate
-        appDelegate?.window??.rootViewController = mainVc
+        self.present(mainVc, animated: true, completion: nil)
     }
 }
 

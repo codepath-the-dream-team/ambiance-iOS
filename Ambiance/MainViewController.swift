@@ -36,6 +36,9 @@ class MainViewController: UIViewController, UITabBarDelegate {
         self.alarmScheduler = AlarmScheduler()
         let alarmScheduledDate = self.alarmScheduler.scheduleNextAlarm()
         print("next alarm scheduled at \(alarmScheduledDate)")
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.showAlarm(_:)), name: .alarmStartedNotification, object: nil)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,6 +77,16 @@ class MainViewController: UIViewController, UITabBarDelegate {
         show(screen: accountVc)
     }
     
+    @objc private func showAlarm(_ notification: NSNotification) {
+        if let alarm = notification.userInfo?["alarm"] as? AlarmObject {
+            let alarmOnStoryboard = UIStoryboard(name: "AlarmOn", bundle: nil)
+            let alarmOnVcNavigation = alarmOnStoryboard.instantiateViewController(withIdentifier: "AlarmOnNavigationController") as! UINavigationController
+            let alarmOnVc = alarmOnVcNavigation.viewControllers[0] as! AlarmOnViewController
+            alarmOnVc.alarmObject = alarm
+            self.present(alarmOnVcNavigation, animated: true, completion: nil) // Modal presentation        
+        }
+    }
+    
     
     private func show(screen: UIViewController) {
         if nil != activeScreen {
@@ -90,3 +103,5 @@ class MainViewController: UIViewController, UITabBarDelegate {
     }
 
 }
+
+
