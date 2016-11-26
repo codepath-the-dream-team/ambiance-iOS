@@ -19,9 +19,8 @@ class AlarmScheduler: NSObject {
     let calendar = Calendar(identifier: .gregorian)
     var alarmObject: AlarmObject!
     
-    init(vc: UIViewController) {
+    override init() {
         super.init()
-        self.mainVc = vc
         // FIXME - sound file location needs to be set from Parse        
         self.alarmObject = AlarmObject(itemToPlay: URL(string:
             "https://dream-team-bucket.s3-us-west-1.amazonaws.com/music/morning-forest.mp3")!)
@@ -61,14 +60,12 @@ class AlarmScheduler: NSObject {
         }
     }
     
-    // Put up AlarmOn VC with modal transition
+    // Broadcast change
     func showAlarmOn(_ alarm: AlarmObject) {
-        let alarmOnStoryboard = UIStoryboard(name: "AlarmOn", bundle: nil)
-        let alarmOnVcNavigation = alarmOnStoryboard.instantiateViewController(withIdentifier: "AlarmOnNavigationController") as! UINavigationController
-        let alarmOnVc = alarmOnVcNavigation.viewControllers[0] as! AlarmOnViewController
-        alarmOnVc.alarmObject = alarm
-        self.mainVc?.present(alarmOnVcNavigation, animated: true, completion: nil)
+        let alarmDict:[String: AlarmObject] = ["alarm": alarm]
+        NotificationCenter.default.post(name: .alarmStartedNotification, object: nil, userInfo: alarmDict)
     }
+    
     
     // Inspect the current user's AlarmSchedule, search for the next alarm that is scheduled,
     // and return it as an (alarm start Date, DayAlarm) pair, or nil if not found.
@@ -134,4 +131,9 @@ class AlarmScheduler: NSObject {
         return weekDay
     }
     
+}
+
+
+extension Notification.Name {
+    static let alarmStartedNotification = Notification.Name("alarmStarted")
 }
