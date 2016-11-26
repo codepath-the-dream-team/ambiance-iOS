@@ -10,6 +10,7 @@ import UIKit
 
 class SleepSynopsisView: UIView {
 
+    @IBOutlet var hoursContainer: UIStackView!
     @IBOutlet var hoursLabel: UILabel!
     @IBOutlet var minutesLabel: UILabel!
     @IBOutlet var alexaInstructionsLabel: UILabel!
@@ -18,8 +19,9 @@ class SleepSynopsisView: UIView {
     public var viewModel: SleepSynopsisViewModel? {
         didSet {
             if let viewModel = self.viewModel {
+                hoursContainer.isHidden = viewModel.hours == 0
                 hoursLabel.text = "\(viewModel.hours)"
-                minutesLabel.text = "\(viewModel.minutes)"
+                minutesLabel.text = viewModel.hours == 0 ? "\(viewModel.minutes)" : String.init(format: "%02d", viewModel.minutes)
                 alexaInstructionsLabel.attributedText = createAlexaInstructions(withAlexaCommand: viewModel.alexaCommand)
                 ambianceTitleLabel.text = viewModel.ambianceTitle
             } else {

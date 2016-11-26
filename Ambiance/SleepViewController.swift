@@ -14,6 +14,8 @@ class SleepViewController: UIViewController, ClearNavBar {
     
     public var delegate: SleepViewControllerDelegate?
     
+    private var synopsisPresenter: SleepSynopsisPresenter!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,7 +24,11 @@ class SleepViewController: UIViewController, ClearNavBar {
         
         clearBackground(forNavBar: navigationController!.navigationBar)
         
-        sleepSynopsisView.viewModel = SleepSynopsisViewModel(hours: 2, minutes: 30, alexaCommand: "Alexa, good night", ambianceTitle: "Babbling Brook")
+        synopsisPresenter = SleepSynopsisPresenter()
+        
+        updateSynopsisPresentation()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(SleepViewController.updateSynopsisPresentation), name: User.NOTIFICATION_USER_CHANGE, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,6 +49,11 @@ class SleepViewController: UIViewController, ClearNavBar {
         gradientLayer.locations = [0.0, 1.0]
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
+    @objc
+    private func updateSynopsisPresentation() {
+        sleepSynopsisView.viewModel = synopsisPresenter.createSleepSynopsisViewModel(sleepConfiguration: UserSession.shared.loggedInUser!.sleepConfiguration)
     }
 }
 
