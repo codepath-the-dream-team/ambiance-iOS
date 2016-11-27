@@ -11,6 +11,8 @@ import Parse
 
 class User: NSObject {
     
+    public static let NOTIFICATION_USER_CHANGE = Notification.Name("user_change")
+    
     public var firstName: String {
         get {
             return parseUser.value(forKey: "firstName") as! String
@@ -40,6 +42,15 @@ class User: NSObject {
         }
     }
     
+    public var alarmConfiguration: AlarmConfiguration {
+        get {
+            let pfAlarmConfiguration = parseUser["alarmConfiguration"] as! [String : AnyObject]
+            NSLog("pfAlarmConfiguration: \(pfAlarmConfiguration)")
+            
+            return AlarmConfiguration(from: pfAlarmConfiguration)!
+        }
+    }
+    
     public var alarmSchedule: AlarmSchedule {
         get {
             let pfSchedule = parseUser["alarmSchedule"] as! PFObject
@@ -57,5 +68,32 @@ class User: NSObject {
     init(parseUser: PFUser) {
         NSLog("Creating a new User from Parse User: \(parseUser)")
         self.parseUser = parseUser
+    }
+    
+    public func save(alarmSchedule: AlarmSchedule, onComplete: @escaping (Error?) -> ()) {
+        let parseAlarmSchedule = PFObject(className: "AlarmSchedule", dictionary: alarmSchedule.serializeToDictionary())
+        
+        parseUser.setObject(parseAlarmSchedule, forKey: "alarmSchedule")
+        parseUser.saveInBackground { (success: Bool, error: Error?) in
+            onComplete(error)
+            
+            // Broadcast that the User has changed.
+            NSLog("User: Broadcasting NOTIFICATION_USER_CHANGE event.")
+            NotificationCenter.default.post(Notification(name: User.NOTIFICATION_USER_CHANGE))
+        }
+    }
+    
+    public func save(alarmConfiguration: AlarmConfiguration, onComplete: @escaping (Error?) -> ()) {
+        let alarmConfigurationDictionary = alarmConfiguration.serializeToDictionary()
+        NSLog("Attempting to save Alarm Configuration: \(alarmConfigurationDictionary)")
+        
+        parseUser.setValue(alarmConfigurationDictionary, forKey: "alarmConfiguration")
+        parseUser.saveInBackground { (success: Bool, error: Error?) in
+            onComplete(error)
+            
+            // Broadcast that the User has changed.
+            NSLog("User: Broadcasting NOTIFICATION_USER_CHANGE event.")
+            NotificationCenter.default.post(Notification(name: User.NOTIFICATION_USER_CHANGE))
+        }
     }
 }
