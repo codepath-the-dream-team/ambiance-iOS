@@ -53,13 +53,22 @@ class SleepContainerViewController: BaseNatureViewController, SleepViewControlle
         let sleepConfigurationVc = sleepStoryboard.instantiateViewController(withIdentifier: "sleep_configure") as! SleepConfigureViewController
         
         sleepConfigurationVc.delegate = self
+        sleepConfigurationVc.initialConfiguration = UserSession.shared.loggedInUser!.sleepConfiguration
         
         setModal(vc: sleepConfigurationVc)
         displayModal()
     }
     
-    func doneWithSleepConfiguration() {
+    func save(sleepConfiguration: SleepConfiguration) {
         closeModal()
+        
+        UserSession.shared.loggedInUser!.save(sleepConfiguration: sleepConfiguration) { (error: Error?) in
+            if nil == error {
+                NSLog("Successfully saved updated SleepConfiguration to Parse.")
+            } else {
+                NSLog("Failed to save updated SleepConfiguration to Parse.")
+            }
+        }
     }
 
     private func installSleepViewController() {

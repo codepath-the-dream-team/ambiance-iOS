@@ -63,6 +63,15 @@ class User: NSObject {
         }
     }
     
+    public var sleepConfiguration: SleepConfiguration {
+        get {
+            let pfSleepConfiguration = parseUser["sleepConfiguration"] as! [String : AnyObject]
+            NSLog("pfSleepConfiguration: \(pfSleepConfiguration)")
+            
+            return SleepConfiguration(fromDictionary: pfSleepConfiguration)!
+        }
+    }
+    
     private var parseUser: PFUser!
     
     init(parseUser: PFUser) {
@@ -88,6 +97,20 @@ class User: NSObject {
         NSLog("Attempting to save Alarm Configuration: \(alarmConfigurationDictionary)")
         
         parseUser.setValue(alarmConfigurationDictionary, forKey: "alarmConfiguration")
+        parseUser.saveInBackground { (success: Bool, error: Error?) in
+            onComplete(error)
+            
+            // Broadcast that the User has changed.
+            NSLog("User: Broadcasting NOTIFICATION_USER_CHANGE event.")
+            NotificationCenter.default.post(Notification(name: User.NOTIFICATION_USER_CHANGE))
+        }
+    }
+    
+    public func save(sleepConfiguration: SleepConfiguration, onComplete: @escaping (Error?) -> ()) {
+        let sleepConfigurationDictionary = sleepConfiguration.serializeToDictionary()
+        NSLog("Attempting to save Sleep Configuration: \(sleepConfiguration)")
+        
+        parseUser.setValue(sleepConfigurationDictionary, forKey: "sleepConfiguration")
         parseUser.saveInBackground { (success: Bool, error: Error?) in
             onComplete(error)
             

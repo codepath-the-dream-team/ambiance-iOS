@@ -56,8 +56,3 @@ struct AlarmConfiguration {
         ]
     }
 }
-
-enum PlaybackDevice: String {
-    case phone = "phone"
-    case amazonEcho = "amazon_echo"
-}
