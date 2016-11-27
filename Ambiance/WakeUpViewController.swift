@@ -35,11 +35,6 @@ class WakeUpViewController: UIViewController {
         
         updatePresentation()
         
-//        NotificationCenter.default.addObserver(forName: User.NOTIFICATION_USER_CHANGE, object: self, queue: OperationQueue.main) { (notification: Notification) in
-//            NSLog("WakeUpViewController: Received notification that the User has changed. Updating presentation.")
-//            self.updatePresentation()
-//        }
-        
         NotificationCenter.default.addObserver(self, selector: #selector(WakeUpViewController.updatePresentation), name: User.NOTIFICATION_USER_CHANGE, object: nil)
     }
 
@@ -51,7 +46,9 @@ class WakeUpViewController: UIViewController {
     @objc
     private func updatePresentation() {
         NSLog("WakeUpViewController: updatePresentation()")
-        wakeUpClockView.viewModel = presenter.createWakeUpClockViewModel()
+        let alarmSchedule = UserSession.shared.loggedInUser!.alarmSchedule
+        let riseTime = UserSession.shared.loggedInUser!.alarmConfiguration.alarmRise
+        wakeUpClockView.viewModel = presenter.createWakeUpClockViewModel(alarmSchedule: alarmSchedule, riseTimeInMinutes: riseTime)
         
         day1View.viewModel = presenter.createWakeUpDayViewModel(dayIndex: 0)
         day2View.viewModel = presenter.createWakeUpDayViewModel(dayIndex: 1)
