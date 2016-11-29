@@ -19,6 +19,10 @@ class AccountSettingsToggleCell: UITableViewCell {
         super.init(coder: aDecoder)!
     }
     
+    deinit {
+        self.switchLabel.addTarget(self.switchLabel, action: "saveSettings", for: .allEvents)
+    }
+    
 }
 
 struct AccountSettingsToggleViewModel {
