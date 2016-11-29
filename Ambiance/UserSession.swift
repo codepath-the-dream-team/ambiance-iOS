@@ -204,14 +204,11 @@ class UserSession {
             parseUser.setValue(createDefaultSleepConfiguration(), forKey: "sleepConfiguration")
         }
         
-        NSLog("Saving User to Parse.")
-        parseUser.saveInBackground { (result: Bool, error: Error?) in
-            if result {
-                NSLog("Successfully saved User to Parse.")
-                self.startSession(withParseUser: parseUser, success: success, failure: failure)
-            } else {
-                NSLog("Failed to save Parse User. Error: \(error?.localizedDescription)")
-            }
+        // If the User doesn't already have an User Settings, create
+        // a default settings and set it.
+        if (nil == parseUser.object(forKey: "userSettings")) {
+            NSLog("Creating a default Alarm Schedule for new User")
+            parseUser.setObject(createUserSettings(), forKey: "userSettings")
         }
     }
     
@@ -239,6 +236,14 @@ class UserSession {
         if (nil == parseUser.value(forKey: "sleepConfiguration") || nil == SleepConfiguration(fromDictionary: parseUser.value(forKey: "sleepConfiguration") as! [String : AnyObject])) {
             NSLog("Creating a default Sleep Configuration for existing User")
             parseUser.setValue(createDefaultSleepConfiguration(), forKey: "sleepConfiguration")
+            didFillMissingData = true
+        }
+        
+        // If the User doesn't already have a User Settings, create a
+        // default configuration and set it.
+        if (nil == parseUser.value(forKey: "userSettings") || nil == UserSettings(pfObject: parseUser.object(forKey: "userSettings") as! PFObject)) {
+            NSLog("Creating a default User Settings for existing User")
+            parseUser.setValue(createUserSettings(), forKey: "userSettings")
             didFillMissingData = true
         }
         
@@ -333,5 +338,14 @@ class UserSession {
         let sleepConfiguration = SleepConfiguration()
         NSLog("Serializing default SleepConfiguration: \(sleepConfiguration.serializeToDictionary)")
         return sleepConfiguration.serializeToDictionary()
+    }
+    
+    // Creates the users settings
+    private func createUserSettings() -> PFObject {
+        let userSettings = UserSettings()
+        NSLog("User Settings: \(userSettings)")
+        NSLog("Serializing default UserSettings: \(userSettings.serializeToDictionary())")
+        let parseUserSettings = PFObject(className: "UserSettings", dictionary: userSettings.serializeToDictionary())
+        return parseUserSettings
     }
 }
