@@ -207,8 +207,18 @@ class UserSession {
         // If the User doesn't already have an User Settings, create
         // a default settings and set it.
         if (nil == parseUser.object(forKey: "userSettings")) {
-            NSLog("Creating a default Alarm Schedule for new User")
+            NSLog("Creating a default User Setting for new User")
             parseUser.setObject(createUserSettings(), forKey: "userSettings")
+        }
+        
+        NSLog("Saving User to Parse.")
+        parseUser.saveInBackground { (result: Bool, error: Error?) in
+            if result {
+                NSLog("Successfully saved User to Parse.")
+                self.startSession(withParseUser: parseUser, success: success, failure: failure)
+            } else {
+                NSLog("Failed to save Parse User. Error: \(error?.localizedDescription)")
+            }
         }
     }
     
