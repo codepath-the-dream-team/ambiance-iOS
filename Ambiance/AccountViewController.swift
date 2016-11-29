@@ -57,6 +57,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.deselectRow(at: indexPath, animated: false)
     }
     
+    // Function that sets the values for each cell depending on index
     func setCellValues(forCell: AccountSettingsToggleCell, isEchoLabelHidden: Bool, isSwitchHidden: Bool, index: Int) -> AccountSettingsToggleCell {
         switch index {
         case 1:
@@ -66,12 +67,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             forCell.echoSerialLabel.isHidden = isEchoLabelHidden
             forCell.switchLabel.tag = index
             break
-//        case 2:
-//            forCell.settingsLabel.text = "Sleep Enabled"
-//            forCell.switchLabel.isOn = userSettings.getSleepEnabled()
-//            forCell.switchLabel.isHidden = isSwitchHidden
-//            forCell.echoSerialLabel.isHidden = isEchoLabelHidden
-//            break
         case 2:
             forCell.settingsLabel.text = "Live Enabled"
             forCell.switchLabel.isOn = userSettings.getLiveEnabled()
@@ -114,6 +109,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         return
     }
     
+    // Function to setup necessary table view settings
     func setupTableView() {
         settingsTableview.delegate = self
         settingsTableview.dataSource = self
@@ -129,8 +125,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Dispose of any resources that can be recreated.
     }
 
-
-    
     @IBAction func logoutTapped(_ sender: AnyObject) {
         NSLog("logout tapped")
         self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
