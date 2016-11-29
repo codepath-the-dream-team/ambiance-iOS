@@ -52,6 +52,27 @@ class User: NSObject {
         }
     }
     
+    public var userSettings: UserSettings {
+        get {
+            let pfUserSettings = parseUser["userSettings"] as! PFObject
+            NSLog("pfUserSettings: \(pfUserSettings)")
+
+            let userSettings = UserSettings(pfObject: pfUserSettings)!
+            NSLog("UserSettings: \(userSettings)")
+            
+            return userSettings
+        }
+    }
+    
+    public func updateSettings(userSettings: UserSettings) {
+        if let currentUser = PFUser.current() {
+            let currentSettings = currentUser.object(forKey: "userSettings") as! PFObject
+            currentSettings.deleteEventually()
+            currentUser["userSettings"] = PFObject(className: "UserSettings", dictionary: userSettings.serializeToDictionary())
+            currentUser.saveInBackground()
+        }
+    }
+    
     private var parseUser: PFUser!
     
     init(parseUser: PFUser) {

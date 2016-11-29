@@ -67,14 +67,28 @@ class UserSession {
                     if alarmSchedulePfObject != nil {
                         (parseUser.value(forKey: "alarmSchedule") as! PFObject).fetchIfNeededInBackground(block: { (schedule: PFObject?, error: Error?) in
                             if nil == error {
-                                NSLog("Successfully loaded Alarm Schedule from Parse. Creating session.")
-                                self.startSession(withParseUser: parseUser, success: { (user: User) in
-                                    NSLog("UserSession restored.")
-                                    completion(true)
-                                }, failure: { (error: Error?) in
-                                    NSLog("Failed to recreate UserSession.")
+                                NSLog("Successfully loaded Alarm Schedule from Parse. Loading User Settings")
+                                let userSettingsPfObject = parseUser.value(forKey: "userSettings") as! PFObject?
+                                if userSettingsPfObject != nil {
+                                    (parseUser.value(forKey: "userSettings") as! PFObject).fetchInBackground(block: { (settings: PFObject?, error: Error?) in
+                                        if nil == error {
+                                            NSLog("Successfully loaded UserSettings from Parse. Creating session.")
+                                            self.startSession(withParseUser: parseUser, success: { (user: User) in
+                                                NSLog("UserSession restored.")
+                                                completion(true)
+                                                }, failure: { (error: Error?) in
+                                                    NSLog("Failed to recreate UserSession.")
+                                                    completion(false)
+                                            })
+                                        }
+                                        })
+                                } else {
+                                    // Failed to retrieve User Settings. Forcibly
+                                    // log out the user.
+                                    NSLog("Failed to load the User's settings: \(error)")
+                                    PFUser.logOut()
                                     completion(false)
-                                })
+                                }
                             } else {
                                 // Failed to retrieve Alarm Schedule. Forcibly
                                 // log out the user.
@@ -188,6 +202,13 @@ class UserSession {
             parseUser.setObject(createDefaultAlarmSchedule(), forKey: "alarmSchedule")
         }
         
+        // If the User doesn't already have an User Settings, create
+        // a default settings and set it.
+        if (nil == parseUser.object(forKey: "userSettings")) {
+            NSLog("Creating a default Alarm Schedule for new User")
+            parseUser.setObject(createUserSettings(), forKey: "userSettings")
+        }
+        
         NSLog("Saving User to Parse.")
         parseUser.saveInBackground { (result: Bool, error: Error?) in
             if result {
@@ -236,5 +257,14 @@ class UserSession {
         NSLog("Serializing default AlarmSchedule: \(alarmSchedule.serializeToDictionary())")
         let parseAlarmSchedule = PFObject(className: "AlarmSchedule", dictionary: alarmSchedule.serializeToDictionary())
         return parseAlarmSchedule
+    }
+    
+    // Creates the users settings 
+    private func createUserSettings() -> PFObject {
+        let userSettings = UserSettings()
+        NSLog("User Settings: \(userSettings)")
+        NSLog("Serializing default UserSettings: \(userSettings.serializeToDictionary())")
+        let parseUserSettings = PFObject(className: "UserSettings", dictionary: userSettings.serializeToDictionary())
+        return parseUserSettings
     }
 }
