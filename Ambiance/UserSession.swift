@@ -67,39 +67,24 @@ class UserSession {
                         NSLog("Was User Schedule retrieved? \(success)")
                         if success {
                             NSLog("Filling in any missing User configuration.")
-                            // Successfully retrieved User Schedule. Now fill in any
-                            // other missing pieces.
-                            self.loadUserSettings(forParseUser: parseUser, onComplete: { (success: Bool) in
-                                NSLog("Was User Schedule retrieved? \(success)")
-                                if success {
-                                    NSLog("Filling in any missing User configuration.")
-                                    // Successfully retrieved User Schedule. Now fill in any
-                                    // other missing pieces.
-                                    self.fillMissingUserData(forParseUser: parseUser, onComplete: { (wasSuccess: Bool) in
-                                        if wasSuccess {
-                                            NSLog("Done filling in any missing User configuration.")
-                                            // Successfully filled missing pieces. Start Session.
-                                            self.startSession(withParseUser: parseUser, success: { (user: User) in
-                                                    // User session has started.
-                                                    completion(true)
-                                                }, failure: { (error: Error?) in
-                                                    // Failed to start user session.
-                                                    completion(false)
-                                            })
-                                        } else {
-                                            // Failed to fill in missing pieces. Cannot start
-                                            // Session. Forcibly logout user.
-                                            PFUser.logOut()
+                            self.fillMissingUserData(forParseUser: parseUser, onComplete: { (wasSuccess: Bool) in
+                                if wasSuccess {
+                                    NSLog("Done filling in any missing User configuration.")
+                                    // Successfully filled missing pieces. Start Session.
+                                    self.startSession(withParseUser: parseUser, success: { (user: User) in
+                                            // User session has started.
+                                            completion(true)
+                                        }, failure: { (error: Error?) in
+                                            // Failed to start user session.
                                             completion(false)
-                                        }
                                     })
                                 } else {
-                                    // Failed to retireve User Schedule. Cannot start Session.
-                                    // Forcibly logout user.
+                                    // Failed to fill in missing pieces. Cannot start
+                                    // Session. Forcibly logout user.
                                     PFUser.logOut()
                                     completion(false)
                                 }
-                                })
+                            })
                         } else {
                             // Failed to retireve User Schedule. Cannot start Session.
                             // Forcibly logout user.
@@ -197,6 +182,14 @@ class UserSession {
         // Marshall the Facebook user data over to the Parse User.
         apply(facebookUserData: fbookUserInfo, to: parseUser)
         
+        // If the User doesn't already have alarmEnabled setting, create
+        // a default configuration and set it.
+        if (nil == parseUser.value(forKey: "alarmEnabled")) {
+            NSLog("Setting alarmEnabled true for new User")
+            parseUser.setValue(true, forKey: "alarmEnabled")
+        }
+        
+        
         // If the User doesn't already have an Alarm Configuration, create
         // a default configuration and set it.
         if (nil == parseUser.value(forKey: "alarmConfiguration")) {
@@ -217,23 +210,10 @@ class UserSession {
             NSLog("Creating a default Alarm Schedule for new User")
             parseUser.setObject(createDefaultAlarmSchedule(), forKey: "alarmSchedule")
         } else {
-            self.loadAlarmSchedule(forParseUser: parseUser, onComplete: { (status: Bool) in
-                if status {
-                    self.loadUserSettings(forParseUser: parseUser, onComplete: { (status: Bool) in
-                        if status {
-                            NSLog("Saving User to Parse.")
-                            parseUser.saveInBackground { (result: Bool, error: Error?) in
-                                if result {
-                                    NSLog("Successfully saved User to Parse.")
-                                    self.startSession(withParseUser: parseUser, success: success, failure: failure)
-                                } else {
-                                    NSLog("Failed to save Parse User. Error: \(error?.localizedDescription)")
-                                }
-                            }
-                        } else {
-                            NSLog("Failed to retrieve User Settings")
-                        }
-                    })
+            self.loadAlarmSchedule(forParseUser: parseUser, onComplete: { (complete: Bool) in
+                if complete {
+                    NSLog("Successfully saved User to Parse.")
+                    self.startSession(withParseUser: parseUser, success: success, failure: failure)
                 } else {
                     NSLog("Failed to retrieve Alarm Schedule")
                 }
@@ -278,11 +258,8 @@ class UserSession {
             didFillMissingData = true
         }
         
-        // If the User doesn't already have a User Settings, create a
-        // default configuration and set it.
-        if (nil == parseUser.object(forKey: "userSettings") ){//|| nil == UserSettings(pfObject: parseUser.object(forKey: "userSettings") as! PFObject)) {
-            NSLog("Creating a default User Settings for existing User")
-            parseUser.setValue(createUserSettings(), forKey: "userSettings")
+        if (nil == parseUser.value(forKey: "alarmEnabled")) {
+            parseUser.setValue(true, forKey: "alarmEnabled")
             didFillMissingData = true
         }
         
@@ -326,30 +303,6 @@ class UserSession {
             onComplete(false)
         }
     }
-    
-    private func loadUserSettings(forParseUser parseUser: PFUser, onComplete: @escaping (Bool) ->()) {
-        // Retrieve the Parse User's Settings.
-        let userSettingsPfObject = parseUser.value(forKey: "userSettings") as! PFObject?
-        
-        if userSettingsPfObject != nil {
-            (parseUser.value(forKey: "userSettings") as! PFObject).fetchIfNeededInBackground(block: { (schedule: PFObject?, error: Error?) in
-                if nil == error {
-                    NSLog("Successfully loaded User Settings from Parse.")
-                    onComplete(true)
-                } else {
-                    // Failed to retrieve Alarm Schedule.
-                    NSLog("Failed to load the User's Settings: \(error)")
-                    onComplete(false)
-                }
-            })
-        } else {
-            // For some reason the Parse User doesn't have an
-            // alarmSchedule property. This is probably corrupt data.
-            NSLog("Parse User didn't have userSettings. Probably corrupt data. Failed to recreate UserSession.")
-            onComplete(false)
-        }
-    }
-
     
     // Facebook Login Step 4:
     // After a fully hydrated Parse PFUser has been created, this method
@@ -401,14 +354,5 @@ class UserSession {
         let sleepConfiguration = SleepConfiguration()
         NSLog("Serializing default SleepConfiguration: \(sleepConfiguration.serializeToDictionary)")
         return sleepConfiguration.serializeToDictionary()
-    }
-    
-    // Creates the users settings
-    private func createUserSettings() -> PFObject {
-        let userSettings = UserSettings()
-        NSLog("User Settings: \(userSettings)")
-        NSLog("Serializing default UserSettings: \(userSettings.serializeToDictionary())")
-        let parseUserSettings = PFObject(className: "UserSettings", dictionary: userSettings.serializeToDictionary())
-        return parseUserSettings
     }
 }

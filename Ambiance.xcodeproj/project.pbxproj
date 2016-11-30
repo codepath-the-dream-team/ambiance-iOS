@@ -19,7 +19,6 @@
 		9BB5CD971DEA521A002C0F26 /* AccountSettingsToggleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BB5CD951DEA521A002C0F26 /* AccountSettingsToggleCell.xib */; };
 		9BB5CD9A1DEA5576002C0F26 /* AccountProfileViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB5CD981DEA5576002C0F26 /* AccountProfileViewCell.swift */; };
 		9BB5CD9B1DEA5576002C0F26 /* AccountProfileViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BB5CD991DEA5576002C0F26 /* AccountProfileViewCell.xib */; };
-		9BF2AE161DEC171500379D3A /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF2AE151DEC171500379D3A /* UserSettings.swift */; };
 		C94D6C311DDF0606007F3B03 /* WakeUpContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94D6C301DDF0606007F3B03 /* WakeUpContainerViewController.swift */; };
 		C97AC2591DD03F590096FE97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97AC2581DD03F590096FE97 /* AppDelegate.swift */; };
 		C97AC25B1DD03F590096FE97 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97AC25A1DD03F590096FE97 /* LoginViewController.swift */; };
@@ -77,7 +76,6 @@
 		9BB5CD951DEA521A002C0F26 /* AccountSettingsToggleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountSettingsToggleCell.xib; sourceTree = "<group>"; };
 		9BB5CD981DEA5576002C0F26 /* AccountProfileViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountProfileViewCell.swift; sourceTree = "<group>"; };
 		9BB5CD991DEA5576002C0F26 /* AccountProfileViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountProfileViewCell.xib; sourceTree = "<group>"; };
-		9BF2AE151DEC171500379D3A /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		9C98B9BDABA225AA8BDCF496 /* Pods-Ambiance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambiance.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ambiance/Pods-Ambiance.release.xcconfig"; sourceTree = "<group>"; };
 		C4A698A06B12F0E8BA7B9EFC /* Pods-Ambiance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambiance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ambiance/Pods-Ambiance.debug.xcconfig"; sourceTree = "<group>"; };
 		C94D6C301DDF0606007F3B03 /* WakeUpContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakeUpContainerViewController.swift; sourceTree = "<group>"; };
@@ -213,7 +211,6 @@
 				C9ED9D5E1DE91E790031EB31 /* AlarmConfiguration.swift */,
 				C9ED9D601DE951F50031EB31 /* SleepConfiguration.swift */,
 				C9ED9D621DE9521B0031EB31 /* PlaybackDevice.swift */,
-				9BF2AE151DEC171500379D3A /* UserSettings.swift */,
 			);
 			name = UserSession;
 			sourceTree = "<group>";
@@ -470,7 +467,6 @@
 				C9ED9D631DE9521B0031EB31 /* PlaybackDevice.swift in Sources */,
 				C9D0E4961DE183F7000B242A /* Theme.swift in Sources */,
 				9BB5CD8D1DE40A0A002C0F26 /* AccountContainerViewController.swift in Sources */,
-				9BF2AE161DEC171500379D3A /* UserSettings.swift in Sources */,
 				C9D0E4981DE18498000B242A /* ExtUIColor.swift in Sources */,
 				9B13DC851DE24A5E007A78F1 /* User.swift in Sources */,
 			);

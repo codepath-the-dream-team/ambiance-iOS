@@ -31,6 +31,12 @@ class User: NSObject {
         }
     }
     
+    public var alarmEnabled: Bool {
+        get {
+            return parseUser.value(forKey: "alarmEnabled") as! Bool
+        }
+    }
+    
     public var profileImageUrl: URL? {
         get {
             let avatarUrl = parseUser.value(forKey: "imageURLString") as! String?
@@ -72,24 +78,14 @@ class User: NSObject {
         }
     }
     
-    public var userSettings: UserSettings {
-        get {
-            let pfUserSettings = parseUser["userSettings"] as! PFObject
-            NSLog("pfUserSettings: \(pfUserSettings)")
-
-            let userSettings = UserSettings(pfObject: pfUserSettings)!
-            NSLog("UserSettings: \(userSettings)")
-            
-            return userSettings
-        }
-    }
-    
-    public func updateSettings(userSettings: UserSettings) {
-        if let currentUser = PFUser.current() {
-            let currentSettings = currentUser.object(forKey: "userSettings") as! PFObject
-            currentSettings.deleteEventually()
-            currentUser["userSettings"] = PFObject(className: "UserSettings", dictionary: userSettings.serializeToDictionary())
-            currentUser.saveInBackground()
+    public func updateSettings(alarmEnabled: Bool) {
+        parseUser.setValue(alarmEnabled, forKey: "alarmEnabled")
+        parseUser.saveInBackground { (success: Bool, error: Error?) in
+            if success {
+                NSLog("User setting saved")
+            } else {
+                NSLog("Error: " + (error?.localizedDescription)!)
+            }
         }
     }
     

@@ -20,7 +20,7 @@ class AccountSettingsToggleCell: UITableViewCell {
     }
     
     deinit {
-        self.switchLabel.addTarget(self.switchLabel, action: "saveSettings", for: .allEvents)
+        self.switchLabel.removeTarget(self.switchLabel, action: "saveSettings", for: .allEvents)
     }
     
 }

@@ -15,12 +15,12 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     public var delegate: AccountViewControllerDelegate?
 
-    private var userSettings: UserSettings!
+    private var alarmEnabled: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        userSettings = UserSession.shared.loggedInUser?.userSettings
+        alarmEnabled = UserSession.shared.loggedInUser?.alarmEnabled
         // Do any additional setup after loading the view.
     }
     
@@ -54,10 +54,11 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // Function that sets the values for each cell depending on index
     func setCellValues(forCell: AccountSettingsToggleCell, isEchoLabelHidden: Bool, isSwitchHidden: Bool, index: Int) -> AccountSettingsToggleCell {
+        let user = UserSession.shared.loggedInUser!
         switch index {
         case 1:
             forCell.settingsLabel.text = "Wake Enabled"
-            forCell.switchLabel.isOn = userSettings.getAlarmEnabled()
+            forCell.switchLabel.isOn = user.alarmEnabled
             forCell.switchLabel.isHidden = isSwitchHidden
             forCell.echoSerialLabel.isHidden = isEchoLabelHidden
             forCell.switchLabel.tag = index
@@ -76,8 +77,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         switch tag {
         case 1:
             //"Wake Enabled"
-            userSettings.setAlarmEnabled(state: sender.isOn)
-            user.updateSettings(userSettings: userSettings)
+            user.updateSettings(alarmEnabled: sender.isOn)
             break
         default:
             return
