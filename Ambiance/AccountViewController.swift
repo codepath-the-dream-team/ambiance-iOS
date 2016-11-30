@@ -25,7 +25,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -41,12 +41,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.profileName.text = user.firstName
             cell.isUserInteractionEnabled = false
             return cell
-        } else if indexPath.row == 3 {
-            var cell = tableView.dequeueReusableCell(withIdentifier: "accountSettingsToggleCell", for: indexPath) as! AccountSettingsToggleCell
-            cell = setCellValues(forCell: cell, isEchoLabelHidden: false, isSwitchHidden: true, index: indexPath.row)
-            return cell
-        }
-        else {
+        } else {
             var cell = tableView.dequeueReusableCell(withIdentifier: "accountSettingsToggleCell", for: indexPath) as! AccountSettingsToggleCell
             cell = setCellValues(forCell: cell, isEchoLabelHidden: true, isSwitchHidden: false, index: indexPath.row)
             return cell
@@ -67,20 +62,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             forCell.echoSerialLabel.isHidden = isEchoLabelHidden
             forCell.switchLabel.tag = index
             break
-        case 2:
-            forCell.settingsLabel.text = "Live Enabled"
-            forCell.switchLabel.isOn = userSettings.getLiveEnabled()
-            forCell.switchLabel.isHidden = isSwitchHidden
-            forCell.echoSerialLabel.isHidden = isEchoLabelHidden
-            forCell.switchLabel.tag = index
-            break
-        case 3:
-            forCell.settingsLabel.text = "Echo"
-            forCell.switchLabel.isHidden = isSwitchHidden
-            forCell.echoSerialLabel.isHidden = isEchoLabelHidden
-            forCell.echoSerialLabel.text = userSettings.getEchoID()
-            forCell.switchLabel.tag = index
-            break
         default:
             return forCell
         }
@@ -96,11 +77,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         case 1:
             //"Wake Enabled"
             userSettings.setAlarmEnabled(state: sender.isOn)
-            user.updateSettings(userSettings: userSettings)
-            break
-        case 2:
-            //"Live Enabled"
-            userSettings.setLiveEnabled(state: sender.isOn)
             user.updateSettings(userSettings: userSettings)
             break
         default:

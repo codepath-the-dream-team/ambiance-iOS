@@ -28,5 +28,4 @@ class AccountSettingsToggleCell: UITableViewCell {
 struct AccountSettingsToggleViewModel {
     public let settingsLabel: String
     public let switchValue: Bool
-    public let echoID: String
 }
