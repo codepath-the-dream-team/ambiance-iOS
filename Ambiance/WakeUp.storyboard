@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -7,391 +7,394 @@
     </dependencies>
     <scenes>
         <!--Wake Up Container View Controller-->
-        <scene sceneID="LwK-os-eQQ">
+        <scene sceneID="KtM-1e-IWg">
             <objects>
-                <viewController storyboardIdentifier="wakeup" id="EQ1-Wb-IwB" customClass="WakeUpContainerViewController" customModule="Ambiance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="wakeup" id="r7n-v6-8Bu" customClass="WakeUpContainerViewController" customModule="Ambiance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ce2-GF-f4U"/>
-                        <viewControllerLayoutGuide type="bottom" id="yCJ-GS-36V"/>
+                        <viewControllerLayoutGuide type="top" id="231-XE-ke0"/>
+                        <viewControllerLayoutGuide type="bottom" id="MuG-7h-tgQ"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="anW-Ul-gtX">
+                    <view key="view" contentMode="scaleToFill" id="MIL-sR-czy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aoo-6s-OPI">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzE-x3-38T">
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XFY-fC-396">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Jz-Tm-b14">
                                 <frame key="frameInset" minY="620" width="375" height="541"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="541" id="nBf-y6-iYq"/>
+                                    <constraint firstAttribute="height" constant="541" id="9h6-zB-25s"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="yCJ-GS-36V" firstAttribute="top" secondItem="aoo-6s-OPI" secondAttribute="bottom" id="0Iz-WS-BmV"/>
-                            <constraint firstItem="aoo-6s-OPI" firstAttribute="leading" secondItem="anW-Ul-gtX" secondAttribute="leading" id="6nK-gU-FvQ"/>
-                            <constraint firstItem="XFY-fC-396" firstAttribute="width" secondItem="anW-Ul-gtX" secondAttribute="width" id="MTY-5a-5gC"/>
-                            <constraint firstAttribute="trailing" secondItem="aoo-6s-OPI" secondAttribute="trailing" id="Myh-Mh-rBR"/>
-                            <constraint firstItem="XFY-fC-396" firstAttribute="top" secondItem="ce2-GF-f4U" secondAttribute="bottom" constant="500" id="Nph-Ev-0qa"/>
-                            <constraint firstItem="aoo-6s-OPI" firstAttribute="top" secondItem="anW-Ul-gtX" secondAttribute="top" id="cKk-p5-uMc"/>
+                            <constraint firstAttribute="trailing" secondItem="gzE-x3-38T" secondAttribute="trailing" id="dEK-hx-Zuy"/>
+                            <constraint firstItem="5Jz-Tm-b14" firstAttribute="width" secondItem="MIL-sR-czy" secondAttribute="width" id="hOF-1U-gKj"/>
+                            <constraint firstItem="5Jz-Tm-b14" firstAttribute="top" secondItem="231-XE-ke0" secondAttribute="bottom" constant="500" id="iGb-kT-0UF"/>
+                            <constraint firstItem="gzE-x3-38T" firstAttribute="leading" secondItem="MIL-sR-czy" secondAttribute="leading" id="iuR-eu-ISX"/>
+                            <constraint firstItem="MuG-7h-tgQ" firstAttribute="top" secondItem="gzE-x3-38T" secondAttribute="bottom" id="qUD-hG-6vn"/>
+                            <constraint firstItem="gzE-x3-38T" firstAttribute="top" secondItem="MIL-sR-czy" secondAttribute="top" id="x3S-y7-QQz"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
-                        <outlet property="contentContainer" destination="aoo-6s-OPI" id="epP-Wq-IVW"/>
-                        <outlet property="contentTopConstraint" destination="cKk-p5-uMc" id="8x3-nA-jpd"/>
-                        <outlet property="modalContainer" destination="XFY-fC-396" id="stb-jR-Km8"/>
-                        <outlet property="modalTopConstraint" destination="Nph-Ev-0qa" id="yON-Ue-naI"/>
+                        <outlet property="contentContainer" destination="gzE-x3-38T" id="3Of-aJ-5tc"/>
+                        <outlet property="contentTopConstraint" destination="x3S-y7-QQz" id="5Gp-n7-4u8"/>
+                        <outlet property="modalContainer" destination="5Jz-Tm-b14" id="gD1-9V-iXU"/>
+                        <outlet property="modalTopConstraint" destination="iGb-kT-0UF" id="Oz1-59-aG9"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7av-Q5-hqv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oig-74-i2v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="20" y="42.728635682158924"/>
         </scene>
         <!--Wake Up View Controller-->
-        <scene sceneID="mkD-MH-Jj6">
+        <scene sceneID="Pew-b7-Blj">
             <objects>
-                <viewController id="Llg-uH-4M6" customClass="WakeUpViewController" customModule="Ambiance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="PWZ-ze-dRk" customClass="WakeUpViewController" customModule="Ambiance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Gol-DK-xLI"/>
-                        <viewControllerLayoutGuide type="bottom" id="UEv-Ia-DuY"/>
+                        <viewControllerLayoutGuide type="top" id="yyD-hx-Qd9"/>
+                        <viewControllerLayoutGuide type="bottom" id="ThX-18-ovP"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="J0i-ck-5ve">
+                    <view key="view" contentMode="scaleToFill" id="IFO-74-CM8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJw-Su-WJ4">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2o-ZW-opT">
                                 <frame key="frameInset" width="375" height="667"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="95v-iV-kWH">
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="p7X-Dk-47q">
                                         <rect key="frame" x="0.0" y="-64" width="375" height="1042"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jQ4-2f-g6x" customClass="WakeUpClockView" customModule="Ambiance" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w3p-sI-PAS" customClass="WakeUpClockView" customModule="Ambiance" customModuleProvider="target">
                                                 <frame key="frameInset" width="375" height="400"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="400" id="7qw-Cm-FKi"/>
+                                                    <constraint firstAttribute="height" constant="400" id="Wv9-4Y-07c"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="noe-d5-KhY" appends="YES" id="C8c-XG-zPh"/>
+                                                    <outletCollection property="gestureRecognizers" destination="RJ9-CP-qWP" appends="YES" id="YOe-6H-Ama"/>
                                                 </connections>
                                             </view>
-                                            <view alpha="0.29999999999999999" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dlC-9X-mTr">
+                                            <view alpha="0.30000001192092896" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A3D-6y-g91">
                                                 <frame key="frameInset" minY="400" width="375" height="1"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="1" id="orC-hj-BcC"/>
+                                                    <constraint firstAttribute="height" constant="1" id="Plr-68-fFi"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hnb-yz-Nlq" customClass="WakeUpDayListItem" customModule="Ambiance" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LoV-xd-3Ed" customClass="WakeUpDayListItem" customModule="Ambiance" customModuleProvider="target">
                                                 <frame key="frameInset" minY="401" width="375" height="50"/>
                                                 <gestureRecognizers/>
                                                 <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="ofi-F6-IMR" appends="YES" id="cz6-1b-DQ1"/>
+                                                    <outletCollection property="gestureRecognizers" destination="Wke-Dd-IBi" appends="YES" id="pg3-PM-rXv"/>
                                                 </connections>
                                             </view>
-                                            <view alpha="0.29999999999999999" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zg0-B2-jEY">
+                                            <view alpha="0.30000001192092896" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PkX-Hs-1pp">
                                                 <frame key="frameInset" minY="451" width="375" height="1"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="1" id="k6d-zN-fgW"/>
+                                                    <constraint firstAttribute="height" constant="1" id="qcq-Ms-2J4"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="649-By-JX7" customClass="WakeUpDayListItem" customModule="Ambiance" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vu6-Vu-CyK" customClass="WakeUpDayListItem" customModule="Ambiance" customModuleProvider="target">
                                                 <frame key="frameInset" minY="452" width="375" height="50"/>
                                                 <gestureRecognizers/>
                                                 <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="9zM-Yt-MSh" appends="YES" id="hly-KH-SrV"/>
+                                                    <outletCollection property="gestureRecognizers" destination="hbs-O8-W5K" appends="YES" id="eMZ-Qa-qJk"/>
                                                 </connections>
                                             </view>
-                                            <view alpha="0.29999999999999999" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gjQ-bR-gjO">
+                                            <view alpha="0.30000001192092896" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4qp-Wn-QCt">
                                                 <frame key="frameInset" minY="502" width="375" height="1"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="1" id="8Jk-cF-zPc"/>
+                                                    <constraint firstAttribute="height" constant="1" id="2sC-wo-rZw"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="98C-gI-B4D" customClass="WakeUpDayListItem" customModule="Ambiance" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rgq-M9-X2h" customClass="WakeUpDayListItem" customModule="Ambiance" customModuleProvider="target">
                                                 <frame key="frameInset" minY="503" width="375" height="50"/>
                                                 <gestureRecognizers/>
                                                 <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="UYc-et-TWn" appends="YES" id="8WA-jb-0pA"/>
+                                                    <outletCollection property="gestureRecognizers" destination="vZT-26-WyL" appends="YES" id="SJX-Fz-yVL"/>
                                                 </connections>
                                             </view>
-                                            <view alpha="0.29999999999999999" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xX8-QP-bDX">
+                                            <view alpha="0.30000001192092896" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NU1-nM-Atd">
                                                 <frame key="frameInset" minY="553" width="375" height="1"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="1" id="qoY-VH-KbG"/>
+                                                    <constraint firstAttribute="height" constant="1" id="gba-fD-PNw"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JpG-JJ-0wY" customClass="WakeUpDayListItem" customModule="Ambiance" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tFi-9P-FKj" customClass="WakeUpDayListItem" customModule="Ambiance" customModuleProvider="target">
                                                 <frame key="frameInset" minY="554" width="375" height="50"/>
                                                 <gestureRecognizers/>
                                                 <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="HHC-mp-UGB" appends="YES" id="tiO-dW-IYv"/>
+                                                    <outletCollection property="gestureRecognizers" destination="wCx-Yk-AjX" appends="YES" id="yuD-X2-XQf"/>
                                                 </connections>
                                             </view>
-                                            <view alpha="0.29999999999999999" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VaF-8m-axc">
+                                            <view alpha="0.30000001192092896" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GqL-xe-1GP">
                                                 <frame key="frameInset" minY="604" width="375" height="1"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="1" id="yIS-hP-QRM"/>
+                                                    <constraint firstAttribute="height" constant="1" id="Pid-wB-CrY"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fih-tP-vof" customClass="WakeUpDayListItem" customModule="Ambiance" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Meq-AV-hd0" customClass="WakeUpDayListItem" customModule="Ambiance" customModuleProvider="target">
                                                 <frame key="frameInset" minY="605" width="375" height="50"/>
                                                 <gestureRecognizers/>
                                                 <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="ELa-gg-28a" appends="YES" id="tql-WH-fQB"/>
+                                                    <outletCollection property="gestureRecognizers" destination="Sxp-hL-heE" appends="YES" id="K6O-oH-xv7"/>
                                                 </connections>
                                             </view>
-                                            <view alpha="0.29999999999999999" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OdH-kM-0gg">
+                                            <view alpha="0.30000001192092896" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tgr-lS-RPz">
                                                 <frame key="frameInset" minY="655" width="375" height="1"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="1" id="dvD-Km-o7i"/>
+                                                    <constraint firstAttribute="height" constant="1" id="2Kk-uf-Pr7"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Ry-qN-By7" customClass="WakeUpDayListItem" customModule="Ambiance" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="slN-qv-GTy" customClass="WakeUpDayListItem" customModule="Ambiance" customModuleProvider="target">
                                                 <frame key="frameInset" minY="656" width="375" height="128"/>
                                                 <gestureRecognizers/>
                                                 <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="VfN-Cs-TyY" appends="YES" id="BkD-1W-Whm"/>
+                                                    <outletCollection property="gestureRecognizers" destination="qKs-Aa-1FP" appends="YES" id="i8i-U2-J7x"/>
                                                 </connections>
                                             </view>
-                                            <view alpha="0.29999999999999999" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zP2-11-KIC">
+                                            <view alpha="0.30000001192092896" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fVd-Th-91s">
                                                 <frame key="frameInset" minY="784" width="375" height="1"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="1" id="ne6-eV-1ag"/>
+                                                    <constraint firstAttribute="height" constant="1" id="4Yk-7U-TdO"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q9L-Tr-tDA" customClass="WakeUpDayListItem" customModule="Ambiance" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ma4-4m-d3u" customClass="WakeUpDayListItem" customModule="Ambiance" customModuleProvider="target">
                                                 <frame key="frameInset" minY="785" width="375" height="128"/>
                                                 <gestureRecognizers/>
                                                 <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="5OE-u7-8SF" appends="YES" id="rwj-dc-z2Q"/>
+                                                    <outletCollection property="gestureRecognizers" destination="izA-j1-epW" appends="YES" id="lS1-Rm-Zeq"/>
                                                 </connections>
                                             </view>
-                                            <view alpha="0.29999999999999999" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MyN-AR-OjD">
+                                            <view alpha="0.30000001192092896" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pXt-9F-0cH">
                                                 <frame key="frameInset" minY="913" width="375" height="1"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="1" id="pM8-EN-EPL"/>
+                                                    <constraint firstAttribute="height" constant="1" id="TW6-V6-VWY"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r7l-ws-PEb">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mXp-RO-bax">
                                                 <frame key="frameInset" minY="914" width="375" height="128"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="128" id="uAW-p8-Y01"/>
+                                                    <constraint firstAttribute="height" constant="128" id="Tly-4g-ueL"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="r7l-ws-PEb" firstAttribute="width" secondItem="95v-iV-kWH" secondAttribute="width" id="5N5-up-9tK"/>
-                                            <constraint firstAttribute="trailing" secondItem="jQ4-2f-g6x" secondAttribute="trailing" id="5mI-Vh-Knx"/>
-                                            <constraint firstItem="jQ4-2f-g6x" firstAttribute="width" secondItem="95v-iV-kWH" secondAttribute="width" id="9R4-Vz-4VO"/>
-                                            <constraint firstItem="jQ4-2f-g6x" firstAttribute="leading" secondItem="95v-iV-kWH" secondAttribute="leading" id="NOU-sa-Khi"/>
-                                            <constraint firstItem="dlC-9X-mTr" firstAttribute="width" secondItem="95v-iV-kWH" secondAttribute="width" id="s27-m4-keU"/>
+                                            <constraint firstAttribute="trailing" secondItem="w3p-sI-PAS" secondAttribute="trailing" id="R5W-BU-oTt"/>
+                                            <constraint firstItem="w3p-sI-PAS" firstAttribute="width" secondItem="p7X-Dk-47q" secondAttribute="width" id="eSb-gq-utU"/>
+                                            <constraint firstItem="mXp-RO-bax" firstAttribute="width" secondItem="p7X-Dk-47q" secondAttribute="width" id="vtQ-bh-Z7r"/>
+                                            <constraint firstItem="A3D-6y-g91" firstAttribute="width" secondItem="p7X-Dk-47q" secondAttribute="width" id="wy4-lF-Q74"/>
+                                            <constraint firstItem="w3p-sI-PAS" firstAttribute="leading" secondItem="p7X-Dk-47q" secondAttribute="leading" id="zXS-Lu-jyF"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="95v-iV-kWH" firstAttribute="width" secondItem="QJw-Su-WJ4" secondAttribute="width" id="ESS-eF-g4b"/>
-                                    <constraint firstItem="95v-iV-kWH" firstAttribute="top" secondItem="QJw-Su-WJ4" secondAttribute="top" id="K1A-JH-gjZ"/>
-                                    <constraint firstAttribute="bottom" secondItem="95v-iV-kWH" secondAttribute="bottom" id="eRZ-mr-3cy"/>
+                                    <constraint firstItem="p7X-Dk-47q" firstAttribute="top" secondItem="a2o-ZW-opT" secondAttribute="top" id="Whj-K2-MAE"/>
+                                    <constraint firstAttribute="bottom" secondItem="p7X-Dk-47q" secondAttribute="bottom" id="arh-n8-avc"/>
+                                    <constraint firstItem="p7X-Dk-47q" firstAttribute="width" secondItem="a2o-ZW-opT" secondAttribute="width" id="qU9-4U-Bd8"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="QJw-Su-WJ4" firstAttribute="top" secondItem="J0i-ck-5ve" secondAttribute="top" id="AWt-XS-f7L"/>
-                            <constraint firstAttribute="trailing" secondItem="QJw-Su-WJ4" secondAttribute="trailing" id="Rpz-UE-gte"/>
-                            <constraint firstItem="QJw-Su-WJ4" firstAttribute="height" secondItem="J0i-ck-5ve" secondAttribute="height" id="n73-2q-CXh"/>
-                            <constraint firstItem="QJw-Su-WJ4" firstAttribute="leading" secondItem="J0i-ck-5ve" secondAttribute="leading" id="vR3-8m-gbH"/>
+                            <constraint firstItem="a2o-ZW-opT" firstAttribute="top" secondItem="IFO-74-CM8" secondAttribute="top" id="CdP-H9-txw"/>
+                            <constraint firstAttribute="trailing" secondItem="a2o-ZW-opT" secondAttribute="trailing" id="TEs-La-5sD"/>
+                            <constraint firstItem="a2o-ZW-opT" firstAttribute="height" secondItem="IFO-74-CM8" secondAttribute="height" id="Xw3-7o-278"/>
+                            <constraint firstItem="a2o-ZW-opT" firstAttribute="leading" secondItem="IFO-74-CM8" secondAttribute="leading" id="cfv-AY-muW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="bAl-Ae-oKL">
+                    <navigationItem key="navigationItem" id="Gec-SL-HMy">
                         <nil key="title"/>
-                        <view key="titleView" contentMode="scaleToFill" id="41C-Yr-mWy">
+                        <view key="titleView" contentMode="scaleToFill" id="F4G-SS-Too">
                             <rect key="frame" x="113" y="6" width="150" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_app-icon_nav-bar" translatesAutoresizingMaskIntoConstraints="NO" id="qcX-NX-VyD">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_app-icon_nav-bar" translatesAutoresizingMaskIntoConstraints="NO" id="gvN-F3-pBN">
                                     <frame key="frameInset" width="150" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                             </subviews>
                         </view>
-                        <barButtonItem key="rightBarButtonItem" title="Configure" id="8L5-zu-Xfw">
+                        <barButtonItem key="rightBarButtonItem" title="Configure" id="aBh-bH-NjD">
                             <connections>
-                                <action selector="onConfigureTap:" destination="Llg-uH-4M6" id="jtl-ZC-Htt"/>
+                                <action selector="onConfigureTap:" destination="PWZ-ze-dRk" id="2CQ-vo-MFi"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="day1View" destination="hnb-yz-Nlq" id="STD-oY-zcF"/>
-                        <outlet property="day2View" destination="649-By-JX7" id="Btk-VC-b4i"/>
-                        <outlet property="day3View" destination="98C-gI-B4D" id="hYw-br-YYn"/>
-                        <outlet property="day4View" destination="JpG-JJ-0wY" id="bHk-t9-raN"/>
-                        <outlet property="day5View" destination="Fih-tP-vof" id="N5j-JG-JJW"/>
-                        <outlet property="day6View" destination="7Ry-qN-By7" id="5g9-hG-Jh1"/>
-                        <outlet property="day7View" destination="Q9L-Tr-tDA" id="jIx-bK-KKA"/>
-                        <outlet property="wakeUpClockView" destination="jQ4-2f-g6x" id="3pI-oR-iOx"/>
+                        <outlet property="day1View" destination="LoV-xd-3Ed" id="PFb-2L-yvh"/>
+                        <outlet property="day2View" destination="vu6-Vu-CyK" id="HK6-g9-fY0"/>
+                        <outlet property="day3View" destination="Rgq-M9-X2h" id="hIE-ax-k95"/>
+                        <outlet property="day4View" destination="tFi-9P-FKj" id="VPu-0P-aRN"/>
+                        <outlet property="day5View" destination="Meq-AV-hd0" id="pJ2-bM-ppL"/>
+                        <outlet property="day6View" destination="slN-qv-GTy" id="KQG-rx-U6y"/>
+                        <outlet property="day7View" destination="ma4-4m-d3u" id="ptn-n9-14F"/>
+                        <outlet property="wakeUpClockView" destination="w3p-sI-PAS" id="DIz-1w-44V"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MIe-y4-LWV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="noe-d5-KhY" userLabel="Wake Up Tap Gesture Recognizer">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Su-co-Wp9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="RJ9-CP-qWP" userLabel="Wake Up Tap Gesture Recognizer">
                     <connections>
-                        <action selector="onWakeUpTap:" destination="Llg-uH-4M6" id="d84-eu-9tJ"/>
+                        <action selector="onWakeUpTap:" destination="PWZ-ze-dRk" id="3hb-cM-ZrC"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="ofi-F6-IMR" userLabel="Day 1 Tap Gesture Recognizer">
+                <tapGestureRecognizer id="Wke-Dd-IBi" userLabel="Day 1 Tap Gesture Recognizer">
                     <connections>
-                        <action selector="onDayTap:" destination="Llg-uH-4M6" id="Xo9-Ld-ALT"/>
+                        <action selector="onDayTap:" destination="PWZ-ze-dRk" id="BEK-76-r3N"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="9zM-Yt-MSh" userLabel="Day 2 Tap Gesture Recognizer">
+                <tapGestureRecognizer id="hbs-O8-W5K" userLabel="Day 2 Tap Gesture Recognizer">
                     <connections>
-                        <action selector="onDayTap:" destination="Llg-uH-4M6" id="Peb-wO-pqy"/>
+                        <action selector="onDayTap:" destination="PWZ-ze-dRk" id="gCH-PQ-TTU"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="UYc-et-TWn" userLabel="Day 3 Tap Gesture Recognizer">
+                <tapGestureRecognizer id="vZT-26-WyL" userLabel="Day 3 Tap Gesture Recognizer">
                     <connections>
-                        <action selector="onDayTap:" destination="Llg-uH-4M6" id="Buk-I4-Ldh"/>
+                        <action selector="onDayTap:" destination="PWZ-ze-dRk" id="djo-jh-eeT"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="HHC-mp-UGB" userLabel="Day 4 Tap Gesture Recognizer">
+                <tapGestureRecognizer id="wCx-Yk-AjX" userLabel="Day 4 Tap Gesture Recognizer">
                     <connections>
-                        <action selector="onDayTap:" destination="Llg-uH-4M6" id="VUx-go-clK"/>
+                        <action selector="onDayTap:" destination="PWZ-ze-dRk" id="6ko-PL-7vn"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="ELa-gg-28a" userLabel="Day 5 Tap Gesture Recognizer">
+                <tapGestureRecognizer id="Sxp-hL-heE" userLabel="Day 5 Tap Gesture Recognizer">
                     <connections>
-                        <action selector="onDayTap:" destination="Llg-uH-4M6" id="5IJ-rQ-i5z"/>
+                        <action selector="onDayTap:" destination="PWZ-ze-dRk" id="rYM-3o-LJJ"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="VfN-Cs-TyY" userLabel="Day 6 Tap Gesture Recognizer">
+                <tapGestureRecognizer id="qKs-Aa-1FP" userLabel="Day 6 Tap Gesture Recognizer">
                     <connections>
-                        <action selector="onDayTap:" destination="Llg-uH-4M6" id="awz-6b-zaG"/>
+                        <action selector="onDayTap:" destination="PWZ-ze-dRk" id="GgN-AT-Ta6"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="5OE-u7-8SF" userLabel="Day 7 Tap Gesture Recognizer">
+                <tapGestureRecognizer id="izA-j1-epW" userLabel="Day 7 Tap Gesture Recognizer">
                     <connections>
-                        <action selector="onDayTap:" destination="Llg-uH-4M6" id="KAa-LV-6R3"/>
+                        <action selector="onDayTap:" destination="PWZ-ze-dRk" id="ThW-jW-nhs"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2157.5999999999999" y="-679.61019490254876"/>
         </scene>
         <!--Wake Up Edit View Controller-->
-        <scene sceneID="uPb-8s-VS1">
+        <scene sceneID="hiz-Ki-eem">
             <objects>
-                <viewController storyboardIdentifier="wake_up_edit" id="83R-EF-PzM" customClass="WakeUpEditViewController" customModule="Ambiance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="wake_up_edit" id="jCY-Ms-4o0" customClass="WakeUpEditViewController" customModule="Ambiance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="oNb-eH-Lra"/>
-                        <viewControllerLayoutGuide type="bottom" id="uAx-OV-7Xf"/>
+                        <viewControllerLayoutGuide type="top" id="JCw-Tw-22C"/>
+                        <viewControllerLayoutGuide type="bottom" id="XBA-Y0-rLW"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Fnj-rj-oKZ">
+                    <view key="view" contentMode="scaleToFill" id="ekR-32-yUv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qqe-JC-o30">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OUW-fH-hfh">
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EkY-vq-5jk">
+                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Wwn-b8-i73">
                                         <frame key="frameInset" minY="44" width="375" height="647"/>
                                         <subviews>
-                                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jjR-sI-XER">
+                                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jj4-g3-dxM">
                                                 <color key="tintColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <items>
-                                                    <navigationItem id="ZDv-7D-Qha">
-                                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="H97-vv-sDr">
+                                                    <navigationItem id="5Gz-jh-5Fd">
+                                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="q1u-iU-rCs">
                                                             <connections>
-                                                                <action selector="onCancelTap:" destination="83R-EF-PzM" id="c8g-Gy-XPw"/>
+                                                                <action selector="onCancelTap:" destination="jCY-Ms-4o0" id="b4X-l0-bxE"/>
                                                             </connections>
                                                         </barButtonItem>
-                                                        <barButtonItem key="rightBarButtonItem" title="Done" id="uEi-Lj-WRj">
+                                                        <barButtonItem key="rightBarButtonItem" title="Done" id="wJS-AD-n8w">
                                                             <connections>
-                                                                <action selector="onDoneTap:" destination="83R-EF-PzM" id="dcV-e5-wcd"/>
+                                                                <action selector="onDoneTap:" destination="jCY-Ms-4o0" id="trG-Vf-53Q"/>
                                                             </connections>
                                                         </barButtonItem>
                                                     </navigationItem>
                                                 </items>
                                             </navigationBar>
-                                            <view alpha="0.20000000298023224" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dvh-kX-Xlf" userLabel="HR">
+                                            <view alpha="0.20000000298023224" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vf3-Jg-S1G" userLabel="HR">
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="1" id="Qwk-py-YDS"/>
+                                                    <constraint firstAttribute="height" constant="1" id="hLQ-Hj-ybr"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFW-jA-ha0">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZD0-H3-8oi">
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wake-Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIb-YR-nOS">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wake-Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8O-y3-o9M">
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="0.58039215690000001" green="0.58039215690000001" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rTm-y9-sOK">
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F43-bu-q8a">
                                                         <color key="tintColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="onTintColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <connections>
+                                                            <action selector="onEnabledToggle:" destination="jCY-Ms-4o0" eventType="valueChanged" id="yoh-Du-X0T"/>
+                                                        </connections>
                                                     </switch>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="rTm-y9-sOK" firstAttribute="centerY" secondItem="QFW-jA-ha0" secondAttribute="centerY" id="1Ix-k6-sO1"/>
-                                                    <constraint firstAttribute="trailing" secondItem="rTm-y9-sOK" secondAttribute="trailing" constant="8" id="DS7-Rr-bQC"/>
-                                                    <constraint firstItem="VIb-YR-nOS" firstAttribute="leading" secondItem="QFW-jA-ha0" secondAttribute="leading" constant="8" id="J1f-Cv-UJr"/>
-                                                    <constraint firstAttribute="height" constant="60" id="dFj-4V-XF2"/>
-                                                    <constraint firstItem="VIb-YR-nOS" firstAttribute="centerY" secondItem="QFW-jA-ha0" secondAttribute="centerY" id="fDg-qC-26U"/>
+                                                    <constraint firstAttribute="height" constant="60" id="Hla-7R-yyz"/>
+                                                    <constraint firstItem="J8O-y3-o9M" firstAttribute="centerY" secondItem="ZD0-H3-8oi" secondAttribute="centerY" id="QKR-Ae-JzJ"/>
+                                                    <constraint firstItem="J8O-y3-o9M" firstAttribute="leading" secondItem="ZD0-H3-8oi" secondAttribute="leading" constant="8" id="jrX-qR-ILr"/>
+                                                    <constraint firstAttribute="trailing" secondItem="F43-bu-q8a" secondAttribute="trailing" constant="8" id="sar-RK-Fj4"/>
+                                                    <constraint firstItem="F43-bu-q8a" firstAttribute="centerY" secondItem="ZD0-H3-8oi" secondAttribute="centerY" id="vrl-ob-Xf6"/>
                                                 </constraints>
                                             </view>
-                                            <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AOc-da-ogT" userLabel="HR">
+                                            <view alpha="0.20000000298023224" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sqh-68-kr7" userLabel="HR">
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="1" id="d8y-E1-a1T"/>
+                                                    <constraint firstAttribute="height" constant="1" id="9PC-Wx-G9e"/>
                                                 </constraints>
                                             </view>
-                                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3Ez-Xw-xXv">
+                                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zNd-Ro-o8V">
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t23-Fa-qjX" userLabel="Monday" customClass="DayCheckmarkView" customModule="Ambiance" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Bv-iv-X7r" userLabel="Monday" customClass="DayCheckmarkView" customModule="Ambiance" customModuleProvider="target">
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="MON"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eCx-7o-FRg" userLabel="Tuesday" customClass="DayCheckmarkView" customModule="Ambiance" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RVh-lW-yGh" userLabel="Tuesday" customClass="DayCheckmarkView" customModule="Ambiance" customModuleProvider="target">
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="TUE"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yZm-4O-pXV" userLabel="Wednesday" customClass="DayCheckmarkView" customModule="Ambiance" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dpT-4k-qS6" userLabel="Wednesday" customClass="DayCheckmarkView" customModule="Ambiance" customModuleProvider="target">
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="WED"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bY7-sw-GTc" userLabel="Thursday" customClass="DayCheckmarkView" customModule="Ambiance" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0tj-7I-zBi" userLabel="Thursday" customClass="DayCheckmarkView" customModule="Ambiance" customModuleProvider="target">
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="THU"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JFc-C1-Rme" userLabel="Friday" customClass="DayCheckmarkView" customModule="Ambiance" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pnH-sh-ttR" userLabel="Friday" customClass="DayCheckmarkView" customModule="Ambiance" customModuleProvider="target">
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="FRI"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="osK-QG-FMZ" userLabel="Saturday" customClass="DayCheckmarkView" customModule="Ambiance" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XF4-FW-y0t" userLabel="Saturday" customClass="DayCheckmarkView" customModule="Ambiance" customModuleProvider="target">
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="SAT"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JXi-GX-FE3" userLabel="Sunday" customClass="DayCheckmarkView" customModule="Ambiance" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DRV-9O-gr1" userLabel="Sunday" customClass="DayCheckmarkView" customModule="Ambiance" customModuleProvider="target">
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="SUN"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                 </subviews>
                                             </stackView>
-                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Fvy-x8-WkS">
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="mJP-f7-hXF">
                                                 <color key="tintColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <date key="date" timeIntervalSinceReferenceDate="501298040.67248303">
                                                     <!--2016-11-20 01:27:20 +0000-->
@@ -402,88 +405,95 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="EkY-vq-5jk" firstAttribute="leading" secondItem="qqe-JC-o30" secondAttribute="leading" id="7Qo-aC-w3V"/>
-                                    <constraint firstAttribute="trailing" secondItem="EkY-vq-5jk" secondAttribute="trailing" id="D1x-gE-XS8"/>
-                                    <constraint firstItem="EkY-vq-5jk" firstAttribute="top" secondItem="qqe-JC-o30" secondAttribute="top" id="ScL-CL-ZJJ"/>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="EkY-vq-5jk" secondAttribute="bottom" id="tVP-LN-foC"/>
+                                    <constraint firstItem="Wwn-b8-i73" firstAttribute="top" secondItem="OUW-fH-hfh" secondAttribute="top" id="7zd-hj-XoH"/>
+                                    <constraint firstItem="Wwn-b8-i73" firstAttribute="leading" secondItem="OUW-fH-hfh" secondAttribute="leading" id="QVb-ag-sZg"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Wwn-b8-i73" secondAttribute="bottom" id="T3K-qi-Ps7"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wwn-b8-i73" secondAttribute="trailing" id="fR7-Cg-d53"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="qqe-JC-o30" firstAttribute="top" secondItem="oNb-eH-Lra" secondAttribute="bottom" id="Hg5-Cy-lBm"/>
-                            <constraint firstAttribute="trailing" secondItem="qqe-JC-o30" secondAttribute="trailing" id="e0X-OA-gzN"/>
-                            <constraint firstItem="uAx-OV-7Xf" firstAttribute="top" secondItem="qqe-JC-o30" secondAttribute="bottom" id="saQ-LK-G07"/>
-                            <constraint firstItem="qqe-JC-o30" firstAttribute="leading" secondItem="Fnj-rj-oKZ" secondAttribute="leading" id="w8E-Wb-92j"/>
+                            <constraint firstItem="XBA-Y0-rLW" firstAttribute="top" secondItem="OUW-fH-hfh" secondAttribute="bottom" id="E6D-7Z-2S9"/>
+                            <constraint firstAttribute="trailing" secondItem="OUW-fH-hfh" secondAttribute="trailing" id="IyG-ED-yk5"/>
+                            <constraint firstItem="OUW-fH-hfh" firstAttribute="leading" secondItem="ekR-32-yUv" secondAttribute="leading" id="eKE-rs-Jch"/>
+                            <constraint firstItem="OUW-fH-hfh" firstAttribute="top" secondItem="JCw-Tw-22C" secondAttribute="bottom" id="hMD-uO-ZdX"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="navBar" destination="jjR-sI-XER" id="d02-Uh-BEr"/>
-                        <outlet property="timePicker" destination="Fvy-x8-WkS" id="94e-ie-okF"/>
+                        <outlet property="fridayCheckbox" destination="pnH-sh-ttR" id="bEF-ig-ZjF"/>
+                        <outlet property="globalIsEnabledSwitch" destination="F43-bu-q8a" id="dxo-CW-7P2"/>
+                        <outlet property="mondayCheckbox" destination="6Bv-iv-X7r" id="bdx-lR-dhV"/>
+                        <outlet property="navBar" destination="Jj4-g3-dxM" id="iYg-bi-zf0"/>
+                        <outlet property="saturdayCheckbox" destination="XF4-FW-y0t" id="FI6-2Q-9n9"/>
+                        <outlet property="sundayCheckbox" destination="DRV-9O-gr1" id="hei-6B-3VF"/>
+                        <outlet property="thursdayCheckbox" destination="0tj-7I-zBi" id="95c-vB-m6z"/>
+                        <outlet property="timePicker" destination="mJP-f7-hXF" id="mae-lh-56m"/>
+                        <outlet property="tuesdayCheckbox" destination="RVh-lW-yGh" id="StE-GW-rs8"/>
+                        <outlet property="wednesdayCheckbox" destination="dpT-4k-qS6" id="dso-e4-dTN"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zw6-L3-3kk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iKl-ne-KSc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1220" y="42.728635682158924"/>
         </scene>
         <!--Wake Up Configure View Controller-->
-        <scene sceneID="enh-If-qVF">
+        <scene sceneID="mDY-f7-O3r">
             <objects>
-                <viewController storyboardIdentifier="wake_up_configure" id="XIp-aU-foS" customClass="WakeUpConfigureViewController" customModule="Ambiance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="wake_up_configure" id="Rul-ke-MkE" customClass="WakeUpConfigureViewController" customModule="Ambiance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="dsU-Eb-blV"/>
-                        <viewControllerLayoutGuide type="bottom" id="YLO-OF-o3H"/>
+                        <viewControllerLayoutGuide type="top" id="XqH-9M-dn1"/>
+                        <viewControllerLayoutGuide type="bottom" id="reQ-aW-lQW"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="P3Y-iI-SWe">
+                    <view key="view" contentMode="scaleToFill" id="t8y-at-vWf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HtL-nj-eam">
-                                <frame key="frameInset" minY="44" width="375" height="597"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KeP-Py-hKO">
                                 <subviews>
-                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bOb-Qo-w8a">
-                                        <color key="tintColor" red="1" green="0.49803921568627452" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eX2-5L-FQ1">
+                                        <color key="tintColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <items>
-                                            <navigationItem id="b3Z-hW-hRV">
-                                                <barButtonItem key="leftBarButtonItem" title="Cancel" id="e3E-Ew-nBF">
+                                            <navigationItem id="UWz-7I-b2J">
+                                                <barButtonItem key="leftBarButtonItem" title="Cancel" id="IKa-sL-tDB">
                                                     <connections>
-                                                        <action selector="onCancelTap:" destination="XIp-aU-foS" id="7R6-AM-tGM"/>
+                                                        <action selector="onCancelTap:" destination="Rul-ke-MkE" id="pqu-n8-f4e"/>
                                                     </connections>
                                                 </barButtonItem>
-                                                <barButtonItem key="rightBarButtonItem" title="Done" id="bBw-g0-Nj8">
+                                                <barButtonItem key="rightBarButtonItem" title="Done" id="69j-3T-2Nt">
                                                     <connections>
-                                                        <action selector="onDoneTap:" destination="XIp-aU-foS" id="DX0-Gb-fYV"/>
+                                                        <action selector="onDoneTap:" destination="Rul-ke-MkE" id="ovv-KE-FBc"/>
                                                     </connections>
                                                 </barButtonItem>
                                             </navigationItem>
                                         </items>
                                     </navigationBar>
-                                    <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b9V-7H-eO4" userLabel="HR">
+                                    <view alpha="0.20000000298023224" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eGx-CC-8eS" userLabel="HR">
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="41C-Rq-Ah4"/>
+                                            <constraint firstAttribute="height" constant="1" id="K71-Fz-vNg"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KK2-9h-KOO" userLabel="Spacer">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2nA-qc-lnt" userLabel="Spacer">
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="15" id="C0X-Fi-zsf"/>
+                                            <constraint firstAttribute="height" constant="15" id="M15-CB-Qgq"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where would you like your alarm to play?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Swz-Y9-8FU">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where would you like your alarm to play?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B9P-V7-Naa">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6fn-Wu-daU" userLabel="Spacer">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jmH-zw-Ya6" userLabel="Spacer">
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="15" id="2MR-AL-pmV"/>
+                                            <constraint firstAttribute="height" constant="15" id="EeB-d4-Ekt"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SDW-1A-EZI">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TeS-fS-O7I">
                                         <subviews>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Tyq-zc-me2">
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="DUk-Zj-3Vh">
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="28" id="BxL-tc-nab"/>
-                                                    <constraint firstAttribute="width" constant="325" id="dA5-lc-GlC"/>
+                                                    <constraint firstAttribute="height" constant="28" id="DLB-xK-S72"/>
+                                                    <constraint firstAttribute="width" constant="325" id="YUv-g1-2Cb"/>
                                                 </constraints>
                                                 <segments>
                                                     <segment title="PHONE"/>
@@ -493,100 +503,100 @@
                                             </segmentedControl>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="Tyq-zc-me2" firstAttribute="top" secondItem="SDW-1A-EZI" secondAttribute="top" id="In0-Vt-Rol"/>
-                                            <constraint firstItem="Tyq-zc-me2" firstAttribute="centerX" secondItem="SDW-1A-EZI" secondAttribute="centerX" id="RMT-S1-OiP"/>
-                                            <constraint firstAttribute="bottom" secondItem="Tyq-zc-me2" secondAttribute="bottom" id="gV9-0f-q0J"/>
+                                            <constraint firstItem="DUk-Zj-3Vh" firstAttribute="centerX" secondItem="TeS-fS-O7I" secondAttribute="centerX" id="05u-5k-VPM"/>
+                                            <constraint firstItem="DUk-Zj-3Vh" firstAttribute="top" secondItem="TeS-fS-O7I" secondAttribute="top" id="6h2-H6-CB9"/>
+                                            <constraint firstAttribute="bottom" secondItem="DUk-Zj-3Vh" secondAttribute="bottom" id="Po6-PV-ZXS"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SMg-qw-hUP" userLabel="Spacer">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1dx-X0-jql" userLabel="Spacer">
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="mIv-9y-CVf"/>
+                                            <constraint firstAttribute="height" constant="30" id="Cst-TJ-yPL"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How slowly should your alarm rise?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eM-MJ-G5p">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How slowly should your alarm rise?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BC9-X2-XIH">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="7z9-OJ-Q6y">
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cDk-lo-9ys">
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zi7-bR-5jY" userLabel="Spacer">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8zK-GV-gGS" userLabel="Spacer">
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="8" id="Kls-Bs-6NA"/>
+                                                    <constraint firstAttribute="width" constant="8" id="qx8-gg-6kk"/>
                                                 </constraints>
                                             </view>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YBh-rx-SMU">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nU4-hO-RqJ">
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oti-X2-to9">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VF1-ee-Lb6">
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cki-yV-dvm">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxT-uY-uhr">
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="28" id="1Ug-kh-DGv"/>
+                                                    <constraint firstAttribute="width" constant="28" id="B1c-JC-gwr"/>
                                                 </constraints>
                                             </stackView>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="gWN-sD-bQk">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="d33-wW-kIS">
                                                 <color key="tintColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </slider>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Vjr-9B-4H2">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uG7-2q-7H0">
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ta6-l5-Tu1">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X4n-xT-i3E">
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEi-os-ob7">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9T-mJ-7fF">
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="28" id="pYA-1N-Nmz"/>
+                                                    <constraint firstAttribute="width" constant="28" id="Q5A-iQ-Nfj"/>
                                                 </constraints>
                                             </stackView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nEt-18-Csd" userLabel="Spacer">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jOU-h6-BW5" userLabel="Spacer">
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="8" id="btb-bl-vcg"/>
+                                                    <constraint firstAttribute="width" constant="8" id="jVY-gN-f0D"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="Zi7-bR-5jY" firstAttribute="top" secondItem="7z9-OJ-Q6y" secondAttribute="top" id="50C-bn-AMw"/>
-                                            <constraint firstAttribute="bottom" secondItem="nEt-18-Csd" secondAttribute="bottom" id="Hkk-TP-A7f"/>
-                                            <constraint firstAttribute="bottom" secondItem="Zi7-bR-5jY" secondAttribute="bottom" id="R91-hn-DNq"/>
-                                            <constraint firstItem="nEt-18-Csd" firstAttribute="top" secondItem="7z9-OJ-Q6y" secondAttribute="top" id="ho9-Lj-xce"/>
+                                            <constraint firstItem="jOU-h6-BW5" firstAttribute="top" secondItem="cDk-lo-9ys" secondAttribute="top" id="PU8-dw-7Da"/>
+                                            <constraint firstItem="8zK-GV-gGS" firstAttribute="top" secondItem="cDk-lo-9ys" secondAttribute="top" id="Qh9-DM-5sW"/>
+                                            <constraint firstAttribute="bottom" secondItem="8zK-GV-gGS" secondAttribute="bottom" id="V1X-Tx-ifS"/>
+                                            <constraint firstAttribute="bottom" secondItem="jOU-h6-BW5" secondAttribute="bottom" id="kPq-Kn-o4h"/>
                                         </constraints>
                                     </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sYE-rw-DxU" userLabel="Spacer">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mlN-v4-MEr" userLabel="Spacer">
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="abq-cm-AAY"/>
+                                            <constraint firstAttribute="height" constant="30" id="A4e-2W-3bj"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How loud should your alarm be?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAb-BX-aVI">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How loud should your alarm be?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QB1-Yo-mZH">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="TRf-Rt-UDa">
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="OZ0-1Y-w7r">
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbK-Ef-MzF" userLabel="Spacer">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="52j-Qk-ja5" userLabel="Spacer">
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="8" id="zwJ-Wm-vbL"/>
+                                                    <constraint firstAttribute="width" constant="8" id="Qzn-Nw-MU8"/>
                                                 </constraints>
                                             </view>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_speaker_no-sound_black" translatesAutoresizingMaskIntoConstraints="NO" id="LPR-dw-NvD">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_speaker_no-sound_black" translatesAutoresizingMaskIntoConstraints="NO" id="O9K-hg-CXP">
                                                 <color key="tintColor" red="0.58039215690000001" green="0.58039215690000001" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="32" id="pZ6-ya-CQi"/>
-                                                    <constraint firstAttribute="height" constant="32" id="snp-Ic-De4"/>
+                                                    <constraint firstAttribute="width" constant="32" id="ecg-l7-vSh"/>
+                                                    <constraint firstAttribute="height" constant="32" id="fu6-7N-0nG"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="imageRenderingMode">
@@ -594,14 +604,14 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="xLu-tN-0Jy">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="yEL-JL-5d9">
                                                 <color key="tintColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </slider>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_speaker_sound_black" translatesAutoresizingMaskIntoConstraints="NO" id="S0u-Cl-ddi">
-                                                <color key="tintColor" red="0.58039215686274503" green="0.58039215686274503" blue="0.58039215686274503" alpha="1" colorSpace="calibratedRGB"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_speaker_sound_black" translatesAutoresizingMaskIntoConstraints="NO" id="y5u-gi-sAC">
+                                                <color key="tintColor" red="0.58039215690000001" green="0.58039215690000001" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="32" id="DX4-7i-EGd"/>
-                                                    <constraint firstAttribute="height" constant="32" id="W9D-3O-6jl"/>
+                                                    <constraint firstAttribute="width" constant="32" id="AjJ-li-aIZ"/>
+                                                    <constraint firstAttribute="height" constant="32" id="KJ0-0t-8v9"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="imageRenderingMode">
@@ -609,63 +619,69 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KuG-sF-XgM" userLabel="Spacer">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uZ5-V9-2Kc" userLabel="Spacer">
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="8" id="7DL-0y-ViT"/>
+                                                    <constraint firstAttribute="width" constant="8" id="LOV-dy-nGT"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="hbK-Ef-MzF" firstAttribute="top" secondItem="TRf-Rt-UDa" secondAttribute="top" id="FlO-m3-B2Z"/>
-                                            <constraint firstAttribute="bottom" secondItem="KuG-sF-XgM" secondAttribute="bottom" id="d52-fs-7f5"/>
-                                            <constraint firstAttribute="bottom" secondItem="hbK-Ef-MzF" secondAttribute="bottom" id="jlt-lR-Eeo"/>
-                                            <constraint firstItem="KuG-sF-XgM" firstAttribute="top" secondItem="TRf-Rt-UDa" secondAttribute="top" id="oli-Vo-9gN"/>
+                                            <constraint firstItem="52j-Qk-ja5" firstAttribute="top" secondItem="OZ0-1Y-w7r" secondAttribute="top" id="7K4-ra-gX2"/>
+                                            <constraint firstAttribute="bottom" secondItem="52j-Qk-ja5" secondAttribute="bottom" id="CMR-lZ-arv"/>
+                                            <constraint firstAttribute="bottom" secondItem="uZ5-V9-2Kc" secondAttribute="bottom" id="lTr-XR-LGY"/>
+                                            <constraint firstItem="uZ5-V9-2Kc" firstAttribute="top" secondItem="OZ0-1Y-w7r" secondAttribute="top" id="x66-ce-DT3"/>
                                         </constraints>
                                     </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zz5-ts-ej9" userLabel="Spacer">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eq4-pR-PqD" userLabel="Spacer">
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="tlV-ai-WWB"/>
+                                            <constraint firstAttribute="height" constant="30" id="GbX-f5-NfX"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jCi-7Q-GRL">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="844-kT-BkL">
                                         <color key="tintColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Test Alarm Volume"/>
+                                        <connections>
+                                            <action selector="onTestAlarmTap:" destination="Rul-ke-MkE" eventType="touchUpInside" id="Dfy-2u-eVf"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="HtL-nj-eam" secondAttribute="trailing" id="Ib3-zA-iQa"/>
-                            <constraint firstItem="HtL-nj-eam" firstAttribute="top" secondItem="dsU-Eb-blV" secondAttribute="bottom" id="iEx-P7-FwG"/>
-                            <constraint firstItem="HtL-nj-eam" firstAttribute="leading" secondItem="P3Y-iI-SWe" secondAttribute="leading" id="qhc-65-iDo"/>
-                            <constraint firstItem="YLO-OF-o3H" firstAttribute="top" relation="greaterThanOrEqual" secondItem="HtL-nj-eam" secondAttribute="bottom" constant="50" id="xtZ-y5-zLm"/>
+                            <constraint firstItem="KeP-Py-hKO" firstAttribute="top" secondItem="XqH-9M-dn1" secondAttribute="bottom" id="Azu-fY-vyv"/>
+                            <constraint firstItem="reQ-aW-lQW" firstAttribute="top" relation="greaterThanOrEqual" secondItem="KeP-Py-hKO" secondAttribute="bottom" constant="50" id="EZE-Yy-mQD"/>
+                            <constraint firstItem="KeP-Py-hKO" firstAttribute="leading" secondItem="t8y-at-vWf" secondAttribute="leading" id="ejo-rq-gsq"/>
+                            <constraint firstAttribute="trailing" secondItem="KeP-Py-hKO" secondAttribute="trailing" id="iCr-Wa-TCV"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="navBar" destination="bOb-Qo-w8a" id="7I9-jC-2kQ"/>
+                        <outlet property="navBar" destination="eX2-5L-FQ1" id="aY6-pH-GEW"/>
+                        <outlet property="playbackDeviceSegmentedControl" destination="DUk-Zj-3Vh" id="avR-Sy-nFI"/>
+                        <outlet property="riseTimeSlider" destination="d33-wW-kIS" id="brI-Ji-DmF"/>
+                        <outlet property="volumeSlider" destination="yEL-JL-5d9" id="saw-kY-9B2"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Qzz-xw-aGE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ufx-H5-eHd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1220" y="759.67016491754134"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="agw-Hr-TD2">
+        <scene sceneID="KMG-ab-qHK">
             <objects>
-                <navigationController storyboardIdentifier="wake_up_display" automaticallyAdjustsScrollViewInsets="NO" id="gdt-39-tfi" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="wake_up_display" automaticallyAdjustsScrollViewInsets="NO" id="a2Y-0A-RaG" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" id="42x-Ex-fmO">
+                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" id="aFA-EG-49f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="1" green="0.74537037037037035" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="1" green="0.74537037039999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Llg-uH-4M6" kind="relationship" relationship="rootViewController" id="E0t-W3-zrx"/>
+                        <segue destination="PWZ-ze-dRk" kind="relationship" relationship="rootViewController" id="WOk-TI-j6V"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zRw-i5-e8v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hgt-nB-4NX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1220" y="-679"/>
         </scene>

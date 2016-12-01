@@ -19,20 +19,26 @@ class AlarmScheduler: NSObject {
     let calendar = Calendar(identifier: .gregorian)
     var alarmObject: AlarmObject!
     
-    init(vc: UIViewController) {
+    override init() {
         super.init()
-        self.mainVc = vc
         // FIXME - sound file location needs to be set from Parse        
         self.alarmObject = AlarmObject(itemToPlay: URL(string:
             "https://dream-team-bucket.s3-us-west-1.amazonaws.com/music/morning-forest.mp3")!)
         self.alarmObject.addObserver(self, forKeyPath: "status", options: [.new], context: nil)
     }
     
+    deinit {
+        self.alarmObject.removeObserver(self, forKeyPath: "status")
+    }
+    
     func scheduleNextAlarm() -> Date? {
         let nextAlarm = self.getNextDayAlarm(startingDate: Date())
         if let nextAlarm = nextAlarm {
+            // TODO: REMOVE HARD CODED RISE TIME
+            let riseTime = 30
+            
             // FIXME - volume needs to come from Parse
-            self.alarmObject.setVolumeIncreaseFeature(toMaxVolumeInMinutes: nextAlarm.1.alarmRiseDurationInMinutes, maxVolume: 1.0)
+            self.alarmObject.setVolumeIncreaseFeature(toMaxVolumeInMinutes: riseTime, maxVolume: 1.0)
             self.alarmObject.setVolume(0.1)
             self.alarmObject.scheduleAt(when: nextAlarm.0)
             return nextAlarm.0
@@ -61,14 +67,12 @@ class AlarmScheduler: NSObject {
         }
     }
     
-    // Put up AlarmOn VC with modal transition
+    // Broadcast change
     func showAlarmOn(_ alarm: AlarmObject) {
-        let alarmOnStoryboard = UIStoryboard(name: "AlarmOn", bundle: nil)
-        let alarmOnVcNavigation = alarmOnStoryboard.instantiateViewController(withIdentifier: "AlarmOnNavigationController") as! UINavigationController
-        let alarmOnVc = alarmOnVcNavigation.viewControllers[0] as! AlarmOnViewController
-        alarmOnVc.alarmObject = alarm
-        self.mainVc?.present(alarmOnVcNavigation, animated: true, completion: nil)
+        let alarmDict:[String: AlarmObject] = ["alarm": alarm]
+        NotificationCenter.default.post(name: .alarmStartedNotification, object: nil, userInfo: alarmDict)
     }
+    
     
     // Inspect the current user's AlarmSchedule, search for the next alarm that is scheduled,
     // and return it as an (alarm start Date, DayAlarm) pair, or nil if not found.
@@ -102,7 +106,7 @@ class AlarmScheduler: NSObject {
                 let dayAlarm = alarmSchedule.getAlarm(for: self.dayOfTheWeek[dayIndex])
                 if let dayAlarm = dayAlarm {
                     return (
-                        topOfTheDay.addingTimeInterval(TimeInterval(dayAlarm.alarmStartTimeInMinutes * 60)),
+                        topOfTheDay.addingTimeInterval(TimeInterval(dayAlarm.alarmTimeHours * 60 + dayAlarm.alarmTimeMinutes)),
                         dayAlarm)
                 }
                 i = i+1
@@ -117,7 +121,7 @@ class AlarmScheduler: NSObject {
     private func isBefore(fromDate: Date, toAlarm: DayAlarm) -> Bool {
         let hour = self.calendar.component(.hour, from: fromDate)
         let minute = self.calendar.component(.minute, from: fromDate)
-        return (hour * 60 + minute) < toAlarm.alarmStartTimeInMinutes
+        return hour < toAlarm.alarmTimeHours || (hour == toAlarm.alarmTimeHours && minute < toAlarm.alarmTimeMinutes)
     }
     
     // Returns the difference in minutes between the given date/s hour/minutes and dayAlarm's minutes
@@ -125,7 +129,7 @@ class AlarmScheduler: NSObject {
     private func getDiffInMinutes(fromDate: Date, toAlarm: DayAlarm) -> Int {
         let hour = self.calendar.component(.hour, from: fromDate)
         let minute = self.calendar.component(.minute, from: fromDate)
-        return toAlarm.alarmStartTimeInMinutes - (hour * 60 + minute)
+        return (toAlarm.alarmTimeHours * 60 + toAlarm.alarmTimeMinutes) - (hour * 60 + minute)
     }
     
     // Returns the weekday of the given Date, in [1-7], in which 1 is Sunday and 7 is Saturday.
@@ -134,4 +138,9 @@ class AlarmScheduler: NSObject {
         return weekDay
     }
     
+}
+
+
+extension Notification.Name {
+    static let alarmStartedNotification = Notification.Name("alarmStarted")
 }

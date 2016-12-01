@@ -387,6 +387,9 @@
                     </view>
                     <connections>
                         <outlet property="navBar" destination="rE5-YG-uXM" id="Hlp-Rx-Eyc"/>
+                        <outlet property="playTimeSlider" destination="GFc-gc-7g0" id="bhy-Pf-f0S"/>
+                        <outlet property="playbackDeviceSegmentedControl" destination="hrR-89-V1A" id="tN6-of-UHe"/>
+                        <outlet property="volumeSlider" destination="k0h-av-gIk" id="cG3-UN-0ws"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ich-RT-Bvu" userLabel="First Responder" sceneMemberID="firstResponder"/>

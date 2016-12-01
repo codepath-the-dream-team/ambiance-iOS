@@ -51,6 +51,7 @@ class WakeUpContainerViewController: BaseNatureViewController, WakeUpViewControl
         let alarmConfigurationVc = wakeUpStoryboard.instantiateViewController(withIdentifier: "wake_up_configure") as! WakeUpConfigureViewController
         
         alarmConfigurationVc.delegate = self
+        alarmConfigurationVc.initialConfiguration = UserSession.shared.loggedInUser!.alarmConfiguration
         
         setModal(vc: alarmConfigurationVc)
         displayModal()
@@ -68,16 +69,31 @@ class WakeUpContainerViewController: BaseNatureViewController, WakeUpViewControl
         displayModal()
     }
     
-    func saveConfiguration() {
+    func save(configuration: AlarmConfiguration) {
+        NSLog("Saving AlarmConfiguration.")
+        
         closeModal()
+        
+        UserSession.shared.loggedInUser!.save(alarmConfiguration: configuration) { (error: Error?) in
+            if nil == error {
+                NSLog("Successfully saved AlarmConfiguration to Parse.")
+            } else {
+                NSLog("Failed to save AlarmConfiguration to Parse.")
+            }
+        }
     }
     
     func cancelConfiguration() {
         closeModal()
     }
     
-    func saveEdit() {
+    func saveEdit(wakeUpSchedule: WakeUpSchedule) {
+        NSLog("Saving schedule:")
+        NSLog(wakeUpSchedule.description)
+        
         closeModal()
+        
+        saveWakeUpScheduleToParse(wakeUpSchedule: wakeUpSchedule)
     }
     
     func cancelEdit() {
@@ -91,5 +107,23 @@ class WakeUpContainerViewController: BaseNatureViewController, WakeUpViewControl
         (wakeUpVc.topViewController as! WakeUpViewController).delegate = self
 
         setContent(vc: wakeUpVc)
+    }
+    
+    private func saveWakeUpScheduleToParse(wakeUpSchedule: WakeUpSchedule) {
+        let alarmSchedule = UserSession.shared.loggedInUser!.alarmSchedule
+        
+        for (day, dayWakeUpSchedule) in wakeUpSchedule.daySchedules {
+            let dayAlarm: DayAlarm? = dayWakeUpSchedule.isEnabled ? DayAlarm(alarmTimeHours: dayWakeUpSchedule.hours, alarmTimeMinutes: dayWakeUpSchedule.minutes) : nil
+            alarmSchedule.setAlarm(for: day, alarm: dayAlarm)
+        }
+        
+        UserSession.shared.loggedInUser!.save(alarmSchedule: alarmSchedule) { (error: Error?) in
+            if nil == error {
+                NSLog("Successfully saved AlarmSchedule to Parse.")
+                
+            } else {
+                NSLog("Failed to save AlarmSchedule to Parse: \(error)")
+            }
+        }
     }
 }

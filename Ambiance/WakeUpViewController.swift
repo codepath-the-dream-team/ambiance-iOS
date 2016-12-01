@@ -34,11 +34,29 @@ class WakeUpViewController: UIViewController {
         setNavBarBackgroundToClear()
         
         updatePresentation()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(WakeUpViewController.updatePresentation), name: User.NOTIFICATION_USER_CHANGE, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc
+    private func updatePresentation() {
+        NSLog("WakeUpViewController: updatePresentation()")
+        let alarmSchedule = UserSession.shared.loggedInUser!.alarmSchedule
+        let riseTime = UserSession.shared.loggedInUser!.alarmConfiguration.alarmRise
+        wakeUpClockView.viewModel = presenter.createWakeUpClockViewModel(alarmSchedule: alarmSchedule, riseTimeInMinutes: riseTime)
+        
+        day1View.viewModel = presenter.createWakeUpDayViewModel(dayIndex: 0)
+        day2View.viewModel = presenter.createWakeUpDayViewModel(dayIndex: 1)
+        day3View.viewModel = presenter.createWakeUpDayViewModel(dayIndex: 2)
+        day4View.viewModel = presenter.createWakeUpDayViewModel(dayIndex: 3)
+        day5View.viewModel = presenter.createWakeUpDayViewModel(dayIndex: 4)
+        day6View.viewModel = presenter.createWakeUpDayViewModel(dayIndex: 5)
+        day7View.viewModel = presenter.createWakeUpDayViewModel(dayIndex: 6)
     }
     
     private func applyOrangeBackground() {
@@ -55,28 +73,6 @@ class WakeUpViewController: UIViewController {
         navigationController!.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController!.navigationBar.shadowImage = UIImage()
         navigationController!.navigationBar.backgroundColor = UIColor.clear
-    }
-    
-    private func updatePresentation() {
-//        wakeUpClockView.viewModel = WakeUpClockViewModel(time: "07:30", amPm: .am, message: NSAttributedString(string: "You will wake up in 8 hours and 15 minutes with a 30 minute rise"))
-        
-        wakeUpClockView.viewModel = presenter.createWakeUpClockViewModel()
-        
-//        day1View.viewModel = WakeUpDayListItemViewModel(dayName: "Monday", startRiseTime: "7:30AM", finishRiseTime: "8:00AM")
-//        day2View.viewModel = WakeUpDayListItemViewModel(dayName: "Tuesday", startRiseTime: "7:30AM", finishRiseTime: "8:00AM")
-//        day3View.viewModel = WakeUpDayListItemViewModel(dayName: "Wednesday", startRiseTime: "7:30AM", finishRiseTime: "8:00AM")
-//        day4View.viewModel = WakeUpDayListItemViewModel(dayName: "Thursday", startRiseTime: "7:30AM", finishRiseTime: "8:00AM")
-//        day5View.viewModel = WakeUpDayListItemViewModel(dayName: "Friday", startRiseTime: "7:30AM", finishRiseTime: "8:00AM")
-//        day6View.viewModel = WakeUpDayListItemViewModel(dayName: "Saturday", startRiseTime: "9:30AM", finishRiseTime: "10:00AM")
-//        day7View.viewModel = WakeUpDayListItemViewModel(dayName: "Sunday", startRiseTime: "9:30AM", finishRiseTime: "10:00AM")
-        
-        day1View.viewModel = presenter.createWakeUpDayViewModel(dayIndex: 0)
-        day2View.viewModel = presenter.createWakeUpDayViewModel(dayIndex: 1)
-        day3View.viewModel = presenter.createWakeUpDayViewModel(dayIndex: 2)
-        day4View.viewModel = presenter.createWakeUpDayViewModel(dayIndex: 3)
-        day5View.viewModel = presenter.createWakeUpDayViewModel(dayIndex: 4)
-        day6View.viewModel = presenter.createWakeUpDayViewModel(dayIndex: 5)
-        day7View.viewModel = presenter.createWakeUpDayViewModel(dayIndex: 6)
     }
     
 

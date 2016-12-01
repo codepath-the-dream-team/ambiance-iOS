@@ -97,24 +97,21 @@ class AlarmSchedule: NSObject {
 // Represents an alarm for a single day
 class DayAlarm: NSObject {
     
-    public let alarmTimeInMinutes: Int
-    public let alarmRiseDurationInMinutes: Int
-    public let alarmStartTimeInMinutes: Int // note, may be negative
+    public let alarmTimeHours: Int // 24 hour format
+    public let alarmTimeMinutes: Int
     
-    init(alarmTimeInMinutes: Int, alarmRiseDurationInMinutes: Int) {
-        self.alarmTimeInMinutes = alarmTimeInMinutes
-        self.alarmRiseDurationInMinutes = alarmRiseDurationInMinutes
-        self.alarmStartTimeInMinutes = self.alarmTimeInMinutes - self.alarmRiseDurationInMinutes
+    init(alarmTimeHours: Int, alarmTimeMinutes: Int) {
+        self.alarmTimeHours = alarmTimeHours
+        self.alarmTimeMinutes = alarmTimeMinutes
     }
     
     init?(dictionary: [String : Any]) {
-        let alarmTimeInMinutes = dictionary["alarmTimeInMinutes"] as? Int
-        let alarmRiseDurationInMinutes = dictionary["alarmRiseDurationInMinutes"] as? Int
+        let hours = dictionary["alarmTimeHours"] as? Int
+        let minutes = dictionary["alarmTimeMinutes"] as? Int
         
-        if let alarmTime = alarmTimeInMinutes, let alarmRise = alarmRiseDurationInMinutes {
-            self.alarmTimeInMinutes = alarmTime
-            self.alarmRiseDurationInMinutes = alarmRise
-            self.alarmStartTimeInMinutes = self.alarmTimeInMinutes - self.alarmRiseDurationInMinutes
+        if let hours = hours, let minutes = minutes {
+            self.alarmTimeHours = hours
+            self.alarmTimeMinutes = minutes
         } else {
             return nil
         }
@@ -123,8 +120,8 @@ class DayAlarm: NSObject {
     public func serializeToDictionary() -> [String : Int] {
         var dictionary = [String : Int]()
         
-        dictionary["alarmTimeInMinutes"] = alarmTimeInMinutes
-        dictionary["alarmRiseDurationInMinutes"] = alarmRiseDurationInMinutes
+        dictionary["alarmTimeHours"] = alarmTimeHours
+        dictionary["alarmTimeMinutes"] = alarmTimeMinutes
         
         return dictionary
     }

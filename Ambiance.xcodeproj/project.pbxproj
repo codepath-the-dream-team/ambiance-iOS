@@ -14,6 +14,11 @@
 		608E5C201DE4539E007E2B1F /* AlarmScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608E5C1F1DE4539E007E2B1F /* AlarmScheduler.swift */; };
 		9B13DC851DE24A5E007A78F1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B13DC821DE24A5E007A78F1 /* User.swift */; };
 		9B13DC861DE24A5E007A78F1 /* AlarmSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B13DC831DE24A5E007A78F1 /* AlarmSchedule.swift */; };
+		9BB5CD8D1DE40A0A002C0F26 /* AccountContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB5CD8C1DE40A0A002C0F26 /* AccountContainerViewController.swift */; };
+		9BB5CD961DEA521A002C0F26 /* AccountSettingsToggleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB5CD941DEA521A002C0F26 /* AccountSettingsToggleCell.swift */; };
+		9BB5CD971DEA521A002C0F26 /* AccountSettingsToggleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BB5CD951DEA521A002C0F26 /* AccountSettingsToggleCell.xib */; };
+		9BB5CD9A1DEA5576002C0F26 /* AccountProfileViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB5CD981DEA5576002C0F26 /* AccountProfileViewCell.swift */; };
+		9BB5CD9B1DEA5576002C0F26 /* AccountProfileViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BB5CD991DEA5576002C0F26 /* AccountProfileViewCell.xib */; };
 		C94D6C311DDF0606007F3B03 /* WakeUpContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94D6C301DDF0606007F3B03 /* WakeUpContainerViewController.swift */; };
 		C97AC2591DD03F590096FE97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97AC2581DD03F590096FE97 /* AppDelegate.swift */; };
 		C97AC25B1DD03F590096FE97 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97AC25A1DD03F590096FE97 /* LoginViewController.swift */; };
@@ -49,6 +54,10 @@
 		C9E407811DE2625E004456CA /* SleepConfigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E407801DE2625E004456CA /* SleepConfigureViewController.swift */; };
 		C9E407831DE2796B004456CA /* WakeUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E407821DE2796B004456CA /* WakeUpPresenter.swift */; };
 		C9E407851DE2EA17004456CA /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E407841DE2EA17004456CA /* UserSession.swift */; };
+		C9ED9D5F1DE91E790031EB31 /* AlarmConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED9D5E1DE91E790031EB31 /* AlarmConfiguration.swift */; };
+		C9ED9D611DE951F50031EB31 /* SleepConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED9D601DE951F50031EB31 /* SleepConfiguration.swift */; };
+		C9ED9D631DE9521B0031EB31 /* PlaybackDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED9D621DE9521B0031EB31 /* PlaybackDevice.swift */; };
+		C9ED9D651DE983E50031EB31 /* SleepSynopsisPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED9D641DE983E50031EB31 /* SleepSynopsisPresenter.swift */; };
 		F524C510411A7BB8DA07F49C /* Pods_Ambiance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B006894DF7C56E34A82B58 /* Pods_Ambiance.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +71,11 @@
 		9B13DC821DE24A5E007A78F1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9B13DC831DE24A5E007A78F1 /* AlarmSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmSchedule.swift; sourceTree = "<group>"; };
 		9B13DC881DE24AF8007A78F1 /* Ambiance.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ambiance.entitlements; sourceTree = "<group>"; };
+		9BB5CD8C1DE40A0A002C0F26 /* AccountContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountContainerViewController.swift; sourceTree = "<group>"; };
+		9BB5CD941DEA521A002C0F26 /* AccountSettingsToggleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettingsToggleCell.swift; sourceTree = "<group>"; };
+		9BB5CD951DEA521A002C0F26 /* AccountSettingsToggleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountSettingsToggleCell.xib; sourceTree = "<group>"; };
+		9BB5CD981DEA5576002C0F26 /* AccountProfileViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountProfileViewCell.swift; sourceTree = "<group>"; };
+		9BB5CD991DEA5576002C0F26 /* AccountProfileViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountProfileViewCell.xib; sourceTree = "<group>"; };
 		9C98B9BDABA225AA8BDCF496 /* Pods-Ambiance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambiance.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ambiance/Pods-Ambiance.release.xcconfig"; sourceTree = "<group>"; };
 		C4A698A06B12F0E8BA7B9EFC /* Pods-Ambiance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambiance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ambiance/Pods-Ambiance.debug.xcconfig"; sourceTree = "<group>"; };
 		C94D6C301DDF0606007F3B03 /* WakeUpContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakeUpContainerViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +115,10 @@
 		C9E407801DE2625E004456CA /* SleepConfigureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepConfigureViewController.swift; sourceTree = "<group>"; };
 		C9E407821DE2796B004456CA /* WakeUpPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakeUpPresenter.swift; sourceTree = "<group>"; };
 		C9E407841DE2EA17004456CA /* UserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
+		C9ED9D5E1DE91E790031EB31 /* AlarmConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmConfiguration.swift; sourceTree = "<group>"; };
+		C9ED9D601DE951F50031EB31 /* SleepConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepConfiguration.swift; sourceTree = "<group>"; };
+		C9ED9D621DE9521B0031EB31 /* PlaybackDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaybackDevice.swift; sourceTree = "<group>"; };
+		C9ED9D641DE983E50031EB31 /* SleepSynopsisPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepSynopsisPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +208,9 @@
 				9B13DC821DE24A5E007A78F1 /* User.swift */,
 				9B13DC831DE24A5E007A78F1 /* AlarmSchedule.swift */,
 				C9E407841DE2EA17004456CA /* UserSession.swift */,
+				C9ED9D5E1DE91E790031EB31 /* AlarmConfiguration.swift */,
+				C9ED9D601DE951F50031EB31 /* SleepConfiguration.swift */,
+				C9ED9D621DE9521B0031EB31 /* PlaybackDevice.swift */,
 			);
 			name = UserSession;
 			sourceTree = "<group>";
@@ -222,6 +243,7 @@
 				C9E4077C1DE251E0004456CA /* SleepSynopsisView.xib */,
 				C9E4077E1DE25AEC004456CA /* SleepSynopsisView.swift */,
 				C9E407801DE2625E004456CA /* SleepConfigureViewController.swift */,
+				C9ED9D641DE983E50031EB31 /* SleepSynopsisPresenter.swift */,
 			);
 			name = Sleep;
 			sourceTree = "<group>";
@@ -230,7 +252,12 @@
 			isa = PBXGroup;
 			children = (
 				C9B5C5891DD2EBBA001EE244 /* Account.storyboard */,
+				9BB5CD8C1DE40A0A002C0F26 /* AccountContainerViewController.swift */,
 				C9B5C5951DD2F3B8001EE244 /* AccountViewController.swift */,
+				9BB5CD981DEA5576002C0F26 /* AccountProfileViewCell.swift */,
+				9BB5CD991DEA5576002C0F26 /* AccountProfileViewCell.xib */,
+				9BB5CD941DEA521A002C0F26 /* AccountSettingsToggleCell.swift */,
+				9BB5CD951DEA521A002C0F26 /* AccountSettingsToggleCell.xib */,
 			);
 			name = Account;
 			sourceTree = "<group>";
@@ -300,7 +327,7 @@
 				TargetAttributes = {
 					C97AC2541DD03F590096FE97 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = EDU9NG376Z;
+						DevelopmentTeam = KSDH34KL6P;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -339,6 +366,7 @@
 				C9B5C5861DD2EB9F001EE244 /* WakeUp.storyboard in Resources */,
 				C9B5C58C1DD2EBC4001EE244 /* SleepReport.storyboard in Resources */,
 				C97AC2631DD03F590096FE97 /* LaunchScreen.storyboard in Resources */,
+				9BB5CD9B1DEA5576002C0F26 /* AccountProfileViewCell.xib in Resources */,
 				C9D0E48E1DE13660000B242A /* DayCheckmarkView.xib in Resources */,
 				C97AC2601DD03F590096FE97 /* Assets.xcassets in Resources */,
 				C9B5C58F1DD2EC6A001EE244 /* Infrastructure.storyboard in Resources */,
@@ -349,6 +377,7 @@
 				C982B8201DDC43280098F170 /* WakeUpClockView.xib in Resources */,
 				C9B5C58A1DD2EBBA001EE244 /* Account.storyboard in Resources */,
 				C97AC25E1DD03F590096FE97 /* Login.storyboard in Resources */,
+				9BB5CD971DEA521A002C0F26 /* AccountSettingsToggleCell.xib in Resources */,
 				C9B5C5881DD2EBAC001EE244 /* Sleep.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +441,7 @@
 				C9D0E4941DE1757E000B242A /* ExtUIImageView.swift in Sources */,
 				608E5C1C1DE2ABE4007E2B1F /* AlarmOnViewController.swift in Sources */,
 				C9D0E4901DE13758000B242A /* DayCheckmarkView.swift in Sources */,
+				9BB5CD961DEA521A002C0F26 /* AccountSettingsToggleCell.swift in Sources */,
 				C9D0E49A1DE19B33000B242A /* BaseNatureViewController.swift in Sources */,
 				C982B8261DDC5AD90098F170 /* WakeUpDayListItem.swift in Sources */,
 				C9D0E48C1DE133FA000B242A /* WakeUpEditViewController.swift in Sources */,
@@ -420,20 +450,26 @@
 				C982B8221DDC4EE00098F170 /* WakeUpClockView.swift in Sources */,
 				9B13DC861DE24A5E007A78F1 /* AlarmSchedule.swift in Sources */,
 				608E5C161DE2A663007E2B1F /* AlarmObject.swift in Sources */,
+				C9ED9D5F1DE91E790031EB31 /* AlarmConfiguration.swift in Sources */,
 				C9E407851DE2EA17004456CA /* UserSession.swift in Sources */,
 				C9B5C5941DD2EDE7001EE244 /* MainViewController.swift in Sources */,
 				C97AC25B1DD03F590096FE97 /* LoginViewController.swift in Sources */,
+				C9ED9D651DE983E50031EB31 /* SleepSynopsisPresenter.swift in Sources */,
 				C9D0E49C1DE1AB21000B242A /* SleepContainerViewController.swift in Sources */,
 				C9E407831DE2796B004456CA /* WakeUpPresenter.swift in Sources */,
 				C9E407811DE2625E004456CA /* SleepConfigureViewController.swift in Sources */,
 				C94D6C311DDF0606007F3B03 /* WakeUpContainerViewController.swift in Sources */,
+				C9ED9D611DE951F50031EB31 /* SleepConfiguration.swift in Sources */,
 				C9B5C5961DD2F3B8001EE244 /* AccountViewController.swift in Sources */,
 				C9D0E4921DE16F46000B242A /* ClearNavBar.swift in Sources */,
+				9BB5CD9A1DEA5576002C0F26 /* AccountProfileViewCell.swift in Sources */,
 				C9E4077F1DE25AEC004456CA /* SleepSynopsisView.swift in Sources */,
 				C9D0E48A1DE12676000B242A /* WakeUpConfigureViewController.swift in Sources */,
 				608E5C201DE4539E007E2B1F /* AlarmScheduler.swift in Sources */,
 				C97AC2591DD03F590096FE97 /* AppDelegate.swift in Sources */,
+				C9ED9D631DE9521B0031EB31 /* PlaybackDevice.swift in Sources */,
 				C9D0E4961DE183F7000B242A /* Theme.swift in Sources */,
+				9BB5CD8D1DE40A0A002C0F26 /* AccountContainerViewController.swift in Sources */,
 				C9D0E4981DE18498000B242A /* ExtUIColor.swift in Sources */,
 				9B13DC851DE24A5E007A78F1 /* User.swift in Sources */,
 			);
@@ -558,7 +594,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Ambiance/Ambiance.entitlements;
-				DEVELOPMENT_TEAM = EDU9NG376Z;
+				DEVELOPMENT_TEAM = KSDH34KL6P;
 				INFOPLIST_FILE = Ambiance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thedreamteam.Ambiance2;
@@ -573,7 +609,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Ambiance/Ambiance.entitlements;
-				DEVELOPMENT_TEAM = EDU9NG376Z;
+				DEVELOPMENT_TEAM = KSDH34KL6P;
 				INFOPLIST_FILE = Ambiance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thedreamteam.Ambiance2;

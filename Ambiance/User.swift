@@ -11,6 +11,8 @@ import Parse
 
 class User: NSObject {
     
+    public static let NOTIFICATION_USER_CHANGE = Notification.Name("user_change")
+    
     public var firstName: String {
         get {
             return parseUser.value(forKey: "firstName") as! String
@@ -29,6 +31,12 @@ class User: NSObject {
         }
     }
     
+    public var alarmEnabled: Bool {
+        get {
+            return parseUser.value(forKey: "alarmEnabled") as! Bool
+        }
+    }
+    
     public var profileImageUrl: URL? {
         get {
             let avatarUrl = parseUser.value(forKey: "imageURLString") as! String?
@@ -37,6 +45,15 @@ class User: NSObject {
             } else {
                 return nil
             }
+        }
+    }
+    
+    public var alarmConfiguration: AlarmConfiguration {
+        get {
+            let pfAlarmConfiguration = parseUser["alarmConfiguration"] as! [String : AnyObject]
+            NSLog("pfAlarmConfiguration: \(pfAlarmConfiguration)")
+            
+            return AlarmConfiguration(from: pfAlarmConfiguration)!
         }
     }
     
@@ -52,10 +69,71 @@ class User: NSObject {
         }
     }
     
+    public var sleepConfiguration: SleepConfiguration {
+        get {
+            let pfSleepConfiguration = parseUser["sleepConfiguration"] as! [String : AnyObject]
+            NSLog("pfSleepConfiguration: \(pfSleepConfiguration)")
+            
+            return SleepConfiguration(fromDictionary: pfSleepConfiguration)!
+        }
+    }
+    
+    public func updateSettings(alarmEnabled: Bool) {
+        parseUser.setValue(alarmEnabled, forKey: "alarmEnabled")
+        parseUser.saveInBackground { (success: Bool, error: Error?) in
+            if success {
+                NSLog("User setting saved")
+            } else {
+                NSLog("Error: " + (error?.localizedDescription)!)
+            }
+        }
+    }
+    
     private var parseUser: PFUser!
     
     init(parseUser: PFUser) {
         NSLog("Creating a new User from Parse User: \(parseUser)")
         self.parseUser = parseUser
+    }
+    
+    public func save(alarmSchedule: AlarmSchedule, onComplete: @escaping (Error?) -> ()) {
+        let parseAlarmSchedule = PFObject(className: "AlarmSchedule", dictionary: alarmSchedule.serializeToDictionary())
+        
+        parseUser.setObject(parseAlarmSchedule, forKey: "alarmSchedule")
+        parseUser.saveInBackground { (success: Bool, error: Error?) in
+            onComplete(error)
+            
+            // Broadcast that the User has changed.
+            NSLog("User: Broadcasting NOTIFICATION_USER_CHANGE event.")
+            NotificationCenter.default.post(Notification(name: User.NOTIFICATION_USER_CHANGE))
+        }
+    }
+    
+    public func save(alarmConfiguration: AlarmConfiguration, onComplete: @escaping (Error?) -> ()) {
+        let alarmConfigurationDictionary = alarmConfiguration.serializeToDictionary()
+        NSLog("Attempting to save Alarm Configuration: \(alarmConfigurationDictionary)")
+        
+        parseUser.setValue(alarmConfigurationDictionary, forKey: "alarmConfiguration")
+        parseUser.saveInBackground { (success: Bool, error: Error?) in
+            onComplete(error)
+            
+            // Broadcast that the User has changed.
+            NSLog("User: Broadcasting NOTIFICATION_USER_CHANGE event.")
+            NotificationCenter.default.post(Notification(name: User.NOTIFICATION_USER_CHANGE))
+        }
+    }
+    
+    public func save(sleepConfiguration: SleepConfiguration, onComplete: @escaping (Error?) -> ()) {
+        let sleepConfigurationDictionary = sleepConfiguration.serializeToDictionary()
+        NSLog("Attempting to save Sleep Configuration: \(sleepConfiguration)")
+        
+        parseUser.setValue(sleepConfigurationDictionary, forKey: "sleepConfiguration")
+        parseUser.saveInBackground { (success: Bool, error: Error?) in
+            onComplete(error)
+            
+            // Broadcast that the User has changed.
+            NSLog("User: Broadcasting NOTIFICATION_USER_CHANGE event.")
+            NotificationCenter.default.post(Notification(name: User.NOTIFICATION_USER_CHANGE))
+        }
     }
 }
