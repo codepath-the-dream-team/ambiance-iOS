@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         initializeParse(launchOptions: launchOptions)
-        
+        registerForPushNotifications(application: application)
         return true
     }
 
@@ -58,5 +58,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }))
         PFFacebookUtils.initializeFacebook(applicationLaunchOptions: launchOptions)
     }
+    
+    private func registerForPushNotifications(application: UIApplication) {
+        let notificationSettings = UIUserNotificationSettings(
+            types: [.badge, .sound, .alert], categories: nil)
+        application.registerUserNotificationSettings(notificationSettings)
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Push registration failed \(error)")
+    }
+    
+    //func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    //    let aps = userInfo["aps"] as! [String: AnyObject]
+    //    print("Remote push notification received")
+    //}
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        var token = ""
+        for i in 0..<deviceToken.count {
+            token = token + String(format: "%02.2hhx", arguments: [deviceToken[i]])
+        }
+        print("Device token for push \(token)")
+        // This token needs to be stored somewhere!!!!
+    }
+    
+    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
+        if notificationSettings.types != .none {
+            application.registerForRemoteNotifications()
+        }
+    }
+    
+    
 }
 
