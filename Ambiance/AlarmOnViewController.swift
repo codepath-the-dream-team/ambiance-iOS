@@ -14,6 +14,7 @@ class AlarmOnViewController: UIViewController, ClearNavBar {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var amPmLabel: UILabel!
     @IBOutlet weak var buttonContentView: UIView!
+    @IBOutlet weak var snoozeButton: UIButton!
     
     var alarmObject: AlarmObject?
     var currentTime = Date() {
@@ -35,6 +36,9 @@ class AlarmOnViewController: UIViewController, ClearNavBar {
         self.amPmLabelDateFormatter.dateFormat = "a"
         self.currentTime = Date(timeIntervalSinceNow: 0)
         self.circularView.delegate = self
+        self.snoozeButton.layer.cornerRadius = 5
+        self.snoozeButton.clipsToBounds = true
+        self.circularView.animationColor = self.snoozeButton.backgroundColor!
     }
     
     override func viewDidLayoutSubviews() {
@@ -66,17 +70,11 @@ class AlarmOnViewController: UIViewController, ClearNavBar {
         self.currentTime = Date()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func snoozeButtonPressed(_ sender: UIButton) {
+        if let alarmObject = self.alarmObject {
+            alarmObject.snooze()
+        }
     }
-    */
-
 }
 
 extension AlarmOnViewController: CircularViewDelegate {

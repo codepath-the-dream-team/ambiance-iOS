@@ -18,6 +18,8 @@ class CircularView: UIView {
     let FORWARD_ANIMATION = "forward"
     let REVERSE_ANIMATION = "backword"
     
+    var animationColor = UIColor.orange
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.initialize()
@@ -54,7 +56,6 @@ class CircularView: UIView {
             self.animationLayer = CAShapeLayer()
             self.animationLayer!.path = circlePath.cgPath
             self.animationLayer!.fillColor = UIColor.clear.cgColor
-            self.animationLayer!.strokeColor = UIColor.orange.cgColor
             self.animationLayer!.lineWidth = 28.0
         }
         self.animationLayer!.isHidden = true
@@ -79,6 +80,7 @@ class CircularView: UIView {
     func handleLongPress(_ longPressRecognizer: UILongPressGestureRecognizer) {
         if longPressRecognizer.state == .began {
             self.animationLayer!.isHidden = false
+            self.animationLayer!.strokeColor = self.animationColor.cgColor
             self.startForwardAnimation()
         } else if longPressRecognizer.state == .ended {
             self.startBackwardAnimation()
@@ -99,7 +101,7 @@ class CircularView: UIView {
         let strokeEndPosition = self.animationLayer!.presentation()?.strokeEnd
         if let strokeEndPosition = strokeEndPosition {
             animation.fromValue = strokeEndPosition
-            animation.toValue = 0.0 //UIColor.orange.cgColor
+            animation.toValue = 0.0
             animation.duration = self.animationDuration * Double(strokeEndPosition)
             animation.delegate = self
             animation.fillMode = kCAFillModeForwards
