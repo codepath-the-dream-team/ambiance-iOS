@@ -31,6 +31,12 @@ class User: NSObject {
         }
     }
     
+    public var alarmEnabled: Bool {
+        get {
+            return parseUser.value(forKey: "alarmEnabled") as! Bool
+        }
+    }
+    
     public var profileImageUrl: URL? {
         get {
             let avatarUrl = parseUser.value(forKey: "imageURLString") as! String?
@@ -69,6 +75,17 @@ class User: NSObject {
             NSLog("pfSleepConfiguration: \(pfSleepConfiguration)")
             
             return SleepConfiguration(fromDictionary: pfSleepConfiguration)!
+        }
+    }
+    
+    public func updateSettings(alarmEnabled: Bool) {
+        parseUser.setValue(alarmEnabled, forKey: "alarmEnabled")
+        parseUser.saveInBackground { (success: Bool, error: Error?) in
+            if success {
+                NSLog("User setting saved")
+            } else {
+                NSLog("Error: " + (error?.localizedDescription)!)
+            }
         }
     }
     

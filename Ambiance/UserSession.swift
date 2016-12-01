@@ -66,8 +66,6 @@ class UserSession {
                         NSLog("Was User Schedule retrieved? \(success)")
                         if success {
                             NSLog("Filling in any missing User configuration.")
-                            // Successfully retrieved User Schedule. Now fill in any
-                            // other missing pieces.
                             self.fillMissingUserData(forParseUser: parseUser, onComplete: { (wasSuccess: Bool) in
                                 if wasSuccess {
                                     NSLog("Done filling in any missing User configuration.")
@@ -183,12 +181,13 @@ class UserSession {
         // Marshall the Facebook user data over to the Parse User.
         apply(facebookUserData: fbookUserInfo, to: parseUser)
         
-        // If the User doesn't already have an Alarm Schedule, create
-        // a default schedule and set it.
-        if (nil == parseUser.object(forKey: "alarmSchedule")) {
-            NSLog("Creating a default Alarm Schedule for new User")
-            parseUser.setObject(createDefaultAlarmSchedule(), forKey: "alarmSchedule")
+        // If the User doesn't already have alarmEnabled setting, create
+        // a default configuration and set it.
+        if (nil == parseUser.value(forKey: "alarmEnabled")) {
+            NSLog("Setting alarmEnabled true for new User")
+            parseUser.setValue(true, forKey: "alarmEnabled")
         }
+        
         
         // If the User doesn't already have an Alarm Configuration, create
         // a default configuration and set it.
@@ -202,6 +201,13 @@ class UserSession {
         if (nil == parseUser.value(forKey: "sleepConfiguration")) {
             NSLog("Creating a default Sleep Configuration for existing User")
             parseUser.setValue(createDefaultSleepConfiguration(), forKey: "sleepConfiguration")
+        }
+        
+        // If the User doesn't already have an Alarm Schedule, create
+        // a default schedule and set it.
+        if (nil == parseUser.object(forKey: "alarmSchedule")) {
+            NSLog("Creating a default Alarm Schedule for new User")
+            parseUser.setObject(createDefaultAlarmSchedule(), forKey: "alarmSchedule")
         }
         
         NSLog("Saving User to Parse.")
@@ -239,6 +245,11 @@ class UserSession {
         if (nil == parseUser.value(forKey: "sleepConfiguration") || nil == SleepConfiguration(fromDictionary: parseUser.value(forKey: "sleepConfiguration") as! [String : AnyObject])) {
             NSLog("Creating a default Sleep Configuration for existing User")
             parseUser.setValue(createDefaultSleepConfiguration(), forKey: "sleepConfiguration")
+            didFillMissingData = true
+        }
+        
+        if (nil == parseUser.value(forKey: "alarmEnabled")) {
+            parseUser.setValue(true, forKey: "alarmEnabled")
             didFillMissingData = true
         }
         

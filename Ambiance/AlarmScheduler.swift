@@ -27,6 +27,10 @@ class AlarmScheduler: NSObject {
         self.alarmObject.addObserver(self, forKeyPath: "status", options: [.new], context: nil)
     }
     
+    deinit {
+        self.alarmObject.removeObserver(self, forKeyPath: "status")
+    }
+    
     func scheduleNextAlarm() -> Date? {
         let nextAlarm = self.getNextDayAlarm(startingDate: Date())
         if let nextAlarm = nextAlarm {
