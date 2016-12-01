@@ -45,13 +45,14 @@ class AlarmScheduler: NSObject {
         }
         // Just for testing, start alarm in 20 seconds
         
+        /**
         self.alarmObject.setVolumeIncreaseFeature(toMaxVolumeInMinutes: 3, maxVolume: 1.0)
         self.alarmObject.setVolume(0.1)
         let testDate = Date(timeIntervalSinceNow: TimeInterval(10));
         self.alarmObject.scheduleAt(when: testDate)
         return testDate
-        
-        //return nil
+        **/
+        return nil
     }
     
     // Observe for the Alarm status change.
