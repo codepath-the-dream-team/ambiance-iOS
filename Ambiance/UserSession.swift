@@ -46,7 +46,6 @@ class UserSession {
     public func logout() {
         loggedInUser = nil
         PFUser.logOut()
-        print("is user logged in after logout? :\(isUserLoggedIn()) \(PFUser.current())")
     }
     
     // Attempts to restore a previous UserSession.  User information is
@@ -209,15 +208,6 @@ class UserSession {
         if (nil == parseUser.object(forKey: "alarmSchedule")) {
             NSLog("Creating a default Alarm Schedule for new User")
             parseUser.setObject(createDefaultAlarmSchedule(), forKey: "alarmSchedule")
-        } else {
-            self.loadAlarmSchedule(forParseUser: parseUser, onComplete: { (complete: Bool) in
-                if complete {
-                    NSLog("Successfully saved User to Parse.")
-                    self.startSession(withParseUser: parseUser, success: success, failure: failure)
-                } else {
-                    NSLog("Failed to retrieve Alarm Schedule")
-                }
-            })
         }
         
         NSLog("Saving User to Parse.")
