@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gtO-XD-bUp">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -7,55 +7,62 @@
     </dependencies>
     <scenes>
         <!--Login View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="zlp-fm-adg">
             <objects>
-                <viewController storyboardIdentifier="login_display" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Ambiance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gtO-XD-bUp" customClass="LoginViewController" customModule="Ambiance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="hn7-KH-uXw"/>
+                        <viewControllerLayoutGuide type="bottom" id="OpP-yx-cjr"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="b0i-G4-oci">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ambiance" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oC1-4i-mTg">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="70"/>
-                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_app-icon_launch-screen" translatesAutoresizingMaskIntoConstraints="NO" id="kox-41-EAm">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="aoF-dD-iec"/>
+                                    <constraint firstAttribute="height" constant="128" id="rdR-hn-Zec"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AMBIANCE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwW-A0-Jzk">
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="soothing sounds of nature" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KUB-WM-ZBA">
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASE-Oq-D0m">
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4j-BH-XQi">
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
                                 <state key="normal" title="Login With Facebook">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="facebookLoginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="g6D-50-iDD"/>
+                                    <action selector="facebookLoginTapped:" destination="gtO-XD-bUp" eventType="touchUpInside" id="y6b-Bb-dN6"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="ASE-Oq-D0m" secondAttribute="trailing" constant="16" id="3bM-ND-vzX"/>
-                            <constraint firstItem="ASE-Oq-D0m" firstAttribute="centerX" secondItem="KUB-WM-ZBA" secondAttribute="centerX" id="4Qb-ni-bpb"/>
-                            <constraint firstAttribute="trailing" secondItem="KUB-WM-ZBA" secondAttribute="trailing" constant="16" id="4h2-AQ-EkH"/>
-                            <constraint firstAttribute="trailing" secondItem="oC1-4i-mTg" secondAttribute="trailing" constant="16" id="6fi-kd-xfl"/>
-                            <constraint firstItem="KUB-WM-ZBA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="H3z-4q-J4G"/>
-                            <constraint firstItem="oC1-4i-mTg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="31" id="JY3-f9-ezw"/>
-                            <constraint firstItem="ASE-Oq-D0m" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="V3x-4n-8y6"/>
-                            <constraint firstItem="oC1-4i-mTg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="Y7y-OO-Rxg"/>
-                            <constraint firstItem="KUB-WM-ZBA" firstAttribute="top" secondItem="oC1-4i-mTg" secondAttribute="bottom" constant="8" id="aQ1-BD-hNG"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ASE-Oq-D0m" secondAttribute="bottom" constant="56" id="arZ-nW-JzT"/>
+                            <constraint firstItem="OpP-yx-cjr" firstAttribute="top" secondItem="a4j-BH-XQi" secondAttribute="bottom" constant="20" id="7Se-f9-0Bk"/>
+                            <constraint firstItem="nwW-A0-Jzk" firstAttribute="top" secondItem="kox-41-EAm" secondAttribute="bottom" constant="-6" id="dkg-ck-1gq"/>
+                            <constraint firstItem="kox-41-EAm" firstAttribute="centerY" secondItem="b0i-G4-oci" secondAttribute="centerY" id="gXH-Xj-mMT"/>
+                            <constraint firstItem="kox-41-EAm" firstAttribute="centerX" secondItem="b0i-G4-oci" secondAttribute="centerX" id="krl-hV-koz"/>
+                            <constraint firstAttribute="trailing" secondItem="a4j-BH-XQi" secondAttribute="trailing" constant="20" id="mnV-05-xmH"/>
+                            <constraint firstItem="nwW-A0-Jzk" firstAttribute="centerX" secondItem="kox-41-EAm" secondAttribute="centerX" id="tR8-J8-8TD"/>
+                            <constraint firstItem="a4j-BH-XQi" firstAttribute="leading" secondItem="b0i-G4-oci" secondAttribute="leading" constant="20" id="vZV-GP-Wat"/>
                         </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="loginWithFacebookButton" destination="a4j-BH-XQi" id="UW4-NV-DmR"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8tT-oo-XmV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="25" y="721"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_app-icon_launch-screen" width="180" height="180"/>
+    </resources>
 </document>
