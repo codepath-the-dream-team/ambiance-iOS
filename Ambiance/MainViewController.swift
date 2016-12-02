@@ -36,8 +36,10 @@ class MainViewController: UIViewController, UITabBarDelegate {
         self.alarmScheduler = AlarmScheduler()
         let alarmScheduledDate = self.alarmScheduler.scheduleNextAlarm()
         print("next alarm scheduled at \(alarmScheduledDate)")
+        _ = self.alarmScheduler.startNightAlarm()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.showAlarm(_:)), name: .alarmStartedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.showAlarmScreen(_:)), name: .alarmStartedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.dismissAlarmScreen(_:)), name: .alarmStoppedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.alexaRequestReceived(_:)), name: .alexaRequestNotification, object: nil)
     }
 
@@ -77,28 +79,36 @@ class MainViewController: UIViewController, UITabBarDelegate {
         show(screen: accountVc)
     }
     
-    @objc private func showAlarm(_ notification: NSNotification) {
-        if let alarm = notification.userInfo?["alarm"] as? AlarmObject {
-            let alarmOnStoryboard = UIStoryboard(name: "AlarmOn", bundle: nil)
-            let alarmOnVcNavigation = alarmOnStoryboard.instantiateViewController(withIdentifier: "AlarmOnNavigationController") as! UINavigationController
-            let alarmOnVc = alarmOnVcNavigation.viewControllers[0] as! AlarmOnViewController
-            alarmOnVc.alarmObject = alarm
-            self.present(alarmOnVcNavigation, animated: true, completion: nil) // Modal presentation        
-        }
-    }
-    
     private func show(screen: UIViewController) {
         if nil != activeScreen {
             activeScreen.willMove(toParentViewController: nil)
             activeScreen.removeFromParentViewController()
             activeScreen.didMove(toParentViewController: nil)
         }
-        
         activeScreen = screen
         activeScreen.willMove(toParentViewController: self)
         activeScreen.view.frame = viewContainer.bounds
         viewContainer.addSubview(activeScreen.view)
         activeScreen.didMove(toParentViewController: self)
+    }
+    
+    var alarmOnScreen: UIViewController?
+    @objc private func showAlarmScreen(_ notification: NSNotification) {
+        if let alarm = notification.userInfo?["alarm"] as? AlarmObject {
+            let alarmOnStoryboard = UIStoryboard(name: "AlarmOn", bundle: nil)
+            let alarmOnVcNavigation = alarmOnStoryboard.instantiateViewController(withIdentifier: "AlarmOnNavigationController") as! UINavigationController
+            let alarmOnVc = alarmOnVcNavigation.viewControllers[0] as! AlarmOnViewController
+            alarmOnVc.alarmObject = alarm
+            self.alarmOnScreen = alarmOnVc
+            self.present(alarmOnVcNavigation, animated: true, completion: nil) // Modal presentation
+        }
+    }
+    
+    @objc private func dismissAlarmScreen(_ notification: NSNotification) {
+        if (self.alarmOnScreen != nil) {
+            self.alarmOnScreen!.dismiss(animated: true, completion: nil)
+            self.alarmOnScreen = nil
+        }
     }
     
     @objc private func alexaRequestReceived(_ notification: NSNotification) {

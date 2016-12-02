@@ -51,14 +51,12 @@ class AlarmScheduler: NSObject {
         }
         // Just for testing, start alarm in 10 seconds
         
-        
-        self.morningAlarmObject.setVolumeIncreaseFeature(toMaxVolumeInMinutes: 3, maxVolume: 1.0)
-        self.morningAlarmObject.setVolume(0.1)
-        let testDate = Date(timeIntervalSinceNow: TimeInterval(5));
-        self.morningAlarmObject.scheduleAt(when: testDate)
-        return testDate
- 
-        //return nil
+        //self.morningAlarmObject.setVolumeIncreaseFeature(toMaxVolumeInMinutes: 3, maxVolume: 1.0)
+        //self.morningAlarmObject.setVolume(0.1)
+        //let testDate = Date(timeIntervalSinceNow: TimeInterval(5));
+        //self.morningAlarmObject.scheduleAt(when: testDate)
+        //return testDate
+        return nil
     }
     
     // Observe for the Alarm status change.
@@ -70,6 +68,8 @@ class AlarmScheduler: NSObject {
                        let newStatus = theChange[NSKeyValueChangeKey.newKey] {
                         if (oldStatus == AlarmObject.Status.scheduled.rawValue && newStatus == AlarmObject.Status.started.rawValue) {
                             self.showAlarmOn(alarm)
+                        } else if(oldStatus == AlarmObject.Status.started.rawValue && newStatus == AlarmObject.Status.stopped.rawValue) {
+                            self.dismissAlarmOn(alarm)
                         }
                     }
                     
@@ -85,7 +85,24 @@ class AlarmScheduler: NSObject {
         let alarmDict:[String: AlarmObject] = ["alarm": alarm]
         NotificationCenter.default.post(name: .alarmStartedNotification, object: nil, userInfo: alarmDict)
     }
+    // Broadcast change
+    func dismissAlarmOn(_ alarm: AlarmObject) {
+        let alarmDict:[String: AlarmObject] = ["alarm": alarm]
+        NotificationCenter.default.post(name: .alarmStoppedNotification, object: nil, userInfo: alarmDict)
+    }
     
+    func startNightAlarm() -> AlarmObject? {
+        if self.isAlarmPlaying(morningAlarmObject) {
+            print("Morning alarm in action, cannot start night alarm")
+            return nil
+        }
+        self.nightAlarmObject!.setVolume(0.5)
+        self.nightAlarmObject!.setDuration(60) // 1 minute
+        let testDate = Date(timeIntervalSinceNow: TimeInterval(0.5))
+        self.nightAlarmObject!.scheduleAt(when: testDate)
+        
+        return self.nightAlarmObject!
+    }
     
     // Inspect the current user's AlarmSchedule, search for the next alarm that is scheduled,
     // and return it as an (alarm start Date, DayAlarm) pair, or nil if not found.
@@ -151,11 +168,16 @@ class AlarmScheduler: NSObject {
         return weekDay
     }
     
+    private func isAlarmPlaying(_ alarm: AlarmObject)  -> Bool {
+        return (alarm.status == .started || alarm.status == .snoozing)
+    }
+    
 }
 
 
 extension Notification.Name {
     static let alarmStartedNotification = Notification.Name("alarmStarted")
+    static let alarmStoppedNotification = Notification.Name("alarmStopped")
     static let alexaRequestNotification = Notification.Name("AlexaRequest")
 }
 
