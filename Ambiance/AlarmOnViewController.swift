@@ -13,7 +13,6 @@ class AlarmOnViewController: UIViewController, ClearNavBar {
     @IBOutlet weak var circularView: CircularView!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var amPmLabel: UILabel!
-    @IBOutlet weak var buttonContentView: UIView!
     @IBOutlet weak var snoozeButton: UIButton!
     
     var alarmObject: AlarmObject?
@@ -40,13 +39,6 @@ class AlarmOnViewController: UIViewController, ClearNavBar {
         self.snoozeButton.clipsToBounds = true
         self.circularView.animationColor = self.snoozeButton.backgroundColor!
     }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        self.circularView.frame = self.buttonContentView.frame
-        self.circularView.center = self.buttonContentView.center
-    }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
