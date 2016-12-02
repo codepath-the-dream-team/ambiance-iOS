@@ -44,10 +44,11 @@ class AlarmScheduler: NSObject {
             return nextAlarm.0
         }
         // Just for testing, start alarm in 20 seconds
+        
         /**
         self.alarmObject.setVolumeIncreaseFeature(toMaxVolumeInMinutes: 3, maxVolume: 1.0)
         self.alarmObject.setVolume(0.1)
-        let testDate = Date(timeIntervalSinceNow: TimeInterval(20));
+        let testDate = Date(timeIntervalSinceNow: TimeInterval(10));
         self.alarmObject.scheduleAt(when: testDate)
         return testDate
         **/
@@ -55,14 +56,16 @@ class AlarmScheduler: NSObject {
     }
     
     // Observe for the Alarm status change.
+    var previousStatus: AlarmObject.Status?
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if (keyPath == "status") {
             if let alarm = object as? AlarmObject {
                 if (alarm == self.alarmObject) {
-                    if alarm.status == AlarmObject.Status.started {
+                    if (self.previousStatus == AlarmObject.Status.scheduled && alarm.status == AlarmObject.Status.started) {
                         self.showAlarmOn(self.alarmObject)
                     }
                 }
+                self.previousStatus = alarm.status // Save for the next round
             }
         }
     }

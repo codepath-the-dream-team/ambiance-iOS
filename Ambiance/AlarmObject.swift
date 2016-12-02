@@ -11,19 +11,22 @@ class AlarmObject : NSObject {
     dynamic var status = Status.initialized
 
     var player = AVPlayer()
-    var toMaxVolumeInMinutes = -1
+    var toMaxVolumeInSeconds = -1
     var maxVolume = Float(1.0)
-    var mediaStopTimeInMinutes = -1
+    var mediaStopTimeInSeconds = -1
     var currentMediaTime = 0
     var timer : Timer?
     var volumeInterval = 0
+    
+    var snoozeDurationInSeconds = 60 * 1 // 1 minute
     
     @objc
     enum Status: Int {
         case initialized = 0,
         scheduled = 1,
         started = 2,
-        stopped = 3
+        stopped = 3,
+        snoozing = 4
     }
     
     // Initialize the alarm with a path to mp3
@@ -42,7 +45,7 @@ class AlarmObject : NSObject {
     // Set the volume increase feature to be applied when the alarm starts plaing
     func setVolumeIncreaseFeature(toMaxVolumeInMinutes: Int, maxVolume: Float) {
         print("[AO] setVolumeIncreaseFeature max \(maxVolume) in \(toMaxVolumeInMinutes) minutes")
-        self.toMaxVolumeInMinutes = toMaxVolumeInMinutes;
+        self.toMaxVolumeInSeconds = toMaxVolumeInMinutes * 60
         if maxVolume <= 1.0 && maxVolume >= 0.0 {
             self.maxVolume = maxVolume
         }
@@ -60,7 +63,7 @@ class AlarmObject : NSObject {
     func setDuration(_ duration: Int) {
         // If duration is positive then turn the alarm off at that point
         if duration > 0 {
-            self.mediaStopTimeInMinutes = duration
+            self.mediaStopTimeInSeconds = duration
         }
     }
     
@@ -89,8 +92,8 @@ class AlarmObject : NSObject {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.timerFired), userInfo: nil, repeats: true)
         
         // set volume increase interval if necessary
-        if self.toMaxVolumeInMinutes > 0 && self.player.volume < self.maxVolume {
-            self.volumeInterval = self.toMaxVolumeInMinutes * 60 / Int((self.maxVolume - (self.player.volume)) * 10)
+        if self.toMaxVolumeInSeconds > 0 && self.player.volume < self.maxVolume {
+            self.volumeInterval = self.toMaxVolumeInSeconds / Int((self.maxVolume - (self.player.volume)) * 10)
             print("[AO] alarm volume interval \(self.volumeInterval)")
             
         } else {
@@ -113,6 +116,23 @@ class AlarmObject : NSObject {
         }
         self.currentMediaTime = 0
         self.status = Status.stopped
+    }
+    
+    func snooze() {
+        print("[AO] alarm snooze \(Date())")
+        if self.status != Status.started {
+            print("[AO] cannot snooze non-started alarm")
+            return
+        }
+        self.player.pause()
+        if let timer = timer {
+            timer.invalidate()
+        }
+        self.toMaxVolumeInSeconds = self.toMaxVolumeInSeconds - self.currentMediaTime
+        self.currentMediaTime = 0
+        self.status = Status.snoozing
+        
+        self.perform(#selector(self.startPlayback), with: nil, afterDelay: TimeInterval(self.snoozeDurationInSeconds)) // restart the alarm after snoozeDurationInSeconds
     }
     
     
@@ -142,7 +162,7 @@ class AlarmObject : NSObject {
             self.setVolume(player.volume + 0.1)
         }
         
-        if (self.mediaStopTimeInMinutes > 0 && self.currentMediaTime >= self.mediaStopTimeInMinutes*60) {
+        if (self.mediaStopTimeInSeconds > 0 && self.currentMediaTime >= self.mediaStopTimeInSeconds) {
             self.stop()
         }
     }
