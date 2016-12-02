@@ -10,17 +10,16 @@ import UIKit
 
 class AlarmOnViewController: UIViewController, ClearNavBar {
 
-    //@IBOutlet weak var circularView: CircularView!
-    //@IBOutlet weak var timeLabel: UILabel!
-    //@IBOutlet weak var amPmLabel: UILabel!
-    @IBOutlet weak var buttonContentView: UIView!
+    @IBOutlet weak var circularView: CircularView!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var amPmLabel: UILabel!
     @IBOutlet weak var snoozeButton: UIButton!
     
     var alarmObject: AlarmObject?
     var currentTime = Date() {
         didSet {
-            //timeLabel.text = self.timeLabelDateFormatter.string(from: currentTime as Date)
-           // amPmLabel.text = self.amPmLabelDateFormatter.string(from: currentTime as Date)
+            timeLabel.text = self.timeLabelDateFormatter.string(from: currentTime as Date)
+            amPmLabel.text = self.amPmLabelDateFormatter.string(from: currentTime as Date)
         }
     }
     let timeLabelDateFormatter = DateFormatter()
@@ -35,16 +34,11 @@ class AlarmOnViewController: UIViewController, ClearNavBar {
         self.timeLabelDateFormatter.dateFormat = "hh:mm"
         self.amPmLabelDateFormatter.dateFormat = "a"
         self.currentTime = Date(timeIntervalSinceNow: 0)
-        //self.circularView.delegate = self
+        self.circularView.delegate = self
         self.snoozeButton.layer.cornerRadius = 5
         self.snoozeButton.clipsToBounds = true
-        //self.circularView.animationColor = self.snoozeButton.backgroundColor!
+        self.circularView.animationColor = self.snoozeButton.backgroundColor!
     }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-    }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

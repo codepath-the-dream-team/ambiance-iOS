@@ -13,6 +13,7 @@ class CircularView: UIView {
     var delegate: CircularViewDelegate?
     
     let animationDuration = 1.5 // 1.5 seconds
+    var baseLayer: CAShapeLayer?
     var animationLayer: CAShapeLayer?
     
     let FORWARD_ANIMATION = "forward"
@@ -32,43 +33,41 @@ class CircularView: UIView {
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        //drawRingFittingInsideView()
+        self.drawRingFittingInsideView()
     }
     
     internal func drawRingFittingInsideView()->() {
-        let halfSize:CGFloat = min( bounds.size.width/2, bounds.size.height/2)
-        let desiredLineWidth:CGFloat = 1    // your desired value
-        
-        let circlePath = UIBezierPath(
-            arcCenter: CGPoint(x:halfSize,y:halfSize),
-            radius: CGFloat( halfSize - (desiredLineWidth/2) ),
-            startAngle: CGFloat(-M_PI_2),
-            endAngle: CGFloat(-M_PI_2) + CGFloat(M_PI * 2),
-            clockwise: true)
-        
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.path = circlePath.cgPath
-        
-        shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.strokeColor = UIColor.darkGray.cgColor
-        shapeLayer.lineWidth = 28.0
-        
-        if (self.animationLayer == nil) {
+        if self.baseLayer == nil {
+            
+            let halfSize:CGFloat = min( bounds.size.width/2, bounds.size.height/2)
+            let desiredLineWidth:CGFloat = 1    // your desired value
+            
+            let circlePath = UIBezierPath(
+                arcCenter: CGPoint(x:halfSize,y:halfSize),
+                radius: CGFloat( halfSize - (desiredLineWidth/2) ),
+                startAngle: CGFloat(-M_PI_2),
+                endAngle: CGFloat(-M_PI_2) + CGFloat(M_PI * 2),
+                clockwise: true)
+            
+            self.baseLayer = CAShapeLayer()
+            self.baseLayer!.path = circlePath.cgPath
+            self.baseLayer!.backgroundColor = UIColor.clear.cgColor
+            self.baseLayer!.fillColor = UIColor.clear.cgColor
+            self.baseLayer!.strokeColor = UIColor.darkGray.cgColor
+            self.baseLayer!.lineWidth = 28.0
+            
             self.animationLayer = CAShapeLayer()
             self.animationLayer!.path = circlePath.cgPath
+            self.animationLayer!.backgroundColor = UIColor.clear.cgColor
             self.animationLayer!.fillColor = UIColor.clear.cgColor
             self.animationLayer!.lineWidth = 28.0
+            self.animationLayer!.isHidden = true
+            
+            self.layer.backgroundColor = UIColor.clear.cgColor
+            
+            layer.addSublayer(self.baseLayer!)
+            layer.addSublayer(self.animationLayer!)
         }
-        self.animationLayer!.isHidden = true
-        
-        self.layer.backgroundColor = UIColor.clear.cgColor
-        if let sublayers = layer.sublayers {
-            for sublayer in sublayers {
-                sublayer.removeFromSuperlayer()
-            }
-        }
-        layer.addSublayer(shapeLayer)
-        layer.addSublayer(self.animationLayer!)
     }
     
     internal func initialize() {

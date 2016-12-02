@@ -25,7 +25,7 @@
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kOC-LR-UeA" customClass="CircularView" customModule="Ambiance" customModuleProvider="target">
                                 <rect key="frame" x="37" y="104" width="300" height="300"/>
                                 <subviews>
-                                    <view opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nP3-la-kmm">
+                                    <view opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nP3-la-kmm">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THE TIME IS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKr-ON-Zci">
@@ -72,12 +72,12 @@
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="kOC-LR-UeA" secondAttribute="height" multiplier="1:1" id="74v-wE-97k"/>
-                                    <constraint firstAttribute="trailing" secondItem="nP3-la-kmm" secondAttribute="trailing" id="Ka8-Bo-gr0"/>
-                                    <constraint firstItem="nP3-la-kmm" firstAttribute="leading" secondItem="kOC-LR-UeA" secondAttribute="leading" id="Kqk-BM-sNQ"/>
-                                    <constraint firstAttribute="width" constant="300" id="M1d-SW-pzk"/>
-                                    <constraint firstItem="nP3-la-kmm" firstAttribute="top" secondItem="kOC-LR-UeA" secondAttribute="top" id="SRL-CR-BN8"/>
-                                    <constraint firstAttribute="bottom" secondItem="nP3-la-kmm" secondAttribute="bottom" id="acl-dg-0XQ"/>
+                                    <constraint firstAttribute="width" secondItem="kOC-LR-UeA" secondAttribute="height" multiplier="1:1" id="0U6-jf-JLK"/>
+                                    <constraint firstItem="nP3-la-kmm" firstAttribute="top" secondItem="kOC-LR-UeA" secondAttribute="top" id="TKz-yq-20h"/>
+                                    <constraint firstAttribute="width" constant="300" id="ZaW-ec-42v"/>
+                                    <constraint firstItem="nP3-la-kmm" firstAttribute="leading" secondItem="kOC-LR-UeA" secondAttribute="leading" id="pvr-TZ-avZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="nP3-la-kmm" secondAttribute="bottom" id="tse-cY-gLs"/>
+                                    <constraint firstAttribute="trailing" secondItem="nP3-la-kmm" secondAttribute="trailing" id="wop-VF-T9L"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Acn-cX-KL3">
@@ -124,12 +124,12 @@
                         <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="yiT-OR-HLP" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Acn-cX-KL3" secondAttribute="bottom" constant="20" id="2wI-i8-w1G"/>
+                            <constraint firstItem="kOC-LR-UeA" firstAttribute="centerX" secondItem="lFf-t6-c1r" secondAttribute="centerX" id="6ch-ZE-OJS"/>
                             <constraint firstAttribute="trailing" secondItem="yiT-OR-HLP" secondAttribute="trailing" constant="40" id="8K4-GP-YxV"/>
-                            <constraint firstItem="kOC-LR-UeA" firstAttribute="top" secondItem="Xbi-Cd-Vex" secondAttribute="bottom" constant="40" id="Emp-YV-YrA"/>
-                            <constraint firstItem="kOC-LR-UeA" firstAttribute="centerX" secondItem="lFf-t6-c1r" secondAttribute="centerX" id="LTa-Bm-Fi5"/>
-                            <constraint firstItem="Acn-cX-KL3" firstAttribute="top" secondItem="kOC-LR-UeA" secondAttribute="bottom" constant="40" id="Y5d-E2-Tdj"/>
+                            <constraint firstItem="Acn-cX-KL3" firstAttribute="top" secondItem="kOC-LR-UeA" secondAttribute="bottom" constant="40" id="EAo-Ff-XW5"/>
                             <constraint firstItem="Acn-cX-KL3" firstAttribute="leading" secondItem="lFf-t6-c1r" secondAttribute="leading" constant="40" id="bAi-xV-cGg"/>
                             <constraint firstAttribute="trailing" secondItem="Acn-cX-KL3" secondAttribute="trailing" constant="40" id="llL-wf-fKL"/>
+                            <constraint firstItem="kOC-LR-UeA" firstAttribute="top" secondItem="Xbi-Cd-Vex" secondAttribute="bottom" constant="40" id="qtL-3F-QOp"/>
                             <constraint firstItem="yiT-OR-HLP" firstAttribute="leading" secondItem="lFf-t6-c1r" secondAttribute="leading" constant="40" id="qtj-iY-oLd"/>
                             <constraint firstItem="8Zf-W9-pJC" firstAttribute="top" secondItem="yiT-OR-HLP" secondAttribute="bottom" constant="40" id="qyU-LW-5fK"/>
                         </constraints>
@@ -154,7 +154,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="amPmLabel" destination="Day-Ly-MLj" id="kYN-Eq-ms8"/>
-                        <outlet property="buttonContentView" destination="nP3-la-kmm" id="vR0-sS-eGw"/>
                         <outlet property="circularView" destination="kOC-LR-UeA" id="gHn-8h-iRX"/>
                         <outlet property="snoozeButton" destination="yiT-OR-HLP" id="um4-gz-NRL"/>
                         <outlet property="timeLabel" destination="Djm-W2-YDx" id="yAp-P6-F9t"/>
