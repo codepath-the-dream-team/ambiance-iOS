@@ -31,7 +31,8 @@ class CircularView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
-        drawRingFittingInsideView()
+        super.draw(rect)
+        //drawRingFittingInsideView()
     }
     
     internal func drawRingFittingInsideView()->() {

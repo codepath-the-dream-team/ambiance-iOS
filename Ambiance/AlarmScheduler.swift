@@ -17,18 +17,24 @@ class AlarmScheduler: NSObject {
     ]
     
     let calendar = Calendar(identifier: .gregorian)
-    var alarmObject: AlarmObject!
+    var morningAlarmObject: AlarmObject!
+    var nightAlarmObject: AlarmObject!
     
     override init() {
         super.init()
         // FIXME - sound file location needs to be set from Parse        
-        self.alarmObject = AlarmObject(itemToPlay: URL(string:
+        self.morningAlarmObject = AlarmObject(itemToPlay: URL(string:
             "https://dream-team-bucket.s3-us-west-1.amazonaws.com/music/morning-forest.mp3")!)
-        self.alarmObject.addObserver(self, forKeyPath: "status", options: [.new], context: nil)
+        self.morningAlarmObject.addObserver(self, forKeyPath: "status", options: [.old, .new], context: nil)
+        
+        self.nightAlarmObject = AlarmObject(itemToPlay: URL(string:
+            "https://dream-team-bucket.s3-us-west-1.amazonaws.com/music/babbling-brook.mp3")!)
+        self.nightAlarmObject.addObserver(self, forKeyPath: "status", options: [.old, .new], context: nil)
     }
     
     deinit {
-        self.alarmObject.removeObserver(self, forKeyPath: "status")
+        self.morningAlarmObject.removeObserver(self, forKeyPath: "status")
+        self.nightAlarmObject.removeObserver(self, forKeyPath: "status")
     }
     
     func scheduleNextAlarm() -> Date? {
@@ -38,34 +44,38 @@ class AlarmScheduler: NSObject {
             let riseTime = 30
             
             // FIXME - volume needs to come from Parse
-            self.alarmObject.setVolumeIncreaseFeature(toMaxVolumeInMinutes: riseTime, maxVolume: 1.0)
-            self.alarmObject.setVolume(0.1)
-            self.alarmObject.scheduleAt(when: nextAlarm.0)
+            self.morningAlarmObject.setVolumeIncreaseFeature(toMaxVolumeInMinutes: riseTime, maxVolume: 1.0)
+            self.morningAlarmObject.setVolume(0.1)
+            self.morningAlarmObject.scheduleAt(when: nextAlarm.0)
             return nextAlarm.0
         }
-        // Just for testing, start alarm in 20 seconds
+        // Just for testing, start alarm in 10 seconds
         
-        /**
-        self.alarmObject.setVolumeIncreaseFeature(toMaxVolumeInMinutes: 3, maxVolume: 1.0)
-        self.alarmObject.setVolume(0.1)
-        let testDate = Date(timeIntervalSinceNow: TimeInterval(10));
-        self.alarmObject.scheduleAt(when: testDate)
+        
+        self.morningAlarmObject.setVolumeIncreaseFeature(toMaxVolumeInMinutes: 3, maxVolume: 1.0)
+        self.morningAlarmObject.setVolume(0.1)
+        let testDate = Date(timeIntervalSinceNow: TimeInterval(5));
+        self.morningAlarmObject.scheduleAt(when: testDate)
         return testDate
-        **/
-        return nil
+ 
+        //return nil
     }
     
     // Observe for the Alarm status change.
-    var previousStatus: AlarmObject.Status?
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if (keyPath == "status") {
             if let alarm = object as? AlarmObject {
-                if (alarm == self.alarmObject) {
-                    if (self.previousStatus == AlarmObject.Status.scheduled && alarm.status == AlarmObject.Status.started) {
-                        self.showAlarmOn(self.alarmObject)
+                if let theChange = change as? [NSKeyValueChangeKey: Int] {
+                    if let oldStatus = theChange[NSKeyValueChangeKey.oldKey],
+                       let newStatus = theChange[NSKeyValueChangeKey.newKey] {
+                        if (oldStatus == AlarmObject.Status.scheduled.rawValue && newStatus == AlarmObject.Status.started.rawValue) {
+                            self.showAlarmOn(alarm)
+                        }
                     }
+                    
+                    return
                 }
-                self.previousStatus = alarm.status // Save for the next round
+    
             }
         }
     }
@@ -146,4 +156,6 @@ class AlarmScheduler: NSObject {
 
 extension Notification.Name {
     static let alarmStartedNotification = Notification.Name("alarmStarted")
+    static let alexaRequestNotification = Notification.Name("AlexaRequest")
 }
+

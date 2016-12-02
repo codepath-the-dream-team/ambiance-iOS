@@ -69,11 +69,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("Push registration failed \(error)")
     }
     
-    //func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-    //    let aps = userInfo["aps"] as! [String: AnyObject]
-    //    print("Remote push notification received")
-    //}
-    
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         var token = ""
         for i in 0..<deviceToken.count {
@@ -89,6 +84,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        print("RemoteNotification received \(userInfo)");
+        let aps = userInfo["aps"] as! [String: AnyObject]
+        postAlarmNotification(notificationDictionary: aps)
+    }
+    
+    
+    func postAlarmNotification(notificationDictionary:[String: AnyObject]) {
+        print("postAlarmNotification");
+        if let alertItem = notificationDictionary["alert"] as? String {
+            // Hopefully alertItem is one of "start", "snooze", "stop"
+            let userInfo = [ "action" : alertItem ]
+            NotificationCenter.default.post(name: .alexaRequestNotification, object: self, userInfo: userInfo)
+        }
+    }
     
 }
 

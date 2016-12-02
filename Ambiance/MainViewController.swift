@@ -38,7 +38,7 @@ class MainViewController: UIViewController, UITabBarDelegate {
         print("next alarm scheduled at \(alarmScheduledDate)")
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.showAlarm(_:)), name: .alarmStartedNotification, object: nil)
-
+        NotificationCenter.default.addObserver(self, selector: #selector(self.alexaRequestReceived(_:)), name: .alexaRequestNotification, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -87,7 +87,6 @@ class MainViewController: UIViewController, UITabBarDelegate {
         }
     }
     
-    
     private func show(screen: UIViewController) {
         if nil != activeScreen {
             activeScreen.willMove(toParentViewController: nil)
@@ -100,6 +99,25 @@ class MainViewController: UIViewController, UITabBarDelegate {
         activeScreen.view.frame = viewContainer.bounds
         viewContainer.addSubview(activeScreen.view)
         activeScreen.didMove(toParentViewController: self)
+    }
+    
+    @objc private func alexaRequestReceived(_ notification: NSNotification) {
+        let userInfo = notification.userInfo
+        let action = userInfo?["action"] as? String
+        print("alexaRequestReceived \(action)")
+        if let action = action {
+            if (action == "start") {
+                // Start nighttime alarm
+                print("starting alarm")
+            } else if (action == "snooze") {
+                // Snooze ongoing alarm
+                print("snoozing alarm")
+            } else if (action == "stop") {
+                // Stop ongoing alarm
+                print("stopping alarm")
+
+            }
+        }
     }
 
 }
