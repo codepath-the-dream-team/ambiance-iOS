@@ -39,6 +39,7 @@
 		C9B5C5921DD2ED15001EE244 /* Alexa.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9B5C5911DD2ED15001EE244 /* Alexa.storyboard */; };
 		C9B5C5941DD2EDE7001EE244 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B5C5931DD2EDE7001EE244 /* MainViewController.swift */; };
 		C9B5C5961DD2F3B8001EE244 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B5C5951DD2F3B8001EE244 /* AccountViewController.swift */; };
+		C9CBE0991DF2D82200E95E3A /* NewAccountViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CBE0981DF2D82200E95E3A /* NewAccountViewViewController.swift */; };
 		C9D0E48A1DE12676000B242A /* WakeUpConfigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D0E4891DE12676000B242A /* WakeUpConfigureViewController.swift */; };
 		C9D0E48C1DE133FA000B242A /* WakeUpEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D0E48B1DE133FA000B242A /* WakeUpEditViewController.swift */; };
 		C9D0E48E1DE13660000B242A /* DayCheckmarkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D0E48D1DE13660000B242A /* DayCheckmarkView.xib */; };
@@ -100,6 +101,7 @@
 		C9B5C5911DD2ED15001EE244 /* Alexa.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Alexa.storyboard; sourceTree = "<group>"; };
 		C9B5C5931DD2EDE7001EE244 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C9B5C5951DD2F3B8001EE244 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		C9CBE0981DF2D82200E95E3A /* NewAccountViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAccountViewViewController.swift; sourceTree = "<group>"; };
 		C9D0E4891DE12676000B242A /* WakeUpConfigureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakeUpConfigureViewController.swift; sourceTree = "<group>"; };
 		C9D0E48B1DE133FA000B242A /* WakeUpEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakeUpEditViewController.swift; sourceTree = "<group>"; };
 		C9D0E48D1DE13660000B242A /* DayCheckmarkView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayCheckmarkView.xib; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				9BB5CD991DEA5576002C0F26 /* AccountProfileViewCell.xib */,
 				9BB5CD941DEA521A002C0F26 /* AccountSettingsToggleCell.swift */,
 				9BB5CD951DEA521A002C0F26 /* AccountSettingsToggleCell.xib */,
+				C9CBE0981DF2D82200E95E3A /* NewAccountViewViewController.swift */,
 			);
 			name = Account;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				C9E407831DE2796B004456CA /* WakeUpPresenter.swift in Sources */,
 				C9E407811DE2625E004456CA /* SleepConfigureViewController.swift in Sources */,
 				C94D6C311DDF0606007F3B03 /* WakeUpContainerViewController.swift in Sources */,
+				C9CBE0991DF2D82200E95E3A /* NewAccountViewViewController.swift in Sources */,
 				C9ED9D611DE951F50031EB31 /* SleepConfiguration.swift in Sources */,
 				C9B5C5961DD2F3B8001EE244 /* AccountViewController.swift in Sources */,
 				C9D0E4921DE16F46000B242A /* ClearNavBar.swift in Sources */,
