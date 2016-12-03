@@ -26,16 +26,30 @@
                                     <constraint firstAttribute="height" constant="541" id="ath-k9-Ak3"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trees" translatesAutoresizingMaskIntoConstraints="NO" id="2ZE-tZ-MDx">
+                                <color key="tintColor" red="0.1450980392" green="0.0" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="GP3-ot-9Xw"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="imageRenderingMode">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="2ZE-tZ-MDx" secondAttribute="trailing" id="0LH-vL-C1r"/>
                             <constraint firstItem="IdH-60-7ZE" firstAttribute="leading" secondItem="abv-mo-1ey" secondAttribute="leading" id="5HF-dy-4dz"/>
                             <constraint firstAttribute="trailing" secondItem="IdH-60-7ZE" secondAttribute="trailing" id="LTx-g4-Jat"/>
                             <constraint firstItem="RiB-MH-qZl" firstAttribute="top" secondItem="BPx-Yf-4SM" secondAttribute="bottom" constant="500" id="Log-ME-iIe"/>
                             <constraint firstItem="RiB-MH-qZl" firstAttribute="width" secondItem="abv-mo-1ey" secondAttribute="width" id="QbN-F1-13G"/>
                             <constraint firstItem="vI6-00-fcS" firstAttribute="top" secondItem="IdH-60-7ZE" secondAttribute="bottom" id="ReG-kU-VwP"/>
+                            <constraint firstItem="RiB-MH-qZl" firstAttribute="top" secondItem="2ZE-tZ-MDx" secondAttribute="bottom" id="Tuk-lL-AEZ"/>
                             <constraint firstItem="RiB-MH-qZl" firstAttribute="centerX" secondItem="abv-mo-1ey" secondAttribute="centerX" id="gGN-BV-Ab4"/>
                             <constraint firstItem="IdH-60-7ZE" firstAttribute="top" secondItem="abv-mo-1ey" secondAttribute="top" id="vcK-Rd-mYE"/>
+                            <constraint firstItem="2ZE-tZ-MDx" firstAttribute="leading" secondItem="abv-mo-1ey" secondAttribute="leading" id="y7Y-qu-K9g"/>
                         </constraints>
                     </view>
                     <connections>
@@ -420,5 +434,6 @@
         <image name="ic_app-icon_nav-bar" width="74" height="74"/>
         <image name="ic_speaker_no-sound_black" width="74" height="74"/>
         <image name="ic_speaker_sound_black" width="75" height="75"/>
+        <image name="trees" width="573" height="57"/>
     </resources>
 </document>
