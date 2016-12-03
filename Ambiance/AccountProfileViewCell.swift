@@ -47,6 +47,7 @@ struct AccountProfileViewModel {
 // Extend UIView to make image circular
 extension UIView {
     func makeCircular() {
+        layoutIfNeeded()
         self.layer.cornerRadius = self.frame.size.width/2
         self.layer.masksToBounds = true
     }
