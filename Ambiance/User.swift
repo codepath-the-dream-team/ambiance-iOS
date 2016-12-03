@@ -59,13 +59,10 @@ class User: NSObject {
     
     public var alarmSchedule: AlarmSchedule {
         get {
-            let pfSchedule = parseUser["alarmSchedule"] as! PFObject
-            NSLog("pfSchedule: \(pfSchedule)")
+            let pfAlarmSchedule = parseUser["alarmSchedule"] as! [String : AnyObject]
+            NSLog("pfAlarmSchedule: \(pfAlarmSchedule)")
             
-            let schedule = AlarmSchedule(pfObject: pfSchedule)!
-            NSLog("AlarmSchedule: \(schedule)")
-            
-            return schedule
+            return AlarmSchedule(from: pfAlarmSchedule)!
         }
     }
     
@@ -97,9 +94,10 @@ class User: NSObject {
     }
     
     public func save(alarmSchedule: AlarmSchedule, onComplete: @escaping (Error?) -> ()) {
-        let parseAlarmSchedule = PFObject(className: "AlarmSchedule", dictionary: alarmSchedule.serializeToDictionary())
+        let alarmScheduleDictionary = alarmSchedule.serializeToDictionary()
+        NSLog("Attempting to save Alarm Schedule: \(alarmSchedule)")
         
-        parseUser.setObject(parseAlarmSchedule, forKey: "alarmSchedule")
+        parseUser.setValue(alarmScheduleDictionary, forKey: "alarmSchedule")
         parseUser.saveInBackground { (success: Bool, error: Error?) in
             onComplete(error)
             
