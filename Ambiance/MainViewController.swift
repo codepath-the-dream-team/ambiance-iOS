@@ -36,7 +36,7 @@ class MainViewController: UIViewController, UITabBarDelegate {
         self.alarmScheduler = AlarmScheduler()
         let alarmScheduledDate = self.alarmScheduler.scheduleNextAlarm()
         print("next alarm scheduled at \(alarmScheduledDate)")
-        _ = self.alarmScheduler.startNightAlarm()
+        //_ = self.alarmScheduler.startNightAlarm()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.showAlarmScreen(_:)), name: .alarmStartedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.dismissAlarmScreen(_:)), name: .alarmStoppedNotification, object: nil)
@@ -119,6 +119,7 @@ class MainViewController: UIViewController, UITabBarDelegate {
             if (action == "start") {
                 // Start nighttime alarm
                 print("starting alarm")
+                self.alarmScheduler.startNightAlarm()
             } else if (action == "snooze") {
                 // Snooze ongoing alarm
                 print("snoozing alarm")
