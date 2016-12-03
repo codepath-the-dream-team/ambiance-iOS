@@ -12,7 +12,7 @@ import UIKit
 class WakeUpPresenter {
     
     public func createWakeUpClockViewModel(alarmSchedule: AlarmSchedule, riseTimeInMinutes: Int) -> WakeUpClockViewModel {
-        let nextAlarm = getNextAlarm(alarmSchedule: alarmSchedule)
+        let nextAlarm = alarmSchedule.getNextAlarm()
         
         if let nextAlarm = nextAlarm {
             var hours = nextAlarm.1.alarmTimeHours % 12
@@ -25,130 +25,6 @@ class WakeUpPresenter {
             return WakeUpClockViewModel(time: timeDisplay, amPm: amPm, message: alarmMessage)
         } else {
             return WakeUpClockViewModel(time: "--:--", amPm: AmPm.am, message: NSAttributedString(string: "No Alarm Scheduled."))
-        }
-    }
-    
-    private func getNextAlarm(alarmSchedule: AlarmSchedule) -> (String, DayAlarm)? {
-        let next7Days = getNext7Days()
-        
-        var alarmThatAlreadyPassedToday: (String, DayAlarm)?
-        for day in next7Days {
-            let alarmForDay = alarmSchedule.getAlarm(for: day)
-            if let alarmForDay = alarmForDay {
-                if isToday(day: day) {
-                    if isAlarmInTheFuture(dayOfWeek: day, dayAlarm: alarmForDay) {
-                        // Found an Alarm scheduled for later today. Return it.
-                        return (day, alarmForDay)
-                    } else {
-                        // Store a reference to today's alarm that already passed. If we
-                        // don't find any other alarm then we'll use this one.
-                        alarmThatAlreadyPassedToday = (day, alarmForDay)
-                    }
-                } else {
-                    // Found an Alarm scheduled after today. Return it.
-                    return (day, alarmForDay)
-                }
-            }
-        }
-        
-        // If we've gotten down here then it means we didn't find a scheduled Alarm
-        // any time in the next 7 days.  The only possibility that we haven't considered
-        // yet is an alarm that is scheduled today, but has already passed.  We didn't
-        // want to select this alarm initially because its only in the "future" if no
-        // other Alarm is scheduled.  But we didn't find any other Alarm so now we'll
-        // check to see if there is an alarm scheduled for earlier today.  If so, we'll
-        // treat it as a future alarm 7 days from now.
-        if let alarmThatAlreadyPassedToday = alarmThatAlreadyPassedToday {
-            return alarmThatAlreadyPassedToday
-        }
-        
-        
-        return nil
-    }
-    
-    private func getNext7Days() -> [String] {
-        // List of the next 7 days (starting with today).
-        var next7Days:[String] = []
-        
-        // The Date that we cycle through 7 days, starting with today.
-        var date = Date()
-        
-        // Cycle through the next 7 days and store their names in a list.
-        for _ in 0...7 {
-            let dayOfWeek = Calendar.current.component(.weekday, from: date)
-            
-            switch dayOfWeek {
-            case 1:
-                next7Days.append("sunday")
-                break
-            case 2:
-                next7Days.append("monday")
-                break
-            case 3:
-                next7Days.append("tuesday")
-                break
-            case 4:
-                next7Days.append("wednesday")
-                break
-            case 5:
-                next7Days.append("thursday")
-                break
-            case 6:
-                next7Days.append("friday")
-                break
-            case 7:
-                next7Days.append("saturday")
-                break
-            default:
-                break
-            }
-            
-            // Add a day to the Date
-            date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
-        }
-        
-        return next7Days
-    }
-    
-    private func isToday(day: String) -> Bool {
-        let dayOfWeek = Calendar.current.component(.weekday, from: Date())
-        
-        switch dayOfWeek {
-        case 1:
-            return "sunday" == day
-        case 2:
-            return "monday" == day
-        case 3:
-            return "tuesday" == day
-        case 4:
-            return "wednesday" == day
-        case 5:
-            return "thursday" == day
-        case 6:
-            return "friday" == day
-        case 7:
-            return "saturday" == day
-        default:
-            return false
-        }
-    }
-    
-    private func isAlarmInTheFuture(dayOfWeek: String, dayAlarm: DayAlarm) -> Bool {
-        if isToday(day: dayOfWeek) {
-            // This Alarm is scheduled for today. If it's scheduled later than "now"
-            // then its in the future, otherwise its in the past.
-            let alarmTimeInMinutes = (dayAlarm.alarmTimeHours * 60) + dayAlarm.alarmTimeMinutes
-            
-            let now = Date()
-            let nowTimeInMinutes = (Calendar.current.component(.hour, from: now) * 60) + Calendar.current.component(.minute, from: now)
-            
-            return alarmTimeInMinutes > nowTimeInMinutes
-        } else {
-            // We consider any Alarm that isn't scheduled for today as being schedule
-            // in the future. For example, if today is Monday and there is an Alarm
-            // scheduled for Sunday, we consider that Alarm to be scheduled 6 days in
-            // the future rather than 1 day in the past.
-            return true
         }
     }
     
@@ -258,6 +134,92 @@ class WakeUpPresenter {
         }
         
         return nil
+    }
+    
+    private func getNext7Days() -> [String] {
+        // List of the next 7 days (starting with today).
+        var next7Days:[String] = []
+        
+        // The Date that we cycle through 7 days, starting with today.
+        var date = Date()
+        
+        // Cycle through the next 7 days and store their names in a list.
+        for _ in 0...7 {
+            let dayOfWeek = Calendar.current.component(.weekday, from: date)
+            
+            switch dayOfWeek {
+            case 1:
+                next7Days.append("sunday")
+                break
+            case 2:
+                next7Days.append("monday")
+                break
+            case 3:
+                next7Days.append("tuesday")
+                break
+            case 4:
+                next7Days.append("wednesday")
+                break
+            case 5:
+                next7Days.append("thursday")
+                break
+            case 6:
+                next7Days.append("friday")
+                break
+            case 7:
+                next7Days.append("saturday")
+                break
+            default:
+                break
+            }
+            
+            // Add a day to the Date
+            date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
+        }
+        
+        return next7Days
+    }
+    
+    private func isToday(day: String) -> Bool {
+        let dayOfWeek = Calendar.current.component(.weekday, from: Date())
+        
+        switch dayOfWeek {
+        case 1:
+            return "sunday" == day
+        case 2:
+            return "monday" == day
+        case 3:
+            return "tuesday" == day
+        case 4:
+            return "wednesday" == day
+        case 5:
+            return "thursday" == day
+        case 6:
+            return "friday" == day
+        case 7:
+            return "saturday" == day
+        default:
+            return false
+        }
+    }
+    
+    private func isAlarmInTheFuture(dayOfWeek: String, dayAlarm: DayAlarm) -> Bool {
+        if isToday(day: dayOfWeek) {
+            // This Alarm is scheduled for today. If it's scheduled later than "now"
+            // then its in the future, otherwise its in the past.
+            let alarmTimeInMinutes = (dayAlarm.alarmTimeHours * 60) + dayAlarm.alarmTimeMinutes
+            
+            let now = Date()
+            let nowTimeInMinutes = (Calendar.current.component(.hour, from: now) * 60) + Calendar.current.component(.minute, from: now)
+            
+            return alarmTimeInMinutes > nowTimeInMinutes
+        } else {
+            // We consider any Alarm that isn't scheduled for today as being schedule
+            // in the future. For example, if today is Monday and there is an Alarm
+            // scheduled for Sunday, we consider that Alarm to be scheduled 6 days in
+            // the future rather than 1 day in the past.
+            return true
+        }
     }
     
     public func createWakeUpDayViewModel(dayIndex: Int) -> WakeUpDayListItemViewModel {

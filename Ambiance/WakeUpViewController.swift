@@ -75,27 +75,68 @@ class WakeUpViewController: UIViewController {
         navigationController!.navigationBar.backgroundColor = UIColor.clear
     }
     
-
     @IBAction func onConfigureTap(_ sender: AnyObject) {
         delegate?.showWakeUpConfiguration()
     }
     
     @IBAction func onWakeUpTap(_ sender: UITapGestureRecognizer) {
-        delegate?.showWakeUpEdit()
+        let nextAlarm = UserSession.shared.loggedInUser!.alarmSchedule.getNextAlarm()
+        var dayName: String?
+        var dayAlarm: DayAlarm?
+        
+        if let nextAlarm = nextAlarm {
+            dayName = nextAlarm.0
+            dayAlarm = nextAlarm.1
+        }
+        
+        delegate?.showWakeUpEdit(for: dayName, with: dayAlarm)
     }
     
     @IBAction func onDayTap(_ sender: UITapGestureRecognizer) {
-        delegate?.showWakeUpEdit()
+        var dayName: String?
+        var dayAlarm: DayAlarm?
+        
+        switch sender.view! {
+        case day1View:
+            dayName = "monday"
+            break
+        case day2View:
+            dayName = "tuesday"
+            break
+        case day3View:
+            dayName = "wednesday"
+            break
+        case day4View:
+            dayName = "thursday"
+            break
+        case day5View:
+            dayName = "friday"
+            break
+        case day6View:
+            dayName = "saturday"
+            break
+        case day7View:
+            dayName = "sunday"
+            break
+        default:
+            break
+        }
+        
+        if let dayName = dayName {
+            // Directly accessing the UserSession in this Class is not
+            // great, but I'm in a hurry!
+            dayAlarm = UserSession.shared.loggedInUser!.alarmSchedule.getAlarm(for: dayName)
+        }
+        
+        delegate?.showWakeUpEdit(for: dayName, with: dayAlarm)
     }
     
-
 }
 
 protocol WakeUpViewControllerDelegate {
     
     func showWakeUpConfiguration()
     
-    // TODO: pass the current day's configuration
-    func showWakeUpEdit()
+    func showWakeUpEdit(for day: String?, with alarm: DayAlarm?)
     
 }

@@ -40,6 +40,9 @@ class MainViewController: UIViewController, UITabBarDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(self.showAlarmScreen(_:)), name: .alarmStartedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.dismissAlarmScreen(_:)), name: .alarmStoppedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.alexaRequestReceived(_:)), name: .alexaRequestNotification, object: nil)
+
+        showWakeUp()
+        tabbarView.selectedItem = tabbarView.items![0]
     }
 
     override func didReceiveMemoryWarning() {

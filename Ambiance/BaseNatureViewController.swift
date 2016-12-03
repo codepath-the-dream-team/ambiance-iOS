@@ -24,7 +24,7 @@ class BaseNatureViewController: UIViewController {
         // Do any additional setup after loading the view.
         prepareBlurEffect()
         if getModalTopConstraint() != nil {
-            getModalTopConstraint().constant = self.view.bounds.height
+            getModalTopConstraint().constant = self.view.bounds.height - 68
         }
     }
 
@@ -97,7 +97,7 @@ class BaseNatureViewController: UIViewController {
         NSLog("Hiding modal")
         
         // Calculate the final position of the modal UI.
-        let finalPosition = self.view.bounds.height
+        let finalPosition = self.view.bounds.height - 68
         
         // Animate the modal UI out while also un-blurring the content UI.
         self.view.layoutIfNeeded()

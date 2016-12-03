@@ -328,6 +328,7 @@
 					C97AC2541DD03F590096FE97 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = EDU9NG376Z;
+						DevelopmentTeam = X8RDA9N2TL;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -598,6 +599,10 @@
 				INFOPLIST_FILE = Ambiance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thedreamteam.AmbianceAlarm;
+				DEVELOPMENT_TEAM = X8RDA9N2TL;
+				INFOPLIST_FILE = Ambiance/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thedreamteam.matt.Ambiance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -613,6 +618,10 @@
 				INFOPLIST_FILE = Ambiance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thedreamteam.AmbianceAlarm;
+				DEVELOPMENT_TEAM = X8RDA9N2TL;
+				INFOPLIST_FILE = Ambiance/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thedreamteam.matt.Ambiance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

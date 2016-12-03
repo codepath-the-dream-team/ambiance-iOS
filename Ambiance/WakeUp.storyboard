@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -27,9 +27,24 @@
                                     <constraint firstAttribute="height" constant="541" id="9h6-zB-25s"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="trees" translatesAutoresizingMaskIntoConstraints="NO" id="q4e-2r-wEA">
+                                <frame key="frameInset" minX="16" minY="317" width="343" height="32"/>
+                                <color key="tintColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="yWF-Da-T5L"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="imageRenderingMode">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="q4e-2r-wEA" secondAttribute="trailing" id="DL4-Wj-JaX"/>
+                            <constraint firstItem="5Jz-Tm-b14" firstAttribute="top" secondItem="q4e-2r-wEA" secondAttribute="bottom" id="J3C-Ly-ECz"/>
+                            <constraint firstItem="q4e-2r-wEA" firstAttribute="leading" secondItem="MIL-sR-czy" secondAttribute="leading" id="O4i-B9-V5p"/>
                             <constraint firstAttribute="trailing" secondItem="gzE-x3-38T" secondAttribute="trailing" id="dEK-hx-Zuy"/>
                             <constraint firstItem="5Jz-Tm-b14" firstAttribute="width" secondItem="MIL-sR-czy" secondAttribute="width" id="hOF-1U-gKj"/>
                             <constraint firstItem="5Jz-Tm-b14" firstAttribute="top" secondItem="231-XE-ke0" secondAttribute="bottom" constant="500" id="iGb-kT-0UF"/>
@@ -690,5 +705,6 @@
         <image name="ic_app-icon_nav-bar" width="74" height="74"/>
         <image name="ic_speaker_no-sound_black" width="74" height="74"/>
         <image name="ic_speaker_sound_black" width="75" height="75"/>
+        <image name="trees" width="573" height="57"/>
     </resources>
 </document>
