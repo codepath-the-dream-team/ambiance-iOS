@@ -45,6 +45,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_app-icon_launch-screen" width="90" height="90"/>
+        <image name="ic_app-icon_launch-screen" width="180" height="180"/>
     </resources>
 </document>
