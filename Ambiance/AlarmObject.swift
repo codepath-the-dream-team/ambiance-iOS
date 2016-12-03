@@ -86,21 +86,24 @@ class AlarmObject : NSObject {
     
     // Start the alarm playback immediately
     func startPlayback() {
-        print("[AO] alarm started \(Date())")
+        print("[AO] alarm start request \(Date())")
         
-        self.player.play()
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.timerFired), userInfo: nil, repeats: true)
-        
-        // set volume increase interval if necessary
-        if self.toMaxVolumeInSeconds > 0 && self.player.volume < self.maxVolume {
-            self.volumeInterval = self.toMaxVolumeInSeconds / Int((self.maxVolume - (self.player.volume)) * 10)
-            print("[AO] alarm volume interval \(self.volumeInterval)")
-            
+        if (self.status == Status.started) {
+            print("[AO] Alarm is already started")
         } else {
-            self.volumeInterval = 0
-        }
+            self.player.play()
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.timerFired),   userInfo: nil, repeats: true)
         
-        self.status = Status.started
+            // set volume increase interval if necessary
+            if self.toMaxVolumeInSeconds > 0 && self.player.volume < self.maxVolume {
+                self.volumeInterval = self.toMaxVolumeInSeconds / Int((self.maxVolume - (self.player.volume)) * 10)
+                print("[AO] alarm volume interval \(self.volumeInterval)")
+            
+            } else {
+                self.volumeInterval = 0
+            }
+            self.status = Status.started
+        }
     }
     
     // Stop this alarm
@@ -110,6 +113,8 @@ class AlarmObject : NSObject {
             NSObject.cancelPreviousPerformRequests(withTarget: self)
         } else if self.status == Status.started {
             self.player.pause()
+        } else if self.status == Status.snoozing {
+            NSObject.cancelPreviousPerformRequests(withTarget: self)
         }
         if let timer = timer {
             timer.invalidate()
