@@ -68,7 +68,8 @@ class AlarmScheduler: NSObject {
                        let newStatus = theChange[NSKeyValueChangeKey.newKey] {
                         if (oldStatus == AlarmObject.Status.scheduled.rawValue && newStatus == AlarmObject.Status.started.rawValue) {
                             self.showAlarmOn(alarm)
-                        } else if(oldStatus == AlarmObject.Status.started.rawValue && newStatus == AlarmObject.Status.stopped.rawValue) {
+                        } else if((oldStatus == AlarmObject.Status.started.rawValue || oldStatus == AlarmObject.Status.snoozing.rawValue)
+                            && newStatus == AlarmObject.Status.stopped.rawValue) {
                             self.dismissAlarmOn(alarm)
                         }
                     }
