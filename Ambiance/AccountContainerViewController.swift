@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AccountContainerViewController: BaseNatureViewController, AccountViewControllerDelegate {
+class AccountContainerViewController: BaseNatureViewController, NewAccountViewControllerDelegate {
 
     @IBOutlet weak var contentContainer: UIView!
     @IBOutlet weak var contentTopConstraint: NSLayoutConstraint!
@@ -39,8 +39,8 @@ class AccountContainerViewController: BaseNatureViewController, AccountViewContr
     
     private func installAccountViewController() {
         let accountStoryboard = UIStoryboard(name: "Account", bundle: nil)
-        let accountVc = accountStoryboard.instantiateViewController(withIdentifier: "account_display") as! UINavigationController
-        (accountVc.topViewController as! AccountViewController).delegate = self
+        let accountVc = accountStoryboard.instantiateViewController(withIdentifier: "new_account_display") as! UINavigationController
+        (accountVc.topViewController as! NewAccountViewController).delegate = self
 
         setContent(vc: accountVc)
 
