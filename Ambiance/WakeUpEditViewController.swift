@@ -22,6 +22,8 @@ class WakeUpEditViewController: UIViewController, ClearNavBar {
     @IBOutlet var timePicker: UIDatePicker!
     
     public var delegate: WakeUpEditViewControllerDelegate?
+    public var initialSelectedDay: String?
+    public var initialDayAlarm: DayAlarm?
     
     private var dayToCheckboxMap: [String : DayCheckmarkView]!
     
@@ -41,6 +43,19 @@ class WakeUpEditViewController: UIViewController, ClearNavBar {
         
         clearBackground(forNavBar: navBar)
         makeTimePickerGray()
+        
+        if let initialSelectedDay = initialSelectedDay {
+            dayToCheckboxMap[initialSelectedDay]?.isChecked = true
+        }
+        
+        globalIsEnabledSwitch.isOn = nil != initialDayAlarm
+        
+        if let initialDayAlarm = initialDayAlarm {
+            var timeComponents = Calendar.current.dateComponents([Calendar.Component.hour, Calendar.Component.minute], from: Date())
+            timeComponents.hour = initialDayAlarm.alarmTimeHours
+            timeComponents.minute = initialDayAlarm.alarmTimeMinutes
+            timePicker.setDate(Calendar.current.date(from: timeComponents)!, animated: false)
+        }
     }
 
     override func didReceiveMemoryWarning() {

@@ -57,13 +57,15 @@ class WakeUpContainerViewController: BaseNatureViewController, WakeUpViewControl
         displayModal()
     }
     
-    func showWakeUpEdit() {
+    func showWakeUpEdit(for day: String?, with alarm: DayAlarm?) {
         NSLog("showWakeUpEdit()")
         
         let wakeUpStoryboard = UIStoryboard(name: "WakeUp", bundle: nil)
         let wakeUpEditScheduleVc = wakeUpStoryboard.instantiateViewController(withIdentifier: "wake_up_edit") as! WakeUpEditViewController
         
         wakeUpEditScheduleVc.delegate = self
+        wakeUpEditScheduleVc.initialSelectedDay = day
+        wakeUpEditScheduleVc.initialDayAlarm = alarm
         
         setModal(vc: wakeUpEditScheduleVc)
         displayModal()
