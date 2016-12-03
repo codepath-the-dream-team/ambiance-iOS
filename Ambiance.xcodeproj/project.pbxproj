@@ -330,6 +330,7 @@
 				TargetAttributes = {
 					C97AC2541DD03F590096FE97 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = EDU9NG376Z;
 						DevelopmentTeam = X8RDA9N2TL;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -598,6 +599,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Ambiance/Ambiance.entitlements;
+				DEVELOPMENT_TEAM = EDU9NG376Z;
+				INFOPLIST_FILE = Ambiance/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thedreamteam.AmbianceAlarm;
 				DEVELOPMENT_TEAM = X8RDA9N2TL;
 				INFOPLIST_FILE = Ambiance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -613,6 +618,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Ambiance/Ambiance.entitlements;
+				DEVELOPMENT_TEAM = EDU9NG376Z;
+				INFOPLIST_FILE = Ambiance/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thedreamteam.AmbianceAlarm;
 				DEVELOPMENT_TEAM = X8RDA9N2TL;
 				INFOPLIST_FILE = Ambiance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

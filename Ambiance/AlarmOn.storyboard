@@ -23,31 +23,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kOC-LR-UeA" customClass="CircularView" customModule="Ambiance" customModuleProvider="target">
-                                <rect key="frame" x="37" y="104" width="300" height="300"/>
+                                <rect key="frame" x="47" y="104" width="280" height="280"/>
                                 <subviews>
                                     <view opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nP3-la-kmm">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="280"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THE TIME IS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKr-ON-Zci">
-                                                <rect key="frame" x="94.5" y="50" width="111" height="24"/>
+                                                <rect key="frame" x="84.5" y="50" width="111" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07:30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Djm-W2-YDx">
-                                                <rect key="frame" x="59.5" y="70" width="181" height="84"/>
+                                                <rect key="frame" x="49.5" y="70" width="181" height="84"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Day-Ly-MLj">
-                                                <rect key="frame" x="127.5" y="154" width="45" height="36"/>
+                                                <rect key="frame" x="117.5" y="154" width="45" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRESS &amp; HOLD TO DISMISS " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxP-FP-xEv" userLabel="PRESS &amp; HOLD TO DISMISS">
-                                                <rect key="frame" x="83.5" y="209" width="133" height="41"/>
+                                                <rect key="frame" x="73.5" y="189" width="133" height="41"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="133" id="KdU-3S-LxD"/>
                                                 </constraints>
@@ -72,14 +72,14 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="kOC-LR-UeA" secondAttribute="height" multiplier="1:1" id="0U6-jf-JLK"/>
                                     <constraint firstItem="nP3-la-kmm" firstAttribute="top" secondItem="kOC-LR-UeA" secondAttribute="top" id="TKz-yq-20h"/>
-                                    <constraint firstAttribute="width" constant="300" id="ZaW-ec-42v"/>
+                                    <constraint firstAttribute="width" constant="280" id="ZaW-ec-42v"/>
                                     <constraint firstItem="nP3-la-kmm" firstAttribute="leading" secondItem="kOC-LR-UeA" secondAttribute="leading" id="pvr-TZ-avZ"/>
                                     <constraint firstAttribute="bottom" secondItem="nP3-la-kmm" secondAttribute="bottom" id="tse-cY-gLs"/>
                                     <constraint firstAttribute="trailing" secondItem="nP3-la-kmm" secondAttribute="trailing" id="wop-VF-T9L"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Acn-cX-KL3">
-                                <rect key="frame" x="40" y="444" width="295" height="82"/>
+                                <rect key="frame" x="40" y="424" width="295" height="82"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ASK ALEXA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRn-Gd-cyW">
                                         <rect key="frame" x="0.0" y="0.0" width="295" height="20.5"/>
