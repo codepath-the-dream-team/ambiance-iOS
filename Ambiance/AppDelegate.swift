@@ -75,6 +75,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             token = token + String(format: "%02.2hhx", arguments: [deviceToken[i]])
         }
         print("Device token for push \(token)")
+        let installation = PFInstallation.current()
+        installation?.setDeviceTokenFrom(deviceToken)
+        installation?.saveInBackground()
         // This token needs to be stored somewhere!!!!
     }
     
@@ -93,6 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func postAlarmNotification(notificationDictionary:[String: AnyObject]) {
         print("postAlarmNotification");
+        PFPush.handle(notificationDictionary);
         if let alertItem = notificationDictionary["alert"] as? String {
             // Hopefully alertItem is one of "start", "snooze", "stop"
             let userInfo = [ "action" : alertItem ]

@@ -36,7 +36,6 @@ class MainViewController: UIViewController, UITabBarDelegate {
         self.alarmScheduler = AlarmScheduler()
         let alarmScheduledDate = self.alarmScheduler.scheduleNextAlarm()
         print("next alarm scheduled at \(alarmScheduledDate)")
-        //_ = self.alarmScheduler.startNightAlarm()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.showAlarmScreen(_:)), name: .alarmStartedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.dismissAlarmScreen(_:)), name: .alarmStoppedNotification, object: nil)
@@ -92,7 +91,7 @@ class MainViewController: UIViewController, UITabBarDelegate {
         activeScreen.didMove(toParentViewController: self)
     }
     
-    var alarmOnScreen: UIViewController?
+    var alarmOnScreen: AlarmOnViewController?
     @objc private func showAlarmScreen(_ notification: NSNotification) {
         if let alarm = notification.userInfo?["alarm"] as? AlarmObject {
             let alarmOnStoryboard = UIStoryboard(name: "AlarmOn", bundle: nil)
@@ -118,15 +117,13 @@ class MainViewController: UIViewController, UITabBarDelegate {
         if let action = action {
             if (action == "start") {
                 // Start nighttime alarm
-                print("starting alarm")
-                self.alarmScheduler.startNightAlarm()
+                _ = self.alarmScheduler.startNightAlarm()
             } else if (action == "snooze") {
                 // Snooze ongoing alarm
-                print("snoozing alarm")
+                self.alarmOnScreen?.alarmObject?.snooze()
             } else if (action == "stop") {
                 // Stop ongoing alarm
-                print("stopping alarm")
-
+                self.alarmOnScreen?.alarmObject?.stop()
             }
         }
     }
