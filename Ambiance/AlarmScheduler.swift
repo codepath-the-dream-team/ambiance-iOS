@@ -44,7 +44,7 @@ class AlarmScheduler: NSObject {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.observeAlarmScheduleChange), name: .alarmScheduleUpdated, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.observeSleepConfigurationChange), name: .sleepConfigurationUpdated, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.observeAlarmScheduleChange), name: .alarmConfigurationUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.observeAlarmConfigurationChange), name: .alarmConfigurationUpdated, object: nil)
     }
     
     deinit {
