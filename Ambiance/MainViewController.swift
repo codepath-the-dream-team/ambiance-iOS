@@ -32,17 +32,20 @@ class MainViewController: UIViewController, UITabBarDelegate {
         print("\(user.email)")
         print("\(user.profileImageUrl!)")
         tabbarView.delegate = self
-        
-        self.alarmScheduler = AlarmScheduler()
-        let alarmScheduledDate = self.alarmScheduler.scheduleNextAlarm()
-        print("next alarm scheduled at \(alarmScheduledDate)")
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(self.showAlarmScreen(_:)), name: .alarmStartedNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.dismissAlarmScreen(_:)), name: .alarmStoppedNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.alexaRequestReceived(_:)), name: .alexaRequestNotification, object: nil)
 
         showWakeUp()
         tabbarView.selectedItem = tabbarView.items![0]
+        
+        self.alarmScheduler = AlarmScheduler()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(self.showAlarmScreen(_:)), name: .alarmStartedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.dismissAlarmScreen(_:)), name: .alarmStoppedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.alexaRequestReceived(_:)), name: .alexaRequestNotification, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated);
+        alarmScheduler.observeAlarmScheduleChange() // Possibly check for any alarm change
     }
 
     override func didReceiveMemoryWarning() {
