@@ -44,7 +44,7 @@ class AlarmScheduler: NSObject {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.observeAlarmScheduleChange), name: .alarmScheduleUpdated, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.observeSleepConfigurationChange), name: .sleepConfigurationUpdated, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.observeAlarmScheduleChange), name: .alarmConfigurationUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.observeAlarmConfigurationChange), name: .alarmConfigurationUpdated, object: nil)
     }
     
     deinit {
@@ -134,7 +134,7 @@ class AlarmScheduler: NSObject {
                 if let theChange = change as? [NSKeyValueChangeKey: Int] {
                     if let oldStatus = theChange[NSKeyValueChangeKey.oldKey],
                        let newStatus = theChange[NSKeyValueChangeKey.newKey] {
-                        if (oldStatus == AlarmObject.Status.scheduled.rawValue && newStatus == AlarmObject.Status.started.rawValue) {
+                        if (oldStatus != AlarmObject.Status.snoozing.rawValue && newStatus == AlarmObject.Status.started.rawValue) {
                             self.notifyAlarmStarted(alarm)
                         } else if((oldStatus == AlarmObject.Status.started.rawValue || oldStatus == AlarmObject.Status.snoozing.rawValue)
                             && newStatus == AlarmObject.Status.stopped.rawValue) {
@@ -176,10 +176,10 @@ class AlarmScheduler: NSObject {
             var dayIndex = self.getDayOfWeek(startingDate)! - 1
             let dayAlarm = alarmSchedule.getAlarm(for: self.dayOfTheWeek[dayIndex])
             if let dayAlarm = dayAlarm {
-                let diffInMinutes = self.getDiffInMinutes(fromDate: startingDate, toAlarm: dayAlarm, riseTime: riseTime)
+                let diffInMinutes = self.getDiffInMinutes(fromDate: startingDate, toAlarm: dayAlarm)
                 if (diffInMinutes > 0) {
                     return (
-                        startingDate.addingTimeInterval(TimeInterval(diffInMinutes * 60)),
+                        startingDate.addingTimeInterval(TimeInterval((diffInMinutes - riseTime) * 60)),
                         dayAlarm)
                 }
             }
@@ -217,10 +217,10 @@ class AlarmScheduler: NSObject {
     
     // Returns the difference in minutes between the given date/s hour/minutes and dayAlarm's minutes
     // by subtracting date's hour/minutes from the dayAlarm's ambient sound start time.
-    private func getDiffInMinutes(fromDate: Date, toAlarm: DayAlarm, riseTime: Int) -> Int {
+    private func getDiffInMinutes(fromDate: Date, toAlarm: DayAlarm) -> Int {
         let hour = self.calendar.component(.hour, from: fromDate)
         let minute = self.calendar.component(.minute, from: fromDate)
-        return (toAlarm.alarmTimeHours * 60 + toAlarm.alarmTimeMinutes - riseTime) - (hour * 60 + minute)
+        return (toAlarm.alarmTimeHours * 60 + toAlarm.alarmTimeMinutes) - (hour * 60 + minute)
     }
     
     // Returns the weekday of the given Date, in [1-7], in which 1 is Sunday and 7 is Saturday.
