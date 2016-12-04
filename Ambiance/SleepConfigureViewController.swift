@@ -14,9 +14,11 @@ class SleepConfigureViewController: UIViewController, ClearNavBar {
     @IBOutlet var playbackDeviceSegmentedControl: UISegmentedControl!
     @IBOutlet var playTimeSlider: UISlider!
     @IBOutlet var volumeSlider: UISlider!
+    @IBOutlet var playPauseButtonImageView: UIImageView!
     
     public var initialConfiguration: SleepConfiguration!
     public var delegate: SleepConfigureViewControllerDelegate?
+    private var isPlayingSample: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +56,18 @@ class SleepConfigureViewController: UIViewController, ClearNavBar {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onPlayPauseTap(_ sender: UITapGestureRecognizer) {
+        // TODO: play/pause ambiance playback
+        
+        isPlayingSample = !isPlayingSample
+        if isPlayingSample {
+            playPauseButtonImageView.image = UIImage(imageLiteralResourceName: "ic_pause")
+        } else {
+            playPauseButtonImageView.image = UIImage(imageLiteralResourceName: "ic_play")
+        }
+        
+        // TODO: make sure to pause playback when this ViewController goes away just in case the user forgot to press pause
+    }
 
     @IBAction func onDoneTap(_ sender: AnyObject) {
         let sleepConfiguration = createSleepConfiguration()
