@@ -41,11 +41,16 @@ class AlarmScheduler: NSObject {
         if let sleepConfiguration = sleepConfiguration {
             self.applySleepConfiguration(self.nightAlarmObject, configuration: sleepConfiguration)
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.observeAlarmScheduleChange), name: .alarmScheduleUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.observeSleepConfigurationChange), name: .sleepConfigurationUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.observeAlarmScheduleChange), name: .alarmConfigurationUpdated, object: nil)
     }
     
     deinit {
         self.morningAlarmObject.removeObserver(self, forKeyPath: "status")
         self.nightAlarmObject.removeObserver(self, forKeyPath: "status")
+        NotificationCenter.default.removeObserver(self)
     }
     
     func scheduleNextAlarm() -> Date? {
@@ -80,7 +85,7 @@ class AlarmScheduler: NSObject {
         return self.nightAlarmObject!
     }
     
-    func observeAlarmScheduleChange() {
+    @objc func observeAlarmScheduleChange() {
         let newSchedule = getNextDayAlarm(startingDate: Date())
         if let newSchedule = newSchedule {
             if let currentSchedule = self.currentlyActiveNextSchedule {
@@ -97,17 +102,18 @@ class AlarmScheduler: NSObject {
         }
     }
     
-    func observeSleepConfigurationChange() {
+    @objc func observeSleepConfigurationChange() {
         let sleepConfiguration = UserSession.shared.loggedInUser?.sleepConfiguration
         if let sleepConfiguration = sleepConfiguration {
             applySleepConfiguration(self.nightAlarmObject, configuration: sleepConfiguration)
         }
     }
     
-    func observeAlarmConfigurationChange() {
+    @objc func observeAlarmConfigurationChange() {
         let alarmConfiguration = UserSession.shared.loggedInUser?.alarmConfiguration
         if let alarmConfiguration = alarmConfiguration {
             applyAlarmConfiguration(self.morningAlarmObject, configuration: alarmConfiguration)
+            self.observeAlarmScheduleChange() // alarmRise change can trigger schedule change
         }
     }
     
@@ -159,14 +165,18 @@ class AlarmScheduler: NSObject {
     // and return it as an (alarm start Date, DayAlarm) pair, or nil if not found.
     func getNextDayAlarm(startingDate: Date) -> (Date, DayAlarm)? {
         let alarmSchedule = UserSession.shared.loggedInUser?.alarmSchedule
-        if let alarmSchedule = alarmSchedule {
+        let alarmConfiguration = UserSession.shared.loggedInUser?.alarmConfiguration
+        if let alarmSchedule = alarmSchedule,
+            let alarmConfiguration = alarmConfiguration {
+            
+            let riseTime = alarmConfiguration.alarmRise // Need to subtract this ambient sound time from target alarm's time
             
             // First check for the alarm that happens at startingDate.
             // Return it if it's in the future
             var dayIndex = self.getDayOfWeek(startingDate)! - 1
             let dayAlarm = alarmSchedule.getAlarm(for: self.dayOfTheWeek[dayIndex])
             if let dayAlarm = dayAlarm {
-                let diffInMinutes = self.getDiffInMinutes(fromDate: startingDate, toAlarm: dayAlarm)
+                let diffInMinutes = self.getDiffInMinutes(fromDate: startingDate, toAlarm: dayAlarm, riseTime: riseTime)
                 if (diffInMinutes > 0) {
                     return (
                         startingDate.addingTimeInterval(TimeInterval(diffInMinutes * 60)),
@@ -187,7 +197,7 @@ class AlarmScheduler: NSObject {
                 let dayAlarm = alarmSchedule.getAlarm(for: self.dayOfTheWeek[dayIndex])
                 if let dayAlarm = dayAlarm {
                     return (
-                        topOfTheDay.addingTimeInterval(TimeInterval(dayAlarm.alarmTimeHours * 60 + dayAlarm.alarmTimeMinutes)),
+                        topOfTheDay.addingTimeInterval(TimeInterval(dayAlarm.alarmTimeHours * 60 + dayAlarm.alarmTimeMinutes - riseTime)),
                         dayAlarm)
                 }
                 i = i+1
@@ -207,10 +217,10 @@ class AlarmScheduler: NSObject {
     
     // Returns the difference in minutes between the given date/s hour/minutes and dayAlarm's minutes
     // by subtracting date's hour/minutes from the dayAlarm's ambient sound start time.
-    private func getDiffInMinutes(fromDate: Date, toAlarm: DayAlarm) -> Int {
+    private func getDiffInMinutes(fromDate: Date, toAlarm: DayAlarm, riseTime: Int) -> Int {
         let hour = self.calendar.component(.hour, from: fromDate)
         let minute = self.calendar.component(.minute, from: fromDate)
-        return (toAlarm.alarmTimeHours * 60 + toAlarm.alarmTimeMinutes) - (hour * 60 + minute)
+        return (toAlarm.alarmTimeHours * 60 + toAlarm.alarmTimeMinutes - riseTime) - (hour * 60 + minute)
     }
     
     // Returns the weekday of the given Date, in [1-7], in which 1 is Sunday and 7 is Saturday.
