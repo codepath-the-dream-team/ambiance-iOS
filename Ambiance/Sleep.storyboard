@@ -170,7 +170,8 @@
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBa-O7-t2X">
                                         <frame key="frameInset" minY="45" width="375" height="602"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="800" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4qh-4W-hgf">
+                                            <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="800" misplaced="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4qh-4W-hgf">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="2481"/>
                                                 <subviews>
                                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZtM-rI-0ft">
                                                         <subviews>
@@ -198,7 +199,7 @@
                                                             <constraint firstAttribute="height" constant="1" id="mhq-2N-oEC"/>
                                                         </constraints>
                                                     </view>
-                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c9B-qn-gFC" userLabel="Spacer">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c9B-qn-gFC" userLabel="Spacer">
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="7Zq-6u-O4d"/>
                                                         </constraints>
@@ -224,7 +225,7 @@
                                                         </segments>
                                                         <color key="tintColor" red="0.36470588240000001" green="0.0" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                                     </segmentedControl>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T3G-MK-yyZ" userLabel="Spacer">
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T3G-MK-yyZ" userLabel="Spacer">
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="WCg-82-lYU"/>
                                                         </constraints>
@@ -358,11 +359,37 @@
                                                             <constraint firstAttribute="bottom" secondItem="iNm-cw-IXe" secondAttribute="bottom" id="azf-0j-Apb"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kc6-w9-1Qn" userLabel="Spacer">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zaR-lX-EcT" userLabel="Spacer">
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="YBV-VU-R2l"/>
+                                                            <constraint firstAttribute="height" constant="45" id="U8g-5f-xSa"/>
                                                         </constraints>
                                                     </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sample your ambiance:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HFe-sG-KNV">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAG-6o-5zt" userLabel="Spacer">
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="15" id="ZMM-Zh-dHs"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_play" translatesAutoresizingMaskIntoConstraints="NO" id="77o-ky-BCv">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <gestureRecognizers/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="64" id="xPH-kT-wKe"/>
+                                                            <constraint firstAttribute="width" constant="64" id="yBs-cv-6oC"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="imageRenderingMode">
+                                                                <integer key="value" value="2"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="i63-cQ-DDV" appends="YES" id="kKV-oW-kah"/>
+                                                        </connections>
+                                                    </imageView>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="Kbf-n0-9kg" secondAttribute="trailing" id="7rP-pA-64Q"/>
@@ -401,12 +428,18 @@
                     </view>
                     <connections>
                         <outlet property="navBar" destination="rE5-YG-uXM" id="Hlp-Rx-Eyc"/>
+                        <outlet property="playPauseButtonImageView" destination="77o-ky-BCv" id="jiL-xB-bYK"/>
                         <outlet property="playTimeSlider" destination="GFc-gc-7g0" id="bhy-Pf-f0S"/>
                         <outlet property="playbackDeviceSegmentedControl" destination="hrR-89-V1A" id="tN6-of-UHe"/>
                         <outlet property="volumeSlider" destination="k0h-av-gIk" id="cG3-UN-0ws"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ich-RT-Bvu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="i63-cQ-DDV">
+                    <connections>
+                        <action selector="onPlayPauseTap:" destination="z9D-HE-oER" id="riO-Ca-SHq"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="949.60000000000002" y="-63.418290854572717"/>
         </scene>
@@ -432,6 +465,7 @@
     </scenes>
     <resources>
         <image name="ic_app-icon_nav-bar" width="74" height="74"/>
+        <image name="ic_play" width="52" height="52"/>
         <image name="ic_speaker_no-sound_black" width="74" height="74"/>
         <image name="ic_speaker_sound_black" width="75" height="75"/>
         <image name="trees" width="573" height="57"/>
