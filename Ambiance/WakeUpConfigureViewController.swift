@@ -19,6 +19,7 @@ class WakeUpConfigureViewController: UIViewController, ClearNavBar {
     public var initialConfiguration: AlarmConfiguration!
     public var delegate: WakeUpConfigureViewControllerDelegate?
     private var isPlayingSample: Bool = false
+    private var sampleAlarm: AlarmObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,8 +47,17 @@ class WakeUpConfigureViewController: UIViewController, ClearNavBar {
             riseTimeSlider.value = Float(initialConfiguration.alarmRise)
             
             volumeSlider.value = Float(initialConfiguration.alarmFinalVolume)
+            
+            sampleAlarm = AlarmObject(itemToPlay: URL(string: initialConfiguration.soundUri)!)
         } else {
             NSLog("WARNING: No initial configuration provided to WakeUpConfigurationViewController")
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if (self.sampleAlarm != nil) {
+            self.sampleAlarm!.stop()
         }
     }
 
@@ -75,8 +85,13 @@ class WakeUpConfigureViewController: UIViewController, ClearNavBar {
         isPlayingSample = !isPlayingSample
         if isPlayingSample {
             playPauseButtonImageView.image = UIImage(imageLiteralResourceName: "ic_pause")
+            self.sampleAlarm!.setVolume(Float(volumeSlider.value) / 100)  // FIXME: probably better to observe volumeSlider change too
+            self.sampleAlarm!.startPlayback()
         } else {
             playPauseButtonImageView.image = UIImage(imageLiteralResourceName: "ic_play")
+            if let sampleAlarm = self.sampleAlarm {
+                sampleAlarm.stop()
+            }
         }
         
         // TODO: make sure to pause playback when this ViewController goes away just in case the user forgot to press pause
