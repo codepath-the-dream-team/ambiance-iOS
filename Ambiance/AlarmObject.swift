@@ -60,10 +60,10 @@ class AlarmObject : NSObject {
     }
     
     // Sets the duration of the alarm, in seconds.
-    func setDuration(_ duration: Int) {
+    func setDuration(_ durationInMinutes: Int) {
         // If duration is positive then turn the alarm off at that point
-        if duration > 0 {
-            self.mediaStopTimeInSeconds = duration
+        if durationInMinutes > 0 {
+            self.mediaStopTimeInSeconds = durationInMinutes * 60
         }
     }
     
