@@ -672,6 +672,11 @@
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="playback device" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GnQ-5a-Mep">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IHG-jn-gw5" userLabel="Spacer">
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="15" id="wx7-Iz-ijp"/>
@@ -693,12 +698,24 @@
                                                             <outletCollection property="gestureRecognizers" destination="kJX-bf-mAE" appends="YES" id="Ic8-Vb-cNy"/>
                                                         </connections>
                                                     </imageView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eml-20-45s" userLabel="Playback Selection Container">
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="75" id="sxL-lh-ofO"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qCt-FW-aqB" userLabel="Spacer">
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="100" id="pkk-NS-m7z"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="cDk-lo-9ys" firstAttribute="leading" secondItem="EhY-uJ-rGE" secondAttribute="leading" id="0Nl-NG-KHa"/>
                                                     <constraint firstItem="OZ0-1Y-w7r" firstAttribute="leading" secondItem="EhY-uJ-rGE" secondAttribute="leading" id="DCI-ve-9P8"/>
                                                     <constraint firstAttribute="trailing" secondItem="OZ0-1Y-w7r" secondAttribute="trailing" id="JOh-bg-D9J"/>
                                                     <constraint firstAttribute="trailing" secondItem="cDk-lo-9ys" secondAttribute="trailing" id="V4t-Id-sIp"/>
+                                                    <constraint firstItem="eml-20-45s" firstAttribute="leading" secondItem="EhY-uJ-rGE" secondAttribute="leading" id="fWy-Fb-mpi"/>
+                                                    <constraint firstAttribute="trailing" secondItem="eml-20-45s" secondAttribute="trailing" id="iuq-NM-7dD"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
@@ -723,7 +740,9 @@
                     <connections>
                         <outlet property="navBar" destination="eX2-5L-FQ1" id="aY6-pH-GEW"/>
                         <outlet property="playPauseButtonImageView" destination="cCn-XQ-lVj" id="Xsg-rU-0F0"/>
+                        <outlet property="playbackDeviceLabel" destination="GnQ-5a-Mep" id="vfj-Fl-eWv"/>
                         <outlet property="playbackDeviceSegmentedControl" destination="DUk-Zj-3Vh" id="avR-Sy-nFI"/>
+                        <outlet property="playbackSelectionContainer" destination="eml-20-45s" id="MBs-Zs-t1D"/>
                         <outlet property="riseTimeSlider" destination="d33-wW-kIS" id="brI-Ji-DmF"/>
                         <outlet property="volumeSlider" destination="yEL-JL-5d9" id="saw-kY-9B2"/>
                     </connections>
