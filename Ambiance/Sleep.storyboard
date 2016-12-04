@@ -172,7 +172,7 @@
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="800" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4qh-4W-hgf">
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZtM-rI-0ft">
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZtM-rI-0ft">
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sleep Ambiance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YpQ-Jq-Yx6">
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -192,28 +192,28 @@
                                                             <constraint firstItem="YpQ-Jq-Yx6" firstAttribute="leading" secondItem="ZtM-rI-0ft" secondAttribute="leading" constant="16" id="sIW-aK-aox"/>
                                                         </constraints>
                                                     </view>
-                                                    <view alpha="0.20000000298023224" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lMN-DL-vV7" userLabel="HR">
+                                                    <view hidden="YES" alpha="0.20000000298023224" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lMN-DL-vV7" userLabel="HR">
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="mhq-2N-oEC"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c9B-qn-gFC" userLabel="Spacer">
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c9B-qn-gFC" userLabel="Spacer">
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="7Zq-6u-O4d"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where would you like your sleep ambiance to play?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5mW-8C-isx">
+                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where would you like your sleep ambiance to play?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5mW-8C-isx">
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2uV-hJ-jDC" userLabel="Spacer">
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2uV-hJ-jDC" userLabel="Spacer">
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="15" id="yCh-PR-2I6"/>
                                                         </constraints>
                                                     </view>
-                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hrR-89-V1A">
+                                                    <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hrR-89-V1A">
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="325" id="9I1-7E-YZA"/>
                                                             <constraint firstAttribute="height" constant="28" id="Dyo-1E-Dbz"/>

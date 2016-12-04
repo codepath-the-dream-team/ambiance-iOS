@@ -124,7 +124,7 @@
                             </connections>
                         </barButtonItem>
                         <view key="titleView" contentMode="scaleToFill" id="q1j-sq-f1M">
-                            <rect key="frame" x="113" y="6" width="150" height="33"/>
+                            <rect key="frame" x="112.5" y="5.5" width="150" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_app-icon_nav-bar" translatesAutoresizingMaskIntoConstraints="NO" id="EvZ-NS-yll">
@@ -169,7 +169,7 @@
                                         <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ewl-p2-RIS" id="Dvc-35-RfO">
-                                            <frame key="frameInset" width="375" height="43"/>
+                                            <frame key="frameInset" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -177,7 +177,7 @@
                                         <rect key="frame" x="0.0" y="136" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jQU-k8-AEv" id="xaK-jJ-R7A">
-                                            <frame key="frameInset" width="375" height="43"/>
+                                            <frame key="frameInset" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
