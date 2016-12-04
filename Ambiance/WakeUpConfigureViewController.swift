@@ -80,8 +80,6 @@ class WakeUpConfigureViewController: UIViewController, ClearNavBar {
     }
     
     @IBAction func onPlayPauseTap(_ sender: UITapGestureRecognizer) {
-        // TODO: play/pause ambiance playback
-        
         isPlayingSample = !isPlayingSample
         if isPlayingSample {
             playPauseButtonImageView.image = UIImage(imageLiteralResourceName: "ic_pause")
@@ -93,8 +91,6 @@ class WakeUpConfigureViewController: UIViewController, ClearNavBar {
                 sampleAlarm.stop()
             }
         }
-        
-        // TODO: make sure to pause playback when this ViewController goes away just in case the user forgot to press pause
     }
     
     private func createAlarmConfiguration() -> AlarmConfiguration {

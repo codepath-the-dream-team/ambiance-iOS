@@ -22,6 +22,7 @@ class SleepConfigureViewController: UIViewController, ClearNavBar {
     public var initialConfiguration: SleepConfiguration!
     public var delegate: SleepConfigureViewControllerDelegate?
     private var isPlayingSample: Bool = false
+    private var sampleAlarm : AlarmObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,8 +51,17 @@ class SleepConfigureViewController: UIViewController, ClearNavBar {
             updatePlaybackTimeDisplay(totalMinutes: initialConfiguration.playTimeInMinutes)
             
             volumeSlider.value = Float(initialConfiguration.volume)
+            
+            sampleAlarm = AlarmObject(itemToPlay: URL(string: "https://dream-team-bucket.s3-us-west-1.amazonaws.com/music/babbling-brook.mp3")!) //initialConfiguration.soundUri)!) // Need to purge Parse data for "TODO" String in there
         } else {
             NSLog("WARNING: No initial SleepConfiguration provided.")
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if (self.sampleAlarm != nil) {
+            self.sampleAlarm!.stop()
         }
     }
 
@@ -74,8 +84,13 @@ class SleepConfigureViewController: UIViewController, ClearNavBar {
         isPlayingSample = !isPlayingSample
         if isPlayingSample {
             playPauseButtonImageView.image = UIImage(imageLiteralResourceName: "ic_pause")
+            self.sampleAlarm!.setVolume(Float(volumeSlider.value) / 100)  // FIXME: probably better to observe volumeSlider change too
+            self.sampleAlarm!.startPlayback()
         } else {
             playPauseButtonImageView.image = UIImage(imageLiteralResourceName: "ic_play")
+            if let sampleAlarm = self.sampleAlarm {
+                sampleAlarm.stop()
+            }
         }
         
         // TODO: make sure to pause playback when this ViewController goes away just in case the user forgot to press pause
