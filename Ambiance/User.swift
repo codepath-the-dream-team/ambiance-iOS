@@ -105,6 +105,8 @@ class User: NSObject {
             NSLog("User: Broadcasting NOTIFICATION_USER_CHANGE event.")
             NotificationCenter.default.post(Notification(name: User.NOTIFICATION_USER_CHANGE))
         }
+        
+        NotificationCenter.default.post(name: .alarmScheduleUpdated, object: nil)
     }
     
     public func save(alarmConfiguration: AlarmConfiguration, onComplete: @escaping (Error?) -> ()) {
@@ -119,6 +121,8 @@ class User: NSObject {
             NSLog("User: Broadcasting NOTIFICATION_USER_CHANGE event.")
             NotificationCenter.default.post(Notification(name: User.NOTIFICATION_USER_CHANGE))
         }
+        
+        NotificationCenter.default.post(name: .alarmConfigurationUpdated, object: nil)
     }
     
     public func save(sleepConfiguration: SleepConfiguration, onComplete: @escaping (Error?) -> ()) {
@@ -133,5 +137,13 @@ class User: NSObject {
             NSLog("User: Broadcasting NOTIFICATION_USER_CHANGE event.")
             NotificationCenter.default.post(Notification(name: User.NOTIFICATION_USER_CHANGE))
         }
+        
+        NotificationCenter.default.post(name: .sleepConfigurationUpdated, object: nil)
     }
+}
+
+extension Notification.Name {
+    static let alarmScheduleUpdated          = Notification.Name("alarmScheduleUpdated")
+    static let alarmConfigurationUpdated     = Notification.Name("alarmConfigurationUpdated")
+    static let sleepConfigurationUpdated     = Notification.Name("sleepConfigurationUpdated")
 }

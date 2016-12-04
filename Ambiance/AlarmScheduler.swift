@@ -15,48 +15,116 @@ class AlarmScheduler: NSObject {
     let dayOfTheWeek = [
         "sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"
     ]
-    
     let calendar = Calendar(identifier: .gregorian)
     var morningAlarmObject: AlarmObject!
     var nightAlarmObject: AlarmObject!
+    var currentlyActiveNextSchedule: (Date, DayAlarm)?
     
     override init() {
         super.init()
-        // FIXME - sound file location needs to be set from Parse        
-        self.morningAlarmObject = AlarmObject(itemToPlay: URL(string:
-            "https://dream-team-bucket.s3-us-west-1.amazonaws.com/music/morning-forest.mp3")!)
-        self.morningAlarmObject.addObserver(self, forKeyPath: "status", options: [.old, .new], context: nil)
         
-        self.nightAlarmObject = AlarmObject(itemToPlay: URL(string:
-            "https://dream-team-bucket.s3-us-west-1.amazonaws.com/music/babbling-brook.mp3")!)
+        let alarmConfiguration = UserSession.shared.loggedInUser?.alarmConfiguration
+        let sleepConfiguration = UserSession.shared.loggedInUser?.sleepConfiguration
+        
+        let morningAlarmUrl = alarmConfiguration != nil ? alarmConfiguration!.soundUri : "https://dream-team-bucket.s3-us-west-1.amazonaws.com/music/morning-forest.mp3"
+        //let nightAlarmUrl = sleepConfiguration != nil ? sleepConfiguration!.soundUri : "https://dream-team-bucket.s3-us-west-1.amazonaws.com/music/babbling-brook.mp3"
+        let nightAlarmUrl = "https://dream-team-bucket.s3-us-west-1.amazonaws.com/music/babbling-brook.mp3"
+        
+        self.morningAlarmObject = AlarmObject(itemToPlay: URL(string: morningAlarmUrl)!)
+        self.morningAlarmObject.addObserver(self, forKeyPath: "status", options: [.old, .new], context: nil)
+        if let alarmConfiguration = alarmConfiguration {
+            self.applyAlarmConfiguration(self.morningAlarmObject, configuration: alarmConfiguration)
+        }
+
+        self.nightAlarmObject = AlarmObject(itemToPlay: URL(string: nightAlarmUrl)!)
         self.nightAlarmObject.addObserver(self, forKeyPath: "status", options: [.old, .new], context: nil)
+        if let sleepConfiguration = sleepConfiguration {
+            self.applySleepConfiguration(self.nightAlarmObject, configuration: sleepConfiguration)
+        }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.observeAlarmScheduleChange), name: .alarmScheduleUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.observeSleepConfigurationChange), name: .sleepConfigurationUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.observeAlarmScheduleChange), name: .alarmConfigurationUpdated, object: nil)
     }
     
     deinit {
         self.morningAlarmObject.removeObserver(self, forKeyPath: "status")
         self.nightAlarmObject.removeObserver(self, forKeyPath: "status")
+        NotificationCenter.default.removeObserver(self)
     }
     
     func scheduleNextAlarm() -> Date? {
-        let nextAlarm = self.getNextDayAlarm(startingDate: Date())
-        if let nextAlarm = nextAlarm {
-            // TODO: REMOVE HARD CODED RISE TIME
-            let riseTime = 30
-            
-            // FIXME - volume needs to come from Parse
-            self.morningAlarmObject.setVolumeIncreaseFeature(toMaxVolumeInMinutes: riseTime, maxVolume: 1.0)
-            self.morningAlarmObject.setVolume(0.1)
+        let schedule = getNextDayAlarm(startingDate: Date())
+        return scheduleNextAlarm(at: schedule)
+    }
+    
+    func scheduleNextAlarm(at: (Date, DayAlarm)?) -> Date? {
+        self.currentlyActiveNextSchedule = at
+        if let nextAlarm = self.currentlyActiveNextSchedule {
             self.morningAlarmObject.scheduleAt(when: nextAlarm.0)
             return nextAlarm.0
         }
-        // Just for testing, start alarm in 10 seconds
-        
-        //self.morningAlarmObject.setVolumeIncreaseFeature(toMaxVolumeInMinutes: 3, maxVolume: 1.0)
-        //self.morningAlarmObject.setVolume(0.1)
+        // Just for testing, start alarm in 5 seconds
         //let testDate = Date(timeIntervalSinceNow: TimeInterval(5));
         //self.morningAlarmObject.scheduleAt(when: testDate)
         //return testDate
         return nil
+    }
+    
+    func cancelNextAlarm() {
+        self.morningAlarmObject.stop()
+    }
+    
+    func startNightAlarm() -> AlarmObject? {
+        if self.isAlarmPlaying(morningAlarmObject) {
+            print("Morning alarm in action, cannot start night alarm")
+            return nil
+        }
+        let testDate = Date(timeIntervalSinceNow: TimeInterval(0.5))
+        self.nightAlarmObject!.scheduleAt(when: testDate)
+        return self.nightAlarmObject!
+    }
+    
+    @objc func observeAlarmScheduleChange() {
+        let newSchedule = getNextDayAlarm(startingDate: Date())
+        if let newSchedule = newSchedule {
+            if let currentSchedule = self.currentlyActiveNextSchedule {
+                if newSchedule.0.timeIntervalSince1970 != currentSchedule.0.timeIntervalSince1970 {
+                    // There was already a scheduled alarm, but it's different from the new one,
+                    // cancel and reschedule.
+                    cancelNextAlarm()
+                    _ = scheduleNextAlarm(at: newSchedule)
+                }
+            } else {
+                // There is now an alarm to schedule, do it
+                _ = scheduleNextAlarm(at: newSchedule)
+            }
+        }
+    }
+    
+    @objc func observeSleepConfigurationChange() {
+        let sleepConfiguration = UserSession.shared.loggedInUser?.sleepConfiguration
+        if let sleepConfiguration = sleepConfiguration {
+            applySleepConfiguration(self.nightAlarmObject, configuration: sleepConfiguration)
+        }
+    }
+    
+    @objc func observeAlarmConfigurationChange() {
+        let alarmConfiguration = UserSession.shared.loggedInUser?.alarmConfiguration
+        if let alarmConfiguration = alarmConfiguration {
+            applyAlarmConfiguration(self.morningAlarmObject, configuration: alarmConfiguration)
+            self.observeAlarmScheduleChange() // alarmRise change can trigger schedule change
+        }
+    }
+    
+    func applySleepConfiguration(_ alarmObject: AlarmObject, configuration: SleepConfiguration) {
+        alarmObject.setVolume(Float(configuration.volume) / 100)
+        alarmObject.setDuration(configuration.playTimeInMinutes)
+    }
+    
+    func applyAlarmConfiguration(_ alarmObject: AlarmObject, configuration: AlarmConfiguration) {
+        alarmObject.setVolumeIncreaseFeature(toMaxVolumeInMinutes: configuration.alarmRise, maxVolume: Float(configuration.alarmFinalVolume) / 100)
+        alarmObject.setVolume(0.1)
     }
     
     // Observe for the Alarm status change.
@@ -67,10 +135,10 @@ class AlarmScheduler: NSObject {
                     if let oldStatus = theChange[NSKeyValueChangeKey.oldKey],
                        let newStatus = theChange[NSKeyValueChangeKey.newKey] {
                         if (oldStatus == AlarmObject.Status.scheduled.rawValue && newStatus == AlarmObject.Status.started.rawValue) {
-                            self.showAlarmOn(alarm)
+                            self.notifyAlarmStarted(alarm)
                         } else if((oldStatus == AlarmObject.Status.started.rawValue || oldStatus == AlarmObject.Status.snoozing.rawValue)
                             && newStatus == AlarmObject.Status.stopped.rawValue) {
-                            self.dismissAlarmOn(alarm)
+                            self.notifyAlarmStopped(alarm)
                         }
                     }
                     
@@ -82,41 +150,33 @@ class AlarmScheduler: NSObject {
     }
     
     // Broadcast change
-    func showAlarmOn(_ alarm: AlarmObject) {
+    func notifyAlarmStarted(_ alarm: AlarmObject) {
         let alarmDict:[String: AlarmObject] = ["alarm": alarm]
         NotificationCenter.default.post(name: .alarmStartedNotification, object: nil, userInfo: alarmDict)
     }
     // Broadcast change
-    func dismissAlarmOn(_ alarm: AlarmObject) {
+    func notifyAlarmStopped(_ alarm: AlarmObject) {
         let alarmDict:[String: AlarmObject] = ["alarm": alarm]
         NotificationCenter.default.post(name: .alarmStoppedNotification, object: nil, userInfo: alarmDict)
     }
     
-    func startNightAlarm() -> AlarmObject? {
-        if self.isAlarmPlaying(morningAlarmObject) {
-            print("Morning alarm in action, cannot start night alarm")
-            return nil
-        }
-        self.nightAlarmObject!.setVolume(0.5)
-        self.nightAlarmObject!.setDuration(60) // 1 minute
-        let testDate = Date(timeIntervalSinceNow: TimeInterval(0.5))
-        self.nightAlarmObject!.scheduleAt(when: testDate)
-        
-        return self.nightAlarmObject!
-    }
     
     // Inspect the current user's AlarmSchedule, search for the next alarm that is scheduled,
     // and return it as an (alarm start Date, DayAlarm) pair, or nil if not found.
     func getNextDayAlarm(startingDate: Date) -> (Date, DayAlarm)? {
         let alarmSchedule = UserSession.shared.loggedInUser?.alarmSchedule
-        if let alarmSchedule = alarmSchedule {
+        let alarmConfiguration = UserSession.shared.loggedInUser?.alarmConfiguration
+        if let alarmSchedule = alarmSchedule,
+            let alarmConfiguration = alarmConfiguration {
+            
+            let riseTime = alarmConfiguration.alarmRise // Need to subtract this ambient sound time from target alarm's time
             
             // First check for the alarm that happens at startingDate.
             // Return it if it's in the future
             var dayIndex = self.getDayOfWeek(startingDate)! - 1
             let dayAlarm = alarmSchedule.getAlarm(for: self.dayOfTheWeek[dayIndex])
             if let dayAlarm = dayAlarm {
-                let diffInMinutes = self.getDiffInMinutes(fromDate: startingDate, toAlarm: dayAlarm)
+                let diffInMinutes = self.getDiffInMinutes(fromDate: startingDate, toAlarm: dayAlarm, riseTime: riseTime)
                 if (diffInMinutes > 0) {
                     return (
                         startingDate.addingTimeInterval(TimeInterval(diffInMinutes * 60)),
@@ -137,7 +197,7 @@ class AlarmScheduler: NSObject {
                 let dayAlarm = alarmSchedule.getAlarm(for: self.dayOfTheWeek[dayIndex])
                 if let dayAlarm = dayAlarm {
                     return (
-                        topOfTheDay.addingTimeInterval(TimeInterval(dayAlarm.alarmTimeHours * 60 + dayAlarm.alarmTimeMinutes)),
+                        topOfTheDay.addingTimeInterval(TimeInterval(dayAlarm.alarmTimeHours * 60 + dayAlarm.alarmTimeMinutes - riseTime)),
                         dayAlarm)
                 }
                 i = i+1
@@ -157,10 +217,10 @@ class AlarmScheduler: NSObject {
     
     // Returns the difference in minutes between the given date/s hour/minutes and dayAlarm's minutes
     // by subtracting date's hour/minutes from the dayAlarm's ambient sound start time.
-    private func getDiffInMinutes(fromDate: Date, toAlarm: DayAlarm) -> Int {
+    private func getDiffInMinutes(fromDate: Date, toAlarm: DayAlarm, riseTime: Int) -> Int {
         let hour = self.calendar.component(.hour, from: fromDate)
         let minute = self.calendar.component(.minute, from: fromDate)
-        return (toAlarm.alarmTimeHours * 60 + toAlarm.alarmTimeMinutes) - (hour * 60 + minute)
+        return (toAlarm.alarmTimeHours * 60 + toAlarm.alarmTimeMinutes - riseTime) - (hour * 60 + minute)
     }
     
     // Returns the weekday of the given Date, in [1-7], in which 1 is Sunday and 7 is Saturday.
@@ -179,6 +239,6 @@ class AlarmScheduler: NSObject {
 extension Notification.Name {
     static let alarmStartedNotification = Notification.Name("alarmStarted")
     static let alarmStoppedNotification = Notification.Name("alarmStopped")
-    static let alexaRequestNotification = Notification.Name("AlexaRequest")
+    static let alexaRequestNotification = Notification.Name("alexaRequest")
 }
 

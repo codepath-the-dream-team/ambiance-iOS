@@ -19,6 +19,7 @@ struct AlarmConfiguration {
     public var playbackDevice: PlaybackDevice
     public var alarmRise: Int
     public var alarmFinalVolume: Int
+    public var soundUri = "https://dream-team-bucket.s3-us-west-1.amazonaws.com/music/morning-forest.mp3"
     
     init() {
         self.playbackDevice = .phone
