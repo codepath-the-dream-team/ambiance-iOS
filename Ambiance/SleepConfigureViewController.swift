@@ -12,11 +12,16 @@ class SleepConfigureViewController: UIViewController, ClearNavBar {
 
     @IBOutlet var navBar: UINavigationBar!
     @IBOutlet var playbackDeviceSegmentedControl: UISegmentedControl!
+    @IBOutlet var hoursContainer: UIStackView!
+    @IBOutlet var hoursLabel: UILabel!
+    @IBOutlet var minutesLabel: UILabel!
     @IBOutlet var playTimeSlider: UISlider!
     @IBOutlet var volumeSlider: UISlider!
+    @IBOutlet var playPauseButtonImageView: UIImageView!
     
     public var initialConfiguration: SleepConfiguration!
     public var delegate: SleepConfigureViewControllerDelegate?
+    private var isPlayingSample: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +47,7 @@ class SleepConfigureViewController: UIViewController, ClearNavBar {
             }
             
             playTimeSlider.value = Float(initialConfiguration.playTimeInMinutes)
+            updatePlaybackTimeDisplay(totalMinutes: initialConfiguration.playTimeInMinutes)
             
             volumeSlider.value = Float(initialConfiguration.volume)
         } else {
@@ -54,10 +60,39 @@ class SleepConfigureViewController: UIViewController, ClearNavBar {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onPlaybackTimeChange(_ sender: UISlider) {
+        let timeIncrement = Float(15) // in minutes
+        let snappedValue = round(sender.value / timeIncrement) * timeIncrement
+        sender.value = snappedValue
+        
+        updatePlaybackTimeDisplay(totalMinutes: Int(snappedValue))
+    }
+    
+    @IBAction func onPlayPauseTap(_ sender: UITapGestureRecognizer) {
+        // TODO: play/pause ambiance playback
+        
+        isPlayingSample = !isPlayingSample
+        if isPlayingSample {
+            playPauseButtonImageView.image = UIImage(imageLiteralResourceName: "ic_pause")
+        } else {
+            playPauseButtonImageView.image = UIImage(imageLiteralResourceName: "ic_play")
+        }
+        
+        // TODO: make sure to pause playback when this ViewController goes away just in case the user forgot to press pause
+    }
 
     @IBAction func onDoneTap(_ sender: AnyObject) {
         let sleepConfiguration = createSleepConfiguration()
         delegate?.save(sleepConfiguration: sleepConfiguration)
+    }
+    
+    private func updatePlaybackTimeDisplay(totalMinutes: Int) {
+        let hours = totalMinutes / 60
+        let minutes = totalMinutes % 60
+        
+        hoursContainer.isHidden = hours == 0
+        hoursLabel.text = "\(hours)"
+        minutesLabel.text = hours == 0 ? "\(minutes)" : String.init(format: "%02d", minutes)
     }
     
     private func createSleepConfiguration() -> SleepConfiguration {

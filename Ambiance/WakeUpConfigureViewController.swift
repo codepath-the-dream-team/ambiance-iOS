@@ -14,9 +14,11 @@ class WakeUpConfigureViewController: UIViewController, ClearNavBar {
     @IBOutlet var playbackDeviceSegmentedControl: UISegmentedControl!
     @IBOutlet var riseTimeSlider: UISlider!
     @IBOutlet var volumeSlider: UISlider!
+    @IBOutlet var playPauseButtonImageView: UIImageView!
     
     public var initialConfiguration: AlarmConfiguration!
     public var delegate: WakeUpConfigureViewControllerDelegate?
+    private var isPlayingSample: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +67,19 @@ class WakeUpConfigureViewController: UIViewController, ClearNavBar {
 
     @IBAction func onCancelTap(_ sender: AnyObject) {
         delegate?.cancelConfiguration()
+    }
+    
+    @IBAction func onPlayPauseTap(_ sender: UITapGestureRecognizer) {
+        // TODO: play/pause ambiance playback
+        
+        isPlayingSample = !isPlayingSample
+        if isPlayingSample {
+            playPauseButtonImageView.image = UIImage(imageLiteralResourceName: "ic_pause")
+        } else {
+            playPauseButtonImageView.image = UIImage(imageLiteralResourceName: "ic_play")
+        }
+        
+        // TODO: make sure to pause playback when this ViewController goes away just in case the user forgot to press pause
     }
     
     private func createAlarmConfiguration() -> AlarmConfiguration {

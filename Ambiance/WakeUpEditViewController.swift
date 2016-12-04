@@ -43,6 +43,7 @@ class WakeUpEditViewController: UIViewController, ClearNavBar {
         
         clearBackground(forNavBar: navBar)
         makeTimePickerGray()
+        restrictTimeSelectionTo5Mins()
         
         if let initialSelectedDay = initialSelectedDay {
             dayToCheckboxMap[initialSelectedDay]?.isChecked = true
@@ -79,6 +80,10 @@ class WakeUpEditViewController: UIViewController, ClearNavBar {
     
     private func makeTimePickerGray() {
         timePicker.setValue(Palette.grayLight, forKey: "textColor")
+    }
+    
+    private func restrictTimeSelectionTo5Mins() {
+        timePicker.minuteInterval = 5
     }
     
     private func createWakeUpSchedule() -> WakeUpSchedule {
