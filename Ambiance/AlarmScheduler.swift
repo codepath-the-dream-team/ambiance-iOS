@@ -53,27 +53,6 @@ class AlarmScheduler: NSObject {
         NotificationCenter.default.removeObserver(self)
     }
     
-    func scheduleNextAlarm() -> Date? {
-        let schedule = getNextDayAlarm(startingDate: Date())
-        return scheduleNextAlarm(at: schedule)
-    }
-    
-    func scheduleNextAlarm(at: (Date, DayAlarm)?) -> Date? {
-        self.currentlyActiveNextSchedule = at
-        if let nextAlarm = self.currentlyActiveNextSchedule {
-            self.morningAlarmObject.scheduleAt(when: nextAlarm.0)
-            return nextAlarm.0
-        }
-        // Just for testing, start alarm in 5 seconds
-        //let testDate = Date(timeIntervalSinceNow: TimeInterval(5));
-        //self.morningAlarmObject.scheduleAt(when: testDate)
-        //return testDate
-        return nil
-    }
-    
-    func cancelNextAlarm() {
-        self.morningAlarmObject.stop()
-    }
     
     func startNightAlarm() -> AlarmObject? {
         if self.isAlarmPlaying(morningAlarmObject) {
@@ -89,7 +68,8 @@ class AlarmScheduler: NSObject {
         let newSchedule = getNextDayAlarm(startingDate: Date())
         if let newSchedule = newSchedule {
             if let currentSchedule = self.currentlyActiveNextSchedule {
-                if newSchedule.0.timeIntervalSince1970 != currentSchedule.0.timeIntervalSince1970 {
+                if newSchedule.1.alarmTimeHours != currentSchedule.1.alarmTimeHours ||
+                    newSchedule.1.alarmTimeMinutes != currentSchedule.1.alarmTimeMinutes {
                     // There was already a scheduled alarm, but it's different from the new one,
                     // cancel and reschedule.
                     cancelNextAlarm()
@@ -117,12 +97,34 @@ class AlarmScheduler: NSObject {
         }
     }
     
-    func applySleepConfiguration(_ alarmObject: AlarmObject, configuration: SleepConfiguration) {
+    private func scheduleNextAlarm() -> Date? {
+        let schedule = getNextDayAlarm(startingDate: Date())
+        return scheduleNextAlarm(at: schedule)
+    }
+    
+    private func scheduleNextAlarm(at: (Date, DayAlarm)?) -> Date? {
+        self.currentlyActiveNextSchedule = at
+        if let nextAlarm = self.currentlyActiveNextSchedule {
+            self.morningAlarmObject.scheduleAt(when: nextAlarm.0)
+            return nextAlarm.0
+        }
+        // Just for testing, start alarm in 5 seconds
+        //let testDate = Date(timeIntervalSinceNow: TimeInterval(5));
+        //self.morningAlarmObject.scheduleAt(when: testDate)
+        //return testDate
+        return nil
+    }
+    
+    private func cancelNextAlarm() {
+        self.morningAlarmObject.stop()
+    }
+    
+    private func applySleepConfiguration(_ alarmObject: AlarmObject, configuration: SleepConfiguration) {
         alarmObject.setVolume(Float(configuration.volume) / 100)
         alarmObject.setDuration(configuration.playTimeInMinutes)
     }
     
-    func applyAlarmConfiguration(_ alarmObject: AlarmObject, configuration: AlarmConfiguration) {
+    private func applyAlarmConfiguration(_ alarmObject: AlarmObject, configuration: AlarmConfiguration) {
         alarmObject.setVolumeIncreaseFeature(toMaxVolumeInMinutes: configuration.alarmRise, maxVolume: Float(configuration.alarmFinalVolume) / 100)
         alarmObject.setVolume(0.1)
     }
@@ -163,7 +165,7 @@ class AlarmScheduler: NSObject {
     
     // Inspect the current user's AlarmSchedule, search for the next alarm that is scheduled,
     // and return it as an (alarm start Date, DayAlarm) pair, or nil if not found.
-    func getNextDayAlarm(startingDate: Date) -> (Date, DayAlarm)? {
+    private func getNextDayAlarm(startingDate: Date) -> (Date, DayAlarm)? {
         let alarmSchedule = UserSession.shared.loggedInUser?.alarmSchedule
         let alarmConfiguration = UserSession.shared.loggedInUser?.alarmConfiguration
         if let alarmSchedule = alarmSchedule,

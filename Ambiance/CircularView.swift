@@ -81,6 +81,7 @@ class CircularView: UIView {
         if longPressRecognizer.state == .began {
             self.animationLayer!.isHidden = false
             self.animationLayer!.strokeColor = self.animationColor.cgColor
+            self.animationLayer!.removeAnimation(forKey: REVERSE_ANIMATION)
             self.startForwardAnimation()
         } else if longPressRecognizer.state == .ended {
             self.startBackwardAnimation()
