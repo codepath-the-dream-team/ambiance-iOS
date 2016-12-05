@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import ParseFacebookUtilsV4
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         initializeParse(launchOptions: launchOptions)
         registerForPushNotifications(application: application)
+        
+        do {
+            let avSession = AVAudioSession.sharedInstance()
+            try avSession.setCategory(AVAudioSessionCategoryPlayback)
+            try avSession.setActive(true)
+            
+            NSLog("Set AVSession to allow Bluetooth")
+        } catch {
+            NSLog("Failed to set AVAudioSession Category")
+        }
+        
         return true
     }
 
