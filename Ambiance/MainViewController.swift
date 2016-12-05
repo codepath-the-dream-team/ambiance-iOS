@@ -97,22 +97,31 @@ class MainViewController: UIViewController, UITabBarDelegate {
         activeScreen.didMove(toParentViewController: self)
     }
     
-    var alarmOnScreen: AlarmOnViewController?
+    var alarmScreen: UIViewController?
     @objc private func showAlarmScreen(_ notification: NSNotification) {
         if let alarm = notification.userInfo?["alarm"] as? AlarmObject {
-            let alarmOnStoryboard = UIStoryboard(name: "AlarmOn", bundle: nil)
-            let alarmOnVcNavigation = alarmOnStoryboard.instantiateViewController(withIdentifier: "AlarmOnNavigationController") as! UINavigationController
-            let alarmOnVc = alarmOnVcNavigation.viewControllers[0] as! AlarmOnViewController
-            alarmOnVc.alarmObject = alarm
-            self.alarmOnScreen = alarmOnVc
-            self.present(alarmOnVcNavigation, animated: true, completion: nil) // Modal presentation
+            if (self.alarmScheduler!.isMorningAlarm(alarm)) {
+                let alarmOnStoryboard = UIStoryboard(name: "AlarmOn", bundle: nil)
+                let alarmOnVcNavigation = alarmOnStoryboard.instantiateViewController(withIdentifier: "AlarmOnNavigationController") as! UINavigationController
+                let alarmOnVc = alarmOnVcNavigation.viewControllers[0] as! AlarmOnViewController
+                alarmOnVc.alarmObject = alarm
+                self.alarmScreen = alarmOnVc
+                self.present(alarmOnVcNavigation, animated: true, completion: nil) // Modal presentation
+            } else {
+                let nightSoundStoryboard = UIStoryboard(name: "NightSoundOn", bundle: nil)
+                let nightSoundVcNavigation = nightSoundStoryboard.instantiateViewController(withIdentifier: "NightSoundOnNavigationController") as! UINavigationController
+                let nightSoundVc = nightSoundVcNavigation.viewControllers[0] as! NightSoundOnViewController
+                nightSoundVc.alarmObject = alarm
+                self.alarmScreen = nightSoundVc
+                self.present(nightSoundVcNavigation, animated: true, completion: nil) // Modal presentation
+            }
         }
     }
     
     @objc private func dismissAlarmScreen(_ notification: NSNotification) {
-        if (self.alarmOnScreen != nil) {
-            self.alarmOnScreen!.dismiss(animated: true, completion: nil)
-            self.alarmOnScreen = nil
+        if (self.alarmScreen != nil) {
+            self.alarmScreen!.dismiss(animated: true, completion: nil)
+            self.alarmScreen = nil
         }
     }
     
@@ -125,11 +134,9 @@ class MainViewController: UIViewController, UITabBarDelegate {
                 // Start nighttime alarm
                 _ = self.alarmScheduler.startNightAlarm()
             } else if (action == "snooze") {
-                // Snooze ongoing alarm
-                self.alarmOnScreen?.alarmObject?.snooze()
+                self.alarmScheduler.getActiveAlarm()?.snooze()
             } else if (action == "stop") {
-                // Stop ongoing alarm
-                self.alarmOnScreen?.alarmObject?.stop()
+                self.alarmScheduler.getActiveAlarm()?.stop()
             }
         }
     }

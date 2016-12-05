@@ -12,6 +12,8 @@
 		608E5C1C1DE2ABE4007E2B1F /* AlarmOnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608E5C1B1DE2ABE4007E2B1F /* AlarmOnViewController.swift */; };
 		608E5C1E1DE2B6B9007E2B1F /* CircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608E5C1D1DE2B6B9007E2B1F /* CircularView.swift */; };
 		608E5C201DE4539E007E2B1F /* AlarmScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608E5C1F1DE4539E007E2B1F /* AlarmScheduler.swift */; };
+		608E5C421DF4E7E0007E2B1F /* NightSoundOn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 608E5C411DF4E7E0007E2B1F /* NightSoundOn.storyboard */; };
+		608E5C441DF4E8B8007E2B1F /* NightSoundOnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608E5C431DF4E8B8007E2B1F /* NightSoundOnViewController.swift */; };
 		9B13DC851DE24A5E007A78F1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B13DC821DE24A5E007A78F1 /* User.swift */; };
 		9B13DC861DE24A5E007A78F1 /* AlarmSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B13DC831DE24A5E007A78F1 /* AlarmSchedule.swift */; };
 		9BB5CD8D1DE40A0A002C0F26 /* AccountContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB5CD8C1DE40A0A002C0F26 /* AccountContainerViewController.swift */; };
@@ -68,6 +70,8 @@
 		608E5C1B1DE2ABE4007E2B1F /* AlarmOnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmOnViewController.swift; sourceTree = "<group>"; };
 		608E5C1D1DE2B6B9007E2B1F /* CircularView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularView.swift; sourceTree = "<group>"; };
 		608E5C1F1DE4539E007E2B1F /* AlarmScheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmScheduler.swift; sourceTree = "<group>"; };
+		608E5C411DF4E7E0007E2B1F /* NightSoundOn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NightSoundOn.storyboard; sourceTree = "<group>"; };
+		608E5C431DF4E8B8007E2B1F /* NightSoundOnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NightSoundOnViewController.swift; sourceTree = "<group>"; };
 		68B006894DF7C56E34A82B58 /* Pods_Ambiance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ambiance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B13DC821DE24A5E007A78F1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9B13DC831DE24A5E007A78F1 /* AlarmSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmSchedule.swift; sourceTree = "<group>"; };
@@ -143,6 +147,8 @@
 				608E5C1B1DE2ABE4007E2B1F /* AlarmOnViewController.swift */,
 				608E5C1D1DE2B6B9007E2B1F /* CircularView.swift */,
 				608E5C1F1DE4539E007E2B1F /* AlarmScheduler.swift */,
+				608E5C411DF4E7E0007E2B1F /* NightSoundOn.storyboard */,
+				608E5C431DF4E8B8007E2B1F /* NightSoundOnViewController.swift */,
 			);
 			name = AlarmOn;
 			sourceTree = "<group>";
@@ -382,6 +388,7 @@
 				C97AC25E1DD03F590096FE97 /* Login.storyboard in Resources */,
 				9BB5CD971DEA521A002C0F26 /* AccountSettingsToggleCell.xib in Resources */,
 				C9B5C5881DD2EBAC001EE244 /* Sleep.storyboard in Resources */,
+				608E5C421DF4E7E0007E2B1F /* NightSoundOn.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +453,7 @@
 				C9D0E4901DE13758000B242A /* DayCheckmarkView.swift in Sources */,
 				9BB5CD961DEA521A002C0F26 /* AccountSettingsToggleCell.swift in Sources */,
 				C9D0E49A1DE19B33000B242A /* BaseNatureViewController.swift in Sources */,
+				608E5C441DF4E8B8007E2B1F /* NightSoundOnViewController.swift in Sources */,
 				C982B8261DDC5AD90098F170 /* WakeUpDayListItem.swift in Sources */,
 				C9D0E48C1DE133FA000B242A /* WakeUpEditViewController.swift in Sources */,
 				C982B8281DDC62920098F170 /* WakeUpViewController.swift in Sources */,

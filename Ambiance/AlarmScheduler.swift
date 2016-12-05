@@ -162,6 +162,23 @@ class AlarmScheduler: NSObject {
         NotificationCenter.default.post(name: .alarmStoppedNotification, object: nil, userInfo: alarmDict)
     }
     
+    func isNightAlarm(_ alarm: AlarmObject) -> Bool {
+        return alarm == self.nightAlarmObject
+    }
+    
+    func isMorningAlarm(_ alarm: AlarmObject) -> Bool {
+        return alarm == self.morningAlarmObject
+    }
+    
+    func getActiveAlarm() -> AlarmObject? {
+        if isAlarmPlaying(self.nightAlarmObject) {
+            return self.nightAlarmObject
+        }
+        if isAlarmPlaying(self.morningAlarmObject) {
+            return self.morningAlarmObject
+        }
+        return nil
+    }
     
     // Inspect the current user's AlarmSchedule, search for the next alarm that is scheduled,
     // and return it as an (alarm start Date, DayAlarm) pair, or nil if not found.
