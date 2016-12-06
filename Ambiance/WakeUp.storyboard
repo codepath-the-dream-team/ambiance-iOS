@@ -636,6 +636,9 @@
                                                             </imageView>
                                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="yEL-JL-5d9">
                                                                 <color key="tintColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <connections>
+                                                                    <action selector="volumeChanged:" destination="Rul-ke-MkE" eventType="valueChanged" id="sXE-Wl-gdH"/>
+                                                                </connections>
                                                             </slider>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_speaker_sound_black" translatesAutoresizingMaskIntoConstraints="NO" id="y5u-gi-sAC">
                                                                 <color key="tintColor" red="0.58039215690000001" green="0.58039215690000001" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>

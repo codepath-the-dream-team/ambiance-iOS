@@ -106,6 +106,12 @@ class SleepConfigureViewController: UIViewController, ClearNavBar {
         // TODO: make sure to pause playback when this ViewController goes away just in case the user forgot to press pause
     }
 
+    @IBAction func volumeSliderChanged(_ sender: UISlider) {
+        if let sampleAlarm = self.sampleAlarm {
+            sampleAlarm.setVolume(Float(sender.value) / 100)
+        }
+    }
+    
     @IBAction func onDoneTap(_ sender: AnyObject) {
         let sleepConfiguration = createSleepConfiguration()
         delegate?.save(sleepConfiguration: sleepConfiguration)

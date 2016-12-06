@@ -93,13 +93,18 @@ class WakeUpConfigureViewController: UIViewController, ClearNavBar {
         isPlayingSample = !isPlayingSample
         if isPlayingSample {
             playPauseButtonImageView.image = UIImage(imageLiteralResourceName: "ic_pause")
-            self.sampleAlarm!.setVolume(Float(volumeSlider.value) / 100)  // FIXME: probably better to observe volumeSlider change too
+            self.sampleAlarm!.setVolume(Float(volumeSlider.value) / 100)
             self.sampleAlarm!.startPlayback()
         } else {
             playPauseButtonImageView.image = UIImage(imageLiteralResourceName: "ic_play")
             if let sampleAlarm = self.sampleAlarm {
                 sampleAlarm.stop()
             }
+        }
+    }
+    @IBAction func volumeChanged(_ sender: UISlider) {
+        if let sampleAlarm = self.sampleAlarm {
+            sampleAlarm.setVolume(Float(sender.value) / 100)
         }
     }
     
