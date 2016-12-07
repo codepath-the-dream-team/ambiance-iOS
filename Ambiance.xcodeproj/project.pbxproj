@@ -33,6 +33,8 @@
 		C982B8241DDC59780098F170 /* WakeUpDayListItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = C982B8231DDC59780098F170 /* WakeUpDayListItem.xib */; };
 		C982B8261DDC5AD90098F170 /* WakeUpDayListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982B8251DDC5AD90098F170 /* WakeUpDayListItem.swift */; };
 		C982B8281DDC62920098F170 /* WakeUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982B8271DDC62920098F170 /* WakeUpViewController.swift */; };
+		C99F77171DF7C73900FAD71D /* Presentation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C99F77161DF7C73900FAD71D /* Presentation.storyboard */; };
+		C99F77191DF7C8A800FAD71D /* PresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99F77181DF7C8A800FAD71D /* PresentationViewController.swift */; };
 		C9B5C5861DD2EB9F001EE244 /* WakeUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9B5C5851DD2EB9F001EE244 /* WakeUp.storyboard */; };
 		C9B5C5881DD2EBAC001EE244 /* Sleep.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9B5C5871DD2EBAC001EE244 /* Sleep.storyboard */; };
 		C9B5C58A1DD2EBBA001EE244 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9B5C5891DD2EBBA001EE244 /* Account.storyboard */; };
@@ -97,6 +99,8 @@
 		C982B8231DDC59780098F170 /* WakeUpDayListItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WakeUpDayListItem.xib; sourceTree = "<group>"; };
 		C982B8251DDC5AD90098F170 /* WakeUpDayListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakeUpDayListItem.swift; sourceTree = "<group>"; };
 		C982B8271DDC62920098F170 /* WakeUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakeUpViewController.swift; sourceTree = "<group>"; };
+		C99F77161DF7C73900FAD71D /* Presentation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Presentation.storyboard; sourceTree = "<group>"; };
+		C99F77181DF7C8A800FAD71D /* PresentationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationViewController.swift; sourceTree = "<group>"; };
 		C9B5C5851DD2EB9F001EE244 /* WakeUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WakeUp.storyboard; sourceTree = "<group>"; };
 		C9B5C5871DD2EBAC001EE244 /* Sleep.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Sleep.storyboard; sourceTree = "<group>"; };
 		C9B5C5891DD2EBBA001EE244 /* Account.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
@@ -202,10 +206,20 @@
 				C9B5C5831DD2EB61001EE244 /* Account */,
 				C9B5C5821DD2EB59001EE244 /* Sleep */,
 				C9B5C5811DD2EB52001EE244 /* WakeUp */,
+				C99F77151DF7C70800FAD71D /* Presentation */,
 				C97AC25F1DD03F590096FE97 /* Assets.xcassets */,
 				C97AC2641DD03F590096FE97 /* Info.plist */,
 			);
 			path = Ambiance;
+			sourceTree = "<group>";
+		};
+		C99F77151DF7C70800FAD71D /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				C99F77161DF7C73900FAD71D /* Presentation.storyboard */,
+				C99F77181DF7C8A800FAD71D /* PresentationViewController.swift */,
+			);
+			name = Presentation;
 			sourceTree = "<group>";
 		};
 		C9B5C5801DD2EB43001EE244 /* UserSession */ = {
@@ -378,6 +392,7 @@
 				9BB5CD9B1DEA5576002C0F26 /* AccountProfileViewCell.xib in Resources */,
 				C9D0E48E1DE13660000B242A /* DayCheckmarkView.xib in Resources */,
 				C97AC2601DD03F590096FE97 /* Assets.xcassets in Resources */,
+				C99F77171DF7C73900FAD71D /* Presentation.storyboard in Resources */,
 				C9B5C58F1DD2EC6A001EE244 /* Infrastructure.storyboard in Resources */,
 				C9E4077D1DE251E0004456CA /* SleepSynopsisView.xib in Resources */,
 				608E5C181DE2A9C3007E2B1F /* AlarmOn.storyboard in Resources */,
@@ -469,6 +484,7 @@
 				C9D0E49C1DE1AB21000B242A /* SleepContainerViewController.swift in Sources */,
 				C9E407831DE2796B004456CA /* WakeUpPresenter.swift in Sources */,
 				C9E407811DE2625E004456CA /* SleepConfigureViewController.swift in Sources */,
+				C99F77191DF7C8A800FAD71D /* PresentationViewController.swift in Sources */,
 				C94D6C311DDF0606007F3B03 /* WakeUpContainerViewController.swift in Sources */,
 				C9CBE0991DF2D82200E95E3A /* NewAccountViewViewController.swift in Sources */,
 				C9ED9D611DE951F50031EB31 /* SleepConfiguration.swift in Sources */,

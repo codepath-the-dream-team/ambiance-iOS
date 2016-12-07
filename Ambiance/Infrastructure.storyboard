@@ -35,6 +35,9 @@
                                     <tabBarItem title="" image="ic_settings_black" id="q2H-h8-fKm">
                                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                                     </tabBarItem>
+                                    <tabBarItem title="" image="ic_presentation" id="Lfz-kX-qow">
+                                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
+                                    </tabBarItem>
                                 </items>
                                 <color key="tintColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -62,6 +65,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_presentation" width="37" height="37"/>
         <image name="ic_report_black" width="75" height="75"/>
         <image name="ic_settings_black" width="74" height="74"/>
         <image name="ic_sleep_black" width="75" height="75"/>

@@ -10,5 +10,6 @@ target 'Ambiance' do
   pod 'MBProgressHUD'
   pod 'Parse'
   pod 'ParseFacebookUtilsV4'
+  pod 'EZSwipeController', '0.6.1'
 
 end
