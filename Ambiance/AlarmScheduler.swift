@@ -18,7 +18,7 @@ class AlarmScheduler: NSObject {
     let calendar = Calendar(identifier: .gregorian)
     var morningAlarmObject: AlarmObject!
     var nightAlarmObject: AlarmObject!
-    var currentlyActiveNextSchedule: (Date, DayAlarm)?
+    var currentlyActiveNextSchedule: (Date, DayAlarm, Int)?
     
     override init() {
         super.init()
@@ -69,7 +69,8 @@ class AlarmScheduler: NSObject {
         if let newSchedule = newSchedule {
             if let currentSchedule = self.currentlyActiveNextSchedule {
                 if newSchedule.1.alarmTimeHours != currentSchedule.1.alarmTimeHours ||
-                    newSchedule.1.alarmTimeMinutes != currentSchedule.1.alarmTimeMinutes {
+                    newSchedule.1.alarmTimeMinutes != currentSchedule.1.alarmTimeMinutes ||
+                    newSchedule.2 != currentSchedule.2 {
                     // There was already a scheduled alarm, but it's different from the new one,
                     // cancel and reschedule.
                     cancelNextAlarm()
@@ -102,7 +103,7 @@ class AlarmScheduler: NSObject {
         return scheduleNextAlarm(at: schedule)
     }
     
-    private func scheduleNextAlarm(at: (Date, DayAlarm)?) -> Date? {
+    private func scheduleNextAlarm(at: (Date, DayAlarm, Int)?) -> Date? {
         self.currentlyActiveNextSchedule = at
         if let nextAlarm = self.currentlyActiveNextSchedule {
             self.morningAlarmObject.scheduleAt(when: nextAlarm.0)
@@ -182,7 +183,7 @@ class AlarmScheduler: NSObject {
     
     // Inspect the current user's AlarmSchedule, search for the next alarm that is scheduled,
     // and return it as an (alarm start Date, DayAlarm) pair, or nil if not found.
-    private func getNextDayAlarm(startingDate: Date) -> (Date, DayAlarm)? {
+    private func getNextDayAlarm(startingDate: Date) -> (Date, DayAlarm, Int)? {
         let alarmSchedule = UserSession.shared.loggedInUser?.alarmSchedule
         let alarmConfiguration = UserSession.shared.loggedInUser?.alarmConfiguration
         if let alarmSchedule = alarmSchedule,
@@ -199,7 +200,7 @@ class AlarmScheduler: NSObject {
                 if (diffInMinutes > 0) {
                     return (
                         startingDate.addingTimeInterval(TimeInterval((diffInMinutes - riseTime) * 60)),
-                        dayAlarm)
+                        dayAlarm, riseTime)
                 }
             }
             
@@ -217,7 +218,7 @@ class AlarmScheduler: NSObject {
                 if let dayAlarm = dayAlarm {
                     return (
                         topOfTheDay.addingTimeInterval(TimeInterval(dayAlarm.alarmTimeHours * 60 + dayAlarm.alarmTimeMinutes - riseTime)),
-                        dayAlarm)
+                        dayAlarm, riseTime)
                 }
                 i = i+1
             }
