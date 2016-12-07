@@ -143,7 +143,7 @@ class SleepConfigureViewController: UIViewController, ClearNavBar {
             playbackDevice = .amazonEcho
         }
         
-        return SleepConfiguration(playbackDevice: playbackDevice, playTimeInMinutes: Int(playTimeSlider.value), volume: Int(volumeSlider.value), soundName: "Babbling Brook", soundUri: "TODO", alexaGoodnightCommand: "Alexa, good night")
+        return SleepConfiguration(playbackDevice: playbackDevice, playTimeInMinutes: Int(playTimeSlider.value), volume: Int(volumeSlider.value), soundName: "Babbling Brook", soundUri: "TODO", alexaGoodnightCommand: "Alexa, tell Ambient Alarm to start")
     }
     
     @objc

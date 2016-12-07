@@ -29,7 +29,7 @@ struct SleepConfiguration {
         self.volume = 50
         self.soundName = "Babbling Brook"
         self.soundUri = "https://dream-team-bucket.s3-us-west-1.amazonaws.com/music/babbling-brook.mp3"
-        self.alexaGoodnightCommand = "Alexa, good night"
+        self.alexaGoodnightCommand = "Alexa, tell Ambient Alarm to start"
     }
     
     init(playbackDevice: PlaybackDevice, playTimeInMinutes: Int, volume: Int, soundName: String, soundUri: String, alexaGoodnightCommand: String) {

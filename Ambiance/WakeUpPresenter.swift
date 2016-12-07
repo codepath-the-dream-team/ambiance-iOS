@@ -297,6 +297,6 @@ class WakeUpPresenter {
     private func getTime(fromHours hours: Int, andMinutes minutes: Int) -> String {
         let amPm = hours >= 12 ? "pm" : "am"
         
-        return String.init(format: "%d:%02d%@", hours, minutes, amPm)
+        return String.init(format: "%d:%02d%@", hours%12, minutes, amPm)
     }
 }
