@@ -41,6 +41,12 @@ class MainViewController: UIViewController, UITabBarDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(self.showAlarmScreen(_:)), name: .alarmStartedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.dismissAlarmScreen(_:)), name: .alarmStoppedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.alexaRequestReceived(_:)), name: .alexaRequestNotification, object: nil)
+        
+        let storedAlexaAction = self.getStoredAlexaAction()
+        if let action = storedAlexaAction {
+            self.handleAlexaRequest(action)
+            self.clearStoredAlexaAction()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -130,14 +136,36 @@ class MainViewController: UIViewController, UITabBarDelegate {
         let action = userInfo?["action"] as? String
         print("alexaRequestReceived \(action)")
         if let action = action {
-            if (action == "start") {
-                // Start nighttime alarm
-                _ = self.alarmScheduler.startNightAlarm()
-            } else if (action == "snooze") {
-                self.alarmScheduler.getActiveAlarm()?.snooze()
-            } else if (action == "stop") {
-                self.alarmScheduler.getActiveAlarm()?.stop()
-            }
+            handleAlexaRequest(action)
+        }
+        clearStoredAlexaAction()
+
+    }
+    
+    private func handleAlexaRequest(_ action: String) {
+        if (action == "start") {
+            // Start nighttime alarm
+            _ = self.alarmScheduler.startNightAlarm()
+        } else if (action == "snooze") {
+            self.alarmScheduler.getActiveAlarm()?.snooze()
+        } else if (action == "stop") {
+            self.alarmScheduler.getActiveAlarm()?.stop()
+        }
+    }
+    
+    private func getStoredAlexaAction() -> String? {
+        let appDelegate = UIApplication.shared.delegate
+        if let appDelegate = appDelegate as? AppDelegate {
+            let notificationItem = appDelegate.alexaNotificationItem
+            return notificationItem?["action"]
+        }
+        return nil
+    }
+    
+    private func clearStoredAlexaAction() {
+        let appDelegate = UIApplication.shared.delegate
+        if let appDelegate = appDelegate as? AppDelegate {
+            appDelegate.alexaNotificationItem = nil;
         }
     }
 
