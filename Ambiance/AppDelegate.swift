@@ -15,6 +15,7 @@ import AVFoundation
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var alexaNotificationItem : [String: String]?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -103,8 +104,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("RemoteNotification received \(userInfo)");
         let aps = userInfo["aps"] as! [String: AnyObject]
         postAlarmNotification(notificationDictionary: aps)
+        application.applicationIconBadgeNumber = 0;
     }
-    
     
     func postAlarmNotification(notificationDictionary:[String: AnyObject]) {
         print("postAlarmNotification");
@@ -112,6 +113,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let alertItem = notificationDictionary["alert"] as? String {
             // Hopefully alertItem is one of "start", "snooze", "stop"
             let userInfo = [ "action" : alertItem ]
+            self.alexaNotificationItem = userInfo // Save it in case MainVC isn't ready, MainVC will clear this data.
             NotificationCenter.default.post(name: .alexaRequestNotification, object: self, userInfo: userInfo)
         }
     }
