@@ -20,6 +20,7 @@ PODS:
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
+  - EZSwipeController (0.6.1)
   - FBSDKCoreKit (4.17.0):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.17.0):
@@ -36,6 +37,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (= 3.0.0)
+  - EZSwipeController (= 0.6.1)
   - MBProgressHUD
   - Parse
   - ParseFacebookUtilsV4
@@ -43,12 +45,13 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 932ff751f9d6fb1dad0b3af58b7e3ffba0a4e7fd
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  EZSwipeController: 255b0f8aed31963b0236802c926e27dd006a2532
   FBSDKCoreKit: 30a21d2d7b92984b3d80497113433c00824c35e9
   FBSDKLoginKit: 42b7129ac0373ca99eaf4cbebf4d07bd42371f59
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
   ParseFacebookUtilsV4: 2f30c2b7021c8005d3042781da7ef87d06589421
 
-PODFILE CHECKSUM: 4638431ce8b5bf61ef2f990dc80aa1abe6aa3f37
+PODFILE CHECKSUM: 4a9cdc81bbd47cf7c81793a9b4d1e22eb65408ff
 
 COCOAPODS: 1.0.1

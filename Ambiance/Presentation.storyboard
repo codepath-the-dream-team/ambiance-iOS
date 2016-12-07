@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Presentation View Controller-->
+        <scene sceneID="7kS-Cf-UxB">
+            <objects>
+                <viewController id="yvx-dD-qJ9" customClass="PresentationViewController" customModule="Ambiance" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tJO-4d-H8e"/>
+                        <viewControllerLayoutGuide type="bottom" id="5Ky-xh-2Qv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="u3r-A1-3fI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.25205439810000002" green="0.0" blue="0.2109085648" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dA4-GV-vMX">
+                        <nil key="title"/>
+                        <view key="titleView" contentMode="scaleToFill" id="lgY-rv-3nu">
+                            <rect key="frame" x="113" y="6" width="150" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_app-icon_nav-bar" translatesAutoresizingMaskIntoConstraints="NO" id="wgz-OY-b0v">
+                                    <frame key="frameInset" width="150" height="33"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="imageRenderingMode">
+                                            <integer key="value" value="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </imageView>
+                            </subviews>
+                        </view>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xez-N9-xT3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1140" y="123.68815592203899"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="zj3-Qa-ngh">
+            <objects>
+                <viewController storyboardIdentifier="slide1" id="dHI-Nt-HfN" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UFH-o9-zTY"/>
+                        <viewControllerLayoutGuide type="bottom" id="6wB-FW-lG7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uc7-Wc-f2d">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="presentation_title" translatesAutoresizingMaskIntoConstraints="NO" id="zbc-Zs-3uJ">
+                                <frame key="frameInset" minX="26" minY="84" width="322" height="258"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Members" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1UD-Ry-KqO">
+                                <frame key="frameInset" minX="151" minY="393" width="72" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Matt Carroll" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8y-zP-TWv">
+                                <frame key="frameInset" minX="138" minY="461" width="98" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ryan Chee" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZaT-9o-k1P">
+                                <frame key="frameInset" minX="138" minY="490" width="98" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Chihiro Saito" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2eP-NR-JNG">
+                                <frame key="frameInset" minX="138" minY="432" width="98" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.25205439814814817" green="0.0" blue="0.21090856481481482" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g8o-fZ-hFN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2088.8000000000002" y="124.58770614692655"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Nt5-dg-xLR">
+            <objects>
+                <viewController storyboardIdentifier="slide2" id="GQj-ou-CBg" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Jzv-dx-aly"/>
+                        <viewControllerLayoutGuide type="bottom" id="zGm-5U-YeO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oOU-qE-Jg7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="best-alarm-clocks-for-heavy-sleepers" translatesAutoresizingMaskIntoConstraints="NO" id="y2r-YY-M9j">
+                                <frame key="frameInset" minY="127" width="375" height="341"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xLg-cz-2z4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2908" y="124.58770614692655"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="MqD-TQ-DQU">
+            <objects>
+                <viewController storyboardIdentifier="slide3" id="13h-8o-zov" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Oa0-KF-e7c"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bk0-EW-Vyp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bf3-ys-z5g">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_app-icon_launch-screen" translatesAutoresizingMaskIntoConstraints="NO" id="yyy-G2-xkq">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="voP-BB-3Yk"/>
+                                    <constraint firstAttribute="height" constant="128" id="wg7-Dz-sSy"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AMBIANCE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3T-0E-xuw">
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="E3T-0E-xuw" firstAttribute="top" secondItem="yyy-G2-xkq" secondAttribute="bottom" constant="-3" id="7Lr-Wr-CUI"/>
+                            <constraint firstItem="yyy-G2-xkq" firstAttribute="centerX" secondItem="bf3-ys-z5g" secondAttribute="centerX" id="Y8L-jV-mI8"/>
+                            <constraint firstItem="E3T-0E-xuw" firstAttribute="centerX" secondItem="yyy-G2-xkq" secondAttribute="centerX" id="snl-yU-jSP"/>
+                            <constraint firstItem="yyy-G2-xkq" firstAttribute="top" secondItem="Oa0-KF-e7c" secondAttribute="bottom" constant="150" id="yY4-Ey-yZk"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JC5-dX-g5t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3732" y="125"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7Pg-eJ-N0P">
+            <objects>
+                <navigationController storyboardIdentifier="presentation" automaticallyAdjustsScrollViewInsets="NO" id="Q2i-4o-pI2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wdg-X6-0gX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yvx-dD-qJ9" kind="relationship" relationship="rootViewController" id="NM2-bP-SeT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fPK-nl-LHD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="200.80000000000001" y="123.68815592203899"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="best-alarm-clocks-for-heavy-sleepers" width="300" height="200"/>
+        <image name="ic_app-icon_launch-screen" width="180" height="180"/>
+        <image name="ic_app-icon_nav-bar" width="74" height="74"/>
+        <image name="presentation_title" width="400" height="218"/>
+    </resources>
+</document>

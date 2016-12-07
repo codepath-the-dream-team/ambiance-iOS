@@ -70,6 +70,9 @@ class MainViewController: UIViewController, UITabBarDelegate {
         if (3 == index) {
             showAccount()
         }
+        if (4 == index) {
+            showPresentation()
+        }
     }
     
     private func showWakeUp() {
@@ -88,6 +91,12 @@ class MainViewController: UIViewController, UITabBarDelegate {
         let accountStoryboard = UIStoryboard(name: "Account", bundle: nil)
         let accountVc = accountStoryboard.instantiateViewController(withIdentifier: "account")
         show(screen: accountVc)
+    }
+    
+    private func showPresentation() {
+        let presentationStoryboard = UIStoryboard(name: "Presentation", bundle: nil)
+        let presentationVc = presentationStoryboard.instantiateViewController(withIdentifier: "presentation")
+        show(screen: presentationVc)
     }
     
     private func show(screen: UIViewController) {
